@@ -1,0 +1,73 @@
+$primaryColor: #2A3647;
+$btnPrimary: #2A3647;
+$btnPrimaryHover: #29ABE2;
+$btnSecondary: white;
+$btnSecondaryHover: #29ABE2;
+$textHover: #29ABE2;
+$inputFieldDefault: #D1D1D1;
+$inputFieldFocus: #29ABE2;
+$inputFieldError: #FF001F;
+$errorMessage: #FF001F;
+$closeIconHover: #0000001a;
+
+
+@mixin hover() {
+    &:hover {
+        cursor: pointer;
+        transition: all 25ms ease-in-out;
+    }
+}
+
+
+@mixin closeIconHover() {
+    @include hover;
+    background-color: $closeIconHover;
+}
+
+
+@mixin inputFocus() {
+    &:focus {
+        border: 1px solid $inputFieldFocus;
+    }
+}
+
+
+@mixin inputError() {
+    &:focus {
+        border: 1px solid $inputFieldError;
+    }
+}
+
+
+@mixin inputDefault() {
+    border: 1px solid $inputFieldDefault;
+    border-radius: 10px;
+}
+
+
+@mixin btnPrimary() {
+    background-color: $btnPrimary;
+    color: white;
+}
+
+
+@mixin btnPrimaryHover() {
+    &:hover {
+        @include hover;
+        background-color: $btnPrimaryHover;
+    }
+}
+
+
+@mixin btnSecondary() {
+    background-color: $btnSecondary;
+}
+
+
+@mixin btnSecondaryHover() {
+    &:hover {
+        @include hover;
+        border: 2px solid $btnSecondaryHover;
+        color: $textHover;
+    }
+}
