@@ -38,6 +38,7 @@
 @mixin btnPrimary() {
     background-color: $btnPrimary;
     color: white;
+    border: $noBorder;
 }
 
 
@@ -52,6 +53,7 @@
 @mixin btnSecondary() {
     background-color: $btnSecondary;
     color: black;
+    border: $noBorder;
 }
 
 

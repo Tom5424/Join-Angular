@@ -1,0 +1,52 @@
+@import '../scss/mixin.scss';
+
+
+main {
+    background-color: $generallyBgColor;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding: 50px 50px 0px 50px;
+
+    img {
+        width: 70px;
+    }
+}
+
+
+.containerSignUp {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-top: -40px;
+
+    p {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    button {
+        @include btnPrimary();
+        @include btnPrimaryHover();
+        border-radius: 8px;
+        padding: 15px 16px 15px 16px;
+        font-size: 16px;
+        font-weight: 700;
+    }
+}
+
+
+.containerLogIn {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+
+    h1 {
+        font-size: 61px;
+        font-weight: 700;
+    }
+}
