@@ -1,0 +1,81 @@
+@import './variables.scss';
+
+
+@mixin hover() {
+    &:hover {
+        cursor: pointer;
+        transition: all 25ms ease-in-out;
+    }
+}
+
+
+@mixin closeIconHover() {
+    @include hover();
+    background-color: $closeIconHover;
+}
+
+
+@mixin inputFocus() {
+    &:focus {
+        border: 1px solid $inputFieldFocus;
+    }
+}
+
+
+@mixin inputError() {
+    &:focus {
+        border: 1px solid $inputFieldError;
+    }
+}
+
+
+@mixin inputDefault() {
+    border: 1px solid $inputFieldDefault;
+    border-radius: 10px;
+}
+
+
+@mixin btnPrimary() {
+    background-color: $btnPrimary;
+    color: white;
+}
+
+
+@mixin btnPrimaryHover() {
+    &:hover {
+        @include hover();
+        background-color: $btnPrimaryHover;
+    }
+}
+
+
+@mixin btnSecondary() {
+    background-color: $btnSecondary;
+    color: black;
+}
+
+
+@mixin btnSecondaryHover() {
+    &:hover {
+        @include hover();
+        border: 2px solid $btnSecondaryHover;
+        color: #29ABE2;
+    }
+}
+
+
+@mixin blueLineRotatedVertically() {
+    border-color: $blueLine;
+    transform: rotate(90deg);
+}
+
+
+@mixin textInputFields() {
+    font-size: $textSizeInputFields;
+    font-weight: $textWeightInputFields;
+}
+
+
+@mixin placeholderColorInputFields() {
+    color: $placeholderColorInputFields;
+}
