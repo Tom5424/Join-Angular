@@ -15,30 +15,39 @@
 }
 
 
-@mixin inputFocus() {
+@mixin inputFieldFocus() {
     &:focus {
         border: 1px solid $inputFieldFocus;
     }
 }
 
 
-@mixin inputError() {
+@mixin inputFieldError() {
     &:focus {
         border: 1px solid $inputFieldError;
     }
 }
 
 
-@mixin inputDefault() {
-    border: 1px solid $inputFieldDefault;
+@mixin inputFieldDefault() {
+    width: 400px;
+    height: 40px;
+    padding-left: 10px;
     border-radius: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    border: 1px solid $inputFieldDefault;
+
+    &::placeholder {
+        color: $placeholderColorInputFields;
+    }
 }
 
 
 @mixin btnPrimary() {
-    background-color: $btnPrimary;
-    color: white;
-    border: $noBorder;
+    background-color: $btnPrimaryBgColor;
+    color: $btnPrimaryTextColor;
+    border: unset;
 }
 
 
@@ -51,33 +60,35 @@
 
 
 @mixin btnSecondary() {
-    background-color: $btnSecondary;
-    color: black;
-    border: $noBorder;
+    background-color: $btnSecondaryBgColor;
+    border: 1px solid $btnSecondaryBorderColor;
+    color: $btnSecondaryTextColor;
 }
 
 
 @mixin btnSecondaryHover() {
     &:hover {
         @include hover();
-        border: 2px solid $btnSecondaryHover;
-        color: #29ABE2;
+        border: 1px solid $btnSecondaryHover;
+        color: $btnSecondaryHover;
     }
 }
 
 
 @mixin blueLineRotatedVertically() {
-    border-color: $blueLine;
+    background-color: $blueLineColor;
     transform: rotate(90deg);
 }
 
 
-@mixin textInputFields() {
-    font-size: $textSizeInputFields;
-    font-weight: $textWeightInputFields;
+@mixin flexCentered() {
+    display: flex;
+    justify-content: center;
 }
 
 
-@mixin placeholderColorInputFields() {
-    color: $placeholderColorInputFields;
+@mixin flexCenteredColumn() {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

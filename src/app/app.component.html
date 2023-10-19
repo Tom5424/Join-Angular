@@ -8,8 +8,34 @@
     </header>
 
 
-    <div class="containerLogIn">
-        <h1>Log in</h1>
-        <hr>
+    <div class="parentContainerLogIn">
+        <div class="childContainerLogIn">
+            <h1>Log in</h1>
+            <hr>
+
+            <form id="logInForm">
+                <img class="mailIcon" src="../assets/icons/mail-icon.svg">
+                <input placeholder="Email" type="email">
+
+                <img class="lockIcon" src="../assets/icons/lock-icon.svg">
+                <input placeholder="Password" type="password">
+
+                <label for="rememberMe" form="logInForm">
+                    <input class="checkbox" id="rememberMe" type="checkbox">
+                    Remember me
+                </label>
+
+                <div class="btnContainer">
+                    <button class="btnLogIn" type="submit">Log in</button>
+                    <button class="btnGuestLogIn" type="button">Guest Log in</button>
+                </div>
+            </form>
+        </div>
     </div>
+
+
+    <footer>
+        <p>Privacy Policy</p>
+        <p>Legal notice</p>
+    </footer>
 </main>
