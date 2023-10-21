@@ -13,12 +13,34 @@
             <h1>Log in</h1>
             <hr>
 
-            <form id="logInForm">
+            <form [formGroup]="logInForm" (submit)="onSubmitForm()" id="logInForm">
                 <img class="mailIcon" src="../assets/icons/mail-icon.svg">
-                <input placeholder="Email" type="email">
+                <input [ngClass]="{'errorInputfield': emailIsNotValid || logInForm.controls.email.touched &&
+                     logInForm.controls.email.errors?.['required'] || 
+                     logInForm.controls.email.errors?.['pattern']}" formControlName="email" placeholder="Email"
+                    type="email">
+
+                <p *ngIf="logInForm.controls.email.touched && logInForm.controls.email.errors?.['required']"
+                    class="errorMessageEmail">
+                    Email is required
+                </p>
+
+                <p *ngIf="logInForm.controls.email.errors?.['pattern']" class="errorMessageEmail">Invalid Email</p>
+
 
                 <img class="lockIcon" src="../assets/icons/lock-icon.svg">
-                <input placeholder="Password" type="password">
+                <input [ngClass]="{'errorInputfield': logInForm.controls.password.touched &&
+                logInForm.controls.password.errors?.['required'] || 
+                logInForm.controls.password.errors?.['minlength']}" formControlName="password" placeholder="Password"
+                    type="password">
+
+                <p *ngIf="logInForm.controls.password.touched && logInForm.controls.password.errors?.['required']"
+                    class="errorMessagePassword">
+                    Password is required
+                </p>
+                <p *ngIf="logInForm.controls.password.errors?.['minlength']" class="errorMessagePassword">
+                    The password must be at least 10 characters long
+                </p>
 
                 <label for="rememberMe" form="logInForm">
                     <input class="checkbox" id="rememberMe" type="checkbox">

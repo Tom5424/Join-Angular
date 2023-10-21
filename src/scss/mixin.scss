@@ -17,26 +17,31 @@
 
 @mixin inputFieldFocus() {
     &:focus {
-        border: 1px solid $inputFieldFocus;
+        border: 1px solid $inputFieldFocusBorderColor;
     }
 }
 
 
 @mixin inputFieldError() {
-    &:focus {
-        border: 1px solid $inputFieldError;
-    }
+    border: 1px solid $inputFieldErrorBorderColor !important;
+}
+
+
+@mixin errorMessage() {
+    margin: 0;
+    font-size: 14px;
+    color: $errorMessage;
 }
 
 
 @mixin inputFieldDefault() {
     width: 400px;
     height: 40px;
-    padding-left: 10px;
+    padding: 0px 45px 0 10px;
     border-radius: 10px;
     font-size: 20px;
     font-weight: 400;
-    border: 1px solid $inputFieldDefault;
+    border: 1px solid $inputFieldDefaultBorderColor;
 
     &::placeholder {
         color: $placeholderColorInputFields;

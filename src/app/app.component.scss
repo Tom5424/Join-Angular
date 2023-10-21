@@ -10,7 +10,7 @@ main {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 50px 50px 0px 50px;
+    padding: 40px 40px 0px 40px;
 
     img {
         width: 70px;
@@ -41,15 +41,15 @@ header {
 
 
 .parentContainerLogIn {
-    margin-top: 30px;
     @include flexCentered();
+    margin-top: 25px;
 }
 
 
 .childContainerLogIn {
     @include flexCenteredColumn();
     gap: 25px;
-    padding: 50px;
+    padding: 40px 50px 40px 50px;
     border-radius: 30px;
     background-color: white;
     box-shadow: 0px 0px 14px 3px #0000000A;
@@ -71,9 +71,9 @@ header {
 
 
 form {
-    gap: 20px;
-    position: relative;
     @include flexCenteredColumn();
+    gap: 45px;
+    position: relative;
 
     input {
         @include inputFieldDefault();
@@ -86,8 +86,28 @@ form {
         display: flex;
         gap: 8px;
         margin-left: -220px;
-        padding: 15px 0 15px 0;
     }
+}
+
+
+.errorMessageEmail {
+    @include errorMessage();
+    position: absolute;
+    top: 50px;
+    left: 5px;
+}
+
+
+.errorMessagePassword {
+    @include errorMessage();
+    position: absolute;
+    top: 140px;
+    left: 5px;
+}
+
+
+.errorInputfield {
+    @include inputFieldError();
 }
 
 
@@ -100,7 +120,7 @@ form {
 
 .lockIcon {
     position: absolute;
-    top: 72px;
+    top: 95px;
     right: 15px;
 }
 
@@ -143,7 +163,7 @@ form {
 footer {
     @include flexCentered();
     gap: 40px;
-    margin-top: 23px;
+    padding: 8px 0 8px 0;
 
     p {
         @include hover();
