@@ -9,6 +9,14 @@
 }
 
 
+@mixin hoverDisabled() {
+    &:hover {
+        cursor: not-allowed !important;
+        background-color: $btnDisabled;
+    }
+}
+
+
 @mixin closeIconHover() {
     @include hover();
     background-color: $closeIconHover;
@@ -77,6 +85,12 @@
         border: 1px solid $btnSecondaryHover;
         color: $btnSecondaryHover;
     }
+}
+
+
+@mixin btnDisabled() {
+    @include hoverDisabled();
+    background-color: #7c7777 !important;
 }
 
 

@@ -1,4 +1,19 @@
+@import './scss/mixin.scss';
+@import './scss/variables.scss';
+
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
+}
+
+
+.errorInputfield {
+    @include inputFieldError();
+}
+
+
+.btnDisabled {
+    @include hoverDisabled();
+    @include btnDisabled();
 }
