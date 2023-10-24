@@ -1,11 +1,9 @@
 <main>
     <header>
         <img class="joinLogo" src="../assets/img/favicon-blue.svg">
-        <div class="containerSignUp">
+        <div class="containerSignUpTextAndBtn">
             <p>Not a Join user?</p>
-            <a routerLink="/signup">
-                <button type="button">Sign up</button>
-            </a>
+            <button routerLink="/signup" type="button">Sign up</button>
         </div>
     </header>
 
@@ -16,25 +14,23 @@
             <hr>
 
             <form [formGroup]="logInForm" (submit)="onSubmitForm()" id="logInForm">
-                <img class="mailIcon" src="../assets/icons/mail-icon.svg">
-                <input [ngClass]="{'errorInputfield': logInForm.controls.email.touched &&
+                <input class="inputEmail" [ngClass]="{'errorInputfield': logInForm.controls.email.touched &&
                      logInForm.controls.email.errors?.['required']}" formControlName="email" placeholder="Email"
                     type="email">
 
 
                 <p *ngIf=" logInForm.controls.email.touched && logInForm.controls.email.errors?.['required']"
-                    class="errorMessageEmail">
+                    class="errorMessage">
                     Email is required
                 </p>
 
 
-                <img class="lockIcon" src="../assets/icons/lock-icon.svg">
-                <input [ngClass]="{'errorInputfield': logInForm.controls.password.touched &&
+                <input class="inputPassword" [ngClass]="{'errorInputfield': logInForm.controls.password.touched &&
                 logInForm.controls.password.errors?.['required']}" formControlName="password" placeholder="Password"
                     type="password">
 
                 <p *ngIf="logInForm.controls.password.touched && logInForm.controls.password.errors?.['required']"
-                    class="errorMessagePassword">
+                    class="errorMessage">
                     Password is required
                 </p>
 
@@ -56,9 +52,5 @@
         </div>
     </div>
 
-
-    <footer>
-        <p>Privacy Policy</p>
-        <p>Legal notice</p>
-    </footer>
+    <app-footer></app-footer>
 </main>

@@ -1,0 +1,175 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+main {
+    background-color: $mainBgColor;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 40px 0px 40px;
+
+    img {
+        width: 70px;
+    }
+}
+
+
+// .containerSignUp {
+//     display: flex;
+//     align-items: center;
+//     gap: 35px;
+//     margin-top: -40px;
+
+//     p {
+//         font-size: 20px;
+//         font-weight: 400;
+//     }
+
+//     button {
+//         @include btnPrimary();
+//         @include btnPrimaryHover();
+//         border-radius: 8px;
+//         padding: 15px 16px 15px 16px;
+//         font-size: 16px;
+//         font-weight: 700;
+//     }
+// }
+
+
+.parentContainerSignup {
+    @include flexCentered();
+    margin-top: 30px;
+}
+
+
+.childContainerSignup {
+    @include flexCenteredColumn();
+    gap: 25px;
+    position: relative;
+    padding: 40px 50px 40px 50px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+
+    img {
+        position: absolute;
+        top: 50px;
+        left: 40px;
+        padding: 8px;
+
+        &:hover {
+            @include iconHover();
+        }
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 61px;
+        font-weight: 700;
+    }
+
+    hr {
+        width: 150px;
+        height: 3px;
+        border-radius: 3px;
+        margin: 0;
+        background-color: $blueLineColor;
+    }
+}
+
+
+form {
+    @include flexCenteredColumn();
+    gap: 25px;
+
+    input {
+        @include inputFieldDefault();
+        @include inputFieldFocus();
+        outline: none;
+    }
+
+    label {
+        @include hover();
+        height: 18px;
+        display: flex;
+        gap: 8px;
+
+        a {
+            @include hover();
+            text-decoration: none;
+            color: #29ABE2;
+
+            &:hover {
+                border-bottom: 2px solid #29ABE2;
+            }
+        }
+    }
+}
+
+
+// .errorMessageEmail {
+//     @include errorMessage();
+//     position: absolute;
+//     top: 50px;
+//     left: 5px;
+// }
+
+
+// .errorMessagePassword {
+//     @include errorMessage();
+//     position: absolute;
+//     top: 140px;
+//     left: 5px;
+// }
+
+
+// .mailIcon {
+//     position: absolute;
+//     top: 12px;
+//     right: 15px;
+// }
+
+
+// .lockIcon {
+//     position: absolute;
+//     top: 95px;
+//     right: 15px;
+// }
+
+
+.checkbox {
+    @include hover();
+    width: unset !important;
+    height: unset !important;
+}
+
+
+.btnContainer {
+    display: flex;
+    gap: 35px;
+
+    button {
+        @include btnPrimary();
+        @include btnPrimaryHover();
+        @include hover();
+        border-radius: 8px;
+        padding: 15px 24px 15px 24px;
+        font-size: 21px;
+        font-weight: 700;
+    }
+}
+
+
+// .btnGuestLogIn {
+//     @include btnSecondary();
+//     @include btnSecondaryHover();
+//     @include hover();
+//     border-radius: 8px;
+//     padding: 15px 24px 15px 24px;
+//     font-size: 21px;
+//     font-weight: 700;
+// }

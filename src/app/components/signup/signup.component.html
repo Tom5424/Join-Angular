@@ -1,1 +1,50 @@
-<p>signup works!</p>
+<main>
+    <header>
+        <img class="joinLogo" src="../assets/img/favicon-blue.svg">
+    </header>
+
+
+    <div class="parentContainerSignup">
+        <div class="childContainerSignup">
+            <img routerLink="/" src="../../../assets/icons/arrow-back-icon.svg">
+            <h1>Sign up</h1>
+            <hr>
+
+            <form [formGroup]="signupForm" (submit)="onSubmitForm()" id="signupForm">
+                <input formControlName="name" placeholder="Name" type="text">
+
+                <input formControlName="email" placeholder="Email" type="text">
+
+                <input formControlName="password" placeholder="Password" type="text">
+
+                <input formControlName="confirmPassword" placeholder="Confirm Password" type="text">
+
+
+
+                <!-- <p *ngIf=" logInForm.controls.email.touched && logInForm.controls.email.errors?.['required']"
+                    class="errorMessageEmail">
+                    Email is required
+                </p> -->
+
+
+
+                <!-- <p *ngIf="logInForm.controls.password.touched && logInForm.controls.password.errors?.['required']"
+                    class="errorMessagePassword">
+                    Password is required
+                </p> -->
+
+                <div>
+                    <label for="acceptPrivacyPolicy" form="signupForm">
+                        <input class="checkbox" id="acceptPrivacyPolicy" type="checkbox">
+                        I accept the <a href="#">Privacy Policy</a>
+                    </label>
+                </div>
+                <div class="btnContainer">
+                    <button type="submit">Sign up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</main>
