@@ -19,7 +19,7 @@
                     type="email">
 
 
-                <p *ngIf=" logInForm.controls.email.touched && logInForm.controls.email.errors?.['required']"
+                <p *ngIf="logInForm.controls.email.touched && logInForm.controls.email.errors?.['required']"
                     class="errorMessage">
                     Email is required
                 </p>

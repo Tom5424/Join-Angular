@@ -11,36 +11,58 @@
             <hr>
 
             <form [formGroup]="signupForm" (submit)="onSubmitForm()" id="signupForm">
-                <input formControlName="name" placeholder="Name" type="text">
+                <input class="inputName"
+                    [ngClass]="{'errorInputfield': signupForm.controls.name.touched && signupForm.controls.name.errors?.['required']}"
+                    formControlName="name" placeholder="Name" type="text">
 
-                <input formControlName="email" placeholder="Email" type="text">
+                <p *ngIf="signupForm.controls.name.touched && signupForm.controls.name.errors?.['required']"
+                    class="errorMessage">
+                    Name is required
+                </p>
 
-                <input formControlName="password" placeholder="Password" type="text">
+                <input class="inputEmail"
+                    [ngClass]="{'errorInputfield': signupForm.controls.email.touched && signupForm.controls.email.errors?.['required']}"
+                    formControlName="email" placeholder="Email" type="email">
 
-                <input formControlName="confirmPassword" placeholder="Confirm Password" type="text">
-
-
-
-                <!-- <p *ngIf=" logInForm.controls.email.touched && logInForm.controls.email.errors?.['required']"
-                    class="errorMessageEmail">
+                <p *ngIf="signupForm.controls.email.touched && signupForm.controls.email.errors?.['required']"
+                    class="errorMessage">
                     Email is required
-                </p> -->
+                </p>
 
+                <input class="inputPassword"
+                    [ngClass]="{'errorInputfield': signupForm.controls.password.touched && signupForm.controls.password.errors?.['required']}"
+                    formControlName="password" placeholder="Password" type="password">
 
-
-                <!-- <p *ngIf="logInForm.controls.password.touched && logInForm.controls.password.errors?.['required']"
-                    class="errorMessagePassword">
+                <p *ngIf="signupForm.controls.password.touched && signupForm.controls.password.errors?.['required']"
+                    class="errorMessage">
                     Password is required
-                </p> -->
+                </p>
 
-                <div>
-                    <label for="acceptPrivacyPolicy" form="signupForm">
-                        <input class="checkbox" id="acceptPrivacyPolicy" type="checkbox">
-                        I accept the <a href="#">Privacy Policy</a>
-                    </label>
-                </div>
+                <input class="inputPassword"
+                    [ngClass]="{'errorInputfield': signupForm.controls.confirmPassword.touched && signupForm.controls.confirmPassword.errors?.['required']}"
+                    formControlName="confirmPassword" placeholder="Confirm Password" type="password">
+
+                <p *ngIf="signupForm.controls.confirmPassword.touched && signupForm.controls.confirmPassword.errors?.['required']"
+                    class="errorMessage">
+                    Confirm Password is required
+                </p>
+
+                <label for="acceptPrivacyPolicy" form="signupForm">
+                    <input formControlName="acceptPrivacyPolicy" class="checkbox" id="acceptPrivacyPolicy"
+                        type="checkbox">
+                    I accept the <a href="#">Privacy Policy</a>
+                </label>
+
                 <div class="btnContainer">
-                    <button type="submit">Sign up</button>
+                    <button [ngClass]="{'btnDisabled': signupForm.controls.name.value == '' ||  
+                        signupForm.controls.email.value == '' ||  
+                        signupForm.controls.password.value  == '' || 
+                        signupForm.controls.confirmPassword.value == ''}" [disabled]="signupForm.controls.name.value == '' || 
+                        signupForm.controls.email.value == '' || 
+                        signupForm.controls.password.value  == '' || 
+                        signupForm.controls.confirmPassword.value == ''" type="submit">
+                        Sign up
+                    </button>
                 </div>
             </form>
         </div>

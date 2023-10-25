@@ -15,6 +15,7 @@ export class SignupComponent {
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required),
+    // acceptPrivacyPolicy: new FormControl('', Validators.required),
   });
 
 

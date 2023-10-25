@@ -103,11 +103,6 @@ form {
     background-position: 423px;
 }
 
-////////////////////////////////////////////
-.errorMessage {
-    @include errorMessage();
-}
-
 
 .checkbox {
     @include hover();

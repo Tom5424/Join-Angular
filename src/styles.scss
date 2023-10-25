@@ -17,3 +17,8 @@ body {
     @include hoverDisabled();
     @include btnDisabled();
 }
+
+
+.errorMessage {
+    @include errorMessage();
+}
