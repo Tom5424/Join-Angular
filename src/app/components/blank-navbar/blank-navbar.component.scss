@@ -1,0 +1,15 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+main {
+    background-color: $mainBgColor;
+
+    nav {
+        background-color: $mainColor;
+
+        p {
+            color: #A8A8A8;
+        }
+    }
+}

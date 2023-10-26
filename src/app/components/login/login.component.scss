@@ -11,7 +11,7 @@ main {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 40px 40px 0px 40px;
+    padding: 30px 40px 0px 40px;
 
     img {
         width: 70px;
@@ -50,13 +50,13 @@ header {
 .childContainerLogIn {
     @include flexCenteredColumn();
     gap: 25px;
-    padding: 40px 50px 40px 50px;
+    padding: 28px 50px 28px 50px;
     border-radius: 30px;
     background-color: white;
     box-shadow: 0px 0px 14px 3px #0000000A;
 
     h1 {
-        margin: 0;
+        margin: 0px 0px -10px 0;
         font-size: 61px;
         font-weight: 700;
     }

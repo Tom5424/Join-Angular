@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BlankNavbarComponent } from './components/blank-navbar/blank-navbar.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
+    BlankNavbarComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

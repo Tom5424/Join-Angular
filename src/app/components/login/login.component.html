@@ -44,7 +44,9 @@
                     <button
                         [ngClass]="{'btnDisabled': logInForm.controls.email.value == '' || logInForm.controls.password.value == ''}"
                         [disabled]="logInForm.controls.email.value == '' || logInForm.controls.password.value == '' "
-                        class="btnLogIn" type="submit">Log in</button>
+                        class="btnLogIn" type="submit">
+                        Log in
+                    </button>
 
                     <button class="btnGuestLogIn" type="button">Guest Log in</button>
                 </div>

@@ -14,8 +14,7 @@ export class SignupComponent {
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required),
-    // acceptPrivacyPolicy: new FormControl('', Validators.required),
+    acceptPrivacyPolicy: new FormControl('', Validators.required),
   });
 
 
@@ -26,6 +25,7 @@ export class SignupComponent {
 
 
   onSubmitForm() {
+    console.log(this.signupForm.controls.password.value);
 
   }
 }

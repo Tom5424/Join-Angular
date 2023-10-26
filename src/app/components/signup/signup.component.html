@@ -20,6 +20,7 @@
                     Name is required
                 </p>
 
+
                 <input class="inputEmail"
                     [ngClass]="{'errorInputfield': signupForm.controls.email.touched && signupForm.controls.email.errors?.['required']}"
                     formControlName="email" placeholder="Email" type="email">
@@ -28,6 +29,7 @@
                     class="errorMessage">
                     Email is required
                 </p>
+
 
                 <input class="inputPassword"
                     [ngClass]="{'errorInputfield': signupForm.controls.password.touched && signupForm.controls.password.errors?.['required']}"
@@ -38,29 +40,22 @@
                     Password is required
                 </p>
 
-                <input class="inputPassword"
-                    [ngClass]="{'errorInputfield': signupForm.controls.confirmPassword.touched && signupForm.controls.confirmPassword.errors?.['required']}"
-                    formControlName="confirmPassword" placeholder="Confirm Password" type="password">
-
-                <p *ngIf="signupForm.controls.confirmPassword.touched && signupForm.controls.confirmPassword.errors?.['required']"
-                    class="errorMessage">
-                    Confirm Password is required
-                </p>
 
                 <label for="acceptPrivacyPolicy" form="signupForm">
                     <input formControlName="acceptPrivacyPolicy" class="checkbox" id="acceptPrivacyPolicy"
                         type="checkbox">
-                    I accept the <a href="#">Privacy Policy</a>
+                    I accept the <a routerLink="/privacy-policy">Privacy Policy</a>
                 </label>
+
 
                 <div class="btnContainer">
                     <button [ngClass]="{'btnDisabled': signupForm.controls.name.value == '' ||  
                         signupForm.controls.email.value == '' ||  
-                        signupForm.controls.password.value  == '' || 
-                        signupForm.controls.confirmPassword.value == ''}" [disabled]="signupForm.controls.name.value == '' || 
+                        signupForm.controls.password.value  == '' || !signupForm.controls.acceptPrivacyPolicy.value}"
+                        [disabled]="signupForm.controls.name.value == '' || 
                         signupForm.controls.email.value == '' || 
-                        signupForm.controls.password.value  == '' || 
-                        signupForm.controls.confirmPassword.value == ''" type="submit">
+                        signupForm.controls.password.value  == '' || !signupForm.controls.acceptPrivacyPolicy.value"
+                        type="submit">
                         Sign up
                     </button>
                 </div>
