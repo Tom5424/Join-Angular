@@ -22,3 +22,13 @@ body {
 .errorMessage {
     @include errorMessage();
 }
+
+
+.activeLink {
+    background-color: #091931;
+
+    &:hover {
+        cursor: unset !important;
+        color: #A8A8A8 !important;
+    }
+}

@@ -8,7 +8,8 @@ main {
 }
 
 
-.containerPrivacyPolicy {
+.containerLegalNotice {
+    width: 100%;
     padding: 120px 50px 50px 50px;
 
     h1 {
@@ -45,9 +46,4 @@ main {
             @include iconHover();
         }
     }
-}
-
-
-.source {
-    margin: 0;
 }

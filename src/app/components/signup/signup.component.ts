@@ -25,7 +25,6 @@ export class SignupComponent {
 
 
   onSubmitForm() {
-    console.log(this.signupForm.controls.password.value);
 
   }
 }

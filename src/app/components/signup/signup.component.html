@@ -49,13 +49,9 @@
 
 
                 <div class="btnContainer">
-                    <button [ngClass]="{'btnDisabled': signupForm.controls.name.value == '' ||  
-                        signupForm.controls.email.value == '' ||  
-                        signupForm.controls.password.value  == '' || !signupForm.controls.acceptPrivacyPolicy.value}"
-                        [disabled]="signupForm.controls.name.value == '' || 
-                        signupForm.controls.email.value == '' || 
-                        signupForm.controls.password.value  == '' || !signupForm.controls.acceptPrivacyPolicy.value"
-                        type="submit">
+                    <button
+                        [ngClass]="{'btnDisabled': signupForm.invalid || !signupForm.controls.acceptPrivacyPolicy.value}"
+                        [disabled]="signupForm.invalid || !signupForm.controls.acceptPrivacyPolicy.value" type="submit">
                         Sign up
                     </button>
                 </div>

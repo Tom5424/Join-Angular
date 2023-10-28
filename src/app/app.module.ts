@@ -6,8 +6,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { BlankNavbarComponent } from './components/blank-navbar/blank-navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
 
 
 @NgModule({
@@ -16,8 +18,10 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     LoginComponent,
     SignupComponent,
     FooterComponent,
-    BlankNavbarComponent,
-    PrivacyPolicyComponent
+    SidebarComponent,
+    PrivacyPolicyComponent,
+    HeaderComponent,
+    LegalNoticeComponent
   ],
   imports: [
     BrowserModule,

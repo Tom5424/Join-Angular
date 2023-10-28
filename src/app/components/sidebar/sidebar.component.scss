@@ -1,0 +1,40 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+nav {
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: $mainColor;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+
+    img {
+        width: 70px;
+        padding-top: 40px;
+    }
+}
+
+
+ul {
+    width: 100%;
+    padding: 0px 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li {
+        @include hover();
+        padding: 10px 0 10px 45px;
+        color: #A8A8A8;
+
+        &:hover {
+            color: #29ABE2;
+        }
+    }
+}

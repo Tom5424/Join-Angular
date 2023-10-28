@@ -105,6 +105,12 @@
 }
 
 
+@mixin headline() {
+    font-size: 61px;
+    font-weight: 700;
+}
+
+
 @mixin flexCentered() {
     display: flex;
     justify-content: center;

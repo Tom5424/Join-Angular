@@ -41,9 +41,7 @@
                 </label>
 
                 <div class="btnContainer">
-                    <button
-                        [ngClass]="{'btnDisabled': logInForm.controls.email.value == '' || logInForm.controls.password.value == ''}"
-                        [disabled]="logInForm.controls.email.value == '' || logInForm.controls.password.value == '' "
+                    <button [ngClass]="{'btnDisabled': logInForm.invalid}" [disabled]="logInForm.invalid"
                         class="btnLogIn" type="submit">
                         Log in
                     </button>

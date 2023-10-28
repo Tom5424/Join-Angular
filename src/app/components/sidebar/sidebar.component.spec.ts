@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlankNavbarComponent } from './blank-navbar.component';
+import { BlankNavbarComponent } from './sidebar.component';
 
 describe('BlankNavbarComponent', () => {
   let component: BlankNavbarComponent;
