@@ -111,6 +111,16 @@
 }
 
 
+@mixin activeLink() {
+    background-color: #091931;
+
+    &:hover {
+        cursor: unset !important;
+        color: #A8A8A8 !important;
+    }
+}
+
+
 @mixin flexCentered() {
     display: flex;
     justify-content: center;

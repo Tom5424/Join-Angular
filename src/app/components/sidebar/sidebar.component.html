@@ -1,6 +1,28 @@
 <nav>
     <img src="../../../assets/img/favicon-white.svg">
-    <ul class="containerLinks">
+    <table *ngIf="router.url !== '/privacy-policy' && router.url !== '/legal-notice'" class="linksNavigation">
+        <tr>
+            <img src="../../../assets/icons/navbar-summary-icon.svg">
+            <td>Summary</td>
+        </tr>
+
+        <tr>
+            <img src="../../../assets/icons/navbar-add-task-icon.svg">
+            <td>Add Task</td>
+        </tr>
+
+        <tr>
+            <img src="../../../assets/icons/navbar-board-icon.svg">
+            <td>Board</td>
+        </tr>
+
+        <tr>
+            <img src="../../../assets/icons/navbar-contacts-icon.svg">
+            <td>Contacts</td>
+        </tr>
+    </table>
+
+    <ul>
         <li routerLink="/privacy-policy" routerLinkActive="activeLink">Privacy Policy</li>
         <li routerLink="/legal-notice" routerLinkActive="activeLink">Legal notice</li>
     </ul>

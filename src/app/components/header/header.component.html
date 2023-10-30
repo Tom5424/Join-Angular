@@ -1,3 +1,7 @@
 <header>
     <p>Kanban Project Management Tool</p>
+    <div *ngIf="router.url !== '/privacy-policy' && router.url !== '/legal-notice'" class="containerLoggedInUser">
+        <img src="../../../assets/icons/question-mark-icon.svg">
+        <p>TP</p>
+    </div>
 </header>

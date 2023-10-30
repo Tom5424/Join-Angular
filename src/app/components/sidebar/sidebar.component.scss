@@ -21,6 +21,32 @@ nav {
 }
 
 
+table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    tr {
+        @include hover();
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0 10px 45px;
+        color: #CDCDCD;
+
+        &:hover {
+            background-color: #2A3D59;
+        }
+
+        img {
+            width: 30px;
+            padding: 0;
+        }
+    }
+}
+
+
 ul {
     width: 100%;
     padding: 0px 0 40px 0;
