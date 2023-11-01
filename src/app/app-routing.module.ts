@@ -7,10 +7,11 @@ import { LegalNoticeComponent } from './components/legal-notice/legal-notice.com
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'privacy-policy', component: PrivacyPolicyComponent },
-  { path: 'legal-notice', component: LegalNoticeComponent },
+  { path: 'login', title: 'Join - Login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'signup', title: 'Join - Signup', component: SignupComponent },
+  { path: 'privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
+  { path: 'legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
 ];
 
 

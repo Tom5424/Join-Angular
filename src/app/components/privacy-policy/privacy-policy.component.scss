@@ -16,6 +16,17 @@ main {
         margin: 0;
     }
 
+    img {
+        position: fixed;
+        top: 140px;
+        right: 10px;
+        padding: 8px;
+
+        &:hover {
+            @include iconHover();
+        }
+    }
+
     h2 {
         font-size: 27px;
         font-weight: 700;
@@ -28,21 +39,6 @@ main {
         &:hover {
             @include hover();
             border-bottom: 2px solid #29ABE2;
-        }
-    }
-}
-
-
-.containerHeadlineWithArrowIcon {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    img {
-        padding: 8px;
-
-        &:hover {
-            @include iconHover();
         }
     }
 }

@@ -26,7 +26,7 @@ import { LegalNoticeComponent } from './components/legal-notice/legal-notice.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
