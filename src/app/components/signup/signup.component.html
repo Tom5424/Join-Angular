@@ -11,34 +11,65 @@
             <hr>
 
             <form [formGroup]="signupForm" (submit)="onSubmitForm()" id="signupForm">
-                <input class="inputName"
-                    [ngClass]="{'errorInputfield': signupForm.controls.name.touched && signupForm.controls.name.errors?.['required']}"
-                    formControlName="name" placeholder="Name" type="text">
+                <!------------------------ Validate Inputfield Name ------------------------>
+                <input class="inputName" [ngClass]="{'errorInputfield': signupForm.controls.name.touched && 
+                    signupForm.controls.name.errors?.['required'] || 
+                    signupForm.controls.name.errors?.['minlength'] ||
+                    signupForm.controls.name.errors?.['maxlength']}" formControlName="name" placeholder="Name"
+                    type="text">
 
                 <p *ngIf="signupForm.controls.name.touched && signupForm.controls.name.errors?.['required']"
                     class="errorMessage">
                     Name is required
                 </p>
 
+                <p *ngIf="signupForm.controls.name.errors?.['minlength']" class="errorMessage">
+                    Name must minium 3 characters long
+                </p>
 
-                <input class="inputEmail"
-                    [ngClass]="{'errorInputfield': signupForm.controls.email.touched && signupForm.controls.email.errors?.['required']}"
-                    formControlName="email" placeholder="Email" type="email">
+                <p *ngIf="signupForm.controls.name.errors?.['maxlength']" class="errorMessage">
+                    Name can only 12 maximum characters long
+                </p>
+                <!------------------------ Validate Inputfield Name ------------------------>
+
+
+                <!------------------------ Validate Inputfield Email ------------------------>
+                <input class="inputEmail" [ngClass]="{'errorInputfield': signupForm.controls.email.touched && 
+                    signupForm.controls.email.errors?.['required'] || 
+                    signupForm.controls.email.errors?.['pattern']}" formControlName="email" placeholder="Email"
+                    type="email">
 
                 <p *ngIf="signupForm.controls.email.touched && signupForm.controls.email.errors?.['required']"
                     class="errorMessage">
                     Email is required
                 </p>
 
+                <p *ngIf="signupForm.controls.email.errors?.['pattern']" class="errorMessage">
+                    Please enter a Valid Email
+                </p>
+                <!------------------------ Validate Inputfield Email ------------------------>
 
-                <input class="inputPassword"
-                    [ngClass]="{'errorInputfield': signupForm.controls.password.touched && signupForm.controls.password.errors?.['required']}"
-                    formControlName="password" placeholder="Password" type="password">
+
+                <!------------------------ Validate Inputfield Password ------------------------>
+                <input class="inputPassword" [ngClass]="{'errorInputfield': signupForm.controls.password.touched && 
+                    signupForm.controls.password.errors?.['required'] || 
+                    signupForm.controls.password.errors?.['minlength'] || 
+                    signupForm.controls.password.errors?.['maxlength']}" formControlName="password"
+                    placeholder="Password" type="password">
 
                 <p *ngIf="signupForm.controls.password.touched && signupForm.controls.password.errors?.['required']"
                     class="errorMessage">
                     Password is required
                 </p>
+
+                <p *ngIf="signupForm.controls.password.errors?.['minlength']" class="errorMessage">
+                    Password must minium 12 characters long
+                </p>
+
+                <p *ngIf="signupForm.controls.password.errors?.['maxlength']" class="errorMessage">
+                    Password can only maximum 64 characters long
+                </p>
+                <!------------------------ Validate Inputfield Password ------------------------>
 
 
                 <label for="acceptPrivacyPolicy" form="signupForm">

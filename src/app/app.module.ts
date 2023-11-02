@@ -10,6 +10,10 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { firebaseConfig } from 'src/firebase.config';
 
 
 @NgModule({
@@ -27,6 +31,9 @@ import { LegalNoticeComponent } from './components/legal-notice/legal-notice.com
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
