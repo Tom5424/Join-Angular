@@ -14,6 +14,7 @@
             <hr>
 
             <form [formGroup]="logInForm" (submit)="onSubmitForm()" id="logInForm">
+                <!------------------------ Validate Inputfield Email ------------------------>
                 <input class="inputEmail" [ngClass]="{'errorInputfield': logInForm.controls.email.touched &&
                      logInForm.controls.email.errors?.['required']}" formControlName="email" placeholder="Email"
                     type="email">
@@ -23,8 +24,10 @@
                     class="errorMessage">
                     Email is required
                 </p>
+                <!------------------------ Validate Inputfield Email ------------------------>
 
 
+                <!------------------------ Validate Inputfield Password ------------------------>
                 <input class="inputPassword" [ngClass]="{'errorInputfield': logInForm.controls.password.touched &&
                 logInForm.controls.password.errors?.['required']}" formControlName="password" placeholder="Password"
                     type="password">
@@ -33,6 +36,7 @@
                     class="errorMessage">
                     Password is required
                 </p>
+                <!------------------------ Validate Inputfield Password ------------------------>
 
 
                 <label for="rememberMe" form="logInForm">

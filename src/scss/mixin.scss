@@ -121,6 +121,18 @@
 }
 
 
+@mixin popUp() {
+    background-color: $mainColor;
+    border-radius: 20px;
+    padding: 0px 25px 0px 25px;
+
+    p {
+        font-size: 20px;
+        color: #ffffffff;
+    }
+}
+
+
 @mixin flexCentered() {
     display: flex;
     justify-content: center;

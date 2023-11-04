@@ -1,4 +1,11 @@
 <main>
+    <div *ngIf="sendingData" class="overlay">
+        <div class="popUpSigninSuccessfully">
+            <p>You Signed Up successfully</p>
+        </div>
+    </div>
+
+
     <header>
         <img class="joinLogo" src="../assets/img/favicon-blue.svg">
     </header>
@@ -12,7 +19,7 @@
 
             <form [formGroup]="signupForm" (submit)="onSubmitForm()" id="signupForm">
                 <!------------------------ Validate Inputfield Name ------------------------>
-                <input class="inputName" [ngClass]="{'errorInputfield': signupForm.controls.name.touched && 
+                <!-- <input class="inputName" [ngClass]="{'errorInputfield': signupForm.controls.name.touched && 
                     signupForm.controls.name.errors?.['required'] || 
                     signupForm.controls.name.errors?.['minlength'] ||
                     signupForm.controls.name.errors?.['maxlength']}" formControlName="name" placeholder="Name"
@@ -29,7 +36,7 @@
 
                 <p *ngIf="signupForm.controls.name.errors?.['maxlength']" class="errorMessage">
                     Name can only 12 maximum characters long
-                </p>
+                </p> -->
                 <!------------------------ Validate Inputfield Name ------------------------>
 
 
@@ -67,7 +74,7 @@
                 </p>
 
                 <p *ngIf="signupForm.controls.password.errors?.['maxlength']" class="errorMessage">
-                    Password can only maximum 64 characters long
+                    Password can only maximum 50 characters long
                 </p>
                 <!------------------------ Validate Inputfield Password ------------------------>
 

@@ -16,18 +16,21 @@ body {
 /////////// Border Style for Error Input Field ///////////
 
 
+/////////// Style if button is disabled ///////////
 .btnDisabled {
     @include hoverDisabled();
     @include btnDisabled();
 }
 
+/////////// Style if button is disabled ///////////
 
-/////////// Error Message for Invalid Input Fields ///////////
+
+/////////// Style for Error Message if Invalid Input Fields ///////////
 .errorMessage {
     @include errorMessage();
 }
 
-/////////// Error Message for Invalid Input Fields ///////////
+/////////// Style for Error Message if Invalid Input Fields ///////////
 
 
 /////////// Sytles for current active Route ///////////
@@ -60,3 +63,8 @@ body {
 }
 
 /////////// Custom Scrollbar Styles ///////////
+
+
+.d-none {
+    display: none;
+}
