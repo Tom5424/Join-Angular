@@ -17,9 +17,9 @@
             <h1>Sign up</h1>
             <hr>
 
-            <form [formGroup]="signupForm" (submit)="onSubmitForm()" id="signupForm">
+            <form [formGroup]="signupForm" (submit)="onSubmitForm(signupForm.value)" id="signupForm">
                 <!------------------------ Validate Inputfield Name ------------------------>
-                <!-- <input class="inputName" [ngClass]="{'errorInputfield': signupForm.controls.name.touched && 
+                <input class="inputName" [ngClass]="{'errorInputfield': signupForm.controls.name.touched && 
                     signupForm.controls.name.errors?.['required'] || 
                     signupForm.controls.name.errors?.['minlength'] ||
                     signupForm.controls.name.errors?.['maxlength']}" formControlName="name" placeholder="Name"
@@ -36,7 +36,7 @@
 
                 <p *ngIf="signupForm.controls.name.errors?.['maxlength']" class="errorMessage">
                     Name can only 12 maximum characters long
-                </p> -->
+                </p>
                 <!------------------------ Validate Inputfield Name ------------------------>
 
 
