@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Auth, createUserWithEmailAndPassword, signInWithCustomToken } from "@angular/fire/auth";
-import { User } from 'src/app/models/user';
-import { Firestore, collection, addDoc, doc } from '@angular/fire/firestore';
+import { Auth, createUserWithEmailAndPassword, updateProfile } from "@angular/fire/auth";
+import { Firestore, collection, addDoc } from '@angular/fire/firestore';
+
 
 
 @Component({
@@ -14,7 +14,6 @@ import { Firestore, collection, addDoc, doc } from '@angular/fire/firestore';
 
 export class SignupComponent {
   sendingData: boolean = false;
-  user: User = new User();
 
 
   constructor(public auth: Auth, public firestore: Firestore) {
@@ -31,18 +30,17 @@ export class SignupComponent {
 
 
   onSubmitForm(formValue: any) {
-    const coll = collection(this.firestore, 'users');
-    addDoc(coll, formValue);
-    // this.sendingData = true;
-    // createUserWithEmailAndPassword(this.auth, formValue, formValue)
-    //   .then((userCredential) => {
-    //     this.signupForm.controls.name.reset();
-    //     this.signupForm.controls.email.reset();
-    //     this.signupForm.controls.password.reset();
-    //     this.sendingData = false;
-    //   })
-    //   .catch((error) => {
-    //     console.log(error.message);
-    //   })
+    this.sendingData = true;
+    createUserWithEmailAndPassword(this.auth, formValue.email, formValue.password)
+      .then((userCredential) => {
+        updateProfile(this.auth.currentUser!, { displayName: formValue.name })
+          .then(() => {
+            this.signupForm.reset();
+            this.sendingData = false;
+          })
+      })
+      .catch((error) => {
+        console.log(error.message);
+      })
   }
 }
