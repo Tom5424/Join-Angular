@@ -3,9 +3,9 @@
 
 
 footer {
-    @include flexCentered();
+    @include flexCenteredXAxis();
     gap: 40px;
-    padding: 25px 0 25px 0;
+    padding: 21px 0 21px 0;
 
     p {
         @include hover();

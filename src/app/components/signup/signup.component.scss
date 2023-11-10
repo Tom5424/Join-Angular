@@ -3,9 +3,7 @@
 
 
 .overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenteredMiddle();
     background-color: #00000080;
     position: absolute;
     top: 0;
@@ -28,8 +26,7 @@ main {
 
 
 header {
-    display: flex;
-    justify-content: space-between;
+    @include flexSpaceBetween();
     padding: 30px 40px 0px 40px;
 
     img {
@@ -39,13 +36,13 @@ header {
 
 
 .parentContainerSignup {
-    @include flexCentered();
+    @include flexCenteredXAxis();
     margin-top: 30px;
 }
 
 
 .childContainerSignup {
-    @include flexCenteredColumn();
+    @include flexCenteredColumnXAxis();
     gap: 25px;
     position: relative;
     padding: 28px 50px 28px 50px;
@@ -73,6 +70,7 @@ header {
         width: 150px;
         height: 3px;
         border-radius: 3px;
+        border: unset;
         margin: 0;
         background-color: $blueLineColor;
     }
@@ -80,7 +78,7 @@ header {
 
 
 form {
-    @include flexCenteredColumn();
+    @include flexCenteredColumnXAxis();
     gap: 25px;
 
     input {

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Auth, createUserWithEmailAndPassword, updateProfile } from "@angular/fire/auth";
-import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -13,10 +11,9 @@ import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 
 
 export class SignupComponent {
-  sendingData: boolean = false;
 
 
-  constructor(public auth: Auth, public firestore: Firestore) {
+  constructor(public authService: AuthService) {
 
   }
 
@@ -30,17 +27,32 @@ export class SignupComponent {
 
 
   onSubmitForm(formValue: any) {
-    this.sendingData = true;
-    createUserWithEmailAndPassword(this.auth, formValue.email, formValue.password)
-      .then((userCredential) => {
-        updateProfile(this.auth.currentUser!, { displayName: formValue.name })
-          .then(() => {
-            this.signupForm.reset();
-            this.sendingData = false;
-          })
-      })
-      .catch((error) => {
-        console.log(error.message);
-      })
+    this.authService.signupService(formValue, this.signupForm);
   }
 }
+
+
+// myObservable = new Observable((observe) => {
+//   setTimeout(() => { observe.error(new Error('Fuck')) }, 3000);
+//   observe.next(1);
+//   observe.next(2);
+//   observe.next(3);
+//   observe.next(4);
+//   observe.next(5);
+//   observe.complete();
+// });
+
+
+// triggerObservable() {
+//   this.myObservable.subscribe({
+//     next: (value: any) => {
+//       this.data.push(value);
+//     },
+//     error(error) {
+//       alert(error.message);
+//     },
+//     complete() {
+//       alert('Fertig junge');
+//     }
+//   });
+// }

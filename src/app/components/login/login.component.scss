@@ -9,8 +9,7 @@ main {
 
 
 header {
-    display: flex;
-    justify-content: space-between;
+    @include flexSpaceBetween();
     padding: 30px 40px 0px 40px;
 
     img {
@@ -20,8 +19,7 @@ header {
 
 
 .containerSignUpTextAndBtn {
-    display: flex;
-    align-items: center;
+    @include flexCenteredYAxis();
     gap: 35px;
     margin-top: -40px;
 
@@ -42,13 +40,13 @@ header {
 
 
 .parentContainerLogIn {
-    @include flexCentered();
+    @include flexCenteredXAxis();
     margin-top: 30px;
 }
 
 
 .childContainerLogIn {
-    @include flexCenteredColumn();
+    @include flexCenteredColumnXAxis();
     gap: 25px;
     padding: 28px 50px 28px 50px;
     border-radius: 30px;
@@ -64,6 +62,7 @@ header {
         width: 150px;
         height: 3px;
         border-radius: 3px;
+        border: unset;
         margin: 0;
         background-color: $blueLineColor;
     }
@@ -71,7 +70,7 @@ header {
 
 
 form {
-    @include flexCenteredColumn();
+    @include flexCenteredColumnXAxis();
     gap: 25px;
 
     input {

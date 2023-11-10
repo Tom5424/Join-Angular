@@ -134,14 +134,52 @@
 }
 
 
-@mixin flexCentered() {
+@mixin flexCenteredXAxis() {
     display: flex;
     justify-content: center;
 }
 
 
-@mixin flexCenteredColumn() {
+@mixin flexCenteredYAxis() {
+    display: flex;
+    align-items: center;
+}
+
+
+@mixin flexSpaceBetween() {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@mixin flexSpaceAround() {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+@mixin flexSpaceEvenly() {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+@mixin flexCenteredColumnXAxis() {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+
+@mixin flexCenteredColumnYAxis() {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+@mixin flexCenteredMiddle() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -5,10 +5,8 @@
 nav {
     width: 200px;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    @include flexCenteredColumnXAxis();
+    @include flexSpaceBetween();
     position: sticky;
     top: 0;
     background-color: $mainColor;
@@ -29,8 +27,7 @@ table {
 
     tr {
         @include hover();
-        display: flex;
-        align-items: center;
+        @include flexCenteredYAxis();
         gap: 10px;
         padding: 10px 0 10px 45px;
         color: #CDCDCD;
