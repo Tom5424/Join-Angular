@@ -13,8 +13,6 @@ body {
     @include inputFieldError();
 }
 
-/////////// Border Style for Error Input Field ///////////
-
 
 /////////// Style if button is disabled ///////////
 .btnDisabled {
@@ -22,23 +20,17 @@ body {
     @include btnDisabled();
 }
 
-/////////// Style if button is disabled ///////////
-
 
 /////////// Style for Error Message if Invalid Input Fields ///////////
 .errorMessage {
     @include errorMessage();
 }
 
-/////////// Style for Error Message if Invalid Input Fields ///////////
-
 
 /////////// Sytles for current active Route ///////////
 .activeLink {
     @include activeLink();
 }
-
-/////////// Sytles for current active Route ///////////
 
 
 /////////// Custom Scrollbar Styles ///////////
@@ -62,7 +54,23 @@ body {
     background-color: #F6F7F8;
 }
 
-/////////// Custom Scrollbar Styles ///////////
+
+/////////// Animation for the Popup ///////////
+.slideInUp {
+    animation: slideInUp 200ms 1 ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(400px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}
 
 
 .d-none {

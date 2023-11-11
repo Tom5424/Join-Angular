@@ -1,6 +1,6 @@
 <main>
     <div *ngIf="authService.sendingData" class="overlay">
-        <div class="popUpSigninSuccessfully">
+        <div [ngClass]="{'slideInUp': authService.signupSuccessfully}" class="popUpSigninSuccessfully">
             <p>You Signed Up successfully</p>
         </div>
     </div>
