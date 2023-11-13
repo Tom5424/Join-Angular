@@ -96,6 +96,14 @@
             </form>
         </div>
     </div>
-
+    <p *ngIf="authService.signupFails">{{ authService.errorMessage }}</p>
     <app-footer></app-footer>
 </main>
+
+
+<!-- <div>
+    <div *ngFor="let data of datas">
+        <p>{{ data }}</p>
+    </div>
+    <button (click)="triggerObservable()">sadasdsads</button>
+</div> -->

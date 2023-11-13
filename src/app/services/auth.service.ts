@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class AuthService {
   sendingData: boolean = false;
   signupSuccessfully: boolean = false;
+  signupFails: boolean = false;
+  errorMessage: string = '';
 
 
   constructor(public auth: Auth, public router: Router) {
@@ -24,19 +26,32 @@ export class AuthService {
     createUserWithEmailAndPassword(this.auth, formValue.email, formValue.password)
       .then((userCredential) => {
         this.signupSuccessfully = true;
-        this.directToLogin(formValue.name);
+        this.redirectToLoginAfterSignupService(formValue.name);
       })
       .catch((error) => {
-        console.log(error.message);
+        this.displayErrorIfSingupFailsService(error);
       })
   }
 
 
-  directToLogin(formValueName: any) {
+  redirectToLoginAfterSignupService(formValueName: any) {
     updateProfile(this.auth.currentUser!, { displayName: formValueName })
       .then(() => {
         this.sendingData = false;
         this.router.navigateByUrl('/login');
       })
+  }
+
+
+  displayErrorIfSingupFailsService(error: Error) {
+    if (error.message == 'Firebase: Error (auth/email-already-in-use).') {
+      this.errorMessage = 'Email alredy exist. Please type another Email';
+      this.signupFails = true;
+      this.sendingData = true;
+    }
+    setTimeout(() => {
+      this.signupFails = false;
+      this.sendingData = false;
+    }, 1500);
   }
 }
