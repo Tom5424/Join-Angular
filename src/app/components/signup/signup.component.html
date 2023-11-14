@@ -1,9 +1,15 @@
 <main>
+    <!------------------------ Overlay displayed if signup was successfully or not ------------------------>
     <div *ngIf="authService.sendingData" class="overlay">
-        <div [ngClass]="{'slideInUp': authService.signupSuccessfully}" class="popUpSigninSuccessfully">
+        <div [ngClass]="{'slideInUp': authService.signupSuccessfully}" class="popUpSignupSuccessfully">
             <p>You Signed Up successfully</p>
         </div>
+
+        <div [ngClass]="{'slideInUp': authService.signupFails}" class="popUpSignupFails">
+            <p>Registration failed, the email you entered already exists</p>
+        </div>
     </div>
+    <!------------------------ Overlay displayed if signup was successfully or not ------------------------>
 
 
     <header>
@@ -96,14 +102,5 @@
             </form>
         </div>
     </div>
-    <p *ngIf="authService.signupFails">{{ authService.errorMessage }}</p>
     <app-footer></app-footer>
 </main>
-
-
-<!-- <div>
-    <div *ngFor="let data of datas">
-        <p>{{ data }}</p>
-    </div>
-    <button (click)="triggerObservable()">sadasdsads</button>
-</div> -->

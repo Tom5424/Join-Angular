@@ -12,7 +12,6 @@ export class AuthService {
   sendingData: boolean = false;
   signupSuccessfully: boolean = false;
   signupFails: boolean = false;
-  errorMessage: string = '';
 
 
   constructor(public auth: Auth, public router: Router) {
@@ -29,7 +28,8 @@ export class AuthService {
         this.redirectToLoginAfterSignupService(formValue.name);
       })
       .catch((error) => {
-        this.displayErrorIfSingupFailsService(error);
+        console.error(error.message);
+        this.displayErrorIfSingupFailsService();
       })
   }
 
@@ -43,15 +43,12 @@ export class AuthService {
   }
 
 
-  displayErrorIfSingupFailsService(error: Error) {
-    if (error.message == 'Firebase: Error (auth/email-already-in-use).') {
-      this.errorMessage = 'Email alredy exist. Please type another Email';
-      this.signupFails = true;
-      this.sendingData = true;
-    }
+  displayErrorIfSingupFailsService() {
+    this.signupFails = true;
+    this.sendingData = true;
     setTimeout(() => {
       this.signupFails = false;
       this.sendingData = false;
-    }, 1500);
+    }, 2200);
   }
 }
