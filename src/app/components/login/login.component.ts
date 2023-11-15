@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -10,13 +11,25 @@ import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/fo
 
 
 export class LoginComponent {
+
+
+  constructor(public authService: AuthService) {
+
+  }
+
+
   logInForm = new FormGroup({
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
 
 
-  onSubmitForm() {
+  onSubmitForm(formValue: any) {
+    this.authService.loginService(formValue, this.logInForm);
+  }
 
+
+  guestLogin() {
+    this.authService.loginAsGuestService();
   }
 }

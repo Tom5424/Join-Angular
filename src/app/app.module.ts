@@ -14,6 +14,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { firebaseConfig } from 'src/firebase.config';
+import { OverlayComponent } from './components/overlay/overlay.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { firebaseConfig } from 'src/firebase.config';
     SidebarComponent,
     PrivacyPolicyComponent,
     HeaderComponent,
-    LegalNoticeComponent
+    LegalNoticeComponent,
+    OverlayComponent
   ],
   imports: [
     BrowserModule,

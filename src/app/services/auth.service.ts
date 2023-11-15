@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, updateProfile } from "@angular/fire/auth";
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile } from "@angular/fire/auth";
 import { Router } from '@angular/router';
 
 
@@ -12,6 +12,7 @@ export class AuthService {
   sendingData: boolean = false;
   signupSuccessfully: boolean = false;
   signupFails: boolean = false;
+  loginFails: boolean = false;
 
 
   constructor(public auth: Auth, public router: Router) {
@@ -25,7 +26,7 @@ export class AuthService {
     createUserWithEmailAndPassword(this.auth, formValue.email, formValue.password)
       .then((userCredential) => {
         this.signupSuccessfully = true;
-        this.redirectToLoginAfterSignupService(formValue.name);
+        this.redirectToLoginAfterSignupSuccessfullyService(formValue.name);
       })
       .catch((error) => {
         console.error(error.message);
@@ -34,11 +35,12 @@ export class AuthService {
   }
 
 
-  redirectToLoginAfterSignupService(formValueName: any) {
+  redirectToLoginAfterSignupSuccessfullyService(formValueName: any) {
     updateProfile(this.auth.currentUser!, { displayName: formValueName })
       .then(() => {
         this.sendingData = false;
         this.router.navigateByUrl('/login');
+        this.signupSuccessfully = false;
       })
   }
 
@@ -50,5 +52,41 @@ export class AuthService {
       this.signupFails = false;
       this.sendingData = false;
     }, 2200);
+  }
+
+
+  loginService(formValue: any, logInForm: any) {
+    logInForm.reset();
+    this.sendingData = true;
+    signInWithEmailAndPassword(this.auth, formValue.email, formValue.password)
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        console.error(error.message);
+        this.displayErrorIfLoginFailsService();
+      });
+  }
+
+
+  displayErrorIfLoginFailsService() {
+    this.loginFails = true;
+    this.sendingData = true;
+    setTimeout(() => {
+      this.loginFails = false;
+      this.sendingData = false;
+    }, 2200);
+  }
+
+
+  loginAsGuestService() {
+    signInAnonymously(this.auth)
+      .then((guestUser) => {
+        console.log(guestUser);
+        updateProfile(this.auth.currentUser!, { displayName: 'Guest' })
+          .then(() => {
+            console.log(this.auth.currentUser!);
+          })
+      });
   }
 }

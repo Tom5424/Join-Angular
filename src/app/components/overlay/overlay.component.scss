@@ -1,0 +1,26 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+.overlay {
+    @include flexCenteredMiddle();
+    background-color: #00000080;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+
+.popUpSuccessfully {
+    @include popUp();
+    background-color: $mainColor;
+}
+
+
+.popUpFails {
+    @include popUp();
+    background-color: $errorMessage;
+}

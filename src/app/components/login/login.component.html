@@ -1,4 +1,7 @@
 <main>
+    <app-overlay></app-overlay>
+
+
     <header>
         <img class="joinLogo" src="../assets/img/favicon-blue.svg">
         <div class="containerSignUpTextAndBtn">
@@ -13,7 +16,7 @@
             <h1>Log in</h1>
             <hr>
 
-            <form [formGroup]="logInForm" (submit)="onSubmitForm()" id="logInForm">
+            <form [formGroup]="logInForm" (submit)="onSubmitForm(logInForm.value)" id="logInForm">
                 <!------------------------ Validate Inputfield Email ------------------------>
                 <input class="inputEmail" [ngClass]="{'errorInputfield': logInForm.controls.email.touched &&
                      logInForm.controls.email.errors?.['required']}" formControlName="email" placeholder="Email"
@@ -50,7 +53,7 @@
                         Log in
                     </button>
 
-                    <button class="btnGuestLogIn" type="button">Guest Log in</button>
+                    <button class="btnGuestLogIn" type="button" (click)="guestLogin()">Guest Log in</button>
                 </div>
             </form>
         </div>

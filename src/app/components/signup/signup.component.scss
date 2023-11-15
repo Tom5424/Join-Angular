@@ -2,30 +2,6 @@
 @import '../../../scss/variables.scss';
 
 
-.overlay {
-    @include flexCenteredMiddle();
-    background-color: #00000080;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-
-
-.popUpSignupSuccessfully {
-    @include popUp();
-    background-color: #2A3647;
-}
-
-
-.popUpSignupFails {
-    @include popUp();
-    background-color: #FF001F;
-}
-
-
 main {
     height: 100vh;
     background-color: $mainBgColor;
