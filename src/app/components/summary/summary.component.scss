@@ -1,0 +1,48 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+main {
+    display: flex;
+    align-items: center;
+}
+
+
+.containerSummary {}
+
+
+.containerHeadline {
+    @include flexCenteredYAxis();
+    gap: 30px;
+
+    h1 {
+        @include headline();
+    }
+
+    hr {
+        height: 60px;
+        width: 3px;
+        border-radius: 3px;
+        margin: 0;
+        background-color: $blueLineColor;
+        border: unset;
+    }
+
+    p {
+        font-size: 27px;
+        color: $mainColor;
+    }
+}
+
+
+.firstColumn {
+
+    td {
+
+        img {
+            background-color: $mainColor;
+            padding: 10px;
+            border-radius: 50%;
+        }
+    }
+}

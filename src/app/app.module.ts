@@ -15,6 +15,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { firebaseConfig } from 'src/firebase.config';
 import { OverlayComponent } from './components/overlay/overlay.component';
+import { SummaryComponent } from './components/summary/summary.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { OverlayComponent } from './components/overlay/overlay.component';
     PrivacyPolicyComponent,
     HeaderComponent,
     LegalNoticeComponent,
-    OverlayComponent
+    OverlayComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

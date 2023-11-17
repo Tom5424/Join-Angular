@@ -99,10 +99,10 @@
 }
 
 
-@mixin blueLineRotatedVertically() {
-    background-color: $blueLineColor;
-    transform: rotate(90deg);
-}
+// @mixin blueLineRotatedVertically() {
+//     background-color: $blueLineColor;
+//     transform: rotate(90deg);
+// }
 
 
 @mixin headline() {

@@ -35,12 +35,12 @@ export class AuthService {
   }
 
 
-  redirectToLoginAfterSignupSuccessfullyService(formValueName: any) {
+  redirectToLoginAfterSignupSuccessfullyService(formValueName: string) {
     updateProfile(this.auth.currentUser!, { displayName: formValueName })
       .then(() => {
         this.sendingData = false;
-        this.router.navigateByUrl('/login');
         this.signupSuccessfully = false;
+        this.router.navigateByUrl('/login');
       })
   }
 
@@ -60,7 +60,8 @@ export class AuthService {
     this.sendingData = true;
     signInWithEmailAndPassword(this.auth, formValue.email, formValue.password)
       .then((userCredential) => {
-        console.log(userCredential);
+        this.router.navigateByUrl('/summary')
+        this.sendingData = false;
       })
       .catch((error) => {
         console.error(error.message);
@@ -83,10 +84,19 @@ export class AuthService {
     signInAnonymously(this.auth)
       .then((guestUser) => {
         console.log(guestUser);
-        updateProfile(this.auth.currentUser!, { displayName: 'Guest' })
-          .then(() => {
-            console.log(this.auth.currentUser!);
-          })
-      });
+        this.redirectDirectlyToSummaryPageService();
+      })
+      .catch((error) => {
+        console.error(error.message);
+      })
+  }
+
+
+  redirectDirectlyToSummaryPageService() {
+    updateProfile(this.auth.currentUser!, { displayName: 'Guest' })
+      .then(() => {
+        console.log(this.auth.currentUser!);
+        this.router.navigateByUrl('/summary');
+      })
   }
 }

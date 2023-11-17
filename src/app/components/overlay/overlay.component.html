@@ -1,13 +1,13 @@
 <main *ngIf="authService.sendingData" class="overlay">
     <div [ngClass]="{'slideInUp': authService.signupSuccessfully}" class="popUpSuccessfully">
-        <p>You Signed Up successfully</p>
+        <p>You Registered successfully.</p>
     </div>
 
     <div [ngClass]="{'slideInUp': authService.signupFails}" class="popUpFails">
-        <p>Registration failed, the email you entered already exists</p>
+        <p>Registration failed, the email you entered already exists. Please try again.</p>
     </div>
 
     <div [ngClass]="{'slideInUp': authService.loginFails}" class="popUpFails">
-        <p>Login fails, the entered email or password are wrong</p>
+        <p>Login fails, the entered email or password are wrong. Please try again.</p>
     </div>
 </main>

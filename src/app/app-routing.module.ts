@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
+import { SummaryComponent } from './components/summary/summary.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'signup', title: 'Join - Signup', component: SignupComponent },
   { path: 'privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
   { path: 'legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
+  { path: 'summary', title: 'Join - Summary', component: SummaryComponent }
 ];
 
 
