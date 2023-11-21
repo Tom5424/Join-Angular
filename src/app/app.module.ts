@@ -16,6 +16,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { firebaseConfig } from 'src/firebase.config';
 import { OverlayComponent } from './components/overlay/overlay.component';
 import { SummaryComponent } from './components/summary/summary.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { SummaryComponent } from './components/summary/summary.component';
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    NoopAnimationsModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
