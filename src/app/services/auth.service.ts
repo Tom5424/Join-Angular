@@ -83,7 +83,6 @@ export class AuthService {
   loginAsGuestService() {
     signInAnonymously(this.auth)
       .then((guestUser) => {
-        console.log(guestUser);
         this.redirectDirectlyToSummaryPageService();
       })
       .catch((error) => {
