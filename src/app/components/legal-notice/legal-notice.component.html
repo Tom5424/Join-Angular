@@ -4,7 +4,8 @@
 
     <div class="containerLegalNotice">
         <h1>Impressum</h1>
-        <img routerLink="/signup" src="../../../assets/icons/arrow-back-icon.svg">
+        <img (click)="checkIfLoggedInAsGuestAndRedirectToSummaryComponent()"
+            src="../../../assets/icons/arrow-back-icon.svg">
 
         <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
         <p>Tom Petri<br />
