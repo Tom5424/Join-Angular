@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { BlankSidebarComponent } from './components/blank-sidebar/blank-sidebar.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
@@ -18,6 +18,7 @@ import { OverlayComponent } from './components/overlay/overlay.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -26,12 +27,13 @@ import { MatMenuModule } from '@angular/material/menu';
     LoginComponent,
     SignupComponent,
     FooterComponent,
-    SidebarComponent,
+    BlankSidebarComponent,
     PrivacyPolicyComponent,
     HeaderComponent,
     LegalNoticeComponent,
     OverlayComponent,
-    SummaryComponent
+    SummaryComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

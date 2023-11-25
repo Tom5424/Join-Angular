@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -13,17 +12,16 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LegalNoticeComponent {
 
 
-  constructor(public auth: AuthService, public router: Router) {
+  constructor(public router: Router) {
 
   }
 
 
-  /////////////////////////////////////////////////////////////////
-  checkIfLoggedInAsGuestAndRedirectToSummaryComponent() {
-    if (this.auth.loggedInAsGuest) {
-      this.router.navigateByUrl('/summary/guest')
+  navigateToLegalNotice() {
+    if (this.router.url == '/summary/guest/legal-notice') {
+      this.router.navigateByUrl('/summary/guest');
     } else {
-      this.router.navigateByUrl('/signup')
+      this.router.navigateByUrl('/signup');
     }
   }
 }

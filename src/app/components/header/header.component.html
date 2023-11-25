@@ -1,14 +1,13 @@
 <header>
     <p>Kanban Project Management Tool</p>
-    <div [matMenuTriggerFor]="menu" *ngIf="router.url !== '/privacy-policy' && router.url !== '/legal-notice'"
-        class="containerLoggedInUser">
+    <div [matMenuTriggerFor]="menu" *ngIf="router.url == '/summary/guest'" class="containerLoggedInUser">
         <img src="../../../assets/icons/question-mark-icon.svg">
         <p>TP</p>
     </div>
 
     <mat-menu #menu="matMenu">
-        <p>Legal Notice</p>
-        <p>Privacy Policy</p>
+        <p routerLink="/summary/guest/legal-notice">Legal Notice</p>
+        <p routerLink="/summary/guest/privacy-policy">Privacy Policy</p>
         <p>Log out</p>
     </mat-menu>
 </header>

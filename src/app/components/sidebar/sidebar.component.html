@@ -1,6 +1,6 @@
 <nav>
     <img src="../../../assets/img/favicon-white.svg">
-    <table *ngIf="auth.loggedInAsGuest" class="linksNavigation">
+    <table class="linksNavigation">
         <tr>
             <img src="../../../assets/icons/navbar-summary-icon.svg">
             <td>Summary</td>
@@ -21,9 +21,8 @@
             <td>Contacts</td>
         </tr>
     </table>
-
     <ul>
-        <li routerLink="/privacy-policy" routerLinkActive="activeLink">Privacy Policy</li>
-        <li routerLink="/legal-notice" routerLinkActive="activeLink">Legal notice</li>
+        <li routerLink="/summary/guest/privacy-policy" routerLinkActive="activeLink">Privacy Policy</li>
+        <li routerLink="/summary/guest/legal-notice" routerLinkActive="activeLink">Legal notice</li>
     </ul>
 </nav>

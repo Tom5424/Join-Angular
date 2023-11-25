@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -11,8 +10,4 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class SidebarComponent {
 
-
-  constructor(public auth: AuthService) {
-
-  }
 }

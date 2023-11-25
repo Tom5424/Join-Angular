@@ -1,11 +1,14 @@
+<app-header></app-header>
 <main>
-    <app-header></app-header>
-    <app-sidebar></app-sidebar>
+    <app-blank-sidebar *ngIf="router.url == '/legal-notice'; else sidebar"></app-blank-sidebar>
+
+    <ng-template #sidebar>
+        <app-sidebar></app-sidebar>
+    </ng-template>
 
     <div class="containerLegalNotice">
         <h1>Impressum</h1>
-        <img (click)="checkIfLoggedInAsGuestAndRedirectToSummaryComponent()"
-            src="../../../assets/icons/arrow-back-icon.svg">
+        <img (click)="navigateToLegalNotice()" src="../../../assets/icons/arrow-back-icon.svg">
 
         <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
         <p>Tom Petri<br />

@@ -1,11 +1,15 @@
+<app-header></app-header>
 <main>
-    <app-sidebar></app-sidebar>
-    <app-header></app-header>
+
+    <app-blank-sidebar *ngIf="router.url == '/privacy-policy'; else sidebar"></app-blank-sidebar>
+
+    <ng-template #sidebar>
+        <app-sidebar></app-sidebar>
+    </ng-template>
 
     <div class="containerPrivacyPolicy">
         <h1>Datenschutz&shy;erkl&auml;rung</h1>
-        <img (click)="checkIfLoggedInAsGuestAndRedirectToSummaryComponent()"
-            src="../../../assets/icons/arrow-back-icon.svg">
+        <img (click)="navigateToPrivacyPolicy()" src="../../../assets/icons/arrow-back-icon.svg">
 
         <h2>1. Datenschutz auf einen Blick</h2>
         <h3>Allgemeine Hinweise</h3>

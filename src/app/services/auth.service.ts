@@ -13,7 +13,6 @@ export class AuthService {
   signupSuccessfully: boolean = false;
   signupFails: boolean = false;
   loginFails: boolean = false;
-  loggedInAsGuest: boolean = false;
 
 
   constructor(public auth: Auth, public router: Router) {
@@ -84,7 +83,6 @@ export class AuthService {
   loginAsGuestService() {
     signInAnonymously(this.auth)
       .then((guestUser) => {
-        this.loggedInAsGuest = guestUser.user.isAnonymous;
         this.redirectDirectlyToSummaryPageService();
       })
       .catch((error) => {
