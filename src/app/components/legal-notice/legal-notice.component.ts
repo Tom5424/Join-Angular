@@ -17,9 +17,9 @@ export class LegalNoticeComponent {
   }
 
 
-  navigateToLegalNotice() {
-    if (this.router.url == '/summary/guest/legal-notice') {
-      this.router.navigateByUrl('/summary/guest');
+  checkNavigationForLegalNotice() {
+    if (this.router.url == '/summary/legal-notice') {
+      this.router.navigateByUrl('/summary');
     } else {
       this.router.navigateByUrl('/signup');
     }

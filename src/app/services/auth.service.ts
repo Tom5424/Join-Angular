@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile } from "@angular/fire/auth";
 import { Router } from '@angular/router';
+import { signOut } from 'firebase/auth';
 
 
 @Injectable({
@@ -13,6 +14,7 @@ export class AuthService {
   signupSuccessfully: boolean = false;
   signupFails: boolean = false;
   loginFails: boolean = false;
+  guest: string = 'Guest';
 
 
   constructor(public auth: Auth, public router: Router) {
@@ -29,7 +31,7 @@ export class AuthService {
         this.redirectToLoginAfterSignupSuccessfullyService(formValue.name);
       })
       .catch((error) => {
-        console.error(error.message);
+        console.error('Registration failed, the email you entered already exists. Please try again.', error.message);
         this.displayErrorIfSingupFailsService();
       })
   }
@@ -64,7 +66,7 @@ export class AuthService {
         this.sendingData = false;
       })
       .catch((error) => {
-        console.error(error.message);
+        console.error('Login fails, the entered email or password are wrong. Please try again.', error.message);
         this.displayErrorIfLoginFailsService();
       });
   }
@@ -92,9 +94,18 @@ export class AuthService {
 
 
   redirectDirectlyToSummaryPageService() {
-    updateProfile(this.auth.currentUser!, { displayName: 'Guest' })
+    updateProfile(this.auth.currentUser!, { displayName: this.guest })
       .then(() => {
-        this.router.navigateByUrl('/summary/guest');
+        this.router.navigateByUrl('/summary');
       })
+  }
+
+
+  logoutService() {
+    signOut(this.auth).then(() => {
+      this.router.navigateByUrl('/login');
+    }).catch((error) => {
+      console.error(error.message);
+    });
   }
 }

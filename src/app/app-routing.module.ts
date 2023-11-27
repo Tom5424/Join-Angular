@@ -13,9 +13,9 @@ const routes: Routes = [
   { path: 'signup', title: 'Join - Signup', component: SignupComponent },
   { path: 'privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
   { path: 'legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
-  { path: 'summary/guest/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
-  { path: 'summary/guest/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
-  { path: 'summary/guest', title: 'Join - Summary', component: SummaryComponent },
+  { path: 'summary', title: 'Join - Summary', component: SummaryComponent },
+  { path: 'summary/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
+  { path: 'summary/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
 ];
 
 

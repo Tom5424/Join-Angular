@@ -17,9 +17,9 @@ export class PrivacyPolicyComponent {
   }
 
 
-  navigateToPrivacyPolicy() {
-    if (this.router.url == '/summary/guest/privacy-policy') {
-      this.router.navigateByUrl('/summary/guest');
+  checkNavigationForPrivacyPolicy() {
+    if (this.router.url == '/summary/privacy-policy') {
+      this.router.navigateByUrl('/summary');
     } else {
       this.router.navigateByUrl('/signup');
     }
