@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile } from "@angular/fire/auth";
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile, user } from "@angular/fire/auth";
 import { Router } from '@angular/router';
-import { signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 
 @Injectable({
@@ -14,6 +14,7 @@ export class AuthService {
   signupSuccessfully: boolean = false;
   signupFails: boolean = false;
   loginFails: boolean = false;
+  currentUser: string | null | undefined = '';
   guest: string = 'Guest';
 
 
@@ -64,11 +65,19 @@ export class AuthService {
       .then((userCredential) => {
         this.router.navigateByUrl('/summary')
         this.sendingData = false;
+
       })
       .catch((error) => {
         console.error('Login fails, the entered email or password are wrong. Please try again.', error.message);
         this.displayErrorIfLoginFailsService();
       });
+  }
+
+
+  updateDisplayedName() {
+    onAuthStateChanged(this.auth, (user) => {
+      this.currentUser = user?.displayName;
+    })
   }
 
 
@@ -85,18 +94,10 @@ export class AuthService {
   loginAsGuestService() {
     signInAnonymously(this.auth)
       .then((guestUser) => {
-        this.redirectDirectlyToSummaryPageService();
+        this.router.navigateByUrl('/summary');
       })
       .catch((error) => {
         console.error(error.message);
-      })
-  }
-
-
-  redirectDirectlyToSummaryPageService() {
-    updateProfile(this.auth.currentUser!, { displayName: this.guest })
-      .then(() => {
-        this.router.navigateByUrl('/summary');
       })
   }
 

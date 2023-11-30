@@ -80,7 +80,7 @@
 
             <div class="containerGreetingUser">
                 <p>Good Morning,</p>
-                <span>{{ authService.guest }}</span>
+                <span>{{ authService.currentUser ? authService.currentUser : authService.guest }}</span>
             </div>
         </div>
     </div>

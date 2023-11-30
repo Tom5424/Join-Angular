@@ -15,4 +15,10 @@ export class SummaryComponent {
   constructor(public authService: AuthService) {
 
   }
+
+
+  ngOnInit(): void {
+    this.authService.updateDisplayedName();
+  }
+
 }

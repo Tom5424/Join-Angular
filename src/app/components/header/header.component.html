@@ -2,7 +2,10 @@
     <p>Kanban Project Management Tool</p>
     <div *ngIf="router.url == '/summary'" class="containerLoggedInUser">
         <img src="../../../assets/icons/question-mark-icon.svg">
-        <p [matMenuTriggerFor]="menu">{{ authService.guest.charAt(0) }}</p>
+        <p [matMenuTriggerFor]="menu">
+            {{ authService.currentUser ? authService.currentUser.charAt(0).toUpperCase() :
+            authService.guest.charAt(0).toUpperCase() }}
+        </p>
     </div>
 
     <mat-menu #menu="matMenu">
