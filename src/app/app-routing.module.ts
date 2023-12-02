@@ -5,14 +5,18 @@ import { SignupComponent } from './components/signup/signup.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
 import { SummaryComponent } from './components/summary/summary.component';
+import { DescriptionComponent } from './components/description/description.component';
 
 
 const routes: Routes = [
   { path: 'login', title: 'Join - Login', component: LoginComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'signup', title: 'Join - Signup', component: SignupComponent },
+
   { path: 'privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
   { path: 'legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
+  { path: 'description', title: 'Join - Description', component: DescriptionComponent },
+
   { path: 'summary', title: 'Join - Summary', component: SummaryComponent },
   { path: 'summary/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
   { path: 'summary/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },

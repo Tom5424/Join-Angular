@@ -30,7 +30,6 @@ table {
         @include flexCenteredYAxis();
         gap: 10px;
         padding: 10px 0 10px 45px;
-        color: #CDCDCD;
 
         &:hover {
             background-color: #2A3D59;
@@ -39,6 +38,10 @@ table {
         img {
             width: 30px;
             padding: 0;
+        }
+
+        td {
+            color: #ffffff;
         }
     }
 }

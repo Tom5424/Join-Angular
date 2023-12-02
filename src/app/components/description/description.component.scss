@@ -1,0 +1,53 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+main {
+    display: flex;
+    background-color: $mainBgColor;
+}
+
+
+.containerDescription {
+    padding: 120px 50px 50px 50px;
+
+    img {
+        position: fixed;
+        top: 140px;
+        right: 10px;
+        padding: 8px;
+
+        @include hover();
+
+        &:hover {
+            @include iconHover();
+        }
+    }
+
+    h1 {
+        margin-bottom: 25px;
+        @include headline();
+    }
+
+    p {
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 27px;
+    }
+
+    table {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        tr {
+            display: flex;
+            gap: 35px;
+
+            th {
+                font-weight: 700;
+                font-size: 27px;
+            }
+        }
+    }
+}

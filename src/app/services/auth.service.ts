@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile, user } from "@angular/fire/auth";
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile, user, updateCurrentUser } from "@angular/fire/auth";
 import { Router } from '@angular/router';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
@@ -14,7 +14,7 @@ export class AuthService {
   signupSuccessfully: boolean = false;
   signupFails: boolean = false;
   loginFails: boolean = false;
-  currentUser: string | null | undefined = '';
+  // currentUser: string = '';
   guest: string = 'Guest';
 
 
@@ -63,9 +63,8 @@ export class AuthService {
     this.sendingData = true;
     signInWithEmailAndPassword(this.auth, formValue.email, formValue.password)
       .then((userCredential) => {
-        this.router.navigateByUrl('/summary')
         this.sendingData = false;
-
+        this.router.navigateByUrl('/summary')
       })
       .catch((error) => {
         console.error('Login fails, the entered email or password are wrong. Please try again.', error.message);
@@ -74,9 +73,9 @@ export class AuthService {
   }
 
 
-  updateDisplayedName() {
+  loadDisplayedName() {
     onAuthStateChanged(this.auth, (user) => {
-      this.currentUser = user?.displayName;
+      updateProfile(this.auth.currentUser!, { displayName: user?.displayName });
     })
   }
 
@@ -87,13 +86,14 @@ export class AuthService {
     setTimeout(() => {
       this.loginFails = false;
       this.sendingData = false;
-    }, 2200);
+    }, 2000);
   }
 
 
   loginAsGuestService() {
     signInAnonymously(this.auth)
       .then((guestUser) => {
+        updateProfile(this.auth.currentUser!, { displayName: 'Guest' })
         this.router.navigateByUrl('/summary');
       })
       .catch((error) => {

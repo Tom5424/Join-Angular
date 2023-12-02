@@ -18,7 +18,7 @@ export class SummaryComponent {
 
 
   ngOnInit(): void {
-    this.authService.updateDisplayedName();
+    this.authService.loadDisplayedName();
   }
 
 }

@@ -80,7 +80,10 @@
 
             <div class="containerGreetingUser">
                 <p>Good Morning,</p>
-                <span>{{ authService.currentUser ? authService.currentUser : authService.guest }}</span>
+                <span>
+                    {{ authService.auth.currentUser?.displayName }}
+                    <img *ngIf="!authService.auth.currentUser" src="../../../assets/icons/spinner.svg">
+                </span>
             </div>
         </div>
     </div>

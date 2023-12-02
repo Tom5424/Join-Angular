@@ -223,7 +223,6 @@ main {
         font-size: 47px;
         font-weight: 500;
         margin: 0;
-        margin-bottom: 10px;
         color: $mainColor;
     }
 
@@ -231,5 +230,9 @@ main {
         font-size: 64px;
         font-weight: 5700;
         color: #29ABE2;
+
+        img {
+            width: 50px;
+        }
     }
 }

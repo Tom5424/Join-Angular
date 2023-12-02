@@ -19,6 +19,7 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DescriptionComponent } from './components/description/description.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     LegalNoticeComponent,
     OverlayComponent,
     SummaryComponent,
-    SidebarComponent
+    SidebarComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,
