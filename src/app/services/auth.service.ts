@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile, user, updateCurrentUser } from "@angular/fire/auth";
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile, deleteUser, onAuthStateChanged, signOut } from "@angular/fire/auth";
 import { Router } from '@angular/router';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
 
 
 @Injectable({
@@ -14,8 +13,6 @@ export class AuthService {
   signupSuccessfully: boolean = false;
   signupFails: boolean = false;
   loginFails: boolean = false;
-  // currentUser: string = '';
-  guest: string = 'Guest';
 
 
   constructor(public auth: Auth, public router: Router) {
@@ -73,7 +70,7 @@ export class AuthService {
   }
 
 
-  loadDisplayedName() {
+  loadDisplayedNameService() {
     onAuthStateChanged(this.auth, (user) => {
       updateProfile(this.auth.currentUser!, { displayName: user?.displayName });
     })
@@ -103,10 +100,18 @@ export class AuthService {
 
 
   logoutService() {
+    this.deleteGuestUserAfterLogoutService();
     signOut(this.auth).then(() => {
       this.router.navigateByUrl('/login');
     }).catch((error) => {
       console.error(error.message);
     });
+  }
+
+
+  deleteGuestUserAfterLogoutService() {
+    if (this.auth.currentUser?.isAnonymous) {
+      deleteUser(this.auth.currentUser!);
+    }
   }
 }
