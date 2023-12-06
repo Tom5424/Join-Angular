@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+
+<main>
+    <app-sidebar></app-sidebar>
+
+    <div class="containerAddTask">
+        <h1>Add Task</h1>
+        <form id="addTaskForm">
+            <label for="inputTitle" form="addTaskForm">Title</label>
+            <input id="inputTitle" type="text" placeholder="Enter a title">
+
+            <label for="textareaDescription" form="addTaskForm">Description</label>
+            <textarea id="textareaDescription" placeholder="Enter a description"></textarea>
+
+            <label for="dropdownAssignedTo" form="addTaskForm">Assigned to</label>
+            <div (click)="openDropdown()" [ngClass]="{'activedropdownMenu': dropdownMenuIsActive}"
+                class="dropdownAssignedTo" id="dropdownAssignedTo">
+                <p *ngIf="!dropdownMenuIsActive">Select Contacts to assign</p>
+                <img [ngClass]="{'rotateArrowIcon': arrowIconIsRotated}"
+                    src="../../../assets/icons/arrow-drop-down-icon.svg">
+
+            </div>
+
+
+        </form>
+
+    </div>
+</main>

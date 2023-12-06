@@ -20,6 +20,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { DescriptionComponent } from './components/description/description.compo
     OverlayComponent,
     SummaryComponent,
     SidebarComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    AddTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { DescriptionComponent } from './components/description/description.compo
     provideFirestore(() => getFirestore()),
     NoopAnimationsModule,
     MatMenuModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

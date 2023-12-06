@@ -1,0 +1,76 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+main {
+    display: flex;
+    align-items: center;
+    background-color: $mainBgColor;
+}
+
+
+.containerAddTask {
+    h1 {
+        @include headline();
+    }
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    label {
+        margin-bottom: -25px;
+        font-size: 20px;
+        color: $mainColor;
+    }
+
+    input {
+        @include inputFieldDefault();
+        @include inputFieldFocus();
+        outline: none;
+    }
+
+    textarea {
+        @include inputFieldDefault();
+        @include inputFieldFocus();
+        padding-top: 10px;
+        outline: none;
+        resize: none;
+    }
+}
+
+
+.dropdownAssignedTo {
+    @include inputFieldDefault();
+    @include flexCenteredYAxis();
+    @include hover();
+    position: relative;
+
+    p {
+        margin: 0;
+    }
+
+    img {
+        padding: 10px;
+        position: absolute;
+        right: 10px;
+        transform: rotate(0deg);
+
+        &:hover {
+            @include iconHover();
+        }
+    }
+}
+
+
+.rotateArrowIcon {
+    transform: rotate(180deg) !important;
+}
+
+
+.activedropdownMenu {
+    border: 1px solid #29ABE2;
+}

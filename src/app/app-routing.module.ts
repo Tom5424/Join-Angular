@@ -6,6 +6,7 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'summary', title: 'Join - Summary', component: SummaryComponent },
   { path: 'summary/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
   { path: 'summary/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
+
+  { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent },
 ];
 
 

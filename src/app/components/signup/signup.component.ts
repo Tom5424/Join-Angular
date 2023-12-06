@@ -25,7 +25,7 @@ export class SignupComponent {
 
 
   signupForm = new FormGroup({
-    name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(12)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
     email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
     password: new FormControl('', [Validators.required, Validators.minLength(12), Validators.maxLength(50)]),
     acceptPrivacyPolicy: new FormControl('', Validators.required),
