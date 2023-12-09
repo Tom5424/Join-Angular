@@ -18,7 +18,7 @@ main {
 
 form {
     display: flex;
-    flex-direction: column;
+    position: relative;
     gap: 30px;
 
     label {
@@ -36,17 +36,41 @@ form {
     textarea {
         @include inputFieldDefault();
         @include inputFieldFocus();
-        padding-top: 10px;
+        height: 100px;
+        padding: 10px 45px 10px 10px;
         outline: none;
         resize: none;
+    }
+
+    hr {
+        width: 1px;
+        height: 400px;
+        border-radius: 1px;
+        margin: 0;
+        border: unset;
+        background-color: #D1D1D1;
+    }
+
+    mark {
+        margin-left: -5px;
+        color: #FF8190;
+        background-color: unset;
     }
 }
 
 
-.dropdownAssignedTo {
+.containerFormLeftSide {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.dropdownMenuBox {
     @include inputFieldDefault();
     @include flexCenteredYAxis();
     @include hover();
+    background-color: white;
     position: relative;
 
     p {
@@ -66,11 +90,93 @@ form {
 }
 
 
+ul {
+    width: 400px;
+    position: absolute;
+    top: 350px;
+    margin: 0;
+    height: 100px;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    padding-left: 0;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    list-style: none;
+    overflow-y: scroll;
+
+    li {
+        @include hover();
+        @include flexCenteredYAxis();
+        @include flexSpaceBetween();
+        padding: 7px 16px 7px 16px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+
+        input {
+            width: unset;
+            @include hover();
+        }
+
+        img {
+            position: unset;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        &:hover {
+            background-color: #EEEEEE;
+        }
+    }
+}
+
+
+.containerFormRightSide {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+.containerBtns {
+    display: flex;
+    gap: 16px;
+
+    button {
+        @include hover();
+        @include flexCenteredMiddle();
+        gap: 8px;
+        background-color: #ffffff;
+        border: unset;
+        width: 142px;
+        font-size: 20px;
+        padding: 16px 10px 16px 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 4px 0px #0000001A;
+
+        &:hover {
+            box-shadow: 0px 4px 4px 0px #00000040;
+        }
+    }
+}
+
+
+
 .rotateArrowIcon {
     transform: rotate(180deg) !important;
 }
 
 
-.activedropdownMenu {
+.activeDropdownMenu {
     border: 1px solid #29ABE2;
+}
+
+
+.activeSelectedContact {
+    background-color: $mainColor;
+    color: white;
+
+    &:hover {
+        background-color: #091931 !important;
+    }
 }

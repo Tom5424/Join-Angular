@@ -7,22 +7,92 @@
     <div class="containerAddTask">
         <h1>Add Task</h1>
         <form id="addTaskForm">
-            <label for="inputTitle" form="addTaskForm">Title</label>
-            <input id="inputTitle" type="text" placeholder="Enter a title">
+            <div class="containerFormLeftSide">
+                <label for="inputTitle" form="addTaskForm">
+                    Title
+                    <mark>*</mark>
+                </label>
+                <input id="inputTitle" type="text" placeholder="Enter a title">
 
-            <label for="textareaDescription" form="addTaskForm">Description</label>
-            <textarea id="textareaDescription" placeholder="Enter a description"></textarea>
+                <label for="textareaDescription" form="addTaskForm">Description</label>
+                <textarea id="textareaDescription" placeholder="Enter a description"></textarea>
 
-            <label for="dropdownAssignedTo" form="addTaskForm">Assigned to</label>
-            <div (click)="openDropdown()" [ngClass]="{'activedropdownMenu': dropdownMenuIsActive}"
-                class="dropdownAssignedTo" id="dropdownAssignedTo">
-                <p *ngIf="!dropdownMenuIsActive">Select Contacts to assign</p>
-                <img [ngClass]="{'rotateArrowIcon': arrowIconIsRotated}"
-                    src="../../../assets/icons/arrow-drop-down-icon.svg">
 
+                <label form="addTaskForm">Assigned to</label>
+                <div (click)="openDropdownMenuAssignedTo()"
+                    [ngClass]="{'activeDropdownMenu': dropdownMenuAssignedToIsOpen}" class="dropdownMenuBox">
+                    <p *ngIf="!dropdownMenuAssignedToIsOpen">Select Contacts to assign</p>
+                    <img [ngClass]="{'rotateArrowIcon': dropdownMenuAssignedToIsOpen}"
+                        src="../../../assets/icons/arrow-drop-down-icon.svg">
+                </div>
+
+                <ul *ngIf="dropdownMenuAssignedToIsOpen">
+                    <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
+                        <img src="../../../assets/icons/arrow-drop-down-icon.svg">
+                        <p>asdhisaudhb</p>
+                        <input [checked]="contactIsSelected" type="checkbox">
+                    </li>
+                    <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
+                        <img src="../../../assets/icons/arrow-drop-down-icon.svg">
+                        <p>asdhisaudhb</p>
+                        <input [checked]="contactIsSelected" type="checkbox">
+                    </li>
+                    <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
+                        <img src="../../../assets/icons/arrow-drop-down-icon.svg">
+                        <p>asdhisaudhb</p>
+                        <input [checked]="contactIsSelected" type="checkbox">
+                    </li>
+                </ul>
             </div>
 
+            <hr>
 
+            <div class="containerFormRightSide">
+                <label for="inputCalendar" form="addTaskForm">
+                    Due Date
+                    <mark>*</mark>
+                </label>
+                <input id="inputCalendar" type="date">
+
+                <label form="addTaskForm">Prio</label>
+                <div class="containerBtns">
+                    <button type="button">
+                        Urgent
+                        <img src="../../../assets/icons/priority-urgent-icon.svg">
+                    </button>
+                    <button type="button">
+                        Medium
+                        <img src="../../../assets/icons/priority-medium-icon.svg">
+                    </button>
+                    <button type="button">
+                        Low
+                        <img src="../../../assets/icons/priority-low-icon.svg">
+                    </button>
+                </div>
+
+                <label form="addTaskForm">
+                    Category
+                    <mark>*</mark>
+                </label>
+                <div (click)="openDropdownMenuCategory()" [ngClass]="{'activeDropdownMenu': dropdownMenuCategoryIsOpen}"
+                    class="dropdownMenuBox">
+                    <p>Select task category</p>
+                    <img [ngClass]="{'rotateArrowIcon': dropdownMenuCategoryIsOpen}"
+                        src="../../../assets/icons/arrow-drop-down-icon.svg">
+                </div>
+
+                <ul *ngIf="dropdownMenuCategoryIsOpen">
+                    <li>
+                        <p>asdhisaudhb</p>
+                    </li>
+                    <li>
+                        <p>asdhisaudhb</p>
+                    </li>
+                    <li>
+                        <p>asdhisaudhb</p>
+                    </li>
+                </ul>
+            </div>
         </form>
 
     </div>

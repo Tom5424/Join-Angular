@@ -9,12 +9,22 @@ import { Component } from '@angular/core';
 
 
 export class AddTaskComponent {
-  arrowIconIsRotated: boolean = false;
-  dropdownMenuIsActive: boolean = false;
+  dropdownMenuAssignedToIsOpen: boolean = false;
+  dropdownMenuCategoryIsOpen: boolean = false;
+  contactIsSelected: boolean = false;
 
 
-  openDropdown() {
-    this.arrowIconIsRotated = !this.arrowIconIsRotated;
-    this.dropdownMenuIsActive = !this.dropdownMenuIsActive;
+  openDropdownMenuAssignedTo() {
+    this.dropdownMenuAssignedToIsOpen = !this.dropdownMenuAssignedToIsOpen;
+  }
+
+
+  selectContact() {
+    this.contactIsSelected = !this.contactIsSelected;
+  }
+
+
+  openDropdownMenuCategory() {
+    this.dropdownMenuCategoryIsOpen = !this.dropdownMenuCategoryIsOpen;
   }
 }
