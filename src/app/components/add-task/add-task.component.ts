@@ -12,6 +12,7 @@ export class AddTaskComponent {
   dropdownMenuAssignedToIsOpen: boolean = false;
   dropdownMenuCategoryIsOpen: boolean = false;
   contactIsSelected: boolean = false;
+  currentSelectedPrio: string = '';
 
 
   openDropdownMenuAssignedTo() {
@@ -26,5 +27,26 @@ export class AddTaskComponent {
 
   openDropdownMenuCategory() {
     this.dropdownMenuCategoryIsOpen = !this.dropdownMenuCategoryIsOpen;
+  }
+
+
+  selectPrio(selectedPrio: string) {
+    switch (selectedPrio) {
+      case 'Urgent':
+        this.currentSelectedPrio = 'Urgent';
+        break;
+      case 'Medium':
+        this.currentSelectedPrio = 'Medium';
+        break;
+      case 'Low':
+        this.currentSelectedPrio = 'Low';
+        break;
+    }
+  }
+
+
+  closeDropdownIfClickOutSide() {
+    this.dropdownMenuAssignedToIsOpen = false;
+    this.dropdownMenuCategoryIsOpen = false;
   }
 }

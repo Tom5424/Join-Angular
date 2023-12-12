@@ -2,6 +2,17 @@
 @import '../../../scss/variables.scss';
 
 
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: transparent;
+}
+
+
 main {
     display: flex;
     align-items: center;
@@ -10,15 +21,21 @@ main {
 
 
 .containerAddTask {
+    width: 87%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     h1 {
         @include headline();
+        margin: 0;
+        padding: 70px 710px 30px 0;
     }
 }
 
 
 form {
     display: flex;
-    position: relative;
     gap: 30px;
 
     label {
@@ -59,17 +76,11 @@ form {
 }
 
 
-.containerFormLeftSide {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-
 .dropdownMenuBox {
     @include inputFieldDefault();
     @include flexCenteredYAxis();
     @include hover();
+    z-index: 2;
     background-color: white;
     position: relative;
 
@@ -82,6 +93,7 @@ form {
         position: absolute;
         right: 10px;
         transform: rotate(0deg);
+        transition: all 225ms ease-in-out;
 
         &:hover {
             @include iconHover();
@@ -90,10 +102,65 @@ form {
 }
 
 
-ul {
-    width: 400px;
+.containerFormLeftSide {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+}
+
+
+.dropdownMenuAssignedTo {
+    width: 455px;
     position: absolute;
     top: 350px;
+    z-index: 2;
+    margin: 0;
+    height: 100px;
+    box-shadow: 0px 0px 14px 3px #0000000A;
+    padding-left: 0;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    list-style: none;
+    overflow-y: scroll;
+
+    li {
+        @include hover();
+        @include flexCenteredYAxis();
+        @include flexSpaceBetween();
+        padding: 7px 16px 7px 16px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+
+        input {
+            width: unset;
+            @include hover();
+        }
+
+        p {
+            margin: 0;
+        }
+
+        &:hover {
+            background-color: #EEEEEE;
+        }
+    }
+}
+
+
+.containerFormRightSide {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+}
+
+
+.dropdownMenuCategory {
+    width: 455px;
+    position: absolute;
+    top: 285px;
+    z-index: 2;
     margin: 0;
     height: 100px;
     box-shadow: 0px 0px 14px 3px #0000000A;
@@ -131,44 +198,82 @@ ul {
 }
 
 
-.containerFormRightSide {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-
-.containerBtns {
+.containerPrioBtns {
     display: flex;
     gap: 16px;
 
     button {
         @include hover();
         @include flexCenteredMiddle();
-        gap: 8px;
-        background-color: #ffffff;
-        border: unset;
-        width: 142px;
-        font-size: 20px;
-        padding: 16px 10px 16px 10px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 4px 0px #0000001A;
+        @include btnPrio();
+    }
+}
 
-        &:hover {
-            box-shadow: 0px 4px 4px 0px #00000040;
+
+footer {
+    @include flexSpaceBetween();
+    width: 73%;
+    align-items: center;
+
+    p {
+        font-size: 20px;
+
+        mark {
+            background-color: unset;
+            color: #FF8190;
+        }
+    }
+
+    div {
+        display: flex;
+        gap: 16px;
+    }
+}
+
+
+.btnClearForm {
+    @include hover();
+    @include btnSecondary();
+    @include btnSecondaryHover();
+    @include flexCenteredYAxis();
+    gap: 4px;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 16px 20px 16px 20px;
+
+    &:hover {
+        img {
+            filter: brightness(0) saturate(100%) invert(64%) sepia(23%) saturate(2988%) hue-rotate(166deg) brightness(91%) contrast(95%);
         }
     }
 }
 
 
+.btnCreateTask {
+    @include hover();
+    @include btnPrimary();
+    @include btnPrimaryHover();
+    @include flexCenteredYAxis();
+    gap: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 16px;
+
+    img {
+        width: 15px;
+    }
+}
+
 
 .rotateArrowIcon {
     transform: rotate(180deg) !important;
+    transition: all 225ms ease-in-out;
 }
 
 
 .activeDropdownMenu {
-    border: 1px solid #29ABE2;
+    border: 1px solid $inputFieldFocusBorderColor;
 }
 
 

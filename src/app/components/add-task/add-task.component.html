@@ -1,7 +1,9 @@
 <app-header></app-header>
 
-
 <main>
+    <div (click)="closeDropdownIfClickOutSide()"
+        [ngClass]="{'overlay': dropdownMenuAssignedToIsOpen || dropdownMenuCategoryIsOpen}"></div>
+
     <app-sidebar></app-sidebar>
 
     <div class="containerAddTask">
@@ -18,7 +20,10 @@
                 <textarea id="textareaDescription" placeholder="Enter a description"></textarea>
 
 
-                <label form="addTaskForm">Assigned to</label>
+                <label form="addTaskForm">
+                    Assigned to
+                    <mark>*</mark>
+                </label>
                 <div (click)="openDropdownMenuAssignedTo()"
                     [ngClass]="{'activeDropdownMenu': dropdownMenuAssignedToIsOpen}" class="dropdownMenuBox">
                     <p *ngIf="!dropdownMenuAssignedToIsOpen">Select Contacts to assign</p>
@@ -26,7 +31,7 @@
                         src="../../../assets/icons/arrow-drop-down-icon.svg">
                 </div>
 
-                <ul *ngIf="dropdownMenuAssignedToIsOpen">
+                <ul *ngIf="dropdownMenuAssignedToIsOpen" class="dropdownMenuAssignedTo">
                     <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
                         <img src="../../../assets/icons/arrow-drop-down-icon.svg">
                         <p>asdhisaudhb</p>
@@ -54,17 +59,25 @@
                 </label>
                 <input id="inputCalendar" type="date">
 
-                <label form="addTaskForm">Prio</label>
-                <div class="containerBtns">
-                    <button type="button">
+                <label form="addTaskForm">
+                    Prio
+                    <mark>*</mark>
+                </label>
+                <div class="containerPrioBtns">
+                    <button [ngClass]="{'btnUrgentPrio': currentSelectedPrio == 'Urgent'}"
+                        (click)="selectPrio('Urgent')" type="button">
                         Urgent
                         <img src="../../../assets/icons/priority-urgent-icon.svg">
                     </button>
-                    <button type="button">
+
+                    <button [ngClass]="{'btnMediumPrio': currentSelectedPrio == 'Medium'}"
+                        (click)="selectPrio('Medium')" type="button">
                         Medium
                         <img src="../../../assets/icons/priority-medium-icon.svg">
                     </button>
-                    <button type="button">
+
+                    <button [ngClass]="{'btnLowPrio': currentSelectedPrio == 'Low'}" (click)="selectPrio('Low')"
+                        type="button">
                         Low
                         <img src="../../../assets/icons/priority-low-icon.svg">
                     </button>
@@ -81,7 +94,7 @@
                         src="../../../assets/icons/arrow-drop-down-icon.svg">
                 </div>
 
-                <ul *ngIf="dropdownMenuCategoryIsOpen">
+                <ul *ngIf="dropdownMenuCategoryIsOpen" class="dropdownMenuCategory">
                     <li>
                         <p>asdhisaudhb</p>
                     </li>
@@ -95,5 +108,22 @@
             </div>
         </form>
 
+        <footer>
+            <p>
+                <mark>*</mark>
+                This field is required
+            </p>
+
+            <div>
+                <button class="btnClearForm" type="reset">
+                    Clear
+                    <img src="../../../assets/icons/close-icon.svg">
+                </button>
+                <button class="btnCreateTask" type="submit">
+                    Create Task
+                    <img src="../../../assets/icons/check-icon-white.svg">
+                </button>
+            </div>
+        </footer>
     </div>
 </main>

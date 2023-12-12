@@ -28,9 +28,27 @@ body {
 }
 
 
-/////////// Sytles for current active Route ///////////
+/////////// Styles for current active Route ///////////
 .activeLink {
     @include activeLink();
+}
+
+
+/////////// Styles for active  Button low Prio ///////////
+.btnLowPrio {
+    @include btnLowPrio();
+}
+
+
+/////////// Styles for active Button medium Prio ///////////
+.btnMediumPrio {
+    @include btnMediumPrio();
+}
+
+
+/////////// Styles for active Button urgent Prio ///////////
+.btnUrgentPrio {
+    @include btnUrgentPrio();
 }
 
 
