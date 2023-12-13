@@ -13,6 +13,7 @@ export class AddTaskComponent {
   dropdownMenuCategoryIsOpen: boolean = false;
   contactIsSelected: boolean = false;
   currentSelectedPrio: string = '';
+  priorities: string[] = ['urgent', 'medium', 'low'];
 
 
   openDropdownMenuAssignedTo() {
@@ -31,17 +32,11 @@ export class AddTaskComponent {
 
 
   selectPrio(selectedPrio: string) {
-    switch (selectedPrio) {
-      case 'Urgent':
-        this.currentSelectedPrio = 'Urgent';
-        break;
-      case 'Medium':
-        this.currentSelectedPrio = 'Medium';
-        break;
-      case 'Low':
-        this.currentSelectedPrio = 'Low';
-        break;
-    }
+    this.priorities.forEach((currentPrio) => {
+      if (selectedPrio == currentPrio) {
+        this.currentSelectedPrio = currentPrio;
+      }
+    });
   }
 
 

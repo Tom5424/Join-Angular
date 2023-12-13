@@ -37,11 +37,13 @@
                         <p>asdhisaudhb</p>
                         <input [checked]="contactIsSelected" type="checkbox">
                     </li>
+
                     <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
                         <img src="../../../assets/icons/arrow-drop-down-icon.svg">
                         <p>asdhisaudhb</p>
                         <input [checked]="contactIsSelected" type="checkbox">
                     </li>
+
                     <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
                         <img src="../../../assets/icons/arrow-drop-down-icon.svg">
                         <p>asdhisaudhb</p>
@@ -64,19 +66,19 @@
                     <mark>*</mark>
                 </label>
                 <div class="containerPrioBtns">
-                    <button [ngClass]="{'btnUrgentPrio': currentSelectedPrio == 'Urgent'}"
-                        (click)="selectPrio('Urgent')" type="button">
+                    <button [ngClass]="{'btnUrgentPrio': currentSelectedPrio == 'urgent'}"
+                        (click)="selectPrio('urgent')" type="button">
                         Urgent
                         <img src="../../../assets/icons/priority-urgent-icon.svg">
                     </button>
 
-                    <button [ngClass]="{'btnMediumPrio': currentSelectedPrio == 'Medium'}"
-                        (click)="selectPrio('Medium')" type="button">
+                    <button [ngClass]="{'btnMediumPrio': currentSelectedPrio == 'medium'}"
+                        (click)="selectPrio('medium')" type="button">
                         Medium
                         <img src="../../../assets/icons/priority-medium-icon.svg">
                     </button>
 
-                    <button [ngClass]="{'btnLowPrio': currentSelectedPrio == 'Low'}" (click)="selectPrio('Low')"
+                    <button [ngClass]="{'btnLowPrio': currentSelectedPrio == 'low'}" (click)="selectPrio('low')"
                         type="button">
                         Low
                         <img src="../../../assets/icons/priority-low-icon.svg">
