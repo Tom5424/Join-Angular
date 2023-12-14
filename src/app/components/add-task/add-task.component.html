@@ -8,18 +8,19 @@
 
     <div class="containerAddTask">
         <h1>Add Task</h1>
-        <form id="addTaskForm">
+        <form (submit)="onSubmitForm()" [formGroup]="addTaskForm" id="addTaskForm">
             <div class="containerFormLeftSide">
                 <label for="inputTitle" form="addTaskForm">
                     Title
                     <mark>*</mark>
                 </label>
-                <input id="inputTitle" type="text" placeholder="Enter a title">
+                <input formControlName="title" id="inputTitle" type="text" placeholder="Enter a title">
 
                 <label for="textareaDescription" form="addTaskForm">Description</label>
-                <textarea id="textareaDescription" placeholder="Enter a description"></textarea>
+                <textarea formControlName="description" id="textareaDescription"
+                    placeholder="Enter a description"></textarea>
 
-
+                <!------------------------------ Dropdown Menu Assigned to ------------------------------>
                 <label form="addTaskForm">
                     Assigned to
                     <mark>*</mark>
@@ -34,22 +35,16 @@
                 <ul *ngIf="dropdownMenuAssignedToIsOpen" class="dropdownMenuAssignedTo">
                     <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
                         <img src="../../../assets/icons/arrow-drop-down-icon.svg">
-                        <p>asdhisaudhb</p>
-                        <input [checked]="contactIsSelected" type="checkbox">
-                    </li>
-
-                    <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
-                        <img src="../../../assets/icons/arrow-drop-down-icon.svg">
-                        <p>asdhisaudhb</p>
-                        <input [checked]="contactIsSelected" type="checkbox">
-                    </li>
-
-                    <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
-                        <img src="../../../assets/icons/arrow-drop-down-icon.svg">
-                        <p>asdhisaudhb</p>
+                        <p formControlName="assignedTo" ngDefaultControl>asdhisaudhb</p>
                         <input [checked]="contactIsSelected" type="checkbox">
                     </li>
                 </ul>
+                <!------------------------------ Dropdown Menu Assigned to ------------------------------>
+
+                <p class="thisFieldIsRequiredText">
+                    <mark>*</mark>
+                    This field is required
+                </p>
             </div>
 
             <hr>
@@ -59,73 +54,62 @@
                     Due Date
                     <mark>*</mark>
                 </label>
-                <input id="inputCalendar" type="date">
+                <input formControlName="dueDate" id="inputCalendar" type="date">
 
                 <label form="addTaskForm">
                     Prio
                     <mark>*</mark>
                 </label>
                 <div class="containerPrioBtns">
-                    <button [ngClass]="{'btnUrgentPrio': currentSelectedPrio == 'urgent'}"
-                        (click)="selectPrio('urgent')" type="button">
+                    <button formControlName="prio" ngDefaultControl
+                        [ngClass]="{'btnUrgentPrio': activePrio == 'urgent'}" (click)="selectPrio('urgent')"
+                        type="button">
                         Urgent
                         <img src="../../../assets/icons/priority-urgent-icon.svg">
                     </button>
 
-                    <button [ngClass]="{'btnMediumPrio': currentSelectedPrio == 'medium'}"
-                        (click)="selectPrio('medium')" type="button">
+                    <button [ngClass]="{'btnMediumPrio': activePrio == 'medium'}" (click)="selectPrio('medium')"
+                        type="button">
                         Medium
                         <img src="../../../assets/icons/priority-medium-icon.svg">
                     </button>
 
-                    <button [ngClass]="{'btnLowPrio': currentSelectedPrio == 'low'}" (click)="selectPrio('low')"
-                        type="button">
+                    <button [ngClass]="{'btnLowPrio': activePrio == 'low'}" (click)="selectPrio('low')" type="button">
                         Low
                         <img src="../../../assets/icons/priority-low-icon.svg">
                     </button>
                 </div>
 
+                <!------------------------------ Dropdown Menu Category ------------------------------>
                 <label form="addTaskForm">
                     Category
                     <mark>*</mark>
                 </label>
                 <div (click)="openDropdownMenuCategory()" [ngClass]="{'activeDropdownMenu': dropdownMenuCategoryIsOpen}"
                     class="dropdownMenuBox">
-                    <p>Select task category</p>
+                    <p>{{ selectedCategory ? selectedCategory : 'Select task category' }}</p>
                     <img [ngClass]="{'rotateArrowIcon': dropdownMenuCategoryIsOpen}"
                         src="../../../assets/icons/arrow-drop-down-icon.svg">
                 </div>
 
                 <ul *ngIf="dropdownMenuCategoryIsOpen" class="dropdownMenuCategory">
-                    <li>
-                        <p>asdhisaudhb</p>
-                    </li>
-                    <li>
-                        <p>asdhisaudhb</p>
-                    </li>
-                    <li>
+                    <li formControlName="category" ngDefaultControl (click)="selectCategory('asdhisaudhb')">
                         <p>asdhisaudhb</p>
                     </li>
                 </ul>
+                <!------------------------------ Dropdown Menu Category ------------------------------>
+
+                <div class="containerBtns">
+                    <button (click)="clearForm()" class="btnClearForm" type="reset">
+                        Clear
+                        <img src="../../../assets/icons/close-icon.svg">
+                    </button>
+                    <button class="btnCreateTask" type="submit">
+                        Create Task
+                        <img src="../../../assets/icons/check-icon-white.svg">
+                    </button>
+                </div>
             </div>
         </form>
-
-        <footer>
-            <p>
-                <mark>*</mark>
-                This field is required
-            </p>
-
-            <div>
-                <button class="btnClearForm" type="reset">
-                    Clear
-                    <img src="../../../assets/icons/close-icon.svg">
-                </button>
-                <button class="btnCreateTask" type="submit">
-                    Create Task
-                    <img src="../../../assets/icons/check-icon-white.svg">
-                </button>
-            </div>
-        </footer>
     </div>
 </main>
