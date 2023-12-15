@@ -14,11 +14,21 @@
                     Title
                     <mark>*</mark>
                 </label>
-                <input formControlName="title" id="inputTitle" type="text" placeholder="Enter a title">
+                <input
+                    [ngClass]="{'errorInputfield': addTaskForm.controls.title.touched && addTaskForm.controls.title.errors?.['required']}"
+                    formControlName="title" id="inputTitle" type="text" placeholder="Enter a title">
 
-                <label for="textareaDescription" form="addTaskForm">Description</label>
+                <p *ngIf="addTaskForm.controls.title.touched && addTaskForm.controls.title.errors?.['required']"
+                    class="errorMessage" style="margin-top: -20px;">Title is required</p>
+
+                <label for=" textareaDescription" form="addTaskForm">Description</label>
                 <textarea formControlName="description" id="textareaDescription"
                     placeholder="Enter a description"></textarea>
+
+                <p *ngIf="addTaskForm.controls.description.errors?.['maxlength']" class="errorMessage"
+                    style="margin-top: -20px;">
+                    Description can only 50 maximum characters long
+                </p>
 
                 <!------------------------------ Dropdown Menu Assigned to ------------------------------>
                 <label form="addTaskForm">
@@ -32,8 +42,12 @@
                         src="../../../assets/icons/arrow-drop-down-icon.svg">
                 </div>
 
+                <!------------------------------ Only placeholder ------------------------------>
+                <p>{{ selectedContact ? selectedContact : '' }}</p>
+                <!------------------------------ Only placeholder ------------------------------>
+
                 <ul *ngIf="dropdownMenuAssignedToIsOpen" class="dropdownMenuAssignedTo">
-                    <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact()">
+                    <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact('asdhisaudhb')">
                         <img src="../../../assets/icons/arrow-drop-down-icon.svg">
                         <p formControlName="assignedTo" ngDefaultControl>asdhisaudhb</p>
                         <input [checked]="contactIsSelected" type="checkbox">
@@ -60,25 +74,29 @@
                     Prio
                     <mark>*</mark>
                 </label>
+                <!------------------------------ Prio Buttons ------------------------------>
                 <div class="containerPrioBtns">
                     <button formControlName="prio" ngDefaultControl
-                        [ngClass]="{'btnUrgentPrio': activePrio == 'urgent'}" (click)="selectPrio('urgent')"
+                        [ngClass]="{'btnUrgentPrio': activePrioBtn == 'urgent'}" (click)="selectPrio('urgent')"
                         type="button">
                         Urgent
                         <img src="../../../assets/icons/priority-urgent-icon.svg">
                     </button>
 
-                    <button [ngClass]="{'btnMediumPrio': activePrio == 'medium'}" (click)="selectPrio('medium')"
+                    <button formControlName="prio" ngDefaultControl
+                        [ngClass]="{'btnMediumPrio': activePrioBtn == 'medium'}" (click)="selectPrio('medium')"
                         type="button">
                         Medium
                         <img src="../../../assets/icons/priority-medium-icon.svg">
                     </button>
 
-                    <button [ngClass]="{'btnLowPrio': activePrio == 'low'}" (click)="selectPrio('low')" type="button">
+                    <button formControlName="prio" ngDefaultControl [ngClass]="{'btnLowPrio': activePrioBtn == 'low'}"
+                        (click)="selectPrio('low')" type="button">
                         Low
                         <img src="../../../assets/icons/priority-low-icon.svg">
                     </button>
                 </div>
+                <!------------------------------ Prio Buttons ------------------------------>
 
                 <!------------------------------ Dropdown Menu Category ------------------------------>
                 <label form="addTaskForm">
@@ -93,8 +111,8 @@
                 </div>
 
                 <ul *ngIf="dropdownMenuCategoryIsOpen" class="dropdownMenuCategory">
-                    <li formControlName="category" ngDefaultControl (click)="selectCategory('asdhisaudhb')">
-                        <p>asdhisaudhb</p>
+                    <li (click)="selectCategory('test')">
+                        <p formControlName="category" ngDefaultControl>test</p>
                     </li>
                 </ul>
                 <!------------------------------ Dropdown Menu Category ------------------------------>
@@ -104,7 +122,10 @@
                         Clear
                         <img src="../../../assets/icons/close-icon.svg">
                     </button>
-                    <button class="btnCreateTask" type="submit">
+                    <button
+                        [disabled]="addTaskForm.invalid || selectedContact == '' || activePrioBtn == ''  || selectedCategory == '' "
+                        [ngClass]="{'btnDisabled': addTaskForm.invalid || selectedContact == '' || activePrioBtn == '' || selectedCategory == ''}"
+                        class="btnCreateTask" type="submit">
                         Create Task
                         <img src="../../../assets/icons/check-icon-white.svg">
                     </button>

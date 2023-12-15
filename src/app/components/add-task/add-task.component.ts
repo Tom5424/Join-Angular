@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -13,18 +13,19 @@ export class AddTaskComponent {
   dropdownMenuAssignedToIsOpen: boolean = false;
   dropdownMenuCategoryIsOpen: boolean = false;
   contactIsSelected: boolean = false;
-  activePrio: string = '';
+  selectedContact: string = '';
+  activePrioBtn: string = '';
   selectedCategory: string = '';
   priorities: string[] = ['urgent', 'medium', 'low'];
 
 
   addTaskForm = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(''),
-    assignedTo: new FormControl(''),
-    dueDate: new FormControl(''),
-    prio: new FormControl(''),
-    category: new FormControl(''),
+    title: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.maxLength(50)),
+    assignedTo: new FormControl('',),
+    dueDate: new FormControl('', Validators.required),
+    prio: new FormControl('',),
+    category: new FormControl('',),
   });
 
 
@@ -44,22 +45,27 @@ export class AddTaskComponent {
   }
 
 
-  selectContact() {
+  selectContact(selectedContact: string) {
     this.contactIsSelected = !this.contactIsSelected;
+    if (this.contactIsSelected) {
+      this.selectedContact = selectedContact;
+    } else {
+      this.selectedContact = '';
+    }
   }
 
 
   selectPrio(selectedPrio: string) {
     this.priorities.forEach((currentPrio) => {
       if (selectedPrio == currentPrio) {
-        this.activePrio = currentPrio;
+        this.activePrioBtn = currentPrio;
       }
     });
   }
 
 
-  selectCategory(text: string) { // rename Parameter text
-    this.selectedCategory = text;
+  selectCategory(selectedCategory: string) {
+    this.selectedCategory = selectedCategory;
     this.dropdownMenuCategoryIsOpen = false;
   }
 
@@ -68,15 +74,19 @@ export class AddTaskComponent {
     this.addTaskForm.patchValue({
       title: this.addTaskForm.controls.title.value,
       description: this.addTaskForm.controls.description.value,
+      assignedTo: this.selectedContact,
       dueDate: this.addTaskForm.controls.dueDate.value,
+      prio: this.activePrioBtn,
       category: this.selectedCategory,
     });
+    this.clearForm();
   }
 
 
   clearForm() {
     this.addTaskForm.reset();
-    this.activePrio = '';
+    this.selectedContact = '';
+    this.activePrioBtn = '';
     this.selectedCategory = '';
   }
 }
