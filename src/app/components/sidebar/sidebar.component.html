@@ -6,12 +6,12 @@
             <td>Summary</td>
         </tr>
 
-        <tr routerLink="/addTask" routerLinkActive="activeLink">
+        <tr routerLink="/addTask" routerLinkActive="activeLink" [routerLinkActiveOptions]="{ exact: true }">
             <img src="../../../assets/icons/navbar-add-task-icon.svg">
             <td>Add Task</td>
         </tr>
 
-        <tr>
+        <tr routerLink="/board" routerLinkActive="activeLink" [routerLinkActiveOptions]="{ exact: true }">
             <img src="../../../assets/icons/navbar-board-icon.svg">
             <td>Board</td>
         </tr>

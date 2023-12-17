@@ -13,6 +13,7 @@
     &:hover {
         cursor: not-allowed !important;
         background-color: $btnDisabled;
+        box-shadow: unset !important;
     }
 }
 
@@ -73,6 +74,7 @@
     &:hover {
         @include hover();
         background-color: $btnPrimaryHover;
+        box-shadow: 0px 4px 4px 0px #00000040;
     }
 }
 
@@ -89,6 +91,7 @@
         @include hover();
         border: 1px solid $btnSecondaryHover;
         color: $btnSecondaryHover;
+        box-shadow: 0px 4px 4px 0px #00000040;
     }
 }
 

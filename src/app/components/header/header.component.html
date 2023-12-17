@@ -1,6 +1,6 @@
 <header>
     <p>Kanban Project Management Tool</p>
-    <div *ngIf="router.url == '/summary' || router.url == '/description' || router.url == '/addTask'"
+    <div *ngIf="router.url == '/summary' || router.url == '/description' || router.url == '/addTask' || router.url == '/board' "
         class="containerLoggedInUser">
         <img *ngIf="router.url !== '/description'" routerLink="/description"
             src="../../../assets/icons/question-mark-icon.svg">

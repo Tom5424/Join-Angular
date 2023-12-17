@@ -1,0 +1,110 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+main {
+    background-color: $mainBgColor;
+    display: flex;
+    align-items: center;
+}
+
+
+.containerBoard {
+    width: 87%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+.containerBoardHeadline {
+    @include flexCenteredYAxis();
+    justify-content: space-between;
+
+    h1 {
+        @include headline();
+    }
+}
+
+
+.containerInputFieldAndBtn {
+    @include flexCenteredYAxis();
+    gap: 32px;
+    position: relative;
+
+    input {
+        @include inputFieldDefault();
+        @include inputFieldFocus();
+        padding: 0px 70px 0 10px;
+        outline: none;
+    }
+
+    hr {
+        width: 1px;
+        height: 25px;
+        position: absolute;
+        right: 230px;
+        border: unset;
+        background-color: #D1D1D1;
+    }
+
+    button {
+        @include btnPrimary();
+        @include btnPrimaryHover();
+        @include hover();
+        @include flexCenteredYAxis();
+        gap: 4px;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 8px 16px 8px 16px;
+        border-radius: 10px;
+
+        img {
+            width: 15px;
+        }
+    }
+}
+
+
+.containerImgMagnifyingGlass {
+    @include hover();
+    padding: 6px;
+    display: flex;
+    position: absolute;
+    top: 5px;
+    right: 188px;
+
+    &:hover {
+        @include iconHover();
+    }
+}
+
+
+table {
+    display: flex;
+    gap: 24px;
+
+    tr {
+        width: 25%;
+        height: 400px;
+        background-color: lightgrey;
+    }
+
+    th {
+        @include flexCenteredYAxis();
+        justify-content: space-between;
+        color: #42526E;
+        font-size: 20px;
+
+        img {
+            @include hover();
+            border: 2px solid #2A3647;
+            border-radius: 8px;
+            padding: 5px;
+
+            &:hover {
+                border: 2px solid #29ABE2;
+                filter: brightness(0) saturate(100%) invert(59%) sepia(63%) saturate(1455%) hue-rotate(165deg) brightness(92%) contrast(92%);
+            }
+        }
+    }
+}

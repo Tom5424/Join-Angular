@@ -7,6 +7,7 @@ import { LegalNoticeComponent } from './components/legal-notice/legal-notice.com
 import { SummaryComponent } from './components/summary/summary.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import { BoardComponent } from './components/board/board.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'summary/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
 
   { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent },
+  { path: 'board', title: 'Join - Board', component: BoardComponent },
 ];
 
 
