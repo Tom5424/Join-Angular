@@ -20,12 +20,12 @@ export class AddTaskComponent {
 
 
   addTaskForm = new FormGroup({
-    title: new FormControl('', Validators.required),
+    title: new FormControl('', [Validators.required, Validators.maxLength(10)]),
     description: new FormControl('', Validators.maxLength(50)),
-    assignedTo: new FormControl('',),
+    assignedTo: new FormControl(''),
     dueDate: new FormControl('', Validators.required),
-    prio: new FormControl('',),
-    category: new FormControl('',),
+    prio: new FormControl(''),
+    category: new FormControl(''),
   });
 
 
@@ -85,6 +85,7 @@ export class AddTaskComponent {
 
   clearForm() {
     this.addTaskForm.reset();
+    this.contactIsSelected = false;
     this.selectedContact = '';
     this.activePrioBtn = '';
     this.selectedCategory = '';

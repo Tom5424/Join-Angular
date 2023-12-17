@@ -1,8 +1,10 @@
 <app-header></app-header>
 
 <main>
+    <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
     <div (click)="closeDropdownIfClickOutSide()"
         [ngClass]="{'overlay': dropdownMenuAssignedToIsOpen || dropdownMenuCategoryIsOpen}"></div>
+    <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
 
     <app-sidebar></app-sidebar>
 
@@ -14,16 +16,20 @@
                     Title
                     <mark>*</mark>
                 </label>
-                <input
-                    [ngClass]="{'errorInputfield': addTaskForm.controls.title.touched && addTaskForm.controls.title.errors?.['required']}"
-                    formControlName="title" id="inputTitle" type="text" placeholder="Enter a title">
+                <input [ngClass]="{'errorInputfield': addTaskForm.controls.title.touched && 
+                    addTaskForm.controls.title.errors?.['required'] || 
+                    addTaskForm.controls.title.errors?.['maxlength']}" formControlName="title" id="inputTitle"
+                    type="text" placeholder="Enter a title">
 
                 <p *ngIf="addTaskForm.controls.title.touched && addTaskForm.controls.title.errors?.['required']"
                     class="errorMessage" style="margin-top: -20px;">Title is required</p>
 
-                <label for=" textareaDescription" form="addTaskForm">Description</label>
-                <textarea formControlName="description" id="textareaDescription"
-                    placeholder="Enter a description"></textarea>
+                <p *ngIf="addTaskForm.controls.title.errors?.['maxlength']" class="errorMessage"
+                    style="margin-top: -20px;">Title can only 10 maximum characters long</p>
+
+                <label for="textareaDescription" form="addTaskForm">Description</label>
+                <textarea [ngClass]="{'errorInputfield': addTaskForm.controls.description.errors?.['maxlength']}"
+                    formControlName="description" id="textareaDescription" placeholder="Enter a description"></textarea>
 
                 <p *ngIf="addTaskForm.controls.description.errors?.['maxlength']" class="errorMessage"
                     style="margin-top: -20px;">
@@ -38,18 +44,19 @@
                 <div (click)="openDropdownMenuAssignedTo()"
                     [ngClass]="{'activeDropdownMenu': dropdownMenuAssignedToIsOpen}" class="dropdownMenuBox">
                     <p *ngIf="!dropdownMenuAssignedToIsOpen">Select Contacts to assign</p>
-                    <img [ngClass]="{'rotateArrowIcon': dropdownMenuAssignedToIsOpen}"
+                    <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuAssignedToIsOpen}"
                         src="../../../assets/icons/arrow-drop-down-icon.svg">
                 </div>
 
                 <!------------------------------ Only placeholder ------------------------------>
-                <p>{{ selectedContact ? selectedContact : '' }}</p>
+                <p *ngIf="selectedContact">{{ selectedContact }}</p>
                 <!------------------------------ Only placeholder ------------------------------>
 
                 <ul *ngIf="dropdownMenuAssignedToIsOpen" class="dropdownMenuAssignedTo">
-                    <li [ngClass]="{'activeSelectedContact': contactIsSelected}" (click)="selectContact('asdhisaudhb')">
-                        <img src="../../../assets/icons/arrow-drop-down-icon.svg">
-                        <p formControlName="assignedTo" ngDefaultControl>asdhisaudhb</p>
+                    <li [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected}"
+                        (click)="selectContact('T')">
+                        <span>T</span>
+                        <p formControlName="assignedTo" ngDefaultControl>Tom</p>
                         <input [checked]="contactIsSelected" type="checkbox">
                     </li>
                 </ul>
@@ -106,7 +113,7 @@
                 <div (click)="openDropdownMenuCategory()" [ngClass]="{'activeDropdownMenu': dropdownMenuCategoryIsOpen}"
                     class="dropdownMenuBox">
                     <p>{{ selectedCategory ? selectedCategory : 'Select task category' }}</p>
-                    <img [ngClass]="{'rotateArrowIcon': dropdownMenuCategoryIsOpen}"
+                    <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuCategoryIsOpen}"
                         src="../../../assets/icons/arrow-drop-down-icon.svg">
                 </div>
 
@@ -117,7 +124,7 @@
                 </ul>
                 <!------------------------------ Dropdown Menu Category ------------------------------>
 
-                <div class="containerBtns">
+                <div class="containerBtnsClearFormAndAddTask">
                     <button (click)="clearForm()" class="btnClearForm" type="reset">
                         Clear
                         <img src="../../../assets/icons/close-icon.svg">

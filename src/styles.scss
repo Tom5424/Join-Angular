@@ -117,6 +117,27 @@ body {
 }
 
 
+/////////// Styles for Dropdown Menus ///////////
+.rotateArrowIconInDropdownMenu {
+    transform: rotate(180deg) !important;
+}
+
+
+.activeDropdownMenu {
+    border: 1px solid $inputFieldFocusBorderColor !important;
+}
+
+
+.activeSelectedContactInDropdownMenu {
+    background-color: $mainColor;
+    color: white;
+
+    &:hover {
+        background-color: #091931 !important;
+    }
+}
+
+
 /////////// Animation ///////////
 @keyframes slideInUp {
     from {
