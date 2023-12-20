@@ -28,7 +28,7 @@ body {
 }
 
 
-/////////// Styles for current active Route ///////////
+/////////// Styles for active Route ///////////
 .activeLink {
     @include activeLink();
 }

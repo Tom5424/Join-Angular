@@ -29,7 +29,7 @@ export class AuthService {
         this.redirectToLoginAfterSignupSuccessfullyService(formValue.name);
       })
       .catch((error) => {
-        console.error('Registration failed, the email you entered already exists. Please try again.', error.message);
+        console.error('Registration failed, the Email you entered already exists. Please try again.', error.message);
         this.displayErrorIfSingupFailsService();
       })
   }
@@ -64,7 +64,7 @@ export class AuthService {
         this.router.navigateByUrl('/summary')
       })
       .catch((error) => {
-        console.error('Login fails, the entered email or password are wrong. Please try again.', error.message);
+        console.error('Login fails, the entered Email or Password are wrong. Please try again.', error.message);
         this.displayErrorIfLoginFailsService();
       });
   }
