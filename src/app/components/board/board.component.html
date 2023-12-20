@@ -8,8 +8,8 @@
             <h1>Board</h1>
 
             <div class="containerInputFieldAndBtn">
-                <input type="text" placeholder="Find Task">
-                <div class="containerImgMagnifyingGlass">
+                <input #inputFindTask type="text" placeholder="Find Task">
+                <div (click)="focusInput()" class="containerImgMagnifyingGlass">
                     <img src="../../../assets/icons/magnifying-glass-icon.svg">
                 </div>
 
@@ -30,6 +30,43 @@
                 </div>
                 <div class="column">
 
+                    <div class="containerTaskMiniView">
+                        <p class="taskCategory">Test</p>
+                        <p class="taskTitle">Test Title</p>
+                        <span>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Consequatur dicta obcaecati
+                            veniam sed est modi labore harum, molestias, similique provident eos non, facere corporis
+                            cupiditate corrupti amet atque perferendis itaque.
+                        </span>
+                        <div class="footerTaskMiniView">
+                            <div class="containerAssignedContacts">
+                                <p>T</p>
+                                <p>T</p>
+                                <p>T</p>
+                            </div>
+                            <img src="../../../assets/icons/priority-medium-icon.svg">
+                        </div>
+                    </div>
+
+                    <div class="containerTaskMiniView">
+                        <p class="taskCategory">Test</p>
+                        <p class="taskTitle">Test Title</p>
+                        <span>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Consequatur dicta obcaecati
+                            veniam sed est modi labore harum, molestias, similique provident eos non, facere corporis
+                            cupiditate corrupti amet atque perferendis itaque.
+                        </span>
+                        <div class="footerTaskMiniView">
+                            <div class="containerAssignedContacts">
+                                <p>T</p>
+                                <p>T</p>
+                                <p>T</p>
+                            </div>
+                            <img src="../../../assets/icons/priority-medium-icon.svg">
+                        </div>
+                    </div>
                 </div>
             </div>
 
