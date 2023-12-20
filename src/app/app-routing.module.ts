@@ -8,6 +8,7 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { BoardComponent } from './components/board/board.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
 
   { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent },
   { path: 'board', title: 'Join - Board', component: BoardComponent },
+  { path: 'contacts', title: 'Join - Contacts', component: ContactsComponent },
 ];
 
 

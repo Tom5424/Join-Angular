@@ -1,0 +1,35 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+main {
+    background-color: $mainBgColor;
+    display: flex;
+    align-items: center;
+}
+
+
+.containerContacts {}
+
+
+.containerContactList {
+    background-color: #FFFFFF;
+    box-shadow: 4px 0px 6px 0px #00000014;
+
+    button {
+        @include hover();
+        @include btnPrimary();
+        @include btnPrimaryHover();
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-radius: 10px;
+        padding: 12px 0px 12px 0px;
+        font-size: 20px;
+        font-weight: 700;
+
+        img {
+            width: 25px;
+        }
+    }
+}

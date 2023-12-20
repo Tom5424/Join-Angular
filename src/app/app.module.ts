@@ -22,6 +22,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DescriptionComponent } from './components/description/description.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { BoardComponent } from './components/board/board.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { BoardComponent } from './components/board/board.component';
     DescriptionComponent,
     AddTaskComponent,
     BoardComponent,
+    ContactsComponent,
   ],
   imports: [
     BrowserModule,

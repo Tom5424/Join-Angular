@@ -169,6 +169,10 @@
 @mixin activeLink() {
     background-color: #091931;
 
+    img {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(93%) saturate(2%) hue-rotate(41deg) brightness(108%) contrast(101%);
+    }
+
     &:hover {
         cursor: unset !important;
         background-color: #091931 !important;
