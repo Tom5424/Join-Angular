@@ -5,7 +5,6 @@
 main {
     background-color: $mainBgColor;
     display: flex;
-    align-items: center;
 }
 
 
@@ -13,8 +12,41 @@ main {
 
 
 .containerContactList {
+    width: 30%;
+    height: 84%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    padding: 32px 24px 0 24px;
     background-color: #FFFFFF;
     box-shadow: 4px 0px 6px 0px #00000014;
+
+    ul {
+        padding-left: 0;
+        list-style: none;
+
+        li {
+            font-size: 20px;
+            padding-left: 28px;
+        }
+
+        hr {
+            width: 400px;
+            height: 1px;
+            margin: 15px 0 10px 0;
+            background-color: #D1D1D1;
+            border: unset;
+        }
+    }
+}
+
+
+.containerBtn {
+    margin: -10px 0 10px 0;
 
     button {
         @include hover();
@@ -24,12 +56,56 @@ main {
         align-items: center;
         gap: 16px;
         border-radius: 10px;
-        padding: 12px 0px 12px 0px;
+        padding: 12px 85px 12px 85px;
         font-size: 20px;
         font-weight: 700;
 
         img {
             width: 25px;
         }
+    }
+}
+
+
+.containerContactInitialLetterAndFullNameAndEmail {
+    @include hover();
+    display: flex;
+    gap: 35px;
+    padding-left: 19px !important;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+    &:hover {
+        background: linear-gradient(to bottom, #f9f9f9, #f7f7f7, #f4f4f4, #f2f2f2, #f0f0f0);
+    }
+}
+
+
+.contactInitialLetter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 50%;
+    background-color: #FF7A00;
+    color: white;
+}
+
+
+.containerFullNameAndEmail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    p {
+        margin: 0;
+    }
+
+    span {
+        font-size: 18px;
+        color: #007CEE;
     }
 }
