@@ -16,44 +16,47 @@ main {
     height: 84%;
     overflow-y: scroll;
     overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flexCenteredColumnXAxis();
     position: absolute;
     top: 80px;
     padding: 32px 24px 0 24px;
     background-color: #FFFFFF;
     box-shadow: 4px 0px 6px 0px #00000014;
+}
 
-    ul {
-        padding-left: 0;
-        list-style: none;
 
-        li {
-            font-size: 20px;
-            padding-left: 28px;
-        }
+.contactList {
+    p {
+        font-size: 20px;
+        padding-left: 28px;
+    }
 
-        hr {
-            width: 400px;
-            height: 1px;
-            margin: 15px 0 10px 0;
-            background-color: #D1D1D1;
-            border: unset;
-        }
+    hr {
+        width: 400px;
+        height: 1px;
+        margin: 15px 0 10px 0;
+        background-color: #D1D1D1;
+        border: unset;
     }
 }
 
 
 .containerBtn {
-    margin: -10px 0 10px 0;
+    height: 100px;
+    position: sticky;
+    top: -32px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -32px -50px 0px -50px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1019607843);
 
     button {
         @include hover();
         @include btnPrimary();
         @include btnPrimaryHover();
-        display: flex;
-        align-items: center;
+        @include flexCenteredYAxis();
         gap: 16px;
         border-radius: 10px;
         padding: 12px 85px 12px 85px;
@@ -82,12 +85,11 @@ main {
 
 
 .contactInitialLetter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenteredMiddle();
     width: 35px;
     height: 35px;
-    font-size: 16px;
+    font-size: 16px !important;
+    padding-left: 0 !important;
     border-radius: 50%;
     background-color: #FF7A00;
     color: white;
@@ -95,13 +97,12 @@ main {
 
 
 .containerFullNameAndEmail {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include flexCenteredColumnYAxis();
     gap: 5px;
 
     p {
         margin: 0;
+        padding-left: 0;
     }
 
     span {
