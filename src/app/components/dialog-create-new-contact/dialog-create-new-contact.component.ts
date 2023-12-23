@@ -27,7 +27,7 @@ export class DialogCreateNewContactComponent {
   }
 
 
-  stopPropagation(event: any) {
+  stopPropagation(event: Event) {
     event.stopPropagation();
   }
 }

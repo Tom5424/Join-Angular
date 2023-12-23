@@ -1,8 +1,43 @@
-<div (click)="closeDialogIfClickedOutside()" *ngIf="openDialogService.overlayIsDisplayed" class="overlayDialog">
-    <div (click)="stopPropagation($event)"
-        [ngClass]="{'slideIn': openDialogService.dialogCreateNewContactIsOpen, 'slideOut': !openDialogService.dialogCreateNewContactIsOpen}"
-        class="dialog">
-        <p>salkdjsanlk</p>
-        <button (click)="closeDialog()">sadsad</button>
+<div (click)="closeDialogIfClickedOutside()" class="overlayDialog">
+    <div class="dialog" (click)="stopPropagation($event)" [ngClass]="{'slideIn': openDialogService.dialogCreateNewContactIsOpen, 
+        'slideOut': !openDialogService.dialogCreateNewContactIsOpen}">
+
+        <div class="dialogLeftContainer">
+            <img src="../../../assets/img/favicon-white.svg">
+
+            <div class="containerTextAndBlueLine">
+                <h1>Add contact</h1>
+                <p>Tasks are better with a team!</p>
+                <hr>
+            </div>
+        </div>
+
+        <div class="dialogRightContainer">
+            <div (click)="closeDialog()" class="containerCloseIcon">
+                <img src="../../../assets/icons/close-icon.svg">
+            </div>
+
+            <div class="containerImgAndForm">
+                <img class="userImg" src="../../../assets/icons/contact-icon-white.svg">
+
+                <form>
+                    <input class="inputName" type="text" placeholder="Name">
+                    <input class="inputEmail" type="email" placeholder="Email">
+                    <input class="inputPhone" type="tel" placeholder="Phone">
+
+                    <div class="containerBtn">
+                        <button (click)="closeDialog()" class="cancelBtn" type="reset">
+                            Cancel
+                            <img src="../../../assets/icons/close-icon.svg">
+                        </button>
+                        <button class="createContactBtn" type="submit">
+                            Create Contact
+                            <img src="../../../assets/icons/check-icon-white.svg">
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </div>
 </div>
