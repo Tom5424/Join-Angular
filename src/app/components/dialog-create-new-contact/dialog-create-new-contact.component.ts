@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 
@@ -10,6 +11,11 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 
 export class DialogCreateNewContactComponent {
+  createContactForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+    email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
+    phoneNumber: new FormControl('', [Validators.required, Validators.pattern(/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/)]),
+  });
 
 
   constructor(public openDialogService: OpenDialogsService) {
@@ -29,5 +35,10 @@ export class DialogCreateNewContactComponent {
 
   stopPropagation(event: Event) {
     event.stopPropagation();
+  }
+
+
+  onSubmitForm() {
+    this.createContactForm.reset();
   }
 }

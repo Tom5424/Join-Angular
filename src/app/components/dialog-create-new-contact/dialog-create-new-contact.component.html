@@ -20,17 +20,68 @@
             <div class="containerImgAndForm">
                 <img class="userImg" src="../../../assets/icons/contact-icon-white.svg">
 
-                <form>
-                    <input class="inputName" type="text" placeholder="Name">
-                    <input class="inputEmail" type="email" placeholder="Email">
-                    <input class="inputPhone" type="tel" placeholder="Phone">
+                <form [formGroup]="createContactForm" (submit)="onSubmitForm()">
+                    <!------------------------ Validate Inputfield Name ------------------------>
+                    <input [ngClass]="{'errorInputfield': createContactForm.controls.name.touched && 
+                    createContactForm.controls.name.errors?.['required'] || 
+                    createContactForm.controls.name.errors?.['minlength'] ||
+                    createContactForm.controls.name.errors?.['maxlength']}" formControlName="name" class="inputName"
+                        type="text" placeholder="Name">
+
+                    <p *ngIf="createContactForm.controls.name.touched && createContactForm.controls.name.errors?.['required']"
+                        class="errorMessage">
+                        Name is required
+                    </p>
+
+                    <p *ngIf="createContactForm.controls.name.errors?.['minlength']" class="errorMessage">
+                        Name must minium 3 characters long
+                    </p>
+
+                    <p *ngIf="createContactForm.controls.name.errors?.['maxlength']" class="errorMessage">
+                        Name can only 10 maximum characters long
+                    </p>
+                    <!------------------------ Validate Inputfield Name ------------------------>
+
+                    <!------------------------ Validate Inputfield Email ------------------------>
+                    <input [ngClass]="{'errorInputfield': createContactForm.controls.email.touched && 
+                    createContactForm.controls.email.errors?.['required'] || 
+                    createContactForm.controls.email.errors?.['pattern']}" formControlName="email" class="inputEmail"
+                        type="email" placeholder="Email">
+
+                    <p *ngIf="createContactForm.controls.email.touched && createContactForm.controls.email.errors?.['required']"
+                        class="errorMessage">
+                        Email is required
+                    </p>
+
+                    <p *ngIf="createContactForm.controls.email.errors?.['pattern']" class="errorMessage">
+                        Please enter a Valid Email
+                    </p>
+                    <!------------------------ Validate Inputfield Email ------------------------>
+
+                    <!------------------------ Validate Inputfield Phone Number ------------------------>
+                    <input [ngClass]="{'errorInputfield': createContactForm.controls.phoneNumber.touched && 
+                        createContactForm.controls.phoneNumber.errors?.['required'] ||
+                         createContactForm.controls.phoneNumber.errors?.['pattern']}" formControlName="phoneNumber"
+                        class="inputPhoneNumber" type="tel" placeholder="Phone">
+
+                    <p class="errorMessage" *ngIf="createContactForm.controls.phoneNumber.touched &&
+                        createContactForm.controls.phoneNumber.errors?.['required']">
+                        Phone Number is required
+                    </p>
+
+                    <p class="errorMessage" *ngIf="createContactForm.controls.phoneNumber.errors?.['pattern']">
+                        Please enter a Valid Phone Number
+                    </p>
+                    <!------------------------ Validate Inputfield Phone Number ------------------------>
 
                     <div class="containerBtn">
                         <button (click)="closeDialog()" class="cancelBtn" type="reset">
                             Cancel
                             <img src="../../../assets/icons/close-icon.svg">
                         </button>
-                        <button class="createContactBtn" type="submit">
+                        <button [disabled]="createContactForm.invalid"
+                            [ngClass]="{'btnDisabled': createContactForm.invalid}" class="createContactBtn"
+                            type="submit">
                             Create Contact
                             <img src="../../../assets/icons/check-icon-white.svg">
                         </button>

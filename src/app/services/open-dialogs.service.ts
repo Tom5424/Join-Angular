@@ -21,6 +21,6 @@ export class OpenDialogsService {
     this.dialogCreateNewContactIsOpen = false;
     setTimeout(() => {
       this.overlayIsDisplayed = false;
-    }, 500);
+    }, 400);
   }
 }
