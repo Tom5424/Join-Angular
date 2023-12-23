@@ -1,0 +1,8 @@
+<div (click)="closeDialogIfClickedOutside()" *ngIf="openDialogService.overlayIsDisplayed" class="overlayDialog">
+    <div (click)="stopPropagation($event)"
+        [ngClass]="{'slideIn': openDialogService.dialogCreateNewContactIsOpen, 'slideOut': !openDialogService.dialogCreateNewContactIsOpen}"
+        class="dialog">
+        <p>salkdjsanlk</p>
+        <button (click)="closeDialog()">sadsad</button>
+    </div>
+</div>

@@ -3,12 +3,16 @@
 <main>
     <app-sidebar></app-sidebar>
 
+    <app-dialog-create-new-contact *ngIf="openDialogService.overlayIsDisplayed"></app-dialog-create-new-contact>
+
+
+
     <div class="containerContacts">
         <div class="containerContactList">
 
             <div class="contactList">
                 <div class="containerBtn">
-                    <button type="button">
+                    <button (click)="openDialog()" type="button">
                         Add new Contact
                         <img src="../../../assets/icons/add-new-contact-icon.svg">
                     </button>

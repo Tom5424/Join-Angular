@@ -23,6 +23,7 @@ import { DescriptionComponent } from './components/description/description.compo
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { BoardComponent } from './components/board/board.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { DialogCreateNewContactComponent } from './components/dialog-create-new-contact/dialog-create-new-contact.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     AddTaskComponent,
     BoardComponent,
     ContactsComponent,
+    DialogCreateNewContactComponent,
   ],
   imports: [
     BrowserModule,

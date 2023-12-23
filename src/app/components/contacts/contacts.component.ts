@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 
 @Component({
@@ -10,4 +11,13 @@ import { Component } from '@angular/core';
 
 export class ContactsComponent {
 
+
+  constructor(public openDialogService: OpenDialogsService) {
+
+  }
+
+
+  openDialog() {
+    this.openDialogService.openDialogCreateNewContactService();
+  }
 }
