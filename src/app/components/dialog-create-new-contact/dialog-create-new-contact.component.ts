@@ -40,5 +40,6 @@ export class DialogCreateNewContactComponent {
 
   onSubmitForm() {
     this.createContactForm.reset();
+    this.closeDialog();
   }
 }
