@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CreateNewContactService } from 'src/app/services/create-new-contact.service';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 
@@ -9,11 +10,16 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 })
 
 
-export class ContactsComponent {
+export class ContactsComponent implements OnInit {
 
 
-  constructor(public openDialogService: OpenDialogsService) {
+  constructor(public openDialogService: OpenDialogsService, public createNewContactService: CreateNewContactService) {
 
+  }
+
+
+  ngOnInit(): void {
+    this.createNewContactService.getNewContactService();
   }
 
 

@@ -69,6 +69,10 @@
                         Phone Number is required
                     </p>
 
+                    <p class="errorMessage" *ngIf="createContactForm.controls.phoneNumber.errors?.['maxlength']">
+                        Phone Number can only 15 maximum characters long
+                    </p>
+
                     <p class="errorMessage" *ngIf="createContactForm.controls.phoneNumber.errors?.['pattern']">
                         Please enter a Valid Phone Number
                     </p>

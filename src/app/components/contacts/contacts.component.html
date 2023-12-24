@@ -16,57 +16,16 @@
                     </button>
                 </div>
 
-                <!----------------------------- Only Placeholder --------------------------->
                 <p>A</p>
                 <hr>
-                <div class="containerContactInitialLetterAndFullNameAndEmail">
+                <div *ngFor="let contact of createNewContactService.contactData | async"
+                    class="containerContactInitialLetterAndFullNameAndEmail">
                     <p class="contactInitialLetter">T</p>
                     <div class="containerFullNameAndEmail">
-                        <p>Tom Tom</p>
-                        <span>mail@mail.com</span>
+                        <p>{{ contact.name }}</p>
+                        <span>{{ contact.email }}</span>
                     </div>
                 </div>
-
-                <p>B</p>
-                <hr>
-                <div class="containerContactInitialLetterAndFullNameAndEmail">
-                    <p class="contactInitialLetter">T</p>
-                    <div class="containerFullNameAndEmail">
-                        <p>Tom Tom</p>
-                        <span>mail@mail.com</span>
-                    </div>
-                </div>
-
-                <p>C</p>
-                <hr>
-                <div class="containerContactInitialLetterAndFullNameAndEmail">
-                    <p class="contactInitialLetter">T</p>
-                    <div class="containerFullNameAndEmail">
-                        <p>Tom Tom</p>
-                        <span>mail@mail.com</span>
-                    </div>
-                </div>
-
-                <p>D</p>
-                <hr>
-                <div class="containerContactInitialLetterAndFullNameAndEmail">
-                    <p class="contactInitialLetter">T</p>
-                    <div class="containerFullNameAndEmail">
-                        <p>Tom Tom</p>
-                        <span>mail@mail.com</span>
-                    </div>
-                </div>
-
-                <p>E</p>
-                <hr>
-                <div class="containerContactInitialLetterAndFullNameAndEmail">
-                    <p class="contactInitialLetter">T</p>
-                    <div class="containerFullNameAndEmail">
-                        <p>Tom Tom</p>
-                        <span>mail@mail.com</span>
-                    </div>
-                </div>
-                <!----------------------------- Only Placeholder --------------------------->
             </div>
         </div>
 
