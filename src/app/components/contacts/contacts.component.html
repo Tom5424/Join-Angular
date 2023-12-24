@@ -16,14 +16,17 @@
                     </button>
                 </div>
 
-                <p>A</p>
-                <hr>
-                <div *ngFor="let contact of createNewContactService.contactData | async"
-                    class="containerContactInitialLetterAndFullNameAndEmail">
-                    <p class="contactInitialLetter">T</p>
-                    <div class="containerFullNameAndEmail">
-                        <p>{{ contact.name }}</p>
-                        <span>{{ contact.email }}</span>
+                <div *ngFor="let contact of createNewContactService.contactData | async">
+                    <p>{{ contact.name.charAt(0).toUpperCase() }}</p>
+                    <hr>
+                    <div [ngClass]="{'selectedContact': contact == selectedContact}" (click)="selectContact(contact)"
+                        class="containerContactInitialLetterAndFullNameAndEmail">
+                        <p class="contactInitialLetter">T</p>
+
+                        <div class="containerFullNameAndEmail">
+                            <p>{{ contact.name }}</p>
+                            <span>{{ contact.email }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,10 +42,10 @@
 
             <div class="containerContactListDetailViewLowerPart">
                 <div class="containerContactListDetailViewInitialLetterAndFullName">
-                    <p class="contactDetailViewInitiaLetter">T</p>
+                    <p class="contactDetailViewInitiaLetter">{{ contact.name.charAt(0).toLocaleUpperCase() }}</p>
 
                     <div class="containerContactListDetailViewFullName">
-                        <p class="contactDetailViewFullName">Tom Tom</p>
+                        <p class="contactDetailViewFullName">{{ contact.name }}</p>
 
                         <div class="mainContainerIconsAndText">
                             <div class="childContainerIconsAndText">
@@ -62,10 +65,10 @@
 
                 <div class="containerContactDetailViewEmailAndPhone">
                     <p>Email</p>
-                    <a>mail@mail.com</a>
+                    <a>{{ contact.email }}</a>
 
                     <p>Phone</p>
-                    <a>+49123456789</a>
+                    <a>{{ contact.phoneNumber }}</a>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, addDoc, doc, setDoc, getDoc } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, addDoc, query, orderBy, limit } from '@angular/fire/firestore';
 import { Contact } from '../models/contact';
 import { Observable } from 'rxjs';
 
@@ -26,7 +26,7 @@ export class CreateNewContactService {
 
 
   getNewContactService() {
-    const collectionRef = collection(this.fireStore, 'contacts');
+    const collectionRef = query(collection(this.fireStore, 'contacts'), orderBy('name'));
     collectionData(collectionRef)
     this.contactData = collectionData(collectionRef);
   }
