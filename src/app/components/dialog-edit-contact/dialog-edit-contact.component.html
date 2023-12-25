@@ -1,0 +1,96 @@
+<div (click)="closeDialogIfClickedOutside()" class="overlayDialog">
+    <div class="dialog" (click)="stopPropagation($event)" [ngClass]="{'slideIn': openDialogService.dialogEditContactIsOpen, 
+    'slideOut': !openDialogService.dialogEditContactIsOpen}">
+
+        <div class="dialogLeftContainer">
+            <img src="../../../assets/img/favicon-white.svg">
+
+            <div class="containerTextAndBlueLine">
+                <h1>Edit contact</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="dialogRightContainer">
+            <div (click)="closeDialogEditContact()" class="containerCloseIcon">
+                <img src="../../../assets/icons/close-icon.svg">
+            </div>
+
+            <div class="containerImgAndForm">
+                <p class="contactInitialLetter">{{ openDialogService.contact.name.charAt(0).toLocaleUpperCase() }}</p>
+
+                <form [formGroup]="editContactForm" (submit)="onSubmitForm()">
+                    <!------------------------ Validate Inputfield Name ------------------------>
+                    <input [ngClass]="{'errorInputfield': editContactForm.controls.name.touched && 
+                    editContactForm.controls.name.errors?.['required'] || 
+                    editContactForm.controls.name.errors?.['minlength'] ||
+                    editContactForm.controls.name.errors?.['maxlength']}" formControlName="name" class="inputName"
+                        type="text" placeholder="Name">
+
+                    <p *ngIf="editContactForm.controls.name.touched && editContactForm.controls.name.errors?.['required']"
+                        class="errorMessage">
+                        Name is required
+                    </p>
+
+                    <p *ngIf="editContactForm.controls.name.errors?.['minlength']" class="errorMessage">
+                        Name must minium 3 characters long
+                    </p>
+
+                    <p *ngIf="editContactForm.controls.name.errors?.['maxlength']" class="errorMessage">
+                        Name can only 10 maximum characters long
+                    </p>
+                    <!------------------------ Validate Inputfield Name ------------------------>
+
+                    <!------------------------ Validate Inputfield Email ------------------------>
+                    <input [ngClass]="{'errorInputfield': editContactForm.controls.email.touched && 
+                    editContactForm.controls.email.errors?.['required'] || 
+                    editContactForm.controls.email.errors?.['pattern']}" formControlName="email" class="inputEmail"
+                        type="email" placeholder="Email">
+
+                    <p *ngIf="editContactForm.controls.email.touched && editContactForm.controls.email.errors?.['required']"
+                        class="errorMessage">
+                        Email is required
+                    </p>
+
+                    <p *ngIf="editContactForm.controls.email.errors?.['pattern']" class="errorMessage">
+                        Please enter a Valid Email
+                    </p>
+                    <!------------------------ Validate Inputfield Email ------------------------>
+
+                    <!------------------------ Validate Inputfield Phone Number ------------------------>
+                    <input [ngClass]="{'errorInputfield': editContactForm.controls.phoneNumber.touched && 
+                        editContactForm.controls.phoneNumber.errors?.['required'] ||
+                         editContactForm.controls.phoneNumber.errors?.['pattern']}" formControlName="phoneNumber"
+                        class="inputPhoneNumber" type="tel" placeholder="Phone">
+
+                    <p class="errorMessage" *ngIf="editContactForm.controls.phoneNumber.touched &&
+                        editContactForm.controls.phoneNumber.errors?.['required']">
+                        Phone Number is required
+                    </p>
+
+                    <p class="errorMessage" *ngIf="editContactForm.controls.phoneNumber.errors?.['maxlength']">
+                        Phone Number can only 15 maximum characters long
+                    </p>
+
+                    <p class="errorMessage" *ngIf="editContactForm.controls.phoneNumber.errors?.['pattern']">
+                        Please enter a Valid Phone Number
+                    </p>
+                    <!------------------------ Validate Inputfield Phone Number ------------------------>
+
+                    <div class="containerBtn">
+                        <button class="deleteBtn" type="button">
+                            Delete
+                        </button>
+                        <button [disabled]="editContactForm.invalid || !editContactForm.dirty"
+                            [ngClass]="{'btnDisabled': editContactForm.invalid || !editContactForm.dirty}"
+                            class="saveBtn" type="submit">
+                            Save
+                            <img src="../../../assets/icons/check-icon-white.svg">
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

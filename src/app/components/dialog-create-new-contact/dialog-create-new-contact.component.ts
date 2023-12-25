@@ -29,7 +29,7 @@ export class DialogCreateNewContactComponent {
   }
 
 
-  closeDialog() {
+  closeDialogCreateNewContact() {
     this.openDialogService.closeDialogCreateNewContactService();
   }
 
@@ -42,6 +42,6 @@ export class DialogCreateNewContactComponent {
   onSubmitForm() {
     this.createNewContactService.createNewContactService(this.createContactForm.value);
     this.createContactForm.reset();
-    this.closeDialog();
+    this.closeDialogCreateNewContact();
   }
 }

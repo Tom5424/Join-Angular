@@ -3,26 +3,42 @@
 <main>
     <app-sidebar></app-sidebar>
 
-    <app-dialog-create-new-contact *ngIf="openDialogService.overlayIsDisplayed"></app-dialog-create-new-contact>
+    <app-dialog-create-new-contact *ngIf="openDialogService.overlayCreateNewContactIsDisplayed">
+
+    </app-dialog-create-new-contact>
+
+    <app-dialog-edit-contact *ngIf="openDialogService.overlayEditContactIsDisplayed"></app-dialog-edit-contact>
 
     <div class="containerContacts">
         <div class="containerContactList">
 
             <div class="contactList">
                 <div class="containerBtn">
-                    <button (click)="openDialog()" type="button">
+                    <button (click)="openDialogCreateNewContact()" type="button">
                         Add new Contact
                         <img src="../../../assets/icons/add-new-contact-icon.svg">
                     </button>
                 </div>
 
-                <div *ngFor="let contact of createNewContactService.contactData | async">
-                    <p>{{ contact.name.charAt(0).toUpperCase() }}</p>
-                    <hr>
-                    <div [ngClass]="{'selectedContact': contact == selectedContact}" (click)="selectContact(contact)"
-                        class="containerContactInitialLetterAndFullNameAndEmail">
-                        <p class="contactInitialLetter">T</p>
+                <div *ngFor="let contact of (createNewContactService.contactData | async) as Contact; let i = index">
+                    <!--------------------- Checks whether the first letter already exists in the list so that no more than one is displayed. To sort the contacts correctly alphabetically --------------------->
+                    <p
+                        *ngIf="i == 0 || getInitialLetterFromContact(contact) !== Contact[i - 1].name.charAt(0).toUpperCase()">
+                        {{ contact.initialLetter }}
+                    </p>
+                    <!--------------------- Checks whether the first letter already exists in the list so that no more than one is displayed. To sort the contacts correctly alphabetically --------------------->
 
+
+                    <!--------------------- Checks whether a line already exists in the list, so only one line is displayed per existing letter --------------------->
+                    <hr
+                        *ngIf="i == 0 || getInitialLetterFromContact(contact) !== Contact[i - 1].name.charAt(0).toUpperCase()">
+                    <!--------------------- Checks whether a line already exists in the list, so only one line is displayed per existing letter --------------------->
+
+                    <div class="containerContactInitialLetterAndFullNameAndEmail" routerLinkActive="selectedContact"
+                        routerLink="/contacts/contact/{{ contact.id }}">
+                        <p class="contactInitialLetter">
+                            {{ contact.name.charAt(0).toUpperCase() }}
+                        </p>
                         <div class="containerFullNameAndEmail">
                             <p>{{ contact.name }}</p>
                             <span>{{ contact.email }}</span>
@@ -40,37 +56,9 @@
                 <p>Better with a team</p>
             </div>
 
-            <div class="containerContactListDetailViewLowerPart">
-                <div class="containerContactListDetailViewInitialLetterAndFullName">
-                    <p class="contactDetailViewInitiaLetter">{{ contact.name.charAt(0).toLocaleUpperCase() }}</p>
-
-                    <div class="containerContactListDetailViewFullName">
-                        <p class="contactDetailViewFullName">{{ contact.name }}</p>
-
-                        <div class="mainContainerIconsAndText">
-                            <div class="childContainerIconsAndText">
-                                <img class="pencilIcon" src="../../../assets/icons/pencil-icon-blue.svg">
-                                <p>Edit</p>
-                            </div>
-
-                            <div class="childContainerIconsAndText">
-                                <img src="../../../assets/icons/trash-icon.svg">
-                                <p>Delete</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="contactInfos">Contact Information</p>
-
-                <div class="containerContactDetailViewEmailAndPhone">
-                    <p>Email</p>
-                    <a>{{ contact.email }}</a>
-
-                    <p>Phone</p>
-                    <a>{{ contact.phoneNumber }}</a>
-                </div>
-            </div>
+            <!--------------------- Displayed here the Contact Detailview Componet --------------------->
+            <router-outlet></router-outlet>
+            <!--------------------- Displayed here the Contact Detailview Componet --------------------->
         </div>
     </div>
 </main>

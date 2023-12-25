@@ -9,6 +9,7 @@ import { DescriptionComponent } from './components/description/description.compo
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { BoardComponent } from './components/board/board.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { ContactDetailViewComponent } from './components/contact-detail-view/contact-detail-view.component';
 
 
 const routes: Routes = [
@@ -20,13 +21,20 @@ const routes: Routes = [
   { path: 'legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
   { path: 'description', title: 'Join - Description', component: DescriptionComponent },
 
-  { path: 'summary', title: 'Join - Summary', component: SummaryComponent },
   { path: 'summary/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
   { path: 'summary/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
 
+  { path: 'summary', title: 'Join - Summary', component: SummaryComponent },
   { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent },
   { path: 'board', title: 'Join - Board', component: BoardComponent },
-  { path: 'contacts', title: 'Join - Contacts', component: ContactsComponent },
+  // { path: 'contacts', title: 'Join - Contacts', component: ContactsComponent },
+
+  {
+    path: 'contacts', title: 'Join - Contacts', component: ContactsComponent, children: [
+      { path: 'contact/:id', component: ContactDetailViewComponent }
+    ]
+  },
+
 ];
 
 

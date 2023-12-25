@@ -24,6 +24,8 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { BoardComponent } from './components/board/board.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { DialogCreateNewContactComponent } from './components/dialog-create-new-contact/dialog-create-new-contact.component';
+import { DialogEditContactComponent } from './components/dialog-edit-contact/dialog-edit-contact.component';
+import { ContactDetailViewComponent } from './components/contact-detail-view/contact-detail-view.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { DialogCreateNewContactComponent } from './components/dialog-create-new-
     BoardComponent,
     ContactsComponent,
     DialogCreateNewContactComponent,
+    DialogEditContactComponent,
+    ContactDetailViewComponent,
   ],
   imports: [
     BrowserModule,
