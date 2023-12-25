@@ -13,7 +13,7 @@ export class OpenDialogsService {
   dialogCreateNewContactIsOpen: boolean = false;
   dialogEditContactIsOpen: boolean = false;
   overlayEditContactIsDisplayed: boolean = false;
-  docId: string = '';
+  // docId: string = '';
   contact: Contact = new Contact();
 
 
@@ -36,13 +36,20 @@ export class OpenDialogsService {
   }
 
 
-  openDialogEditContactService() {
-    // this.dialogEditContactIsOpen = true;
-    // this.overlayEditContactIsDisplayed = true;
-    // this.contact.name = contact.name;
-    // this.contact.email = contact.email;
-    // this.contact.phoneNumber = contact.phoneNumber;
+  openDialogEditContactService(contact: Contact) {
+    this.dialogEditContactIsOpen = true;
+    this.overlayEditContactIsDisplayed = true;
+    this.getContactDataAfterOpenDialogEditContactService(contact);
     // this.docId = docId;
+  }
+
+
+  getContactDataAfterOpenDialogEditContactService(contact: Contact) {
+    this.contact.name = contact.name;
+    this.contact.email = contact.email;
+    this.contact.phoneNumber = contact.phoneNumber;
+    this.contact.initialLetter = contact.initialLetter;
+    this.contact.color = contact.color;
   }
 
 

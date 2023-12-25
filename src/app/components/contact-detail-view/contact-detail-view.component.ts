@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Contact } from 'src/app/models/contact';
 import { CreateNewContactService } from 'src/app/services/create-new-contact.service';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
@@ -21,6 +22,11 @@ export class ContactDetailViewComponent implements OnInit, DoCheck {
 
 
   ngOnInit(): void {
+    this.getIdFromRoute();
+  }
+
+
+  getIdFromRoute() {
     this.activatedRoute.paramMap.subscribe((data) => {
       this.docId = String(data.get('id'));
     })
@@ -32,7 +38,7 @@ export class ContactDetailViewComponent implements OnInit, DoCheck {
   }
 
 
-  openDialogEditContact() {
-    this.openDialogService.openDialogEditContactService();
+  openDialogEditContact(contact: Contact) {
+    this.openDialogService.openDialogEditContactService(contact);
   }
 }

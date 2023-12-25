@@ -12,23 +12,24 @@ import { Observable } from 'rxjs';
 export class CreateNewContactService {
   contact: Contact = new Contact();
   contactData!: Observable<any>;
-  // contactColors: string[] = [
-  //   '#FF7A00',
-  //   '#FF5EB3',
-  //   '#6E52FF',
-  //   '#9327FF',
-  //   '#00BEE8',
-  //   '#1FD7C1',
-  //   '#FF745E',
-  //   '#FFA35E',
-  //   '#FC71FF',
-  //   '#FFC701',
-  //   '#0038FF',
-  //   '#C3FF2B',
-  //   '#FFE62B',
-  //   '#FF4646',
-  //   '#FFBB2B',
-  // ];
+  randomColor: string = '';
+  contactColors: string[] = [
+    '#FF7A00',
+    '#FF5EB3',
+    '#6E52FF',
+    '#9327FF',
+    '#00BEE8',
+    '#1FD7C1',
+    '#FF745E',
+    '#FFA35E',
+    '#FC71FF',
+    '#FFC701',
+    '#0038FF',
+    '#C3FF2B',
+    '#FFE62B',
+    '#FF4646',
+    '#FFBB2B',
+  ];
 
 
   constructor(public fireStore: Firestore) {
@@ -36,10 +37,16 @@ export class CreateNewContactService {
   }
 
 
+  getRandomColorContactService() {
+    this.randomColor = this.contactColors[Math.round(Math.random() * this.contactColors.length)];
+  }
+
+
   createNewContactService(formValues: any) {
+    this.getRandomColorContactService();
     const collectionRef = collection(this.fireStore, 'contacts');
-    const contactInstance = new Contact(formValues);
-    addDoc(collectionRef, contactInstance.toJson(formValues));
+    const contactInstance = new Contact(formValues, this.randomColor);
+    addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor));
   }
 
 
@@ -59,9 +66,9 @@ export class CreateNewContactService {
   }
 
 
-  updateContactService(formValues: any, docId: string) {
-    const docRef = doc(this.fireStore, 'contacts', docId);
-    updateDoc(docRef, this.contact.toJson(new Contact(formValues)))
+  updateContactService() {
+    // const docRef = doc(this.fireStore, 'contacts', docId);
+    // updateDoc(docRef, this.contact.toJson(new Contact(formValues)))
     // onSnapshot(docRef, (docData) => {
     //   this.contact.name = docData.get('name');
     //   docData.get('email');

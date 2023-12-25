@@ -36,8 +36,8 @@
 
                     <div class="containerContactInitialLetterAndFullNameAndEmail" routerLinkActive="selectedContact"
                         routerLink="/contacts/contact/{{ contact.id }}">
-                        <p class="contactInitialLetter">
-                            {{ contact.name.charAt(0).toUpperCase() }}
+                        <p class="contactInitialLetter" [ngStyle]="{'background-color': contact.color}">
+                            {{ contact.initialLetter }}
                         </p>
                         <div class="containerFullNameAndEmail">
                             <p>{{ contact.name }}</p>

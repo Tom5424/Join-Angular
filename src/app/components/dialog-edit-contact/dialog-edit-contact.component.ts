@@ -43,6 +43,6 @@ export class DialogEditContactComponent {
 
   onSubmitForm() {
     this.closeDialogEditContact();
-    this.createNewContactService.updateContactService(this.editContactForm.value, this.openDialogService.docId);
+    this.createNewContactService.updateContactService();
   }
 }

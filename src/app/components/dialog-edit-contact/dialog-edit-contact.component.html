@@ -17,7 +17,8 @@
             </div>
 
             <div class="containerImgAndForm">
-                <p class="contactInitialLetter">{{ openDialogService.contact.name.charAt(0).toLocaleUpperCase() }}</p>
+                <p class="contactInitialLetter" [ngStyle]="{'background-color': openDialogService.contact.color}">{{
+                    openDialogService.contact.initialLetter }}</p>
 
                 <form [formGroup]="editContactForm" (submit)="onSubmitForm()">
                     <!------------------------ Validate Inputfield Name ------------------------>
