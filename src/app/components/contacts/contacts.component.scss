@@ -153,3 +153,12 @@ main {
         background: $mainColor;
     }
 }
+
+
+.popUpSuccessfully {
+    @include popUp();
+    background-color: $mainColor;
+    position: absolute !important;
+    bottom: 25px;
+    transform: translateY(0);
+}

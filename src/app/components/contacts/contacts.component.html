@@ -60,6 +60,22 @@
             <!--------------------- Displayed here the Contact Detailview Componet --------------------->
             <router-outlet></router-outlet>
             <!--------------------- Displayed here the Contact Detailview Componet --------------------->
+
+
+            <!--------------------- User Feedback if Contact was Created successfully --------------------->
+            <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfCreated" [ngClass]="{'slideIn': createNewContactService.contactSuccessfullyCreated, 
+                'slideOut': !createNewContactService.contactSuccessfullyCreated}" class="popUpSuccessfully">
+                <p>Contact successfully created.</p>
+            </div>
+            <!--------------------- User Feedback if Contact was Created successfully  --------------------->
+
+
+            <!--------------------- User Feedback if Contact was Edit successfully  --------------------->
+            <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfEdit" [ngClass]=" {'slideIn': createNewContactService.contactSuccessfullyEdit, 
+               'slideOut': !createNewContactService.contactSuccessfullyEdit}" class="popUpSuccessfully">
+                <p>Contact successfully Edit.</p>
+            </div>
+            <!--------------------- User Feedback if Contact was Edit successfully  --------------------->
         </div>
     </div>
 </main>

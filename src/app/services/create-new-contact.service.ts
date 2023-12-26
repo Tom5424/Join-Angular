@@ -14,6 +14,10 @@ export class CreateNewContactService {
   contact: Contact = new Contact();
   contactData!: Observable<any>;
   randomColor: string = '';
+  contactSuccessfullyCreated: boolean = false;
+  userFeedbackIsDisplayedIfCreated: boolean = false;
+  contactSuccessfullyEdit: boolean = false;
+  userFeedbackIsDisplayedIfEdit: boolean = false;
   contactColors: string[] = [
     '#FF7A00',
     '#FF5EB3',
@@ -44,8 +48,21 @@ export class CreateNewContactService {
     const contactInstance = new Contact(formValues, this.randomColor);
     addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor))
       .then((docData) => {
+        this.contactSuccessfullyCreated = true;
+        this.userFeedbackIsDisplayedIfCreated = true;
         this.router.navigate(['/contacts/contact/', docData.id]);
       })
+    this.hideUserFeedbackAfterContactCreatedService();
+  }
+
+
+  hideUserFeedbackAfterContactCreatedService() {
+    setTimeout(() => {
+      this.contactSuccessfullyCreated = false;
+    }, 2000);
+    setTimeout(() => {
+      this.userFeedbackIsDisplayedIfCreated = false;
+    }, 3000);
   }
 
 
@@ -77,12 +94,22 @@ export class CreateNewContactService {
   updateContactService(formValues: any, docId: string) {
     const docRef = doc(this.fireStore, 'contacts', docId);
     const contactInstance = new Contact(formValues);
-    updateDoc(docRef, {
-      name: contactInstance.name,
-      email: contactInstance.email,
-      phoneNumber: contactInstance.phoneNumber,
-      initialLetter: contactInstance.initialLetter,
-    });
+    updateDoc(docRef, { name: contactInstance.name, email: contactInstance.email, phoneNumber: contactInstance.phoneNumber, initialLetter: contactInstance.initialLetter })
+      .then(() => {
+        this.contactSuccessfullyEdit = true;
+        this.userFeedbackIsDisplayedIfEdit = true;
+      })
+    this.hideUserFeedbackAfterContactEditService();
+  }
+
+
+  hideUserFeedbackAfterContactEditService() {
+    setTimeout(() => {
+      this.contactSuccessfullyEdit = false;
+    }, 2000);
+    setTimeout(() => {
+      this.userFeedbackIsDisplayedIfEdit = false;
+    }, 3000);
   }
 
 
