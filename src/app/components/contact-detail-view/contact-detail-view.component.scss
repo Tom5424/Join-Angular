@@ -85,5 +85,10 @@
     a {
         @include hover();
         color: #007CEE;
+        text-decoration: none;
+
+        &:hover {
+            border-bottom: 2px solid #007CEE;
+        }
     }
 }

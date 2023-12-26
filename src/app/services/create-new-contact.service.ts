@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Contact } from '../models/contact';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { Firestore, collection, collectionData, addDoc, updateDoc, getDoc, doc, deleteDoc, query, orderBy } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, addDoc, updateDoc, getDoc, getDocs, doc, deleteDoc, query, orderBy } from '@angular/fire/firestore';
 
 
 @Injectable({
@@ -18,6 +18,7 @@ export class CreateNewContactService {
   userFeedbackIsDisplayedIfCreated: boolean = false;
   contactSuccessfullyEdit: boolean = false;
   userFeedbackIsDisplayedIfEdit: boolean = false;
+  noContactsExistInDatabase: boolean = false;
   contactColors: string[] = [
     '#FF7A00',
     '#FF5EB3',
@@ -52,6 +53,7 @@ export class CreateNewContactService {
         this.userFeedbackIsDisplayedIfCreated = true;
         this.router.navigate(['/contacts/contact/', docData.id]);
       })
+    this.checkIfContactsExistInDatabaseService();
     this.hideUserFeedbackAfterContactCreatedService();
   }
 
@@ -75,19 +77,6 @@ export class CreateNewContactService {
     const collectionRef = query(collection(this.fireStore, 'contacts'), orderBy('initialLetter'));
     collectionData(collectionRef, { idField: 'id' })
     this.contactData = collectionData(collectionRef, { idField: 'id' });
-  }
-
-
-  getSingleContactService(docId: string) {
-    const docRef = doc(this.fireStore, 'contacts', docId);
-    getDoc(docRef)
-      .then((docDate) => {
-        if (docDate.exists()) {
-          this.contact = docDate.data() as Contact;
-        } else {
-          this.router.navigateByUrl('/contacts');
-        }
-      })
   }
 
 
@@ -118,6 +107,33 @@ export class CreateNewContactService {
     deleteDoc(docRef)
       .then(() => {
         this.router.navigateByUrl('/contacts');
+      })
+    this.checkIfContactsExistInDatabaseService();
+  }
+
+
+  getSingleContactService(docId: string) {
+    const docRef = doc(this.fireStore, 'contacts', docId);
+    getDoc(docRef)
+      .then((docDate) => {
+        if (docDate.exists()) {
+          this.contact = docDate.data() as Contact;
+        } else {
+          this.router.navigateByUrl('/contacts');
+        }
+      })
+  }
+
+
+  checkIfContactsExistInDatabaseService() {
+    const collectionRef = collection(this.fireStore, 'contacts');
+    getDocs(collectionRef)
+      .then((querySnapshot) => {
+        if (querySnapshot.empty) {
+          this.noContactsExistInDatabase = querySnapshot.empty;
+        } else {
+          this.noContactsExistInDatabase = false;
+        }
       })
   }
 }

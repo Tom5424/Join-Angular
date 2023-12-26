@@ -20,6 +20,10 @@
                     </button>
                 </div>
 
+                <p class="textNoContactsExisting" *ngIf="createNewContactService.noContactsExistInDatabase">
+                    No Contacts existing
+                </p>
+
                 <div *ngFor="let contact of (createNewContactService.contactData | async) as Contact; let i = index">
                     <!--------------------- Checks whether the first letter already exists in the list so that no more than one is displayed. To sort the contacts correctly alphabetically --------------------->
                     <p
@@ -73,7 +77,7 @@
             <!--------------------- User Feedback if Contact was Edit successfully  --------------------->
             <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfEdit" [ngClass]=" {'slideIn': createNewContactService.contactSuccessfullyEdit, 
                'slideOut': !createNewContactService.contactSuccessfullyEdit}" class="popUpSuccessfully">
-                <p>Contact successfully Edit.</p>
+                <p>Contact successfully edit.</p>
             </div>
             <!--------------------- User Feedback if Contact was Edit successfully  --------------------->
         </div>

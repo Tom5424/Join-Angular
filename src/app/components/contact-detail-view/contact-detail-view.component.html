@@ -27,9 +27,11 @@
 
     <div class="containerContactDetailViewEmailAndPhone">
         <p>Email</p>
-        <a>{{ createNewContactService.contact.email }}</a>
+        <a href="mailto:{{ createNewContactService.contact.email }}">{{ createNewContactService.contact.email }}</a>
 
         <p>Phone</p>
-        <a>{{ createNewContactService.contact.phoneNumber }}</a>
+        <a href="tel:{{ createNewContactService.contact.phoneNumber }}">
+            {{ createNewContactService.contact.phoneNumber }}
+        </a>
     </div>
 </div>

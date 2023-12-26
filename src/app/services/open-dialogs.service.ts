@@ -11,8 +11,8 @@ import { Contact } from '../models/contact';
 export class OpenDialogsService {
   overlayCreateNewContactIsDisplayed: boolean = false;
   dialogCreateNewContactIsOpen: boolean = false;
-  dialogEditContactIsOpen: boolean = false;
   overlayEditContactIsDisplayed: boolean = false;
+  dialogEditContactIsOpen: boolean = false;
   docId: string = '';
   contact: Contact = new Contact();
 

@@ -22,6 +22,7 @@ export class ContactsComponent implements OnInit {
 
   ngOnInit(): void {
     this.createNewContactService.getNewContactService();
+    this.createNewContactService.checkIfContactsExistInDatabaseService();
   }
 
 
