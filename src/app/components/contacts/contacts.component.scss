@@ -17,6 +17,8 @@ main {
 
 .containerContactList {
     @include flexCenteredColumnXAxis();
+    width: 25vw;
+    position: relative;
     z-index: 1;
     margin-top: 80px;
     padding: 32px 24px 0 24px;
@@ -68,6 +70,23 @@ main {
             width: 25px;
         }
     }
+}
+
+
+.textNoContactsExisting {
+    font-size: 45px !important;
+    padding-left: 0 !important;
+    margin: 150px 0 0 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.spinnerIcon {
+    width: 150px;
+    position: absolute;
+    top: 220px;
+    left: 130px;
 }
 
 
@@ -161,13 +180,4 @@ main {
     position: absolute !important;
     bottom: 25px;
     transform: translateY(0);
-}
-
-
-.textNoContactsExisting {
-    width: 400px;
-    font-size: 45px !important;
-    padding-left: 0 !important;
-    text-align: center;
-    font-weight: 700;
 }

@@ -1,5 +1,10 @@
 <div class="containerContactListDetailViewLowerPart">
-    <div class="containerContactListDetailViewInitialLetterAndFullName">
+    <!--------------------- Only displayed if Contacts are Loading --------------------->
+    <img *ngIf="createNewContactService.loadigContacts" class="spinnerIcon" src="../../../assets/icons/spinner.svg">
+    <!--------------------- Only displayed if Contacts are Loading --------------------->
+
+
+    <div *ngIf="!createNewContactService.loadigContacts" class="containerContactListDetailViewInitialLetterAndFullName">
         <p class="contactDetailViewInitiaLetter"
             [ngStyle]="{'background-color': createNewContactService.contact.color}">
             {{ createNewContactService.contact.initialLetter }}
@@ -23,9 +28,9 @@
         </div>
     </div>
 
-    <p class="contactInfos">Contact Information</p>
+    <p *ngIf="!createNewContactService.loadigContacts" class="contactInfos">Contact Information</p>
 
-    <div class="containerContactDetailViewEmailAndPhone">
+    <div *ngIf="!createNewContactService.loadigContacts" class="containerContactDetailViewEmailAndPhone">
         <p>Email</p>
         <a href="mailto:{{ createNewContactService.contact.email }}">{{ createNewContactService.contact.email }}</a>
 

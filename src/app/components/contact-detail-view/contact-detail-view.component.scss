@@ -2,7 +2,17 @@
 @import '../../../scss/variables.scss';
 
 
-.containerContactListDetailViewLowerPart {}
+.containerContactListDetailViewLowerPart {
+    position: relative;
+}
+
+
+.spinnerIcon {
+    position: absolute;
+    left: 180px;
+    top: 100px;
+    width: 200px;
+}
 
 
 .containerContactListDetailViewInitialLetterAndFullName {

@@ -20,9 +20,19 @@
                     </button>
                 </div>
 
+
+                <!--------------------- Only displayed if no Contacts existing --------------------->
                 <p class="textNoContactsExisting" *ngIf="createNewContactService.noContactsExistInDatabase">
                     No Contacts existing
                 </p>
+                <!--------------------- Only displayed if no Contacts existing --------------------->
+
+
+                <!--------------------- Only displayed if Contacts are Loading --------------------->
+                <img *ngIf="createNewContactService.loadigContacts" class="spinnerIcon"
+                    src="../../../assets/icons/spinner.svg">
+                <!--------------------- Only displayed if Contacts are Loading --------------------->
+
 
                 <div *ngFor="let contact of (createNewContactService.contactData | async) as Contact; let i = index">
                     <!--------------------- Checks whether the first letter already exists in the list so that no more than one is displayed. To sort the contacts correctly alphabetically --------------------->

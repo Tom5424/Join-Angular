@@ -19,6 +19,7 @@ export class CreateNewContactService {
   contactSuccessfullyEdit: boolean = false;
   userFeedbackIsDisplayedIfEdit: boolean = false;
   noContactsExistInDatabase: boolean = false;
+  loadigContacts: boolean = false;
   contactColors: string[] = [
     '#FF7A00',
     '#FF5EB3',
@@ -74,8 +75,12 @@ export class CreateNewContactService {
 
 
   getNewContactService() {
+    this.loadigContacts = true;
     const collectionRef = query(collection(this.fireStore, 'contacts'), orderBy('initialLetter'));
     collectionData(collectionRef, { idField: 'id' })
+      .subscribe(() => {
+        this.loadigContacts = false;
+      })
     this.contactData = collectionData(collectionRef, { idField: 'id' });
   }
 
