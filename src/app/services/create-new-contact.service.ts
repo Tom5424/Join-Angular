@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, addDoc, updateDoc, getDoc, doc, query, orderBy, onSnapshot } from '@angular/fire/firestore';
 import { Contact } from '../models/contact';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { Firestore, collection, collectionData, addDoc, updateDoc, getDoc, doc, deleteDoc, query, orderBy } from '@angular/fire/firestore';
 
 
 @Injectable({
@@ -32,7 +33,7 @@ export class CreateNewContactService {
   ];
 
 
-  constructor(public fireStore: Firestore) {
+  constructor(public fireStore: Firestore, public router: Router) {
 
   }
 
@@ -41,7 +42,10 @@ export class CreateNewContactService {
     this.getRandomColorContactService();
     const collectionRef = collection(this.fireStore, 'contacts');
     const contactInstance = new Contact(formValues, this.randomColor);
-    addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor));
+    addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor))
+      .then((docData) => {
+        this.router.navigate(['/contacts/contact/', docData.id]);
+      })
   }
 
 
@@ -61,7 +65,11 @@ export class CreateNewContactService {
     const docRef = doc(this.fireStore, 'contacts', docId);
     getDoc(docRef)
       .then((docDate) => {
-        this.contact = docDate.data() as Contact;
+        if (docDate.exists()) {
+          this.contact = docDate.data() as Contact;
+        } else {
+          this.router.navigateByUrl('/contacts');
+        }
       })
   }
 
@@ -75,5 +83,14 @@ export class CreateNewContactService {
       phoneNumber: contactInstance.phoneNumber,
       initialLetter: contactInstance.initialLetter,
     });
+  }
+
+
+  deleteContactService(docId: string) {
+    const docRef = doc(this.fireStore, 'contacts', docId);
+    deleteDoc(docRef)
+      .then(() => {
+        this.router.navigateByUrl('/contacts');
+      })
   }
 }

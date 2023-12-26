@@ -45,4 +45,10 @@ export class DialogEditContactComponent {
     this.createNewContactService.updateContactService(this.editContactForm.value, this.openDialogService.docId);
     this.closeDialogEditContact();
   }
+
+
+  deleteContact() {
+    this.createNewContactService.deleteContactService(this.openDialogService.docId);
+    this.closeDialogEditContact();
+  }
 }

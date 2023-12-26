@@ -41,4 +41,9 @@ export class ContactDetailViewComponent implements OnInit, DoCheck {
   openDialogEditContact(contact: Contact) {
     this.openDialogService.openDialogEditContactService(contact, this.docId);
   }
+
+
+  deleteContact() {
+    this.createNewContactService.deleteContactService(this.docId);
+  }
 }

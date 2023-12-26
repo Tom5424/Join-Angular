@@ -80,7 +80,7 @@
                     <!------------------------ Validate Inputfield Phone Number ------------------------>
 
                     <div class="containerBtn">
-                        <button class="deleteBtn" type="button">
+                        <button (click)="deleteContact()" class="deleteBtn" type="button">
                             Delete
                         </button>
                         <button [disabled]="editContactForm.invalid || !editContactForm.dirty"
