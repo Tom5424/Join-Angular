@@ -15,7 +15,7 @@ export class Contact {
     }
 
 
-    toJson(formValues: any, color: string) {
+    toJson(formValues: any, color?: string) {
         return {
             name: formValues.name,
             email: formValues.email,

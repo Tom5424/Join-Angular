@@ -1,8 +1,9 @@
 <div class="containerContactListDetailViewLowerPart">
     <div class="containerContactListDetailViewInitialLetterAndFullName">
         <p class="contactDetailViewInitiaLetter"
-            [ngStyle]="{'background-color': createNewContactService.contact.color}">{{
-            createNewContactService.contact.initialLetter }}</p>
+            [ngStyle]="{'background-color': createNewContactService.contact.color}">
+            {{ createNewContactService.contact.initialLetter }}
+        </p>
 
         <div class="containerContactListDetailViewFullName">
             <p class="contactDetailViewFullName">{{ createNewContactService.contact.name }}</p>

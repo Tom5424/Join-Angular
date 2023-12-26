@@ -37,16 +37,16 @@ export class CreateNewContactService {
   }
 
 
-  getRandomColorContactService() {
-    this.randomColor = this.contactColors[Math.round(Math.random() * this.contactColors.length)];
-  }
-
-
   createNewContactService(formValues: any) {
     this.getRandomColorContactService();
     const collectionRef = collection(this.fireStore, 'contacts');
     const contactInstance = new Contact(formValues, this.randomColor);
     addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor));
+  }
+
+
+  getRandomColorContactService() {
+    this.randomColor = this.contactColors[Math.round(Math.random() * this.contactColors.length)]; // Generate a random between 0 and 14
   }
 
 
@@ -66,13 +66,14 @@ export class CreateNewContactService {
   }
 
 
-  updateContactService() {
-    // const docRef = doc(this.fireStore, 'contacts', docId);
-    // updateDoc(docRef, this.contact.toJson(new Contact(formValues)))
-    // onSnapshot(docRef, (docData) => {
-    //   this.contact.name = docData.get('name');
-    //   docData.get('email');
-    //   docData.get('phoneNumber');
-    // });
+  updateContactService(formValues: any, docId: string) {
+    const docRef = doc(this.fireStore, 'contacts', docId);
+    const contactInstance = new Contact(formValues);
+    updateDoc(docRef, {
+      name: contactInstance.name,
+      email: contactInstance.email,
+      phoneNumber: contactInstance.phoneNumber,
+      initialLetter: contactInstance.initialLetter,
+    });
   }
 }

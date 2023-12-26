@@ -32,6 +32,7 @@
                     <!--------------------- Checks whether a line already exists in the list, so only one line is displayed per existing letter --------------------->
                     <hr
                         *ngIf="i == 0 || getInitialLetterFromContact(contact) !== Contact[i - 1].name.charAt(0).toUpperCase()">
+
                     <!--------------------- Checks whether a line already exists in the list, so only one line is displayed per existing letter --------------------->
 
                     <div class="containerContactInitialLetterAndFullNameAndEmail" routerLinkActive="selectedContact"
