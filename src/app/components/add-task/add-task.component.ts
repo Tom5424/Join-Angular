@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Contact } from 'src/app/models/contact';
+import { CreateNewContactService } from 'src/app/services/create-new-contact.service';
 
 
 @Component({
@@ -9,24 +11,36 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 
 
-export class AddTaskComponent {
+export class AddTaskComponent implements OnInit {
   dropdownMenuAssignedToIsOpen: boolean = false;
   dropdownMenuCategoryIsOpen: boolean = false;
-  contactIsSelected: boolean = false;
-  selectedContact: string = '';
+  // contactIsSelected: boolean = false;
+  selectedContact: any = '';
+  contactIndex: number = 0;
   activePrioBtn: string = '';
   selectedCategory: string = '';
   priorities: string[] = ['urgent', 'medium', 'low'];
+  selectedContacts: Array<Contact> = [];
 
 
   addTaskForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-    description: new FormControl('', Validators.maxLength(50)),
+    description: new FormControl('', Validators.maxLength(150)),
     assignedTo: new FormControl(''),
     dueDate: new FormControl('', Validators.required),
     prio: new FormControl(''),
     category: new FormControl(''),
   });
+
+
+  constructor(public createNewContactService: CreateNewContactService) {
+
+  }
+
+
+  ngOnInit(): void {
+    this.createNewContactService.getNewContactService();
+  }
 
 
   openDropdownMenuAssignedTo() {
@@ -45,13 +59,18 @@ export class AddTaskComponent {
   }
 
 
-  selectContact(selectedContact: string) {
-    this.contactIsSelected = !this.contactIsSelected;
-    if (this.contactIsSelected) {
-      this.selectedContact = selectedContact;
+  selectContact(contact: Contact) {
+    this.contactIndex = this.selectedContacts.indexOf(contact);
+    if (this.contactIndex !== -1) {
+      this.selectedContacts.splice(this.contactIndex, 1);
     } else {
-      this.selectedContact = '';
+      this.selectedContacts.push(contact);
     }
+  }
+
+
+  isContactSelected(contact: Contact) {
+    return this.selectedContacts.includes(contact);
   }
 
 
@@ -70,7 +89,7 @@ export class AddTaskComponent {
   }
 
 
-  onSubmitForm() {
+  addTask() {
     this.addTaskForm.patchValue({
       title: this.addTaskForm.controls.title.value,
       description: this.addTaskForm.controls.description.value,
@@ -85,7 +104,7 @@ export class AddTaskComponent {
 
   clearForm() {
     this.addTaskForm.reset();
-    this.contactIsSelected = false;
+    // this.contactIsSelected = false;
     this.selectedContact = '';
     this.activePrioBtn = '';
     this.selectedCategory = '';

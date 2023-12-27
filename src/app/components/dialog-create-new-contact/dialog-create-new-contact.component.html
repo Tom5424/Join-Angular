@@ -20,7 +20,7 @@
             <div class="containerImgAndForm">
                 <img class="userImg" src="../../../assets/icons/contact-icon-white.svg">
 
-                <form [formGroup]="createContactForm" (submit)="onSubmitForm()">
+                <form [formGroup]="createContactForm" (submit)="createNewContact()">
                     <!------------------------ Validate Inputfield Name ------------------------>
                     <input [ngClass]="{'errorInputfield': createContactForm.controls.name.touched && 
                     createContactForm.controls.name.errors?.['required'] || 

@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Contact } from 'src/app/models/contact';
 import { CreateNewContactService } from 'src/app/services/create-new-contact.service';
@@ -12,7 +12,8 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 })
 
 
-export class ContactDetailViewComponent implements OnInit, DoCheck {
+export class ContactDetailViewComponent implements DoCheck {
+  @Input() selectedContact!: any;
   docId: string = '';
 
 
@@ -21,25 +22,14 @@ export class ContactDetailViewComponent implements OnInit, DoCheck {
   }
 
 
-  ngOnInit(): void {
-    this.getIdFromRoute();
-  }
-
-
-  getIdFromRoute() {
-    this.activatedRoute.paramMap.subscribe((data) => {
-      this.docId = String(data.get('id'));
-    })
-  }
-
-
   ngDoCheck(): void {
+    this.docId = this.selectedContact.id;
     this.createNewContactService.getSingleContactService(this.docId);
   }
 
 
-  openDialogEditContact(contact: Contact) {
-    this.openDialogService.openDialogEditContactService(contact, this.docId);
+  openDialogEditContact(selectedContact: Contact) {
+    this.openDialogService.openDialogEditContactService(selectedContact);
   }
 
 

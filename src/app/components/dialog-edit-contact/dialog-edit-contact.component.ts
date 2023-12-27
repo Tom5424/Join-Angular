@@ -41,7 +41,7 @@ export class DialogEditContactComponent {
   }
 
 
-  onSubmitForm() {
+  saveEditedContact() {
     this.createNewContactService.updateContactService(this.editContactForm.value, this.openDialogService.docId);
     this.closeDialogEditContact();
   }

@@ -1,10 +1,5 @@
 <div class="containerContactListDetailViewLowerPart">
-    <!--------------------- Only displayed if Contacts are Loading --------------------->
-    <img *ngIf="createNewContactService.loadigContacts" class="spinnerIcon" src="../../../assets/icons/spinner.svg">
-    <!--------------------- Only displayed if Contacts are Loading --------------------->
-
-
-    <div *ngIf="!createNewContactService.loadigContacts" class="containerContactListDetailViewInitialLetterAndFullName">
+    <div class="containerContactListDetailViewInitialLetterAndFullName">
         <p class="contactDetailViewInitiaLetter"
             [ngStyle]="{'background-color': createNewContactService.contact.color}">
             {{ createNewContactService.contact.initialLetter }}
@@ -14,8 +9,7 @@
             <p class="contactDetailViewFullName">{{ createNewContactService.contact.name }}</p>
 
             <div class="mainContainerIconsAndText">
-                <div (click)="openDialogEditContact(createNewContactService.contact)"
-                    class="childContainerIconsAndText">
+                <div (click)="openDialogEditContact(selectedContact)" class="childContainerIconsAndText">
                     <img class="pencilIcon" src="../../../assets/icons/pencil-icon-blue.svg">
                     <p>Edit</p>
                 </div>
@@ -28,9 +22,9 @@
         </div>
     </div>
 
-    <p *ngIf="!createNewContactService.loadigContacts" class="contactInfos">Contact Information</p>
+    <p class="contactInfos">Contact Information</p>
 
-    <div *ngIf="!createNewContactService.loadigContacts" class="containerContactDetailViewEmailAndPhone">
+    <div class="containerContactDetailViewEmailAndPhone">
         <p>Email</p>
         <a href="mailto:{{ createNewContactService.contact.email }}">{{ createNewContactService.contact.email }}</a>
 

@@ -49,8 +49,8 @@
 
                     <!--------------------- Checks whether a line already exists in the list, so only one line is displayed per existing letter --------------------->
 
-                    <div class="containerContactInitialLetterAndFullNameAndEmail" routerLinkActive="selectedContact"
-                        routerLink="/contacts/contact/{{ contact.id }}">
+                    <div (click)="selectContact(contact)" [ngClass]="{'selectedContact': selectedContact == contact}"
+                        class="containerContactInitialLetterAndFullNameAndEmail">
                         <p class="contactInitialLetter" [ngStyle]="{'background-color': contact.color}">
                             {{ contact.initialLetter }}
                         </p>
@@ -71,9 +71,10 @@
                 <p>Better with a team</p>
             </div>
 
-            <!--------------------- Displayed here the Contact Detailview Componet --------------------->
-            <router-outlet></router-outlet>
-            <!--------------------- Displayed here the Contact Detailview Componet --------------------->
+
+            <app-contact-detail-view *ngIf="createNewContactService.contactIsSelected" [selectedContact]="contact">
+
+            </app-contact-detail-view>
 
 
             <!--------------------- User Feedback if Contact was Created successfully --------------------->

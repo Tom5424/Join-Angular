@@ -13,6 +13,7 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 export class ContactsComponent implements OnInit {
   contact: Contact = new Contact();
+  selectedContact: any;
 
 
   constructor(public openDialogService: OpenDialogsService, public createNewContactService: CreateNewContactService) {
@@ -23,6 +24,7 @@ export class ContactsComponent implements OnInit {
   ngOnInit(): void {
     this.createNewContactService.getNewContactService();
     this.createNewContactService.checkIfContactsExistInDatabaseService();
+    this.createNewContactService.contactIsSelected = false;
   }
 
 
@@ -33,5 +35,12 @@ export class ContactsComponent implements OnInit {
 
   openDialogCreateNewContact() {
     this.openDialogService.openDialogCreateNewContactService();
+  }
+
+
+  selectContact(contact: Contact) {
+    this.createNewContactService.contactIsSelected = true;
+    this.contact = contact;
+    this.selectedContact = contact;
   }
 }

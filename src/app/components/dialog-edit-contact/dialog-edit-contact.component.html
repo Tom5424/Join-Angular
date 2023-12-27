@@ -21,7 +21,7 @@
                     {{ openDialogService.contact.initialLetter }}
                 </p>
 
-                <form [formGroup]="editContactForm" (submit)="onSubmitForm()">
+                <form [formGroup]="editContactForm" (submit)="saveEditedContact()">
                     <!------------------------ Validate Inputfield Name ------------------------>
                     <input [ngClass]="{'errorInputfield': editContactForm.controls.name.touched && 
                     editContactForm.controls.name.errors?.['required'] || 

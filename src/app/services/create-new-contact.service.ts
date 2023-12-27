@@ -20,6 +20,7 @@ export class CreateNewContactService {
   userFeedbackIsDisplayedIfEdit: boolean = false;
   noContactsExistInDatabase: boolean = false;
   loadigContacts: boolean = false;
+  contactIsSelected: boolean = false;
   contactColors: string[] = [
     '#FF7A00',
     '#FF5EB3',
@@ -49,12 +50,11 @@ export class CreateNewContactService {
     const collectionRef = collection(this.fireStore, 'contacts');
     const contactInstance = new Contact(formValues, this.randomColor);
     addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor))
-      .then((docData) => {
+      .then(() => {
         this.contactSuccessfullyCreated = true;
         this.userFeedbackIsDisplayedIfCreated = true;
-        this.router.navigate(['/contacts/contact/', docData.id]);
+        this.checkIfContactsExistInDatabaseService();
       })
-    this.checkIfContactsExistInDatabaseService();
     this.hideUserFeedbackAfterContactCreatedService();
   }
 
@@ -111,9 +111,9 @@ export class CreateNewContactService {
     const docRef = doc(this.fireStore, 'contacts', docId);
     deleteDoc(docRef)
       .then(() => {
-        this.router.navigateByUrl('/contacts');
+        this.contactIsSelected = false;
+        this.checkIfContactsExistInDatabaseService();
       })
-    this.checkIfContactsExistInDatabaseService();
   }
 
 
@@ -123,8 +123,6 @@ export class CreateNewContactService {
       .then((docDate) => {
         if (docDate.exists()) {
           this.contact = docDate.data() as Contact;
-        } else {
-          this.router.navigateByUrl('/contacts');
         }
       })
   }

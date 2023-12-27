@@ -27,14 +27,7 @@ const routes: Routes = [
   { path: 'summary', title: 'Join - Summary', component: SummaryComponent },
   { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent },
   { path: 'board', title: 'Join - Board', component: BoardComponent },
-  // { path: 'contacts', title: 'Join - Contacts', component: ContactsComponent },
-
-  {
-    path: 'contacts', title: 'Join - Contacts', component: ContactsComponent, children: [
-      { path: 'contact/:id', component: ContactDetailViewComponent }
-    ]
-  },
-
+  { path: 'contacts', title: 'Join - Contacts', component: ContactsComponent },
 ];
 
 

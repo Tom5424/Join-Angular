@@ -36,20 +36,20 @@ export class OpenDialogsService {
   }
 
 
-  openDialogEditContactService(contact: Contact, docId: string) {
+  openDialogEditContactService(selectedContact: Contact) {
     this.dialogEditContactIsOpen = true;
     this.overlayEditContactIsDisplayed = true;
-    this.getContactDataAfterOpenDialogEditContactService(contact, docId);
+    this.getContactDataAfterOpenDialogEditContactService(selectedContact);
   }
 
 
-  getContactDataAfterOpenDialogEditContactService(contact: Contact, docId: string) {
-    this.contact.name = contact.name;
-    this.contact.email = contact.email;
-    this.contact.phoneNumber = contact.phoneNumber;
-    this.contact.initialLetter = contact.initialLetter;
-    this.contact.color = contact.color;
-    this.docId = docId;
+  getContactDataAfterOpenDialogEditContactService(selectedContact: any) {
+    this.contact.name = selectedContact.name;
+    this.contact.email = selectedContact.email;
+    this.contact.phoneNumber = selectedContact.phoneNumber;
+    this.contact.initialLetter = selectedContact.initialLetter;
+    this.contact.color = selectedContact.color;
+    this.docId = selectedContact.id;
   }
 
 

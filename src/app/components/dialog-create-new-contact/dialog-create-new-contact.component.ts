@@ -39,7 +39,7 @@ export class DialogCreateNewContactComponent {
   }
 
 
-  onSubmitForm() {
+  createNewContact() {
     this.createNewContactService.createNewContactService(this.createContactForm.value);
     this.createContactForm.reset();
     this.closeDialogCreateNewContact();
