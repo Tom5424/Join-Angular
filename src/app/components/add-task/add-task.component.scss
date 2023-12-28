@@ -170,21 +170,6 @@ form {
         border-radius: 10px;
         margin-bottom: 5px;
 
-        span {
-            @include flexCenteredMiddle();
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #FF7A00;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-        }
-
-        p {
-            margin: 0px 0 0px -250px;
-            font-size: 20px;
-        }
-
         input {
             width: 15px;
             @include hover();
@@ -193,6 +178,27 @@ form {
         &:hover {
             background-color: #EEEEEE;
         }
+    }
+}
+
+
+.containerContactInitialLetterAndFullName {
+    @include flexCenteredYAxis();
+    gap: 15px;
+
+    span {
+        @include flexCenteredMiddle();
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #FF7A00;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+    }
+
+    p {
+        margin: 0;
+        font-size: 20px;
     }
 }
 
@@ -288,5 +294,35 @@ form {
 
     img {
         width: 15px;
+    }
+}
+
+
+.containerUserFeedbackTaskAdded {
+    @include popUp();
+    background-color: $mainColor;
+    position: absolute;
+    bottom: 10px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transform: unset;
+}
+
+
+.slideInUp {
+    animation: slideInUp 200ms ease-in-out !important;
+    animation-fill-mode: forwards !important;
+}
+
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-320px);
     }
 }

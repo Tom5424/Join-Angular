@@ -10,7 +10,7 @@
 
     <div class="containerAddTask">
         <h1>Add Task</h1>
-        <form (submit)="addTask()" [formGroup]="addTaskForm" id="addTaskForm">
+        <form (submit)="createTask()" [formGroup]="addTaskForm" id="addTaskForm">
             <div class="containerFormLeftSide">
                 <label for="inputTitle" form="addTaskForm">
                     Title
@@ -43,7 +43,10 @@
                 </label>
                 <div (click)="openDropdownMenuAssignedTo()"
                     [ngClass]="{'activeDropdownMenu': dropdownMenuAssignedToIsOpen}" class="dropdownMenuBox">
-                    <p *ngIf="!dropdownMenuAssignedToIsOpen">Select Contacts to assign</p>
+
+                    <p *ngIf="selectedContacts.length == 0">Select Contacts to assign</p>
+                    <p *ngIf="selectedContacts.length > 0">{{ selectedContacts.length }} Contact(s) selected</p>
+
                     <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuAssignedToIsOpen}"
                         src="../../../assets/icons/arrow-drop-down-icon.svg">
                 </div>
@@ -62,8 +65,12 @@
                         (click)="selectContact(contact)"
                         [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected(contact)}">
 
-                        <span [ngStyle]="{'background-color': contact.color}">{{ contact.initialLetter }}</span>
-                        <p formControlName="assignedTo" ngDefaultControl>{{ contact.name }}</p>
+                        <div class="containerContactInitialLetterAndFullName">
+                            <span [ngStyle]="{'background-color': contact.color}">
+                                {{ contact.initialLetter }}
+                            </span>
+                            <p>{{ contact.name }}</p>
+                        </div>
                         <input [checked]="contactIsSelected(contact)" type="checkbox">
                     </li>
                 </ul>
@@ -137,8 +144,8 @@
                         <img src="../../../assets/icons/close-icon.svg">
                     </button>
                     <button
-                        [disabled]="addTaskForm.invalid || selectedContact == '' || activePrioBtn == ''  || selectedCategory == '' "
-                        [ngClass]="{'btnDisabled': addTaskForm.invalid || selectedContact == '' || activePrioBtn == '' || selectedCategory == ''}"
+                        [disabled]="addTaskForm.invalid || selectedContacts.length == 0 || activePrioBtn == '' || selectedCategory == '' "
+                        [ngClass]="{'btnDisabled': addTaskForm.invalid || selectedContacts.length == 0 || activePrioBtn == '' || selectedCategory == ''}"
                         class="btnCreateTask" type="submit">
                         Create Task
                         <img src="../../../assets/icons/check-icon-white.svg">
@@ -146,5 +153,12 @@
                 </div>
             </div>
         </form>
+
+        <!------------------------------ User Feedback if Task successfully created ------------------------------>
+        <div *ngIf="taskCreated" [ngClass]="{'slideInUp': taskCreated}" class="containerUserFeedbackTaskAdded">
+            <p>Task added to board</p>
+            <img src="../../../assets/icons/navbar-board-icon.svg">
+        </div>
+        <!------------------------------ User Feedback if Task successfully created ------------------------------>
     </div>
 </main>

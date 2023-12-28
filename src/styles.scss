@@ -74,13 +74,6 @@ body {
 }
 
 
-/////////// Animation for the Popup ///////////
-.slideInUp {
-    animation: slideInUp 200ms 1 ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-
 /////////// Custom styles for the Menu in the top right corner header ///////////
 .mat-mdc-menu-content,
 .mat-mdc-menu-content .mat-mdc-menu-item .mat-mdc-menu-item-text {
@@ -148,6 +141,12 @@ body {
 
 
 /////////// Animation for Message, if Singup or Login was successufully or not ///////////
+.slideInUp {
+    animation: slideInUp 200ms 1 ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
 @keyframes slideInUp {
     from {
         transform: translateY(400px);
