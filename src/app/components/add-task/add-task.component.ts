@@ -16,7 +16,6 @@ export class AddTaskComponent implements OnInit {
   dropdownMenuCategoryIsOpen: boolean = false;
   // contactIsSelected: boolean = false;
   selectedContact: any = '';
-  contactIndex: number = 0;
   activePrioBtn: string = '';
   selectedCategory: string = '';
   priorities: string[] = ['urgent', 'medium', 'low'];
@@ -60,16 +59,16 @@ export class AddTaskComponent implements OnInit {
 
 
   selectContact(contact: Contact) {
-    this.contactIndex = this.selectedContacts.indexOf(contact);
-    if (this.contactIndex !== -1) {
-      this.selectedContacts.splice(this.contactIndex, 1);
+    let contactIndex = this.selectedContacts.indexOf(contact);
+    if (contactIndex !== -1) {
+      this.selectedContacts.splice(contactIndex, 1);
     } else {
       this.selectedContacts.push(contact);
     }
   }
 
 
-  isContactSelected(contact: Contact) {
+  contactIsSelected(contact: Contact) {
     return this.selectedContacts.includes(contact);
   }
 
@@ -104,7 +103,6 @@ export class AddTaskComponent implements OnInit {
 
   clearForm() {
     this.addTaskForm.reset();
-    // this.contactIsSelected = false;
     this.selectedContact = '';
     this.activePrioBtn = '';
     this.selectedCategory = '';

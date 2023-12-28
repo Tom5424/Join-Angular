@@ -9,7 +9,6 @@ import { DescriptionComponent } from './components/description/description.compo
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { BoardComponent } from './components/board/board.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
-import { ContactDetailViewComponent } from './components/contact-detail-view/contact-detail-view.component';
 
 
 const routes: Routes = [

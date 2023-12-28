@@ -138,6 +138,15 @@ body {
 }
 
 
+/////////// Custom Styles for Tooltip ///////////
+.cdk-overlay-container .mat-mdc-tooltip {
+    --mdc-plain-tooltip-container-color: #2A3647;
+    --mdc-plain-tooltip-supporting-text-color: white;
+    --mdc-plain-tooltip-container-shape: 4px;
+    --mdc-plain-tooltip-supporting-text-size: 14px;
+}
+
+
 /////////// Animation for Message, if Singup or Login was successufully or not ///////////
 @keyframes slideInUp {
     from {

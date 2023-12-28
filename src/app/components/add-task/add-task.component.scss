@@ -105,12 +105,17 @@ form {
 
 
 .containerSelectedContacts {
+    height: 50px;
+    margin-right: 5px;
+    overflow-y: scroll;
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
     position: absolute;
-    bottom: 35px;
+    bottom: 30px;
 
     p {
+        margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -131,7 +136,9 @@ form {
 
 
 .thisFieldIsRequiredText {
-    margin: 50px 0 0 0;
+    margin: 0;
+    position: absolute;
+    bottom: -25px;
     font-size: 20px;
 
     mark {
@@ -143,7 +150,7 @@ form {
 
 .dropdownMenuAssignedTo {
     width: 455px;
-    height: 135px;
+    height: 130px;
     position: absolute;
     top: 350px;
     z-index: 2;

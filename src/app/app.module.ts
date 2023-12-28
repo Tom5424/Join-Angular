@@ -26,6 +26,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { DialogCreateNewContactComponent } from './components/dialog-create-new-contact/dialog-create-new-contact.component';
 import { DialogEditContactComponent } from './components/dialog-edit-contact/dialog-edit-contact.component';
 import { ContactDetailViewComponent } from './components/contact-detail-view/contact-detail-view.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { ContactDetailViewComponent } from './components/contact-detail-view/con
     provideFirestore(() => getFirestore()),
     NoopAnimationsModule,
     MatMenuModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
