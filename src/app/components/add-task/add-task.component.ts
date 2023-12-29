@@ -15,9 +15,27 @@ export class AddTaskComponent implements OnInit {
   dropdownMenuAssignedToIsOpen: boolean = false;
   dropdownMenuCategoryIsOpen: boolean = false;
   activePrioBtn: string = '';
-  selectedCategory: string = '';
   priorities: string[] = ['urgent', 'medium', 'low'];
   selectedContacts: Array<Contact> = [];
+  selectedCategoryName: string = '';
+  selectedCategoryColor: string = '';
+  categorys: { categoryName: string; categoryColor: string }[] = [
+    { categoryName: 'HTML', categoryColor: '#FF7A00' },
+    { categoryName: 'CSS', categoryColor: '#FF5EB3' },
+    { categoryName: 'JavaScript', categoryColor: '#6E52FF' },
+    { categoryName: 'Angular', categoryColor: '#9327FF' },
+    { categoryName: 'UI/UX Design', categoryColor: '#00BEE8' },
+    { categoryName: 'DevOps', categoryColor: '#1FD7C1' },
+    { categoryName: 'Bug Fixing', categoryColor: '#FF745E' },
+    { categoryName: 'Code Review', categoryColor: '#FFA35E' },
+    { categoryName: 'Feature Development', categoryColor: '#FC71FF' },
+    { categoryName: 'Testing', categoryColor: '#FFC701' },
+    { categoryName: 'Documentation', categoryColor: '#0038FF' },
+    { categoryName: 'Code Deployment', categoryColor: '#C3FF2B' },
+    { categoryName: 'Meetings', categoryColor: '#FFE62B' },
+    { categoryName: 'Code Refactoring', categoryColor: '#FF4646' },
+    { categoryName: 'Security Enhancements', categoryColor: '#FFBB2B' },
+  ]
 
   //// Still has to move to create task service
   taskCreated: boolean = false;
@@ -28,7 +46,8 @@ export class AddTaskComponent implements OnInit {
     contacts: new FormControl(this.selectedContacts),
     dueDate: new FormControl('', Validators.required),
     prio: new FormControl(''),
-    category: new FormControl(''),
+    categoryName: new FormControl(this.selectedCategoryName),
+    categoryColor: new FormControl(this.selectedCategoryColor),
   });
 
 
@@ -42,19 +61,8 @@ export class AddTaskComponent implements OnInit {
   }
 
 
-  openDropdownMenuAssignedTo() {
+  openDropdownMenuAssignContacts() {
     this.dropdownMenuAssignedToIsOpen = !this.dropdownMenuAssignedToIsOpen;
-  }
-
-
-  openDropdownMenuCategory() {
-    this.dropdownMenuCategoryIsOpen = !this.dropdownMenuCategoryIsOpen;
-  }
-
-
-  closeDropdownIfClickOutSide() {
-    this.dropdownMenuAssignedToIsOpen = false;
-    this.dropdownMenuCategoryIsOpen = false;
   }
 
 
@@ -82,8 +90,20 @@ export class AddTaskComponent implements OnInit {
   }
 
 
-  selectCategory(selectedCategory: string) {
-    this.selectedCategory = selectedCategory;
+  openDropdownMenuCategory() {
+    this.dropdownMenuCategoryIsOpen = !this.dropdownMenuCategoryIsOpen;
+  }
+
+
+  selectCategory(category: any) {
+    this.selectedCategoryName = category.categoryName;
+    this.selectedCategoryColor = category.categoryColor;
+    this.dropdownMenuCategoryIsOpen = false;
+  }
+
+
+  closeDropdownIfClickOutSide() {
+    this.dropdownMenuAssignedToIsOpen = false;
     this.dropdownMenuCategoryIsOpen = false;
   }
 
@@ -95,8 +115,10 @@ export class AddTaskComponent implements OnInit {
       contacts: this.selectedContacts,
       dueDate: this.addTaskForm.controls.dueDate.value,
       prio: this.activePrioBtn,
-      category: this.selectedCategory,
+      categoryName: this.selectedCategoryName,
+      categoryColor: this.selectedCategoryColor,
     });
+    //// Still has to move to create task service
     this.taskCreated = true;
     this.clearForm();
   }
@@ -106,6 +128,7 @@ export class AddTaskComponent implements OnInit {
     this.addTaskForm.reset();
     this.selectedContacts = [];
     this.activePrioBtn = '';
-    this.selectedCategory = '';
+    this.selectedCategoryName = '';
+    this.selectedCategoryColor = '';
   }
 }

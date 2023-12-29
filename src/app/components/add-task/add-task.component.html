@@ -12,6 +12,7 @@
         <h1>Add Task</h1>
         <form (submit)="createTask()" [formGroup]="addTaskForm" id="addTaskForm">
             <div class="containerFormLeftSide">
+                <!------------------------------ Inputfield Title ------------------------------>
                 <label for="inputTitle" form="addTaskForm">
                     Title
                     <mark>*</mark>
@@ -35,13 +36,14 @@
                     style="margin-top: -20px;">
                     Description can only 150 maximum characters long
                 </p>
+                <!------------------------------ Inputfield Title ------------------------------>
 
-                <!------------------------------ Dropdown Menu Assigned to ------------------------------>
+                <!------------------------------ Dropdown Menu Assign Contacts ------------------------------>
                 <label form="addTaskForm">
                     Assigned to
                     <mark>*</mark>
                 </label>
-                <div (click)="openDropdownMenuAssignedTo()"
+                <div (click)="openDropdownMenuAssignContacts()"
                     [ngClass]="{'activeDropdownMenu': dropdownMenuAssignedToIsOpen}" class="dropdownMenuBox">
 
                     <p *ngIf="selectedContacts.length == 0">Select Contacts to assign</p>
@@ -60,21 +62,23 @@
                 </div>
                 <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
 
-                <ul [ngClass]="{'d-none': !dropdownMenuAssignedToIsOpen}" class="dropdownMenuAssignedTo">
-                    <li *ngFor="let contact of createNewContactService.contactData | async"
-                        (click)="selectContact(contact)"
-                        [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected(contact)}">
+                <div class="containerAssigContactsList">
+                    <ul [ngClass]="{'d-none': !dropdownMenuAssignedToIsOpen}" class="dropdownMenuAssignContacts">
+                        <li *ngFor="let contact of createNewContactService.contactData | async"
+                            (click)="selectContact(contact)"
+                            [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected(contact)}">
 
-                        <div class="containerContactInitialLetterAndFullName">
-                            <span [ngStyle]="{'background-color': contact.color}">
-                                {{ contact.initialLetter }}
-                            </span>
-                            <p>{{ contact.name }}</p>
-                        </div>
-                        <input [checked]="contactIsSelected(contact)" type="checkbox">
-                    </li>
-                </ul>
-                <!------------------------------ Dropdown Menu Assigned to ------------------------------>
+                            <div class="containerContactInitialLetterAndFullName">
+                                <span [ngStyle]="{'background-color': contact.color}">
+                                    {{ contact.initialLetter }}
+                                </span>
+                                <p>{{ contact.name }}</p>
+                            </div>
+                            <input [checked]="contactIsSelected(contact)" type="checkbox">
+                        </li>
+                    </ul>
+                </div>
+                <!------------------------------ Dropdown Menu Assign Contacts ------------------------------>
 
                 <p class="thisFieldIsRequiredText">
                     <mark>*</mark>
@@ -85,11 +89,13 @@
             <hr>
 
             <div class="containerFormRightSide">
+                <!------------------------------ Inputfield Due Date ------------------------------>
                 <label for="inputCalendar" form="addTaskForm">
                     Due Date
                     <mark>*</mark>
                 </label>
                 <input formControlName="dueDate" id="inputCalendar" type="date">
+                <!------------------------------ Inputfield Due Date ------------------------------>
 
                 <label form="addTaskForm">
                     Prio
@@ -126,14 +132,22 @@
                 </label>
                 <div (click)="openDropdownMenuCategory()" [ngClass]="{'activeDropdownMenu': dropdownMenuCategoryIsOpen}"
                     class="dropdownMenuBox">
-                    <p>{{ selectedCategory ? selectedCategory : 'Select task category' }}</p>
+                    <p>
+                        {{ selectedCategoryName ? selectedCategoryName : 'Select task category'}}
+                        <i [ngStyle]="{'background-color': selectedCategoryColor}"></i>
+                    </p>
+
                     <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuCategoryIsOpen}"
                         src="../../../assets/icons/arrow-drop-down-icon.svg">
                 </div>
 
-                <ul *ngIf="dropdownMenuCategoryIsOpen" class="dropdownMenuCategory">
-                    <li (click)="selectCategory('test')">
-                        <p formControlName="category" ngDefaultControl>test</p>
+                <ul [ngClass]="{'d-none': !dropdownMenuCategoryIsOpen}" class="dropdownMenuCategory">
+                    <li *ngFor="let category of categorys" (click)="selectCategory(category)">
+                        <p formControlName="categoryName" ngDefaultControl>{{ category.categoryName }}</p>
+
+                        <i formControlName="categoryColor" ngDefaultControl
+                            [ngStyle]="{'background-color': category.categoryColor}">
+                        </i>
                     </li>
                 </ul>
                 <!------------------------------ Dropdown Menu Category ------------------------------>
@@ -143,10 +157,15 @@
                         Clear
                         <img src="../../../assets/icons/close-icon.svg">
                     </button>
-                    <button
-                        [disabled]="addTaskForm.invalid || selectedContacts.length == 0 || activePrioBtn == '' || selectedCategory == '' "
-                        [ngClass]="{'btnDisabled': addTaskForm.invalid || selectedContacts.length == 0 || activePrioBtn == '' || selectedCategory == ''}"
-                        class="btnCreateTask" type="submit">
+                    <button [disabled]="addTaskForm.invalid || 
+                        selectedContacts.length == 0 || 
+                        activePrioBtn == '' || 
+                        selectedCategoryName == '' || 
+                        selectedCategoryColor == '' " [ngClass]="{'btnDisabled': addTaskForm.invalid || 
+                        selectedContacts.length == 0 ||
+                         activePrioBtn == '' || 
+                         selectedCategoryName == '' || 
+                         selectedCategoryColor == ''}" class="btnCreateTask" type="submit">
                         Create Task
                         <img src="../../../assets/icons/check-icon-white.svg">
                     </button>

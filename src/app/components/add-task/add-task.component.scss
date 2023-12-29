@@ -29,7 +29,7 @@ main {
     h1 {
         @include headline();
         margin: 0;
-        padding: 70px 710px 30px 0;
+        padding: 40px 710px 30px 0;
     }
 }
 
@@ -85,7 +85,15 @@ form {
     position: relative;
 
     p {
+        @include flexCenteredYAxis();
+        gap: 20px;
         margin: 0;
+
+        i {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+        }
     }
 
     img {
@@ -112,7 +120,7 @@ form {
     flex-wrap: wrap;
     gap: 15px;
     position: absolute;
-    bottom: 30px;
+    bottom: 10px;
 
     p {
         margin: 0;
@@ -148,11 +156,16 @@ form {
 }
 
 
-.dropdownMenuAssignedTo {
+.containerAssigContactsList {
+    position: relative;
+}
+
+
+.dropdownMenuAssignContacts {
     width: 455px;
-    height: 130px;
+    height: 120px;
     position: absolute;
-    top: 350px;
+    bottom: -90px;
     z-index: 2;
     margin: 0;
     box-shadow: 0px 0px 14px 3px #0000000A;
@@ -213,8 +226,9 @@ form {
 
 .dropdownMenuCategory {
     width: 455px;
+    height: 160px;
     position: absolute;
-    top: 285px;
+    top: 283px;
     z-index: 2;
     margin: 0;
     box-shadow: 0px 0px 14px 3px #0000000A;
@@ -228,16 +242,22 @@ form {
         @include hover();
         @include flexCenteredYAxis();
         @include flexSpaceBetween();
-        padding: 7px 0 7px 16px;
+        padding: 7px 16px 7px 16px;
         border-radius: 10px;
+
+        &:hover {
+            background-color: #EEEEEE;
+        }
 
         p {
             margin: 0;
             font-size: 20px;
         }
 
-        &:hover {
-            background-color: #EEEEEE;
+        i {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
         }
     }
 }

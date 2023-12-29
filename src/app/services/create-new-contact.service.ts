@@ -59,6 +59,11 @@ export class CreateNewContactService {
   }
 
 
+  getRandomColorContactService() {
+    this.randomColor = this.contactColors[Math.round(Math.random() * this.contactColors.length)]; // Generate a random between 0 and 14
+  }
+
+
   hideUserFeedbackAfterContactCreatedService() {
     setTimeout(() => {
       this.contactSuccessfullyCreated = false;
@@ -66,11 +71,6 @@ export class CreateNewContactService {
     setTimeout(() => {
       this.userFeedbackIsDisplayedIfCreated = false;
     }, 3000);
-  }
-
-
-  getRandomColorContactService() {
-    this.randomColor = this.contactColors[Math.round(Math.random() * this.contactColors.length)]; // Generate a random between 0 and 14
   }
 
 
