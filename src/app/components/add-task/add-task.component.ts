@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Contact } from 'src/app/models/contact';
 import { CreateNewContactService } from 'src/app/services/create-new-contact.service';
+import { CreateTaskService } from 'src/app/services/create-task.service';
 
 
 @Component({
@@ -37,9 +38,6 @@ export class AddTaskComponent implements OnInit {
     { categoryName: 'Security Enhancements', categoryColor: '#FFBB2B' },
   ]
 
-  //// Still has to move to create task service
-  taskCreated: boolean = false;
-
   addTaskForm = new FormGroup({
     title: new FormControl('', [Validators.required, Validators.maxLength(10)]),
     description: new FormControl('', Validators.maxLength(150)),
@@ -51,7 +49,7 @@ export class AddTaskComponent implements OnInit {
   });
 
 
-  constructor(public createNewContactService: CreateNewContactService) {
+  constructor(public createNewContactService: CreateNewContactService, public createTaskService: CreateTaskService) {
 
   }
 
@@ -118,8 +116,7 @@ export class AddTaskComponent implements OnInit {
       categoryName: this.selectedCategoryName,
       categoryColor: this.selectedCategoryColor,
     });
-    //// Still has to move to create task service
-    this.taskCreated = true;
+    this.createTaskService.createNewTaskService(this.addTaskForm.value);
     this.clearForm();
   }
 

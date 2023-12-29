@@ -174,7 +174,8 @@
         </form>
 
         <!------------------------------ User Feedback if Task successfully created ------------------------------>
-        <div *ngIf="taskCreated" [ngClass]="{'slideInUp': taskCreated}" class="containerUserFeedbackTaskAdded">
+        <div *ngIf="createTaskService.taskSuccessfullyCreated"
+            [ngClass]="{'slideInUp': createTaskService.taskSuccessfullyCreated}" class="containerUserFeedbackTaskAdded">
             <p>Task added to board</p>
             <img src="../../../assets/icons/navbar-board-icon.svg">
         </div>

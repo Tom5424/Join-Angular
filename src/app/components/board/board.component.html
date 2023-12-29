@@ -31,47 +31,29 @@
                     <img src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
                 <div class="column">
-                    <!-------------------------- Only Placeholder  -------------------------->
-                    <div class="containerTaskMiniView">
-                        <p class="taskCategory">Test</p>
-                        <p class="taskTitle">Test Title</p>
-                        <span>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Consequatur dicta obcaecati
-                            veniam sed est modi labore harum, molestias, similique provident eos non, facere corporis
-                            cupiditate corrupti amet atque perferendis itaque.
-                        </span>
-                        <div class="footerTaskMiniView">
-                            <div class="containerAssignedContacts">
-                                <p>T</p>
-                                <p>T</p>
-                                <p>T</p>
-                            </div>
-                            <img src="../../../assets/icons/priority-medium-icon.svg">
-                        </div>
-                    </div>
-                    <!-------------------------- Only Placeholder  -------------------------->
+                    <!-------------------------- Task Card mini View -------------------------->
+                    <div *ngFor="let task of createTaskService.taskData | async" class="containerTaskMiniView">
+                        <p class="taskCategory" [ngStyle]="{'background-color': task.categoryColor}">
+                            {{ task.categoryName }}
+                        </p>
 
-                    <!-------------------------- Only Placeholder  -------------------------->
-                    <div class="containerTaskMiniView">
-                        <p class="taskCategory">Test</p>
-                        <p class="taskTitle">Test Title</p>
-                        <span>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                            Consequatur dicta obcaecati
-                            veniam sed est modi labore harum, molestias, similique provident eos non, facere corporis
-                            cupiditate corrupti amet atque perferendis itaque.
-                        </span>
-                        <div class="footerTaskMiniView">
+                        <p class="taskTitle">{{ task.title }}</p>
+
+                        <span>{{ task.description ? task.description : 'No Taskdescription added'}}</span>
+
+                        <div class=" footerTaskMiniView">
                             <div class="containerAssignedContacts">
-                                <p>T</p>
-                                <p>T</p>
-                                <p>T</p>
+                                <p [ngStyle]="{'background-color': assignContactInTask.color}"
+                                    *ngFor="let assignContactInTask of task.contacts">
+                                    {{ assignContactInTask.initialLetter }}
+                                </p>
                             </div>
-                            <img src="../../../assets/icons/priority-medium-icon.svg">
+                            <img *ngIf="task.prio == 'low'" src="../../../assets/icons/priority-low-icon.svg">
+                            <img *ngIf="task.prio == 'medium'" src="../../../assets/icons/priority-medium-icon.svg">
+                            <img *ngIf="task.prio == 'urgent'" src="../../../assets/icons/priority-urgent-icon.svg">
                         </div>
                     </div>
-                    <!-------------------------- Only Placeholder  -------------------------->
+                    <!-------------------------- Task Card mini View -------------------------->
                 </div>
             </div>
             <!-------------------------- Column To do -------------------------->

@@ -1,4 +1,5 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { CreateTaskService } from 'src/app/services/create-task.service';
 
 
 @Component({
@@ -8,12 +9,17 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 })
 
 
-export class BoardComponent {
+export class BoardComponent implements OnInit {
   @ViewChild('inputFindTask') inputFindTask!: ElementRef;
 
 
-  constructor(public renderer: Renderer2) {
+  constructor(public renderer: Renderer2, public createTaskService: CreateTaskService) {
 
+  }
+
+
+  ngOnInit(): void {
+    this.createTaskService.getNewTaskService();
   }
 
 
