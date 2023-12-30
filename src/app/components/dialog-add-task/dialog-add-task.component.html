@@ -1,34 +1,36 @@
-<app-header></app-header>
+<div class="overlayForDialogAddTask">
 
-<main>
-    <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
-    <div (click)="closeDropdownIfClickOutSide()"
-        [ngClass]="{'overlay': dropdownMenuAssignedToIsOpen || dropdownMenuCategoryIsOpen}">
-    </div>
-    <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
+    <div class="containerDialogAddTask">
 
-    <app-sidebar></app-sidebar>
+        <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
+        <div (click)="closeDropdownIfClickOutSide()"
+            [ngClass]="{'overlayForDropdownMenus': dropdownMenuAssignedToIsOpen || dropdownMenuCategoryIsOpen}">
+        </div>
+        <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
 
-    <div class="containerAddTask">
         <h1>Add Task</h1>
-        <form (submit)="createTask()" [formGroup]="addTaskForm" id="addTaskForm">
+        <div (click)="openDialogService.closeDialogCreateTaskService()" class="containerCloseIcon">
+            <img src="../../../assets/icons/close-icon.svg">
+        </div>
+
+        <form (submit)="createTask()" [formGroup]="dialogAddTaskForm" id="dialogAddTaskForm">
             <div class="containerFormLeftSide">
                 <!------------------------------ Inputfield Title ------------------------------>
-                <label for="inputTitle" form="addTaskForm">
+                <label for="inputTitle" form="dialogAddTaskForm">
                     Title
                     <mark>*</mark>
                 </label>
-                <input [ngClass]="{'errorInputfield': addTaskForm.controls.title.touched && 
-                    addTaskForm.controls.title.errors?.['required'] || 
-                    addTaskForm.controls.title.errors?.['maxlength']}" formControlName="title" id="inputTitle"
+                <input [ngClass]="{'errorInputfield': dialogAddTaskForm.controls.title.touched && 
+                dialogAddTaskForm.controls.title.errors?.['required'] || 
+                dialogAddTaskForm.controls.title.errors?.['maxlength']}" formControlName="title" id="inputTitle"
                     type="text" placeholder="Enter a title">
 
-                <p *ngIf="addTaskForm.controls.title.touched && addTaskForm.controls.title.errors?.['required']"
+                <p *ngIf="dialogAddTaskForm.controls.title.touched && dialogAddTaskForm.controls.title.errors?.['required']"
                     class="errorMessage" style="margin-top: -20px;">
                     Title is required
                 </p>
 
-                <p *ngIf="addTaskForm.controls.title.errors?.['maxlength']" class="errorMessage"
+                <p *ngIf="dialogAddTaskForm.controls.title.errors?.['maxlength']" class="errorMessage"
                     style="margin-top: -20px;">
                     Title can only 10 maximum characters long
                 </p>
@@ -36,18 +38,19 @@
 
 
                 <!------------------------------ Inputfield Description ------------------------------>
-                <label for="textareaDescription" form="addTaskForm">Description</label>
-                <textarea [ngClass]="{'errorInputfield': addTaskForm.controls.description.errors?.['maxlength']}"
+                <label for="textareaDescription" form="dialogAddTaskForm">Description</label>
+                <textarea [ngClass]="{'errorInputfield': dialogAddTaskForm.controls.description.errors?.['maxlength']}"
                     formControlName="description" id="textareaDescription" placeholder="Enter a description"></textarea>
 
-                <p *ngIf="addTaskForm.controls.description.errors?.['maxlength']" class="errorMessage"
+                <p *ngIf="dialogAddTaskForm.controls.description.errors?.['maxlength']" class="errorMessage"
                     style="margin-top: -20px;">
                     Description can only 150 maximum characters long
                 </p>
                 <!------------------------------ Inputfield Description ------------------------------>
 
+
                 <!------------------------------ Dropdown Menu Assign Contacts ------------------------------>
-                <label form="addTaskForm">
+                <label form="dialogAddTaskForm">
                     Assigned to
                     <mark>*</mark>
                 </label>
@@ -98,14 +101,14 @@
 
             <div class="containerFormRightSide">
                 <!------------------------------ Inputfield Due Date ------------------------------>
-                <label for="inputCalendar" form="addTaskForm">
+                <label for="inputCalendar" form="dialogAddTaskForm">
                     Due Date
                     <mark>*</mark>
                 </label>
                 <input formControlName="dueDate" id="inputCalendar" type="date">
                 <!------------------------------ Inputfield Due Date ------------------------------>
 
-                <label form="addTaskForm">
+                <label form="dialogAddTaskForm">
                     Prio
                     <mark>*</mark>
                 </label>
@@ -134,7 +137,7 @@
                 <!------------------------------ Prio Buttons ------------------------------>
 
                 <!------------------------------ Dropdown Menu Category ------------------------------>
-                <label form="addTaskForm">
+                <label form="dialogAddTaskForm">
                     Category
                     <mark>*</mark>
                 </label>
@@ -165,11 +168,11 @@
                         Clear
                         <img src="../../../assets/icons/close-icon.svg">
                     </button>
-                    <button [disabled]="addTaskForm.invalid || 
+                    <button [disabled]="dialogAddTaskForm.invalid || 
                         selectedContacts.length == 0 || 
                         activePrioBtn == '' || 
                         selectedCategoryName == '' || 
-                        selectedCategoryColor == '' " [ngClass]="{'btnDisabled': addTaskForm.invalid || 
+                        selectedCategoryColor == '' " [ngClass]="{'btnDisabled': dialogAddTaskForm.invalid || 
                         selectedContacts.length == 0 ||
                         activePrioBtn == '' || 
                         selectedCategoryName == '' || 
@@ -180,13 +183,5 @@
                 </div>
             </div>
         </form>
-
-        <!------------------------------ User Feedback if Task successfully created ------------------------------>
-        <div *ngIf="createTaskService.taskSuccessfullyCreated"
-            [ngClass]="{'slideInUp': createTaskService.taskSuccessfullyCreated}" class="containerUserFeedbackTaskAdded">
-            <p>Task added to board</p>
-            <img src="../../../assets/icons/navbar-board-icon.svg">
-        </div>
-        <!------------------------------ User Feedback if Task successfully created ------------------------------>
     </div>
-</main>
+</div>

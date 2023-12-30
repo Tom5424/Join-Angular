@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Task } from '../models/tasks';
+import { Task } from '../models/task';
 import { Observable } from 'rxjs';
 import { Contact } from '../models/contact';
 
@@ -12,7 +12,7 @@ import { Contact } from '../models/contact';
 
 
 export class CreateTaskService {
-  task: Task = new Task();
+  // task: Task = new Task();
   taskSuccessfullyCreated: boolean = false;
   taskData!: Observable<any>;
 
@@ -30,8 +30,8 @@ export class CreateTaskService {
         this.taskSuccessfullyCreated = true;
       })
     setTimeout(() => {
-      this.router.navigateByUrl('/board');
       this.taskSuccessfullyCreated = false;
+      this.router.navigateByUrl('/board');
     }, 1000);
   }
 

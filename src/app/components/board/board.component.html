@@ -3,6 +3,8 @@
 <main>
     <app-sidebar></app-sidebar>
 
+    <app-dialog-add-task *ngIf="openDialogService.dialogAddTaskIsOpen"></app-dialog-add-task>
+
     <div class="containerBoard">
         <div class="containerBoardHeadline">
             <h1>Board</h1>
@@ -14,7 +16,7 @@
                 </div>
 
                 <hr>
-                <button type="button">
+                <button (click)="openDialogAddTask()" type="button">
                     Add task
                     <img src="../../../assets/icons/plus-icon-white.svg">
                 </button>
@@ -28,7 +30,7 @@
             <div class="containerSingleColumn">
                 <div class="containerColumnHeadline">
                     <p>To do</p>
-                    <img src="../../../assets/icons/plus-icon-blue.svg">
+                    <img (click)="openDialogAddTask()" src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
                 <div class="column">
                     <!-------------------------- Task Card mini View -------------------------->
@@ -39,7 +41,7 @@
 
                         <p class="taskTitle">{{ task.title }}</p>
 
-                        <span>{{ task.description ? task.description : 'No Taskdescription added'}}</span>
+                        <span>{{ task.description ? task.description : 'No Taskdescription exist'}}</span>
 
                         <div class=" footerTaskMiniView">
                             <div class="containerAssignedContacts">
@@ -62,7 +64,7 @@
             <div class="containerSingleColumn">
                 <div class="containerColumnHeadline">
                     <p>In progress</p>
-                    <img src="../../../assets/icons/plus-icon-blue.svg">
+                    <img (click)="openDialogAddTask()" src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
                 <div class="column">
 
@@ -74,7 +76,7 @@
             <div class="containerSingleColumn">
                 <div class="containerColumnHeadline">
                     <p>Awaiting feedback</p>
-                    <img src="../../../assets/icons/plus-icon-blue.svg">
+                    <img (click)="openDialogAddTask()" src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
                 <div class="column">
 

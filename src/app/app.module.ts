@@ -27,6 +27,7 @@ import { DialogCreateNewContactComponent } from './components/dialog-create-new-
 import { DialogEditContactComponent } from './components/dialog-edit-contact/dialog-edit-contact.component';
 import { ContactDetailViewComponent } from './components/contact-detail-view/contact-detail-view.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { DialogAddTaskComponent } from './components/dialog-add-task/dialog-add-task.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     DialogCreateNewContactComponent,
     DialogEditContactComponent,
     ContactDetailViewComponent,
+    DialogAddTaskComponent,
   ],
   imports: [
     BrowserModule,

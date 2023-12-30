@@ -13,6 +13,7 @@ export class OpenDialogsService {
   dialogCreateNewContactIsOpen: boolean = false;
   overlayEditContactIsDisplayed: boolean = false;
   dialogEditContactIsOpen: boolean = false;
+  dialogAddTaskIsOpen: boolean = false;
   docId: string = '';
   contact: Contact = new Contact();
 
@@ -58,5 +59,15 @@ export class OpenDialogsService {
     setTimeout(() => {
       this.overlayEditContactIsDisplayed = false;
     }, 400);
+  }
+
+
+  openDialogCreateTaskService() {
+    this.dialogAddTaskIsOpen = true;
+  }
+
+
+  closeDialogCreateTaskService() {
+    this.dialogAddTaskIsOpen = false;
   }
 }

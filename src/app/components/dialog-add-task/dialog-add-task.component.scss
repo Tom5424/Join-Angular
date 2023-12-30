@@ -2,7 +2,36 @@
 @import '../../../scss/variables.scss';
 
 
-.overlay {
+.overlayForDialogAddTask {
+    @include flexCenteredMiddle();
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #00000080;
+}
+
+
+.containerDialogAddTask {
+    @include flexCenteredColumnXAxis();
+    position: relative;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 50px;
+
+    h1 {
+        @include headline();
+        width: 100%;
+        margin: 0;
+        padding-bottom: 30px;
+    }
+}
+
+
+.overlayForDropdownMenus {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -13,20 +42,19 @@
 }
 
 
-main {
-    @include flexCenteredYAxis();
-    background-color: $mainBgColor;
-}
+.containerCloseIcon {
+    display: flex;
+    position: absolute;
+    right: 40px;
+    top: 30px;
 
+    img {
+        @include hover();
+        padding: 8px;
+    }
 
-.containerAddTask {
-    @include flexCenteredColumnXAxis();
-    width: 87%;
-
-    h1 {
-        @include headline();
-        margin: 0;
-        padding: 40px 710px 30px 0;
+    &:hover {
+        @include iconHover();
     }
 }
 
@@ -117,10 +145,10 @@ form {
     flex-wrap: wrap;
     gap: 15px;
     position: absolute;
-    bottom: 10px;
+    bottom: 30px;
 
     p {
-        @include flexCenteredColumnXAxis();
+        @include flexCenteredMiddle();
         margin: 0;
         width: 40px;
         height: 40px;
@@ -199,6 +227,7 @@ form {
         width: 40px;
         height: 40px;
         border-radius: 50%;
+        background-color: #FF7A00;
         color: #ffffff;
         border: 2px solid #ffffff;
     }

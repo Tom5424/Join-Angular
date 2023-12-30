@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { CreateTaskService } from 'src/app/services/create-task.service';
+import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class BoardComponent implements OnInit {
   @ViewChild('inputFindTask') inputFindTask!: ElementRef;
 
 
-  constructor(public renderer: Renderer2, public createTaskService: CreateTaskService) {
+  constructor(public renderer: Renderer2, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService) {
 
   }
 
@@ -25,5 +26,10 @@ export class BoardComponent implements OnInit {
 
   focusInput() {
     this.renderer.selectRootElement(this.inputFindTask.nativeElement).focus();
+  }
+
+
+  openDialogAddTask() {
+    this.openDialogService.openDialogCreateTaskService();
   }
 }
