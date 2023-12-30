@@ -1,6 +1,7 @@
-<div class="overlayForDialogAddTask">
+<div (click)="closeDialogIfClickedOutside()" class="overlayForDialogAddTask">
 
-    <div class="containerDialogAddTask">
+    <div [ngClass]="{'slideIn': openDialogService.dialogAddTaskIsOpen, 'slideOut': !openDialogService.dialogAddTaskIsOpen}"
+        (click)="stopPropagation($event)" class="containerDialogAddTask">
 
         <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
         <div (click)="closeDropdownIfClickOutSide()"
@@ -183,5 +184,12 @@
                 </div>
             </div>
         </form>
+
+        <!------------------------------ User Feedback if Task successfully created ------------------------------>
+        <div *ngIf="createTaskService.taskSuccessfullyCreated" class="containerUserFeedbackTaskAdded">
+            <p>Task added to board</p>
+            <img src="../../../assets/icons/navbar-board-icon.svg">
+        </div>
+        <!------------------------------ User Feedback if Task successfully created ------------------------------>
     </div>
 </div>

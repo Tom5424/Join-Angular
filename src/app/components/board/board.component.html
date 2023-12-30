@@ -3,7 +3,7 @@
 <main>
     <app-sidebar></app-sidebar>
 
-    <app-dialog-add-task *ngIf="openDialogService.dialogAddTaskIsOpen"></app-dialog-add-task>
+    <app-dialog-add-task *ngIf="openDialogService.overlayAddTaskIsDisplayed"></app-dialog-add-task>
 
     <div class="containerBoard">
         <div class="containerBoardHeadline">

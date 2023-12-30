@@ -60,6 +60,16 @@ export class DialogAddTaskComponent implements OnInit {
   }
 
 
+  closeDialogIfClickedOutside() {
+    this.openDialogService.closeDialogCreateTaskService();
+  }
+
+
+  stopPropagation(event: Event) {
+    event.stopPropagation();
+  }
+
+
   openDropdownMenuAssignContacts() {
     this.dropdownMenuAssignedToIsOpen = !this.dropdownMenuAssignedToIsOpen;
   }
@@ -119,6 +129,9 @@ export class DialogAddTaskComponent implements OnInit {
     });
     this.createTaskService.createNewTaskService(this.dialogAddTaskForm.value);
     this.clearForm();
+    setTimeout(() => {
+      this.openDialogService.closeDialogCreateTaskService();
+    }, 1000);
   }
 
 

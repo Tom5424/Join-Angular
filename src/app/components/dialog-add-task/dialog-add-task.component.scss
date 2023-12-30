@@ -346,25 +346,8 @@ form {
     @include flexCenteredYAxis();
     background-color: $mainColor;
     position: absolute;
-    bottom: 10px;
+    bottom: 300px;
     z-index: 3;
     gap: 20px;
     transform: unset;
-}
-
-
-.slideInUp {
-    animation: slideInUp 200ms ease-in-out !important;
-    animation-fill-mode: forwards !important;
-}
-
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(0px);
-    }
-
-    to {
-        transform: translateY(-320px);
-    }
 }
