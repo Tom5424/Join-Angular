@@ -1,0 +1,21 @@
+<div class="containerTaskMiniView">
+    <p class="taskCategory" [ngStyle]="{'background-color': task.categoryColor}">
+        {{ task.categoryName }}
+    </p>
+
+    <p class="taskTitle">{{ task.title }}</p>
+
+    <span>{{ task.description ? task.description : 'No Taskdescription exist'}}</span>
+
+    <div class=" footerTaskMiniView">
+        <div class="containerAssignedContacts">
+            <p [ngStyle]="{'background-color': assignContactInTask.color}"
+                *ngFor="let assignContactInTask of task.contacts">
+                {{ assignContactInTask.initialLetter }}
+            </p>
+        </div>
+        <img *ngIf="task.prio == 'low'" src="../../../assets/icons/priority-low-icon.svg">
+        <img *ngIf="task.prio == 'medium'" src="../../../assets/icons/priority-medium-icon.svg">
+        <img *ngIf="task.prio == 'urgent'" src="../../../assets/icons/priority-urgent-icon.svg">
+    </div>
+</div>

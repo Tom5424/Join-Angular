@@ -28,6 +28,8 @@ import { DialogEditContactComponent } from './components/dialog-edit-contact/dia
 import { ContactDetailViewComponent } from './components/contact-detail-view/contact-detail-view.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogAddTaskComponent } from './components/dialog-add-task/dialog-add-task.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TaskMiniViewComponent } from './components/task-mini-view/task-mini-view.component';
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import { DialogAddTaskComponent } from './components/dialog-add-task/dialog-add-
     DialogEditContactComponent,
     ContactDetailViewComponent,
     DialogAddTaskComponent,
+    TaskMiniViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { DialogAddTaskComponent } from './components/dialog-add-task/dialog-add-
     NoopAnimationsModule,
     MatMenuModule,
     MatTooltipModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

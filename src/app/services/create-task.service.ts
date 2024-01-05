@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Task } from '../models/task';
-import { Observable } from 'rxjs';
-import { Contact } from '../models/contact';
 
 
 @Injectable({
@@ -12,9 +10,11 @@ import { Contact } from '../models/contact';
 
 
 export class CreateTaskService {
-  // task: Task = new Task();
   taskSuccessfullyCreated: boolean = false;
-  taskData!: Observable<any>;
+  toDoTaskArray: any[] = [];
+  inProgressTaskArray: any[] = [];
+  awaitingFeebackTaskArray: any[] = [];
+  doneTaskArray: any[] = [];
 
 
   constructor(public fireStore: Firestore, public router: Router) {
@@ -39,7 +39,8 @@ export class CreateTaskService {
   getNewTaskService() {
     const collectionRef = collection(this.fireStore, 'tasks');
     collectionData(collectionRef, { idField: 'id' })
-    this.taskData = collectionData(collectionRef, { idField: 'id' });
+      .subscribe((data) => {
+        this.toDoTaskArray = data;
+      })
   }
-
 }

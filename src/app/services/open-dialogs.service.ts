@@ -64,12 +64,14 @@ export class OpenDialogsService {
 
 
   openDialogCreateTaskService() {
+    document.body.style.overflowY = 'hidden'; // Prevent to scroll the Body if the Dialog is Open
     this.dialogAddTaskIsOpen = true;
     this.overlayAddTaskIsDisplayed = true;
   }
 
 
   closeDialogCreateTaskService() {
+    document.body.style.overflowY = 'auto'; // Remove the Style after Dialog is closed
     this.dialogAddTaskIsOpen = false;
     setTimeout(() => {
       this.overlayAddTaskIsDisplayed = false;

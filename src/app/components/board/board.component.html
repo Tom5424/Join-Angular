@@ -24,7 +24,7 @@
         </div>
 
 
-        <div class="mainContainerColumns">
+        <div class="mainContainerColumns" cdkDropListGroup>
 
             <!-------------------------- Column To do -------------------------->
             <div class="containerSingleColumn">
@@ -32,30 +32,14 @@
                     <p>To do</p>
                     <img (click)="openDialogAddTask()" src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
-                <div class="column">
-                    <!-------------------------- Task Card mini View -------------------------->
-                    <div *ngFor="let task of createTaskService.taskData | async" class="containerTaskMiniView">
-                        <p class="taskCategory" [ngStyle]="{'background-color': task.categoryColor}">
-                            {{ task.categoryName }}
-                        </p>
+                <div class="column" cdkDropList [cdkDropListData]="createTaskService.toDoTaskArray"
+                    (cdkDropListDropped)="dropTaskMiniView($event)">
 
-                        <p class="taskTitle">{{ task.title }}</p>
 
-                        <span>{{ task.description ? task.description : 'No Taskdescription exist'}}</span>
+                    <app-task-mini-view [cdkDragData]="task" cdkDrag
+                        *ngFor="let task of createTaskService.toDoTaskArray" [task]="task">
 
-                        <div class=" footerTaskMiniView">
-                            <div class="containerAssignedContacts">
-                                <p [ngStyle]="{'background-color': assignContactInTask.color}"
-                                    *ngFor="let assignContactInTask of task.contacts">
-                                    {{ assignContactInTask.initialLetter }}
-                                </p>
-                            </div>
-                            <img *ngIf="task.prio == 'low'" src="../../../assets/icons/priority-low-icon.svg">
-                            <img *ngIf="task.prio == 'medium'" src="../../../assets/icons/priority-medium-icon.svg">
-                            <img *ngIf="task.prio == 'urgent'" src="../../../assets/icons/priority-urgent-icon.svg">
-                        </div>
-                    </div>
-                    <!-------------------------- Task Card mini View -------------------------->
+                    </app-task-mini-view>
                 </div>
             </div>
             <!-------------------------- Column To do -------------------------->
@@ -66,8 +50,13 @@
                     <p>In progress</p>
                     <img (click)="openDialogAddTask()" src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
-                <div class="column">
+                <div class="column" cdkDropList [cdkDropListData]="createTaskService.inProgressTaskArray"
+                    (cdkDropListDropped)="dropTaskMiniView($event)">
 
+                    <app-task-mini-view cdkDrag *ngFor="let task of createTaskService.inProgressTaskArray"
+                        [task]="task">
+
+                    </app-task-mini-view>
                 </div>
             </div>
             <!-------------------------- Column In progress -------------------------->
@@ -78,8 +67,13 @@
                     <p>Awaiting feedback</p>
                     <img (click)="openDialogAddTask()" src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
-                <div class="column">
+                <div class="column" cdkDropList [cdkDropListData]="createTaskService.awaitingFeebackTaskArray"
+                    (cdkDropListDropped)="dropTaskMiniView($event)">
 
+                    <app-task-mini-view cdkDrag *ngFor="let task of createTaskService.awaitingFeebackTaskArray"
+                        [task]="task">
+
+                    </app-task-mini-view>
                 </div>
             </div>
             <!-------------------------- Column Awaiting feedback -------------------------->
@@ -89,8 +83,12 @@
                 <div class="containerColumnHeadline">
                     <p>Done</p>
                 </div>
-                <div class="column">
+                <div class="column" cdkDropList [cdkDropListData]="createTaskService.doneTaskArray"
+                    (cdkDropListDropped)="dropTaskMiniView($event)">
 
+                    <app-task-mini-view cdkDrag *ngFor="let task of createTaskService.doneTaskArray" [task]="task">
+
+                    </app-task-mini-view>
                 </div>
             </div>
             <!-------------------------- Column Done -------------------------->
