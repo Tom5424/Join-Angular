@@ -32,12 +32,18 @@
                     <p>To do</p>
                     <img (click)="openDialogAddTask()" src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
+
+                <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
+                <div *ngIf="createTaskService.toDoTaskArray.length == 0" class="containerMessageNoTasksExistInColumn">
+                    <p>No tasks To do</p>
+                </div>
+                <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
+
                 <div class="column" cdkDropList [cdkDropListData]="createTaskService.toDoTaskArray"
                     (cdkDropListDropped)="dropTaskMiniView($event)">
 
 
-                    <app-task-mini-view [cdkDragData]="task" cdkDrag
-                        *ngFor="let task of createTaskService.toDoTaskArray" [task]="task">
+                    <app-task-mini-view cdkDrag *ngFor="let task of createTaskService.toDoTaskArray" [task]="task">
 
                     </app-task-mini-view>
                 </div>
@@ -50,6 +56,14 @@
                     <p>In progress</p>
                     <img (click)="openDialogAddTask()" src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
+
+                <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
+                <div *ngIf="createTaskService.inProgressTaskArray.length == 0"
+                    class="containerMessageNoTasksExistInColumn">
+                    <p>No tasks In progress</p>
+                </div>
+                <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
+
                 <div class="column" cdkDropList [cdkDropListData]="createTaskService.inProgressTaskArray"
                     (cdkDropListDropped)="dropTaskMiniView($event)">
 
@@ -67,11 +81,19 @@
                     <p>Awaiting feedback</p>
                     <img (click)="openDialogAddTask()" src="../../../assets/icons/plus-icon-blue.svg">
                 </div>
+
+                <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
+                <div *ngIf="createTaskService.awaitingFeebackTaskArray.length == 0"
+                    class="containerMessageNoTasksExistInColumn">
+                    <p>No tasks Awaiting feedback</p>
+                </div>
+                <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
+
                 <div class="column" cdkDropList [cdkDropListData]="createTaskService.awaitingFeebackTaskArray"
                     (cdkDropListDropped)="dropTaskMiniView($event)">
 
-                    <app-task-mini-view cdkDrag *ngFor="let task of createTaskService.awaitingFeebackTaskArray"
-                        [task]="task">
+                    <app-task-mini-view class="example-custom-placeholder" cdkDrag
+                        *ngFor="let task of createTaskService.awaitingFeebackTaskArray" [task]="task">
 
                     </app-task-mini-view>
                 </div>
@@ -83,6 +105,13 @@
                 <div class="containerColumnHeadline">
                     <p>Done</p>
                 </div>
+
+                <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
+                <div *ngIf="createTaskService.doneTaskArray.length == 0" class="containerMessageNoTasksExistInColumn">
+                    <p>No tasks Done</p>
+                </div>
+                <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
+
                 <div class="column" cdkDropList [cdkDropListData]="createTaskService.doneTaskArray"
                     (cdkDropListDropped)="dropTaskMiniView($event)">
 
