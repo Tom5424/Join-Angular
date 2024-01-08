@@ -23,7 +23,7 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.createTaskService.getNewTaskService('toDo');
-    this.createTaskService.getNewTaskService('inProgress');
+    // this.createTaskService.getNewTaskService('inProgress');
   }
 
 

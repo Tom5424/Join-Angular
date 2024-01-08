@@ -87,4 +87,13 @@ export class OpenDialogsService {
     this.overlayTaskDetailViewIsDisplayed = true;
   }
 
+
+  closeDialogTaskDetailViewService() {
+    document.body.style.overflowY = 'auto'; // Remove the Style after Dialog is closed
+    this.dialogTaskDetailViewIsOpen = false;
+    setTimeout(() => {
+      this.overlayTaskDetailViewIsDisplayed = false;
+    }, 400);
+  }
+
 }

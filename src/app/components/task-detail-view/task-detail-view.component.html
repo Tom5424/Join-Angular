@@ -1,10 +1,12 @@
-<div class="overlayForDialogTaskDetailView">
+<div (click)="closeDialogIfClickedOutside()" class="overlayForDialogTaskDetailView">
 
-    <div class="containerDialogTaskDetailView">
+    <div (click)="stopPropagation($event)"
+        [ngClass]="{'slideIn': openDialogService.dialogTaskDetailViewIsOpen, 'slideOut': !openDialogService.dialogTaskDetailViewIsOpen}"
+        class="containerDialogTaskDetailView">
 
         <div class="containerHeaderDialogTaskDetailView">
             <p>Test</p>
-            <div class="containerCloseIcon">
+            <div (click)="closeTaskDetailView()" class="containerCloseIcon">
                 <img src="../../../assets/icons/close-icon.svg">
             </div>
         </div>

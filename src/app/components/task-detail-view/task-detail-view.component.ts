@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 
 @Component({
@@ -10,4 +11,23 @@ import { Component } from '@angular/core';
 
 export class TaskDetailViewComponent {
 
+
+  constructor(public openDialogService: OpenDialogsService) {
+
+  }
+
+
+  closeTaskDetailView() {
+    this.openDialogService.closeDialogTaskDetailViewService();
+  }
+
+
+  closeDialogIfClickedOutside() {
+    this.openDialogService.closeDialogTaskDetailViewService();
+  }
+
+
+  stopPropagation(event: Event) {
+    event.stopPropagation();
+  }
 }
