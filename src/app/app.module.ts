@@ -30,6 +30,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogAddTaskComponent } from './components/dialog-add-task/dialog-add-task.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TaskMiniViewComponent } from './components/task-mini-view/task-mini-view.component';
+import { TaskDetailViewComponent } from './components/task-detail-view/task-detail-view.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { TaskMiniViewComponent } from './components/task-mini-view/task-mini-vie
     ContactDetailViewComponent,
     DialogAddTaskComponent,
     TaskMiniViewComponent,
+    TaskDetailViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,8 @@ export class OpenDialogsService {
   dialogEditContactIsOpen: boolean = false;
   overlayAddTaskIsDisplayed: boolean = false;
   dialogAddTaskIsOpen: boolean = false;
+  overlayTaskDetailViewIsDisplayed: boolean = false;
+  dialogTaskDetailViewIsOpen: boolean = false;
   docId: string = '';
   contact: Contact = new Contact();
 
@@ -77,4 +79,12 @@ export class OpenDialogsService {
       this.overlayAddTaskIsDisplayed = false;
     }, 400)
   }
+
+
+  openDialogTaskDetailViewService() {
+    document.body.style.overflowY = 'hidden'; // Prevent to scroll the Body if the Dialog is Open
+    this.dialogTaskDetailViewIsOpen = true;
+    this.overlayTaskDetailViewIsDisplayed = true;
+  }
+
 }

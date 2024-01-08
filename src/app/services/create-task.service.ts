@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, doc, updateDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Task } from '../models/task';
 
@@ -36,11 +36,21 @@ export class CreateTaskService {
   }
 
 
-  getNewTaskService() {
+  getNewTaskService(taskStatus: string) {
     const collectionRef = collection(this.fireStore, 'tasks');
     collectionData(collectionRef, { idField: 'id' })
       .subscribe((data) => {
         this.toDoTaskArray = data;
       })
   }
-}
+
+
+  // updateTaskStatus(task: any, taskStatus: string) {
+  //   const doRef = doc(this.fireStore, 'tasks', task.id);
+  //   const b = JSON.stringify(task);
+  //   updateDoc(doRef, JSON.parse(b))
+  //   // .then(() => {
+  //   //   this.getNewTaskService(taskStatus);
+  //   // })
+  // }
+} 

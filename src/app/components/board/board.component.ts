@@ -22,7 +22,8 @@ export class BoardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.createTaskService.getNewTaskService();
+    this.createTaskService.getNewTaskService('toDo');
+    this.createTaskService.getNewTaskService('inProgress');
   }
 
 
@@ -36,11 +37,31 @@ export class BoardComponent implements OnInit {
   }
 
 
-  dropTaskMiniView(event: CdkDragDrop<Task[]>) {
+  dropTaskMiniView(event: CdkDragDrop<Task[]>, taskStatus: string) {
     if (event.previousContainer.data == event.container.data) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      // const task = event.container.data[event.currentIndex];
+      // this.createTaskService.updateTaskStatus(task, taskStatus);
     } else {
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+      // const task = event.container.data[event.currentIndex];
+      // this.createTaskService.updateTaskStatus(task, taskStatus);
     }
   }
-} 
+
+
+  // getTaskArrayByStatus(status: string) {
+  //   switch (status) {
+  //     case 'toDo':
+  //       return this.createTaskService.toDoTaskArray;
+  //     case 'inProgress':
+  //       return this.createTaskService.inProgressTaskArray;
+  //     case 'awaitingFeedback':
+  //       return this.createTaskService.awaitingFeebackTaskArray;
+  //     case 'done':
+  //       return this.createTaskService.doneTaskArray;
+  //     default:
+  //       return [];
+  //   }
+  // }
+}

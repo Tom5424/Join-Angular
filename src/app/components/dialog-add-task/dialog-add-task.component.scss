@@ -138,11 +138,7 @@ form {
 
 
 .containerSelectedContacts {
-    height: 50px;
-    margin-right: 5px;
-    overflow-y: scroll;
     display: flex;
-    flex-wrap: wrap;
     gap: 15px;
     position: absolute;
     bottom: 30px;
@@ -155,6 +151,11 @@ form {
         border-radius: 50%;
         color: white;
     }
+}
+
+
+.moreSelectedContacts {
+    background-color: black;
 }
 
 

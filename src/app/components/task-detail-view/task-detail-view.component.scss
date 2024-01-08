@@ -1,0 +1,183 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+.overlayForDialogTaskDetailView {
+    @include flexCenteredMiddle();
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #00000080;
+}
+
+
+.containerDialogTaskDetailView {
+    border-radius: 30px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 0px #00000029;
+    padding: 30px 40px 30px 40px;
+}
+
+
+.containerHeaderDialogTaskDetailView {
+    @include flexSpaceBetween();
+    align-items: center;
+
+    p {
+        font-size: 23px;
+        padding: 4px 24px 4px 24px;
+        margin: 0;
+        border-radius: 8px;
+        color: #ffffff;
+        background-color: blue;
+    }
+}
+
+
+.containerCloseIcon {
+    @include hover();
+    display: flex;
+
+    img {
+        border-radius: 50%;
+        padding: 8px;
+
+        &:hover {
+            @include iconHover();
+        }
+    }
+}
+
+
+h1 {
+    @include headline();
+    margin: 20px 0 20px 0;
+}
+
+
+span {
+    width: 400px;
+    font-size: 20px;
+    word-break: break-all;
+    display: block;
+}
+
+
+.containerDueDate {
+    display: flex;
+    gap: 25px;
+}
+
+
+.dueDateText {
+    font-size: 20px;
+    color: $mainColor;
+}
+
+
+.dueDate {
+    font-size: 20px;
+}
+
+
+.containerPrio {
+    display: flex;
+    gap: 48px;
+}
+
+
+.prioText {
+    font-size: 20px;
+    color: $mainColor;
+}
+
+
+.containerPrioLevelAndImg {
+    display: flex;
+    gap: 10px;
+
+    p {
+        font-size: 20px;
+    }
+}
+
+
+.containerAssignedTo {
+    ul {
+        height: 110px;
+        padding-left: 15px;
+        overflow-y: scroll;
+        list-style: none;
+
+        li {
+            @include flexCenteredYAxis();
+            margin-top: -15px;
+            gap: 16px;
+        }
+    }
+}
+
+
+.assignToText {
+    font-size: 20px;
+    margin-bottom: 0;
+    color: $mainColor;
+}
+
+
+.contactInitialLetter {
+    @include flexCenteredMiddle();
+    background-color: #5f9ea0;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ffffff;
+}
+
+
+.contactFullName {
+    font-size: 20px;
+}
+
+
+.containerFooterDialogTaskDetailView {
+    @include flexCenteredYAxis();
+    justify-content: flex-end;
+    gap: 8px;
+
+    hr {
+        width: 30px;
+        height: 1px;
+        margin: 0px -10px 0px -10px;
+        transform: rotate(90deg);
+        border: unset;
+        background-color: #D1D1D1;
+    }
+}
+
+
+.containerIconAndText {
+    @include hover();
+    display: flex;
+    gap: 8px;
+
+    &:hover {
+        p {
+            color: #29ABE2;
+            font-weight: 700;
+        }
+
+        img {
+            filter: brightness(0) saturate(100%) invert(67%) sepia(75%) saturate(2509%) hue-rotate(165deg) brightness(91%) contrast(95%);
+        }
+    }
+}
+
+
+.pencilIcon {
+    width: 25px;
+}

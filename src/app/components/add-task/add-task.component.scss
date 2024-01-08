@@ -110,14 +110,10 @@ form {
 
 
 .containerSelectedContacts {
-    height: 50px;
-    margin-right: 5px;
-    overflow-y: scroll;
     display: flex;
-    flex-wrap: wrap;
     gap: 15px;
     position: absolute;
-    bottom: 10px;
+    bottom: 30px;
 
     p {
         @include flexCenteredMiddle();
@@ -127,6 +123,12 @@ form {
         border-radius: 50%;
         color: white;
     }
+}
+
+
+.moreSelectedContacts {
+    background-color: black;
+
 }
 
 

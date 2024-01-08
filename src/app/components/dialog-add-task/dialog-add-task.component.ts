@@ -45,6 +45,7 @@ export class DialogAddTaskComponent implements OnInit {
     contacts: new FormControl(this.selectedContacts),
     dueDate: new FormControl('', Validators.required),
     prio: new FormControl(''),
+    // status: new FormControl('toDo'),
     categoryName: new FormControl(this.selectedCategoryName),
     categoryColor: new FormControl(this.selectedCategoryColor),
   });
