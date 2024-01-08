@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CreateNewContactService } from './create-new-contact.service';
 import { Contact } from '../models/contact';
+import { Task } from '../models/task';
 
 
 @Injectable({
@@ -18,7 +19,10 @@ export class OpenDialogsService {
   overlayTaskDetailViewIsDisplayed: boolean = false;
   dialogTaskDetailViewIsOpen: boolean = false;
   docId: string = '';
+  taskArray: any[] = [];
+  index: number = 0;
   contact: Contact = new Contact();
+  task: Task = new Task();
 
 
   constructor(public createNewContactService: CreateNewContactService) {
@@ -81,10 +85,25 @@ export class OpenDialogsService {
   }
 
 
-  openDialogTaskDetailViewService() {
+  openDialogTaskDetailViewService(selectedTask: any, taskArray: any, index: number) {
     document.body.style.overflowY = 'hidden'; // Prevent to scroll the Body if the Dialog is Open
     this.dialogTaskDetailViewIsOpen = true;
     this.overlayTaskDetailViewIsDisplayed = true;
+    this.getTaskDataAfterOpenDialogTaskDetailViewService(selectedTask, taskArray, index);
+  }
+
+
+  getTaskDataAfterOpenDialogTaskDetailViewService(selectedTask: any, taskArray: any, index: number) {
+    this.taskArray = taskArray;
+    this.index = index;
+    this.task.categoryName = selectedTask.categoryName;
+    this.task.categoryColor = selectedTask.categoryColor;
+    this.task.title = selectedTask.title;
+    this.task.description = selectedTask.description;
+    this.task.dueDate = selectedTask.dueDate;
+    this.task.prio = selectedTask.prio;
+    this.task.contacts = selectedTask.contacts;
+    this.docId = selectedTask.id;
   }
 
 

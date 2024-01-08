@@ -5,30 +5,34 @@
         class="containerDialogTaskDetailView">
 
         <div class="containerHeaderDialogTaskDetailView">
-            <p>Test</p>
+            <p [ngStyle]="{'background-color': openDialogService.task.categoryColor}">
+                {{ openDialogService.task.categoryName }}
+            </p>
             <div (click)="closeTaskDetailView()" class="containerCloseIcon">
                 <img src="../../../assets/icons/close-icon.svg">
             </div>
         </div>
 
-        <h1>Test</h1>
+
+        <h1>{{ openDialogService.task.title }}</h1>
+
 
         <span>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat a officia, ea autem aut explicabo architecto
-            voluptas assumenda delectus animi maiores, repellendus suscipit eveniet soluta dolorum ex natus incidunt
-            vitae?
+            {{ openDialogService.task.description ? openDialogService.task.description : 'No Taskdescription exist'}}
         </span>
+
 
         <div class="containerDueDate">
             <p class="dueDateText">Due Date:</p>
-            <p class="dueDate">08/01/2024</p>
+            <p class="dueDate">{{ openDialogService.task.dueDate | date: 'dd/MM/yyyy' }}</p>
         </div>
+
 
         <div class="containerPrio">
             <p class="prioText">Priority:</p>
             <div class="containerPrioLevelAndImg">
-                <p class="prio">Medium</p>
-                <img src="../../../assets/icons/priority-low-icon.svg">
+                <p class="prio">{{ openDialogService.task.prio }}</p>
+                <img src="../../../assets/icons/priority-{{ openDialogService.task.prio }}-icon.svg">
             </div>
         </div>
 
@@ -36,23 +40,18 @@
         <div class="containerAssignedTo">
             <p class="assignToText">Assigned To:</p>
             <ul>
-                <li>
-                    <p class="contactInitialLetter">T</p>
-                    <p class="contactFullName">Tom</p>
-                </li>
-                <li>
-                    <p class="contactInitialLetter">T</p>
-                    <p class="contactFullName">Tom</p>
-                </li>
-                <li>
-                    <p class="contactInitialLetter">T</p>
-                    <p class="contactFullName">Tom</p>
+                <li *ngFor="let contact of openDialogService.task.contacts">
+                    <p [ngStyle]="{'background-color': contact.color}" class="contactInitialLetter">
+                        {{ contact.initialLetter }}
+                    </p>
+                    <p class="contactFullName">{{ contact.name }}</p>
                 </li>
             </ul>
         </div>
 
+
         <div class="containerFooterDialogTaskDetailView">
-            <div class="containerIconAndText">
+            <div (click)="deleteTask()" class="containerIconAndText">
                 <img src="../../../assets/icons/trash-icon.svg">
                 <p>Delete</p>
             </div>

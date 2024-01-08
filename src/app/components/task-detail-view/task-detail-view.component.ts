@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CreateTaskService } from 'src/app/services/create-task.service';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 
@@ -12,7 +13,7 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 export class TaskDetailViewComponent {
 
 
-  constructor(public openDialogService: OpenDialogsService) {
+  constructor(public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService) {
 
   }
 
@@ -29,5 +30,11 @@ export class TaskDetailViewComponent {
 
   stopPropagation(event: Event) {
     event.stopPropagation();
+  }
+
+
+  deleteTask() {
+    this.openDialogService.closeDialogTaskDetailViewService();
+    this.createTaskService.deleteTaskService(this.openDialogService.docId, this.openDialogService.taskArray, this.openDialogService.index);
   }
 }

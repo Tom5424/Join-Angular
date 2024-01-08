@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData, doc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData, deleteDoc, doc, updateDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Task } from '../models/task';
 
@@ -11,6 +11,8 @@ import { Task } from '../models/task';
 
 export class CreateTaskService {
   taskSuccessfullyCreated: boolean = false;
+  taskSuccessfullyDeleted: boolean = false;
+  userFeedbackIsDisplayedIfSuccessfullyDeleted: boolean = false;
   toDoTaskArray: any[] = [];
   inProgressTaskArray: any[] = [];
   awaitingFeebackTaskArray: any[] = [];
@@ -42,6 +44,23 @@ export class CreateTaskService {
       .subscribe((data) => {
         this.toDoTaskArray = data;
       })
+  }
+
+
+  deleteTaskService(docId: string, taskArray: any[], index: number) {
+    taskArray.splice(index, 1);
+    const docRef = doc(this.fireStore, 'tasks', docId);
+    deleteDoc(docRef).
+      then(() => {
+        this.userFeedbackIsDisplayedIfSuccessfullyDeleted = true;
+        this.taskSuccessfullyDeleted = true;
+      })
+    setTimeout(() => {
+      this.taskSuccessfullyDeleted = false;
+    }, 1500);
+    setTimeout(() => {
+      this.userFeedbackIsDisplayedIfSuccessfullyDeleted = false;
+    }, 2000);
   }
 
 

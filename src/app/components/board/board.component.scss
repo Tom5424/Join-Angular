@@ -141,6 +141,16 @@ main {
 }
 
 
+.popUpSuccessfully {
+    @include popUp();
+    background-color: $mainColor;
+    position: absolute !important;
+    right: 200px;
+    bottom: 25px;
+    transform: translateY(0);
+}
+
+
 /////// Styles for dragging Elements
 .cdk-drag-animating {
     transition: transform 225ms cubic-bezier(0, 0, 0.2, 1);
