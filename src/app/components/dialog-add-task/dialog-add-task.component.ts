@@ -45,7 +45,6 @@ export class DialogAddTaskComponent implements OnInit {
     contacts: new FormControl(this.selectedContacts),
     dueDate: new FormControl('', Validators.required),
     prio: new FormControl(''),
-    // status: new FormControl('toDo'),
     categoryName: new FormControl(this.selectedCategoryName),
     categoryColor: new FormControl(this.selectedCategoryColor),
   });
@@ -128,7 +127,7 @@ export class DialogAddTaskComponent implements OnInit {
       categoryName: this.selectedCategoryName,
       categoryColor: this.selectedCategoryColor,
     });
-    this.createTaskService.createNewTaskService(this.dialogAddTaskForm.value);
+    this.createTaskService.createNewTaskService(this.dialogAddTaskForm.value, this.openDialogService.taskStatus);
     this.clearForm();
     setTimeout(() => {
       this.openDialogService.closeDialogCreateTaskService();

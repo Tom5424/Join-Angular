@@ -35,6 +35,6 @@ export class TaskDetailViewComponent {
 
   deleteTask() {
     this.openDialogService.closeDialogTaskDetailViewService();
-    this.createTaskService.deleteTaskService(this.openDialogService.docId, this.openDialogService.taskArray, this.openDialogService.index);
+    this.createTaskService.deleteTaskService(this.openDialogService.docId);
   }
 }

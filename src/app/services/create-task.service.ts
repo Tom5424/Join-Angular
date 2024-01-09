@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collection, collectionData, deleteDoc, doc, updateDoc } from '@angular/fire/firestore';
+import { CollectionReference, Firestore, addDoc, collection, collectionData, deleteDoc, doc, updateDoc } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Task } from '../models/task';
 
@@ -24,10 +24,10 @@ export class CreateTaskService {
   }
 
 
-  createNewTaskService(formValues: any) {
+  createNewTaskService(formValues: any, selectedTaskStatus: string) {
     const collectionRef = collection(this.fireStore, 'tasks');
-    const contactInstance = new Task(formValues);
-    addDoc(collectionRef, contactInstance.toJson(formValues))
+    const contactInstance = new Task(formValues, selectedTaskStatus);
+    addDoc(collectionRef, contactInstance.toJson(formValues, selectedTaskStatus))
       .then(() => {
         this.taskSuccessfullyCreated = true;
       })
@@ -35,20 +35,70 @@ export class CreateTaskService {
       this.taskSuccessfullyCreated = false;
       this.router.navigateByUrl('/board');
     }, 1000);
+    this.getNewTaskService(selectedTaskStatus);
   }
 
 
-  getNewTaskService(taskStatus: string) {
+  getNewTaskService(selectedTaskStatus: string) {
     const collectionRef = collection(this.fireStore, 'tasks');
+    if (selectedTaskStatus == 'toDo') {
+      return this.getToDoTaskDataService(collectionRef, selectedTaskStatus);
+    } else if (selectedTaskStatus == 'inProgress') {
+      return this.getInProgressTaskDataService(collectionRef, selectedTaskStatus);
+    } else if (selectedTaskStatus == 'awaitingFeedback') {
+      return this.getAwaitingFeedbackTaskDataService(collectionRef, selectedTaskStatus);
+    } else if (selectedTaskStatus == 'done') {
+      return this.getDoneTaskDataService(collectionRef, selectedTaskStatus);
+    }
+  }
+
+
+  getToDoTaskDataService(collectionRef: CollectionReference, selectedTaskStatus: string) {
     collectionData(collectionRef, { idField: 'id' })
-      .subscribe((data) => {
-        this.toDoTaskArray = data;
+      .subscribe((tasks) => {
+        let filteredTask = tasks.filter((task) => task['status'] == selectedTaskStatus);
+        this.toDoTaskArray = filteredTask;
       })
   }
 
 
-  deleteTaskService(docId: string, taskArray: any[], index: number) {
-    taskArray.splice(index, 1);
+  getInProgressTaskDataService(collectionRef: CollectionReference, selectedTaskStatus: string) {
+    collectionData(collectionRef, { idField: 'id' })
+      .subscribe((tasks) => {
+        let filteredTask = tasks.filter((task) => task['status'] == selectedTaskStatus);
+        this.inProgressTaskArray = filteredTask;
+      })
+  }
+
+
+  getAwaitingFeedbackTaskDataService(collectionRef: CollectionReference, selectedTaskStatus: string) {
+    collectionData(collectionRef, { idField: 'id' })
+      .subscribe((tasks) => {
+        let filteredTask = tasks.filter((task) => task['status'] == selectedTaskStatus);
+        this.awaitingFeebackTaskArray = filteredTask;
+      })
+  }
+
+
+  getDoneTaskDataService(collectionRef: CollectionReference, selectedTaskStatus: string) {
+    collectionData(collectionRef, { idField: 'id' })
+      .subscribe((tasks) => {
+        let filteredTask = tasks.filter((task) => task['status'] == selectedTaskStatus);
+        this.doneTaskArray = filteredTask;
+      })
+  }
+
+
+  updateTaskStatusService(task: any, taskStatus: string) {
+    const doRef = doc(this.fireStore, 'tasks', task.id);
+    updateDoc(doRef, { status: taskStatus })
+      .then(() => {
+        this.getNewTaskService(taskStatus);
+      })
+  }
+
+
+  deleteTaskService(docId: string) {
     const docRef = doc(this.fireStore, 'tasks', docId);
     deleteDoc(docRef).
       then(() => {
@@ -57,19 +107,9 @@ export class CreateTaskService {
       })
     setTimeout(() => {
       this.taskSuccessfullyDeleted = false;
-    }, 1500);
+    }, 1000);
     setTimeout(() => {
       this.userFeedbackIsDisplayedIfSuccessfullyDeleted = false;
-    }, 2000);
+    }, 1500);
   }
-
-
-  // updateTaskStatus(task: any, taskStatus: string) {
-  //   const doRef = doc(this.fireStore, 'tasks', task.id);
-  //   const b = JSON.stringify(task);
-  //   updateDoc(doRef, JSON.parse(b))
-  //   // .then(() => {
-  //   //   this.getNewTaskService(taskStatus);
-  //   // })
-  // }
 } 

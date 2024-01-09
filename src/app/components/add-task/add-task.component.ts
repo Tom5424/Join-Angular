@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Contact } from 'src/app/models/contact';
 import { CreateNewContactService } from 'src/app/services/create-new-contact.service';
 import { CreateTaskService } from 'src/app/services/create-task.service';
+import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 
 @Component({
@@ -49,7 +50,7 @@ export class AddTaskComponent implements OnInit {
   });
 
 
-  constructor(public createNewContactService: CreateNewContactService, public createTaskService: CreateTaskService) {
+  constructor(public createNewContactService: CreateNewContactService, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService) {
 
   }
 
@@ -116,7 +117,7 @@ export class AddTaskComponent implements OnInit {
       categoryName: this.selectedCategoryName,
       categoryColor: this.selectedCategoryColor,
     });
-    this.createTaskService.createNewTaskService(this.addTaskForm.value);
+    this.createTaskService.createNewTaskService(this.addTaskForm.value, this.openDialogService.taskStatus);
     this.clearForm();
   }
 

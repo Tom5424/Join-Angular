@@ -10,10 +10,10 @@
     <div class=" footerTaskMiniView">
         <div class="containerAssignedContacts">
             <p [ngStyle]="{'background-color': assignContactInTask.color}"
-                *ngFor="let assignContactInTask of task.contacts.slice(0, 5)">
+                *ngFor="let assignContactInTask of task.contacts.slice(0, 3)">
                 {{ assignContactInTask.initialLetter }}
             </p>
-            <p *ngIf="task.contacts.length >= 6" class="moreAssignedContacts">+{{ task.contacts.length - 5}}</p>
+            <p *ngIf="task.contacts.length >= 4" class="moreAssignedContacts">+{{ task.contacts.length - 3}}</p>
         </div>
         <img src="../../../assets/icons/priority-{{ task.prio }}-icon.svg">
     </div>

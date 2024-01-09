@@ -7,24 +7,24 @@ export class Task {
     contacts: Array<Contact>;
     dueDate: Date;
     prio: string;
-    // status: string;
+    status: string;
     categoryName: string;
     categoryColor: string;
 
 
-    constructor(object?: any) {
+    constructor(object?: any, selectedTaskStatus?: string) {
         this.title = object ? object.title : '';
         this.description = object ? object.description : '';
         this.contacts = object ? object.contacts : [];
         this.dueDate = object ? object.dueDate : null;
         this.prio = object ? object.prio : '';
-        // this.status = object ? object.status : '';
+        this.status = selectedTaskStatus ? selectedTaskStatus : '';
         this.categoryName = object ? object.categoryName : '';
         this.categoryColor = object ? object.categoryColor : '';
     }
 
 
-    toJson(formValues: any) {
+    toJson(formValues: any, selectedTaskStatus: string) {
         return {
             title: formValues.title,
             description: formValues.description,
@@ -33,7 +33,7 @@ export class Task {
             prio: formValues.prio,
             categoryName: formValues.categoryName,
             categoryColor: formValues.categoryColor,
-            // status: formValues.status
+            status: selectedTaskStatus
         }
     }
 }

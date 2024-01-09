@@ -19,8 +19,7 @@ export class OpenDialogsService {
   overlayTaskDetailViewIsDisplayed: boolean = false;
   dialogTaskDetailViewIsOpen: boolean = false;
   docId: string = '';
-  taskArray: any[] = [];
-  index: number = 0;
+  taskStatus: string = '';
   contact: Contact = new Contact();
   task: Task = new Task();
 
@@ -69,7 +68,8 @@ export class OpenDialogsService {
   }
 
 
-  openDialogCreateTaskService() {
+  openDialogCreateTaskService(selectedTaskStatus: string) {
+    this.taskStatus = selectedTaskStatus;
     document.body.style.overflowY = 'hidden'; // Prevent to scroll the Body if the Dialog is Open
     this.dialogAddTaskIsOpen = true;
     this.overlayAddTaskIsDisplayed = true;
@@ -85,17 +85,15 @@ export class OpenDialogsService {
   }
 
 
-  openDialogTaskDetailViewService(selectedTask: any, taskArray: any, index: number) {
+  openDialogTaskDetailViewService(selectedTask: any) {
     document.body.style.overflowY = 'hidden'; // Prevent to scroll the Body if the Dialog is Open
     this.dialogTaskDetailViewIsOpen = true;
     this.overlayTaskDetailViewIsDisplayed = true;
-    this.getTaskDataAfterOpenDialogTaskDetailViewService(selectedTask, taskArray, index);
+    this.getTaskDataAfterOpenDialogTaskDetailViewService(selectedTask);
   }
 
 
-  getTaskDataAfterOpenDialogTaskDetailViewService(selectedTask: any, taskArray: any, index: number) {
-    this.taskArray = taskArray;
-    this.index = index;
+  getTaskDataAfterOpenDialogTaskDetailViewService(selectedTask: any) {
     this.task.categoryName = selectedTask.categoryName;
     this.task.categoryColor = selectedTask.categoryColor;
     this.task.title = selectedTask.title;

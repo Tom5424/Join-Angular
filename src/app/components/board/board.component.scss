@@ -144,7 +144,7 @@ main {
 .popUpSuccessfully {
     @include popUp();
     background-color: $mainColor;
-    position: absolute !important;
+    position: fixed;
     right: 200px;
     bottom: 25px;
     transform: translateY(0);

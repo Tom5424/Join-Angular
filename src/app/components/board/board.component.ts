@@ -23,7 +23,9 @@ export class BoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.createTaskService.getNewTaskService('toDo');
-    // this.createTaskService.getNewTaskService('inProgress');
+    this.createTaskService.getNewTaskService('inProgress');
+    this.createTaskService.getNewTaskService('awaitingFeedback');
+    this.createTaskService.getNewTaskService('done');
   }
 
 
@@ -32,36 +34,20 @@ export class BoardComponent implements OnInit {
   }
 
 
-  openDialogAddTask() {
-    this.openDialogService.openDialogCreateTaskService();
+  openDialogAddTask(selectedTaskStatus: string) {
+    this.openDialogService.openDialogCreateTaskService(selectedTaskStatus);
   }
 
 
   dropTaskMiniView(event: CdkDragDrop<Task[]>, taskStatus: string) {
-    if (event.previousContainer.data == event.container.data) {
+    if (event.previousContainer == event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
       // const task = event.container.data[event.currentIndex];
-      // this.createTaskService.updateTaskStatus(task, taskStatus);
+      // this.createTaskService.updateTaskStatusService(task, taskStatus);
     } else {
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
-      // const task = event.container.data[event.currentIndex];
-      // this.createTaskService.updateTaskStatus(task, taskStatus);
+      const task = event.container.data[event.currentIndex];
+      this.createTaskService.updateTaskStatusService(task, taskStatus);
     }
   }
-
-
-  // getTaskArrayByStatus(status: string) {
-  //   switch (status) {
-  //     case 'toDo':
-  //       return this.createTaskService.toDoTaskArray;
-  //     case 'inProgress':
-  //       return this.createTaskService.inProgressTaskArray;
-  //     case 'awaitingFeedback':
-  //       return this.createTaskService.awaitingFeebackTaskArray;
-  //     case 'done':
-  //       return this.createTaskService.doneTaskArray;
-  //     default:
-  //       return [];
-  //   }
-  // }
 }
