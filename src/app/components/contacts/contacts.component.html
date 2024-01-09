@@ -77,20 +77,28 @@
             </app-contact-detail-view>
 
 
-            <!--------------------- User Feedback if Contact was Created successfully --------------------->
+            <!--------------------- User Feedback if Contact was created successfully --------------------->
             <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfCreated" [ngClass]="{'slideIn': createNewContactService.contactSuccessfullyCreated, 
                 'slideOut': !createNewContactService.contactSuccessfullyCreated}" class="popUpSuccessfully">
                 <p>Contact successfully created.</p>
             </div>
-            <!--------------------- User Feedback if Contact was Created successfully  --------------------->
+            <!--------------------- User Feedback if Contact was created successfully  --------------------->
 
 
-            <!--------------------- User Feedback if Contact was Edit successfully  --------------------->
+            <!--------------------- User Feedback if Contact was edit successfully  --------------------->
             <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfEdit" [ngClass]=" {'slideIn': createNewContactService.contactSuccessfullyEdit, 
                'slideOut': !createNewContactService.contactSuccessfullyEdit}" class="popUpSuccessfully">
                 <p>Contact successfully edit.</p>
             </div>
-            <!--------------------- User Feedback if Contact was Edit successfully  --------------------->
+            <!--------------------- User Feedback if Contact was edit successfully  --------------------->
+
+
+            <!--------------------- User Feedback if Contact was delete successfully  --------------------->
+            <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfDeleted" [ngClass]=" {'slideIn': createNewContactService.contactSuccessfullyDeleted, 
+               'slideOut': !createNewContactService.contactSuccessfullyDeleted}" class="popUpSuccessfully">
+                <p>Contact successfully deleted.</p>
+            </div>
+            <!--------------------- User Feedback if Contact was delete successfully  --------------------->
         </div>
     </div>
 </main>

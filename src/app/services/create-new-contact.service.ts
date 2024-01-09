@@ -18,6 +18,8 @@ export class CreateNewContactService {
   userFeedbackIsDisplayedIfCreated: boolean = false;
   contactSuccessfullyEdit: boolean = false;
   userFeedbackIsDisplayedIfEdit: boolean = false;
+  contactSuccessfullyDeleted: boolean = false;
+  userFeedbackIsDisplayedIfDeleted: boolean = false;
   noContactsExistInDatabase: boolean = false;
   loadigContacts: boolean = false;
   contactIsSelected: boolean = false;
@@ -67,10 +69,10 @@ export class CreateNewContactService {
   hideUserFeedbackAfterContactCreatedService() {
     setTimeout(() => {
       this.contactSuccessfullyCreated = false;
-    }, 2000);
+    }, 1000);
     setTimeout(() => {
       this.userFeedbackIsDisplayedIfCreated = false;
-    }, 3000);
+    }, 1500);
   }
 
 
@@ -100,10 +102,10 @@ export class CreateNewContactService {
   hideUserFeedbackAfterContactEditService() {
     setTimeout(() => {
       this.contactSuccessfullyEdit = false;
-    }, 2000);
+    }, 1000);
     setTimeout(() => {
       this.userFeedbackIsDisplayedIfEdit = false;
-    }, 3000);
+    }, 1500);
   }
 
 
@@ -112,8 +114,21 @@ export class CreateNewContactService {
     deleteDoc(docRef)
       .then(() => {
         this.contactIsSelected = false;
+        this.contactSuccessfullyDeleted = true;
+        this.userFeedbackIsDisplayedIfDeleted = true;
         this.checkIfContactsExistInDatabaseService();
       })
+    this.hideUserFeedbackAfterContactDeletedService();
+  }
+
+
+  hideUserFeedbackAfterContactDeletedService() {
+    setTimeout(() => {
+      this.contactSuccessfullyDeleted = false;
+    }, 1000);
+    setTimeout(() => {
+      this.userFeedbackIsDisplayedIfDeleted = false;
+    }, 1500);
   }
 
 
