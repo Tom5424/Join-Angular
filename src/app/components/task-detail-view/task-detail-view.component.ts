@@ -24,6 +24,7 @@ export class TaskDetailViewComponent {
 
 
   closeDialogIfClickedOutside() {
+    this.openDialogService.closeDialogEditTaskService();
     this.openDialogService.closeDialogTaskDetailViewService();
   }
 
@@ -36,5 +37,10 @@ export class TaskDetailViewComponent {
   deleteTask() {
     this.openDialogService.closeDialogTaskDetailViewService();
     this.createTaskService.deleteTaskService(this.openDialogService.docId);
+  }
+
+
+  editTask() {
+    this.openDialogService.openDialogEditTaskService();
   }
 }

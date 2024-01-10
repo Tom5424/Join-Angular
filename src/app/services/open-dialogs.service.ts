@@ -18,6 +18,7 @@ export class OpenDialogsService {
   dialogAddTaskIsOpen: boolean = false;
   overlayTaskDetailViewIsDisplayed: boolean = false;
   dialogTaskDetailViewIsOpen: boolean = false;
+  dialogEditTaskIsOpen: boolean = false;
   docId: string = '';
   taskStatus: string = '';
   contact: Contact = new Contact();
@@ -113,4 +114,13 @@ export class OpenDialogsService {
     }, 400);
   }
 
+
+  openDialogEditTaskService() {
+    this.dialogEditTaskIsOpen = true;
+  }
+
+
+  closeDialogEditTaskService() {
+    this.dialogEditTaskIsOpen = false;
+  }
 }

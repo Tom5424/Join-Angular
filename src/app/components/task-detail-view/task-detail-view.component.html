@@ -58,11 +58,14 @@
 
             <hr>
 
-            <div class="containerIconAndText">
+            <div (click)="editTask()" class="containerIconAndText">
                 <img class="pencilIcon" src="../../../assets/icons/pencil-icon-blue.svg">
                 <p>Edit</p>
             </div>
         </div>
-    </div>
 
+        <app-dialog-edit-task (click)="stopPropagation($event)" *ngIf="openDialogService.dialogEditTaskIsOpen">
+
+        </app-dialog-edit-task>
+    </div>
 </div>

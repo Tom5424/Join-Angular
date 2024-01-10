@@ -1,0 +1,146 @@
+<div class="containerEditTask">
+    <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
+    <div (click)="closeDropdownIfClickOutSide()"
+        [ngClass]="{'overlayForDropDownMenus': dropdownMenuAssignedToIsOpen || dropdownMenuCategoryIsOpen}">
+    </div>
+    <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
+
+    <div class="containerCloseIcon">
+        <img class="containerCloseIcon" (click)="closeDialog($event)" src="../../../assets/icons/close-icon.svg">
+    </div>
+
+    <div class="containerForm">
+        <form (submit)="editTask()" [formGroup]="editTaskForm" id="editTaskForm">
+            <!------------------------------ Dropdown Menu Category ------------------------------>
+            <label form="editTaskForm">
+                Category
+            </label>
+            <div (click)=" openDropdownMenuCategory()" [ngClass]="{'activeDropdownMenu': dropdownMenuCategoryIsOpen}"
+                class="dropdownMenuBox">
+                <p>
+                    {{ selectedCategoryName ? selectedCategoryName : 'Select task category'}}
+                    <i [ngStyle]="{'background-color': selectedCategoryColor}"></i>
+                </p>
+
+                <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuCategoryIsOpen}"
+                    src="../../../assets/icons/arrow-drop-down-icon.svg">
+            </div>
+
+            <ul [ngClass]="{'d-none': !dropdownMenuCategoryIsOpen}" class="dropdownMenuCategory">
+                <li *ngFor="let category of categorys" (click)="selectCategory(category)">
+                    <p formControlName="categoryName" ngDefaultControl>{{ category.categoryName }}</p>
+
+                    <i formControlName="categoryColor" ngDefaultControl
+                        [ngStyle]="{'background-color': category.categoryColor}">
+                    </i>
+                </li>
+            </ul>
+            <!------------------------------ Dropdown Menu Category ------------------------------>
+
+
+            <!------------------------------ Dropdown Menu Assign Contacts ------------------------------>
+            <label form="editTaskForm">
+                Assigned to
+            </label>
+            <div (click)="openDropdownMenuAssignContacts()"
+                [ngClass]="{'activeDropdownMenu': dropdownMenuAssignedToIsOpen}" class="dropdownMenuBox">
+
+                <p *ngIf="selectedContacts.length == 0">Select Contacts to assign</p>
+                <p *ngIf="selectedContacts.length > 0">{{ selectedContacts.length }} Contact(s) selected</p>
+
+                <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuAssignedToIsOpen}"
+                    src="../../../assets/icons/arrow-drop-down-icon.svg">
+            </div>
+
+            <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
+            <div *ngIf="selectedContacts.length > 0" class="containerSelectedContacts">
+                <p matTooltipShowDelay="400" matTooltipPosition="above" matTooltip="{{ contact.name }}"
+                    *ngFor="let contact of selectedContacts.slice(0, 7)"
+                    [ngStyle]="{'background-color': contact.color}">
+                    {{ contact.initialLetter }}
+                </p>
+                <!------------------------------ Only Displayed if more than 7 Contacts selected from Dropdown Menu ------------------------------>
+                <p *ngIf="selectedContacts.length >= 8" class="moreSelectedContacts" matTooltipShowDelay="400"
+                    matTooltipPosition="above" matTooltip="{{ selectedContacts.length - 7 }} more Contact(s) selected">
+                    +{{ selectedContacts.length - 7 }}
+                </p>
+                <!------------------------------ Only Displayed if more than 7 Contacts selected from Dropdown Menu ------------------------------>
+            </div>
+            <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
+
+            <div class="containerAssigContactsList">
+                <ul [ngClass]="{'d-none': !dropdownMenuAssignedToIsOpen}" class="dropdownMenuAssignContacts">
+                    <li *ngFor="let contact of createNewContactService.contactData | async"
+                        (click)="selectContact(contact)"
+                        [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected(contact)}">
+
+                        <div class="containerContactInitialLetterAndFullName">
+                            <span [ngStyle]="{'background-color': contact.color}">
+                                {{ contact.initialLetter }}
+                            </span>
+                            <p>{{ contact.name }}</p>
+                        </div>
+                        <input [checked]="contactIsSelected(contact)" type="checkbox">
+                    </li>
+                </ul>
+            </div>
+            <!------------------------------ Dropdown Menu Assign Contacts ------------------------------>
+
+
+            <!------------------------------ Inputfield Title ------------------------------>
+            <label for="inputTitle" form="editTask">
+                Title
+            </label>
+            <input type="text" placeholder="Enter a title" id="inputTitle" formControlName="title">
+            <!------------------------------ Inputfield Title ------------------------------>
+
+
+            <!------------------------------ Inputfield Description ------------------------------>
+            <label for="textareaDescription" form="editTaskForm">
+                Description
+            </label>
+            <textarea id="textareaDescription" placeholder="Enter a Description" formControlName="description">
+
+                </textarea>
+            <!------------------------------ Inputfield Description ------------------------------>
+
+
+            <!------------------------------ Inputfield Due Date ------------------------------>
+            <label for="inputCalendar" form="editTask">
+                Due Date
+            </label>
+            <input type="date" id="inputCalendar" formControlName="dueDate">
+            <!------------------------------ Inputfield Due Date ------------------------------>
+
+
+            <!------------------------------ Prio Buttons ------------------------------>
+            <div class="containerPrioBtns">
+                <button formControlName="prio" ngDefaultControl [ngClass]="{'btnUrgentPrio': activePrioBtn == 'urgent'}"
+                    (click)="selectPrio('urgent')" type="button">
+                    Urgent
+                    <img src="../../../assets/icons/priority-urgent-icon.svg">
+                </button>
+
+                <button formControlName="prio" ngDefaultControl [ngClass]="{'btnMediumPrio': activePrioBtn == 'medium'}"
+                    (click)="selectPrio('medium')" type="button">
+                    Medium
+                    <img src="../../../assets/icons/priority-medium-icon.svg">
+                </button>
+
+                <button formControlName="prio" ngDefaultControl [ngClass]="{'btnLowPrio': activePrioBtn == 'low'}"
+                    (click)="selectPrio('low')" type="button">
+                    Low
+                    <img src="../../../assets/icons/priority-low-icon.svg">
+                </button>
+            </div>
+            <!------------------------------ Prio Buttons ------------------------------>
+
+            <div class="containerBtn">
+                <button type="submit">
+                    Ok
+                    <img src="../../../assets/icons/check-icon-white.svg">
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

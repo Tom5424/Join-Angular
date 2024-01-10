@@ -98,6 +98,11 @@ export class CreateTaskService {
   }
 
 
+  updateTaskDataService() {
+
+  }
+
+
   deleteTaskService(docId: string) {
     const docRef = doc(this.fireStore, 'tasks', docId);
     deleteDoc(docRef).
