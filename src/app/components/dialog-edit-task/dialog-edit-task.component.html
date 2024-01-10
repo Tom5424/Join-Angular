@@ -91,7 +91,20 @@
             <label for="inputTitle" form="editTask">
                 Title
             </label>
-            <input type="text" placeholder="Enter a title" id="inputTitle" formControlName="title">
+            <input [ngClass]="{'errorInputfield': editTaskForm.controls.title.touched && 
+                   editTaskForm.controls.title.errors?.['required'] || 
+                   editTaskForm.controls.title.errors?.['maxlength']}" type="text" placeholder="Enter a title"
+                id="inputTitle" formControlName="title">
+
+            <p *ngIf="editTaskForm.controls.title.touched && editTaskForm.controls.title.errors?.['required']"
+                class="errorMessage" style="margin-top: -20px;">
+                Title is required
+            </p>
+
+            <p *ngIf="editTaskForm.controls.title.errors?.['maxlength']" class="errorMessage"
+                style="margin-top: -20px;">
+                Title can only 10 maximum characters long
+            </p>
             <!------------------------------ Inputfield Title ------------------------------>
 
 
@@ -99,9 +112,15 @@
             <label for="textareaDescription" form="editTaskForm">
                 Description
             </label>
-            <textarea id="textareaDescription" placeholder="Enter a Description" formControlName="description">
+            <textarea [ngClass]="{'errorInputfield': editTaskForm.controls.description.errors?.['maxlength']}"
+                id="textareaDescription" placeholder="Enter a Description" formControlName="description">
 
-                </textarea>
+            </textarea>
+
+            <p *ngIf="editTaskForm.controls.description.errors?.['maxlength']" class="errorMessage"
+                style="margin-top: -20px;">
+                Description can only 150 maximum characters long
+            </p>
             <!------------------------------ Inputfield Description ------------------------------>
 
 
@@ -136,7 +155,16 @@
             <!------------------------------ Prio Buttons ------------------------------>
 
             <div class="containerBtn">
-                <button type="submit">
+                <button [disabled]="editTaskForm.invalid || 
+                    selectedContacts.length == 0 || 
+                    activePrioBtn == '' || 
+                    selectedCategoryName == '' ||                       
+                    selectedCategoryColor == '' || 
+                    !editTaskForm.dirty" [ngClass]="{'btnDisabled': editTaskForm.invalid || 
+                    selectedContacts.length == 0 ||
+                    activePrioBtn == '' || 
+                    selectedCategoryName == '' || 
+                    selectedCategoryColor == '' || !editTaskForm.dirty}" type="submit">
                     Ok
                     <img src="../../../assets/icons/check-icon-white.svg">
                 </button>
