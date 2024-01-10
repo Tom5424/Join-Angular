@@ -110,6 +110,11 @@ export class CreateTaskService {
         this.userFeedbackIsDisplayedIfSuccessfullyDeleted = true;
         this.taskSuccessfullyDeleted = true;
       })
+    this.hideUserFeedbackAfterTaskDeletedService();
+  }
+
+
+  hideUserFeedbackAfterTaskDeletedService() {
     setTimeout(() => {
       this.taskSuccessfullyDeleted = false;
     }, 1000);

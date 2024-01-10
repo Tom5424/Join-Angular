@@ -115,8 +115,16 @@ export class OpenDialogsService {
   }
 
 
-  openDialogEditTaskService() {
+  openDialogEditTaskService(selectedTaskDetailView: any) {
     this.dialogEditTaskIsOpen = true;
+    this.task.categoryName = selectedTaskDetailView.categoryName;
+    this.task.categoryColor = selectedTaskDetailView.categoryColor;
+    this.task.title = selectedTaskDetailView.title;
+    this.task.description = selectedTaskDetailView.description;
+    this.task.dueDate = selectedTaskDetailView.dueDate;
+    this.task.prio = selectedTaskDetailView.prio;
+    this.task.contacts = selectedTaskDetailView.contacts;
+    this.docId = selectedTaskDetailView.id;
   }
 
 

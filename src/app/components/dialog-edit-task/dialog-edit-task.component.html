@@ -27,7 +27,8 @@
             </div>
 
             <ul [ngClass]="{'d-none': !dropdownMenuCategoryIsOpen}" class="dropdownMenuCategory">
-                <li *ngFor="let category of categorys" (click)="selectCategory(category)">
+                <li *ngFor="let category of categorys"
+                    (click)="selectCategory(category.categoryName, category.categoryColor)">
                     <p formControlName="categoryName" ngDefaultControl>{{ category.categoryName }}</p>
 
                     <i formControlName="categoryColor" ngDefaultControl
@@ -45,8 +46,11 @@
             <div (click)="openDropdownMenuAssignContacts()"
                 [ngClass]="{'activeDropdownMenu': dropdownMenuAssignedToIsOpen}" class="dropdownMenuBox">
 
-                <p *ngIf="selectedContacts.length == 0">Select Contacts to assign</p>
-                <p *ngIf="selectedContacts.length > 0">{{ selectedContacts.length }} Contact(s) selected</p>
+                <p *ngIf="openDialogService.task.contacts.length == 0">Select Contacts to assign</p>
+
+                <p *ngIf="openDialogService.task.contacts.length > 0">
+                    {{ openDialogService.task.contacts.length }} Contact(s) selected
+                </p>
 
                 <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuAssignedToIsOpen}"
                     src="../../../assets/icons/arrow-drop-down-icon.svg">
@@ -55,22 +59,23 @@
             <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
             <div *ngIf="selectedContacts.length > 0" class="containerSelectedContacts">
                 <p matTooltipShowDelay="400" matTooltipPosition="above" matTooltip="{{ contact.name }}"
-                    *ngFor="let contact of selectedContacts.slice(0, 7)"
-                    [ngStyle]="{'background-color': contact.color}">
+                    *ngFor="let contact of selectedContacts" [ngStyle]="{'background-color': contact.color}">
                     {{ contact.initialLetter }}
                 </p>
+
+
                 <!------------------------------ Only Displayed if more than 7 Contacts selected from Dropdown Menu ------------------------------>
-                <p *ngIf="selectedContacts.length >= 8" class="moreSelectedContacts" matTooltipShowDelay="400"
+                <!-- <p *ngIf="selectedContacts.length >= 8" class="moreSelectedContacts" matTooltipShowDelay="400"
                     matTooltipPosition="above" matTooltip="{{ selectedContacts.length - 7 }} more Contact(s) selected">
                     +{{ selectedContacts.length - 7 }}
-                </p>
+                </p> -->
                 <!------------------------------ Only Displayed if more than 7 Contacts selected from Dropdown Menu ------------------------------>
             </div>
             <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
 
             <div class="containerAssigContactsList">
                 <ul [ngClass]="{'d-none': !dropdownMenuAssignedToIsOpen}" class="dropdownMenuAssignContacts">
-                    <li *ngFor="let contact of createNewContactService.contactData | async"
+                    <li *ngFor="let contact of createNewContactService.contactData | async; let i = index"
                         (click)="selectContact(contact)"
                         [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected(contact)}">
 

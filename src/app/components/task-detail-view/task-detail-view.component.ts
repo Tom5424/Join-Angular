@@ -40,7 +40,7 @@ export class TaskDetailViewComponent {
   }
 
 
-  editTask() {
-    this.openDialogService.openDialogEditTaskService();
+  editTask(selectedTaskDetailView: any) {
+    this.openDialogService.openDialogEditTaskService(selectedTaskDetailView);
   }
 }

@@ -41,13 +41,13 @@ export class DialogEditTaskComponent implements OnInit {
 
 
   editTaskForm = new FormGroup({
-    title: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-    description: new FormControl('', Validators.maxLength(150)),
-    contacts: new FormControl(this.selectedContacts),
-    dueDate: new FormControl('', Validators.required),
+    title: new FormControl(this.openDialogService.task.title, [Validators.required, Validators.maxLength(10)]),
+    description: new FormControl(this.openDialogService.task.description, Validators.maxLength(150)),
+    contacts: new FormControl(''),
+    dueDate: new FormControl(this.openDialogService.task.dueDate, Validators.required),
     prio: new FormControl(''),
-    categoryName: new FormControl(this.selectedCategoryName),
-    categoryColor: new FormControl(this.selectedCategoryColor),
+    categoryName: new FormControl(''),
+    categoryColor: new FormControl(''),
   });
 
 
@@ -57,6 +57,9 @@ export class DialogEditTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.createNewContactService.getNewContactService();
+    this.selectPrio(this.openDialogService.task.prio);
+    this.selectCategory(this.openDialogService.task.categoryName, this.openDialogService.task.categoryColor);
+    // this.contactIsSelected(this.selectedContacts);
   }
 
 
@@ -65,18 +68,18 @@ export class DialogEditTaskComponent implements OnInit {
   }
 
 
-  selectContact(contact: Contact) {
-    let contactIndex = this.selectedContacts.indexOf(contact);
-    if (contactIndex !== -1) {
-      this.selectedContacts.splice(contactIndex, 1);
-    } else {
-      this.selectedContacts.push(contact);
-    }
+  selectContact(selectedContacts: any) {
+    // let contactIndex = this.selectedContacts.indexOf(selectedContacts);
+    // if (contactIndex !== -1) {
+    //   this.selectedContacts.splice(contactIndex, 1);
+    // } else {
+    //   this.selectedContacts.push(selectedContacts);
+    // }
   }
 
 
-  contactIsSelected(contact: Contact) {
-    return this.selectedContacts.includes(contact);
+  contactIsSelected(contact: any) {
+    // return this.selectedContacts.includes(contact);
   }
 
 
@@ -94,9 +97,9 @@ export class DialogEditTaskComponent implements OnInit {
   }
 
 
-  selectCategory(category: any) {
-    this.selectedCategoryName = category.categoryName;
-    this.selectedCategoryColor = category.categoryColor;
+  selectCategory(categoryName: string, categoryColor: string) {
+    this.selectedCategoryName = categoryName;
+    this.selectedCategoryColor = categoryColor;
     this.dropdownMenuCategoryIsOpen = false;
   }
 
