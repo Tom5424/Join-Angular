@@ -18,7 +18,7 @@ export class DialogEditTaskComponent implements OnInit {
   dropdownMenuCategoryIsOpen: boolean = false;
   activePrioBtn: string = '';
   priorities: string[] = ['urgent', 'medium', 'low'];
-  selectedContacts: Array<Contact> = [];
+  selectedContacts: Array<Contact> = this.openDialogService.task.contacts;
   selectedCategoryName: string = '';
   selectedCategoryColor: string = '';
   categorys: { categoryName: string; categoryColor: string }[] = [
@@ -59,7 +59,6 @@ export class DialogEditTaskComponent implements OnInit {
     this.createNewContactService.getNewContactService();
     this.selectPrio(this.openDialogService.task.prio);
     this.selectCategory(this.openDialogService.task.categoryName, this.openDialogService.task.categoryColor);
-    // this.contactIsSelected(this.selectedContacts);
   }
 
 
@@ -68,18 +67,23 @@ export class DialogEditTaskComponent implements OnInit {
   }
 
 
-  selectContact(selectedContacts: any) {
-    // let contactIndex = this.selectedContacts.indexOf(selectedContacts);
-    // if (contactIndex !== -1) {
-    //   this.selectedContacts.splice(contactIndex, 1);
-    // } else {
-    //   this.selectedContacts.push(selectedContacts);
-    // }
+  selectContact(contact: any, selectedContacts: Contact[]) {
+    let contactIndex = selectedContacts.findIndex((selectedContacts: any) => selectedContacts.id == contact.id);
+    if (contactIndex !== -1) {
+      selectedContacts.splice(contactIndex, 1);
+    } else {
+      selectedContacts.push(contact)
+    }
   }
 
 
-  contactIsSelected(contact: any) {
-    // return this.selectedContacts.includes(contact);
+  contactIsSelected(contact: any, selectedContacts: Contact[]) {
+    let contactIndex = selectedContacts.findIndex((selectedContacts: any) => selectedContacts.id == contact.id);
+    if (contactIndex !== -1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 

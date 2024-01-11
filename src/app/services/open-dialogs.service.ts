@@ -115,16 +115,16 @@ export class OpenDialogsService {
   }
 
 
-  openDialogEditTaskService(selectedTaskDetailView: any) {
+  openDialogEditTaskService(selectedTaskInDetailView: any) {
     this.dialogEditTaskIsOpen = true;
-    this.task.categoryName = selectedTaskDetailView.categoryName;
-    this.task.categoryColor = selectedTaskDetailView.categoryColor;
-    this.task.title = selectedTaskDetailView.title;
-    this.task.description = selectedTaskDetailView.description;
-    this.task.dueDate = selectedTaskDetailView.dueDate;
-    this.task.prio = selectedTaskDetailView.prio;
-    this.task.contacts = selectedTaskDetailView.contacts;
-    this.docId = selectedTaskDetailView.id;
+    this.task.categoryName = selectedTaskInDetailView.categoryName;
+    this.task.categoryColor = selectedTaskInDetailView.categoryColor;
+    this.task.title = selectedTaskInDetailView.title;
+    this.task.description = selectedTaskInDetailView.description;
+    this.task.dueDate = selectedTaskInDetailView.dueDate;
+    this.task.prio = selectedTaskInDetailView.prio;
+    this.task.contacts = selectedTaskInDetailView.contacts;
+    this.docId = selectedTaskInDetailView.id;
   }
 
 

@@ -46,10 +46,10 @@
             <div (click)="openDropdownMenuAssignContacts()"
                 [ngClass]="{'activeDropdownMenu': dropdownMenuAssignedToIsOpen}" class="dropdownMenuBox">
 
-                <p *ngIf="openDialogService.task.contacts.length == 0">Select Contacts to assign</p>
+                <p *ngIf="selectedContacts.length == 0">Select Contacts to assign</p>
 
-                <p *ngIf="openDialogService.task.contacts.length > 0">
-                    {{ openDialogService.task.contacts.length }} Contact(s) selected
+                <p *ngIf="selectedContacts.length > 0">
+                    {{ selectedContacts.length }} Contact(s) selected
                 </p>
 
                 <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuAssignedToIsOpen}"
@@ -76,8 +76,8 @@
             <div class="containerAssigContactsList">
                 <ul [ngClass]="{'d-none': !dropdownMenuAssignedToIsOpen}" class="dropdownMenuAssignContacts">
                     <li *ngFor="let contact of createNewContactService.contactData | async; let i = index"
-                        (click)="selectContact(contact)"
-                        [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected(contact)}">
+                        (click)="selectContact(contact, selectedContacts)"
+                        [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected(contact, selectedContacts)}">
 
                         <div class="containerContactInitialLetterAndFullName">
                             <span [ngStyle]="{'background-color': contact.color}">
@@ -85,7 +85,7 @@
                             </span>
                             <p>{{ contact.name }}</p>
                         </div>
-                        <input [checked]="contactIsSelected(contact)" type="checkbox">
+                        <input [checked]="contactIsSelected(contact, selectedContacts)" type="checkbox">
                     </li>
                 </ul>
             </div>
