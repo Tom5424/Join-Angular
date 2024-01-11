@@ -5,8 +5,8 @@
     </div>
     <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
 
-    <div class="containerCloseIcon">
-        <img class="containerCloseIcon" (click)="closeDialog($event)" src="../../../assets/icons/close-icon.svg">
+    <div (click)="closeDialog()" class="containerCloseIcon">
+        <img class="containerCloseIcon" src="../../../assets/icons/close-icon.svg">
     </div>
 
     <div class="containerForm">
@@ -59,23 +59,24 @@
             <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
             <div *ngIf="selectedContacts.length > 0" class="containerSelectedContacts">
                 <p matTooltipShowDelay="400" matTooltipPosition="above" matTooltip="{{ contact.name }}"
-                    *ngFor="let contact of selectedContacts" [ngStyle]="{'background-color': contact.color}">
+                    *ngFor="let contact of selectedContacts.slice(0, 7)"
+                    [ngStyle]="{'background-color': contact.color}">
                     {{ contact.initialLetter }}
                 </p>
 
 
                 <!------------------------------ Only Displayed if more than 7 Contacts selected from Dropdown Menu ------------------------------>
-                <!-- <p *ngIf="selectedContacts.length >= 8" class="moreSelectedContacts" matTooltipShowDelay="400"
+                <p *ngIf="selectedContacts.length >= 8" class="moreSelectedContacts" matTooltipShowDelay="400"
                     matTooltipPosition="above" matTooltip="{{ selectedContacts.length - 7 }} more Contact(s) selected">
                     +{{ selectedContacts.length - 7 }}
-                </p> -->
+                </p>
                 <!------------------------------ Only Displayed if more than 7 Contacts selected from Dropdown Menu ------------------------------>
             </div>
             <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
 
             <div class="containerAssigContactsList">
                 <ul [ngClass]="{'d-none': !dropdownMenuAssignedToIsOpen}" class="dropdownMenuAssignContacts">
-                    <li *ngFor="let contact of createNewContactService.contactData | async; let i = index"
+                    <li *ngFor="let contact of createNewContactService.contactData | async"
                         (click)="selectContact(contact, selectedContacts)"
                         [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected(contact, selectedContacts)}">
 

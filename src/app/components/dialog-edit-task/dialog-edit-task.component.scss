@@ -153,7 +153,6 @@ form {
     top: 200px;
     display: flex;
     gap: 15px;
-    // margin: -10px 0px -30px 0px;
 
     p {
         @include flexCenteredMiddle();
@@ -161,6 +160,7 @@ form {
         width: 40px;
         height: 40px;
         border-radius: 50%;
+        border: 2px solid #ffffff;
         color: white;
     }
 }
@@ -168,6 +168,7 @@ form {
 
 .moreSelectedContacts {
     background-color: black;
+    border: 2px solid #ffffff;
 }
 
 

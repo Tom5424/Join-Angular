@@ -72,6 +72,8 @@
                         [ngStyle]="{'background-color': contact.color}">
                         {{ contact.initialLetter }}
                     </p>
+
+
                     <!------------------------------ Only Displayed if more than 7 Contacts selected from Dropdown Menu ------------------------------>
                     <p *ngIf="selectedContacts.length >= 8" class="moreSelectedContacts" matTooltipShowDelay="400"
                         matTooltipPosition="above"

@@ -43,7 +43,7 @@ export class DialogEditTaskComponent implements OnInit {
   editTaskForm = new FormGroup({
     title: new FormControl(this.openDialogService.task.title, [Validators.required, Validators.maxLength(10)]),
     description: new FormControl(this.openDialogService.task.description, Validators.maxLength(150)),
-    contacts: new FormControl(''),
+    contacts: new FormControl(),
     dueDate: new FormControl(this.openDialogService.task.dueDate, Validators.required),
     prio: new FormControl(''),
     categoryName: new FormControl(''),
@@ -54,6 +54,7 @@ export class DialogEditTaskComponent implements OnInit {
   constructor(public createNewContactService: CreateNewContactService, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService) {
 
   }
+
 
   ngOnInit(): void {
     this.createNewContactService.getNewContactService();
@@ -114,8 +115,7 @@ export class DialogEditTaskComponent implements OnInit {
   }
 
 
-  closeDialog(event: Event) {
-    event.stopPropagation();
+  closeDialog() {
     this.openDialogService.closeDialogEditTaskService();
   }
 
@@ -123,15 +123,14 @@ export class DialogEditTaskComponent implements OnInit {
   editTask() {
     this.openDialogService.closeDialogEditTaskService();
     this.editTaskForm.patchValue({
-      // title: this.addTaskForm.controls.title.value,
-      // description: this.addTaskForm.controls.description.value,
-      // contacts: this.selectedContacts,
-      // dueDate: this.addTaskForm.controls.dueDate.value,
-      // prio: this.activePrioBtn,
-      // categoryName: this.selectedCategoryName,
-      // categoryColor: this.selectedCategoryColor,
+      title: this.editTaskForm.controls.title.value,
+      description: this.editTaskForm.controls.description.value,
+      contacts: this.selectedContacts,
+      dueDate: this.editTaskForm.controls.dueDate.value,
+      prio: this.activePrioBtn,
+      categoryName: this.selectedCategoryName,
+      categoryColor: this.selectedCategoryColor,
     });
-    // this.createTaskService.createNewTaskService(this.addTaskForm.value, this.openDialogService.taskStatus);
-    // this.clearForm();
+    this.createTaskService.updateTaskDataService(this.editTaskForm.value, this.openDialogService.docId);
   }
 }

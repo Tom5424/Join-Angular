@@ -17,6 +17,7 @@ export class CreateTaskService {
   inProgressTaskArray: any[] = [];
   awaitingFeebackTaskArray: any[] = [];
   doneTaskArray: any[] = [];
+  task: Task = new Task();
 
 
   constructor(public fireStore: Firestore, public router: Router) {
@@ -98,8 +99,17 @@ export class CreateTaskService {
   }
 
 
-  updateTaskDataService() {
-
+  updateTaskDataService(formValues: any, docId: string) {
+    const docRef = doc(this.fireStore, 'tasks', docId);
+    updateDoc(docRef, {
+      title: formValues.title,
+      description: formValues.description,
+      contacts: formValues.contacts,
+      dueDate: formValues.dueDate,
+      prio: formValues.prio,
+      categoryName: formValues.categoryName,
+      categoryColor: formValues.categoryColor,
+    });
   }
 
 
