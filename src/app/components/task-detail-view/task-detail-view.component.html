@@ -5,8 +5,8 @@
         class="containerDialogTaskDetailView">
 
         <div class="containerHeaderDialogTaskDetailView">
-            <p [ngStyle]="{'background-color': openDialogService.task.categoryColor}">
-                {{ openDialogService.task.categoryName }}
+            <p [ngStyle]="{'background-color': createTaskService.task.categoryColor}">
+                {{ createTaskService.task.categoryName }}
             </p>
             <div (click)="closeTaskDetailView()" class="containerCloseIcon">
                 <img src="../../../assets/icons/close-icon.svg">
@@ -14,25 +14,25 @@
         </div>
 
 
-        <h1>{{ openDialogService.task.title }}</h1>
+        <h1>{{ createTaskService.task.title }}</h1>
 
 
         <span>
-            {{ openDialogService.task.description ? openDialogService.task.description : 'No Taskdescription exist'}}
+            {{ createTaskService.task.description ? createTaskService.task.description : 'No Taskdescription exist'}}
         </span>
 
 
         <div class="containerDueDate">
             <p class="dueDateText">Due Date:</p>
-            <p class="dueDate">{{ openDialogService.task.dueDate | date: 'dd/MM/yyyy' }}</p>
+            <p class="dueDate">{{ createTaskService.task.dueDate | date: 'dd/MM/yyyy' }}</p>
         </div>
 
 
         <div class="containerPrio">
             <p class="prioText">Priority:</p>
             <div class="containerPrioLevelAndImg">
-                <p class="prio">{{ openDialogService.task.prio }}</p>
-                <img src="../../../assets/icons/priority-{{ openDialogService.task.prio }}-icon.svg">
+                <p class="prio">{{ createTaskService.task.prio }}</p>
+                <img src="../../../assets/icons/priority-{{ createTaskService.task.prio }}-icon.svg">
             </div>
         </div>
 
@@ -40,7 +40,7 @@
         <div class="containerAssignedTo">
             <p class="assignToText">Assigned To:</p>
             <ul>
-                <li *ngFor="let contact of openDialogService.task.contacts">
+                <li *ngFor="let contact of createTaskService.task.contacts">
                     <p [ngStyle]="{'background-color': contact.color}" class="contactInitialLetter">
                         {{ contact.initialLetter }}
                     </p>

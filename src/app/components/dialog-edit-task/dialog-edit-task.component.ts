@@ -18,7 +18,7 @@ export class DialogEditTaskComponent implements OnInit {
   dropdownMenuCategoryIsOpen: boolean = false;
   activePrioBtn: string = '';
   priorities: string[] = ['urgent', 'medium', 'low'];
-  selectedContacts: Array<Contact> = this.openDialogService.task.contacts;
+  selectedContacts: Array<Contact> = this.createTaskService.task.contacts;
   selectedCategoryName: string = '';
   selectedCategoryColor: string = '';
   categorys: { categoryName: string; categoryColor: string }[] = [
@@ -41,10 +41,10 @@ export class DialogEditTaskComponent implements OnInit {
 
 
   editTaskForm = new FormGroup({
-    title: new FormControl(this.openDialogService.task.title, [Validators.required, Validators.maxLength(10)]),
-    description: new FormControl(this.openDialogService.task.description, Validators.maxLength(150)),
+    title: new FormControl(this.createTaskService.task.title, [Validators.required, Validators.maxLength(10)]),
+    description: new FormControl(this.createTaskService.task.description, Validators.maxLength(150)),
     contacts: new FormControl(),
-    dueDate: new FormControl(this.openDialogService.task.dueDate, Validators.required),
+    dueDate: new FormControl(this.createTaskService.task.dueDate, Validators.required),
     prio: new FormControl(''),
     categoryName: new FormControl(''),
     categoryColor: new FormControl(''),
@@ -58,8 +58,8 @@ export class DialogEditTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.createNewContactService.getNewContactService();
-    this.selectPrio(this.openDialogService.task.prio);
-    this.selectCategory(this.openDialogService.task.categoryName, this.openDialogService.task.categoryColor);
+    this.selectPrio(this.createTaskService.task.prio);
+    this.selectCategory(this.createTaskService.task.categoryName, this.createTaskService.task.categoryColor);
   }
 
 
@@ -121,7 +121,9 @@ export class DialogEditTaskComponent implements OnInit {
 
 
   editTask() {
-    this.openDialogService.closeDialogEditTaskService();
+    setTimeout(() => {
+      this.openDialogService.closeDialogEditTaskService();
+    }, 1000);
     this.editTaskForm.patchValue({
       title: this.editTaskForm.controls.title.value,
       description: this.editTaskForm.controls.description.value,

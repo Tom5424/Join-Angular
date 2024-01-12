@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CreateNewContactService } from './create-new-contact.service';
 import { Contact } from '../models/contact';
-import { Task } from '../models/task';
+import { CreateTaskService } from './create-task.service';
 
 
 @Injectable({
@@ -22,10 +21,9 @@ export class OpenDialogsService {
   docId: string = '';
   taskStatus: string = '';
   contact: Contact = new Contact();
-  task: Task = new Task();
 
 
-  constructor(public createNewContactService: CreateNewContactService) {
+  constructor(public createTaskService: CreateTaskService) {
 
   }
 
@@ -95,13 +93,13 @@ export class OpenDialogsService {
 
 
   getTaskDataAfterOpenDialogTaskDetailViewService(selectedTask: any) {
-    this.task.categoryName = selectedTask.categoryName;
-    this.task.categoryColor = selectedTask.categoryColor;
-    this.task.title = selectedTask.title;
-    this.task.description = selectedTask.description;
-    this.task.dueDate = selectedTask.dueDate;
-    this.task.prio = selectedTask.prio;
-    this.task.contacts = selectedTask.contacts;
+    this.createTaskService.task.categoryName = selectedTask.categoryName;
+    this.createTaskService.task.categoryColor = selectedTask.categoryColor;
+    this.createTaskService.task.title = selectedTask.title;
+    this.createTaskService.task.description = selectedTask.description;
+    this.createTaskService.task.dueDate = selectedTask.dueDate;
+    this.createTaskService.task.prio = selectedTask.prio;
+    this.createTaskService.task.contacts = selectedTask.contacts;
     this.docId = selectedTask.id;
   }
 
@@ -122,13 +120,13 @@ export class OpenDialogsService {
 
 
   getTaskDataAfterOpenDialogEditTaskService(selectedTaskInDetailView: any, docId: string) {
-    this.task.categoryName = selectedTaskInDetailView.categoryName;
-    this.task.categoryColor = selectedTaskInDetailView.categoryColor;
-    this.task.title = selectedTaskInDetailView.title;
-    this.task.description = selectedTaskInDetailView.description;
-    this.task.dueDate = selectedTaskInDetailView.dueDate;
-    this.task.prio = selectedTaskInDetailView.prio;
-    this.task.contacts = selectedTaskInDetailView.contacts;
+    this.createTaskService.task.categoryName = selectedTaskInDetailView.categoryName;
+    this.createTaskService.task.categoryColor = selectedTaskInDetailView.categoryColor;
+    this.createTaskService.task.title = selectedTaskInDetailView.title;
+    this.createTaskService.task.description = selectedTaskInDetailView.description;
+    this.createTaskService.task.dueDate = selectedTaskInDetailView.dueDate;
+    this.createTaskService.task.prio = selectedTaskInDetailView.prio;
+    this.createTaskService.task.contacts = selectedTaskInDetailView.contacts;
     this.docId = docId;
   }
 

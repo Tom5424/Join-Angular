@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CollectionReference, Firestore, addDoc, collection, collectionData, deleteDoc, doc, updateDoc } from '@angular/fire/firestore';
+import { CollectionReference, Firestore, addDoc, collection, collectionData, deleteDoc, doc, updateDoc, onSnapshot, DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Task } from '../models/task';
 
@@ -11,6 +11,7 @@ import { Task } from '../models/task';
 
 export class CreateTaskService {
   taskSuccessfullyCreated: boolean = false;
+  taskSuccessfullyEdit: boolean = false;
   taskSuccessfullyDeleted: boolean = false;
   userFeedbackIsDisplayedIfSuccessfullyDeleted: boolean = false;
   toDoTaskArray: any[] = [];
@@ -109,6 +110,25 @@ export class CreateTaskService {
       prio: formValues.prio,
       categoryName: formValues.categoryName,
       categoryColor: formValues.categoryColor,
+    })
+      .then(() => {
+        this.taskSuccessfullyEdit = true;
+      })
+    this.hideUserFeedbackAfterTaskEditService();
+    this.getSnapShotFromEditTaskService(docRef);
+  }
+
+
+  hideUserFeedbackAfterTaskEditService() {
+    setTimeout(() => {
+      this.taskSuccessfullyEdit = false;
+    }, 1000);
+  }
+
+
+  getSnapShotFromEditTaskService(docRef: DocumentReference) {
+    onSnapshot(docRef, (doc) => {
+      this.task = doc.data() as Task;
     });
   }
 

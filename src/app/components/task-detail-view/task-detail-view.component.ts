@@ -46,6 +46,6 @@ export class TaskDetailViewComponent implements DoCheck {
 
 
   editTask() {
-    this.openDialogService.openDialogEditTaskService(this.openDialogService.task, this.openDialogService.docId);
+    this.openDialogService.openDialogEditTaskService(this.createTaskService.task, this.openDialogService.docId);
   }
 }

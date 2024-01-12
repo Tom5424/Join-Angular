@@ -165,16 +165,21 @@
                     selectedContacts.length == 0 || 
                     activePrioBtn == '' || 
                     selectedCategoryName == '' ||                       
-                    selectedCategoryColor == '' || 
-                    !editTaskForm.dirty" [ngClass]="{'btnDisabled': editTaskForm.invalid || 
+                    selectedCategoryColor == ''" [ngClass]="{'btnDisabled': editTaskForm.invalid || 
                     selectedContacts.length == 0 ||
                     activePrioBtn == '' || 
                     selectedCategoryName == '' || 
-                    selectedCategoryColor == '' || !editTaskForm.dirty}" type="submit">
+                    selectedCategoryColor == ''}" type="submit">
                     Ok
                     <img src="../../../assets/icons/check-icon-white.svg">
                 </button>
             </div>
         </form>
     </div>
+
+    <!--------------------- User Feedback if Task was edit successfully --------------------->
+    <div *ngIf="createTaskService.taskSuccessfullyEdit" class="popUpSuccessfully">
+        <p>Task successfully Edit.</p>
+    </div>
+    <!--------------------- User Feedback if Task was edit successfully --------------------->
 </div>
