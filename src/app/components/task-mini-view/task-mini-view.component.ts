@@ -11,9 +11,4 @@ import { Task } from 'src/app/models/task';
 
 export class TaskMiniViewComponent {
   @Input() task!: Task;
-
-
-  constructor() {
-
-  }
 }

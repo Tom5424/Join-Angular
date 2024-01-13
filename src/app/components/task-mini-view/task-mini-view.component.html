@@ -9,9 +9,8 @@
 
     <div class=" footerTaskMiniView">
         <div class="containerAssignedContacts">
-            <p [ngStyle]="{'background-color': assignContactInTask.color}"
-                *ngFor="let assignContactInTask of task.contacts.slice(0, 3)">
-                {{ assignContactInTask.initialLetter }}
+            <p [ngStyle]="{'background-color': contact.color}" *ngFor="let contact of task.contacts.slice(0, 3)">
+                {{ contact.initialLetter }}
             </p>
             <p *ngIf="task.contacts.length >= 4" class="moreAssignedContacts">+{{ task.contacts.length - 3}}</p>
         </div>

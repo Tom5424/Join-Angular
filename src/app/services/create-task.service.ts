@@ -152,4 +152,12 @@ export class CreateTaskService {
       this.userFeedbackIsDisplayedIfSuccessfullyDeleted = false;
     }, 1500);
   }
+
+
+  restoreTaskDataIfNoChangesSavedService(docId: string) {
+    const docRef = doc(this.fireStore, 'tasks', docId);
+    onSnapshot(docRef, (doc) => {
+      this.task = doc.data() as Task;
+    });
+  }
 } 

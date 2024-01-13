@@ -57,6 +57,7 @@ export class AddTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.createNewContactService.getNewContactService();
+    this.createNewContactService.checkIfContactsExistInDatabaseService();
   }
 
 
@@ -117,7 +118,7 @@ export class AddTaskComponent implements OnInit {
       categoryName: this.selectedCategoryName,
       categoryColor: this.selectedCategoryColor,
     });
-    this.createTaskService.createNewTaskService(this.addTaskForm.value, this.openDialogService.taskStatus);
+    this.createTaskService.createNewTaskService(this.addTaskForm.value, 'toDo');
     this.clearForm();
   }
 

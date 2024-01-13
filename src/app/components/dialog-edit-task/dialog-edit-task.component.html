@@ -88,6 +88,10 @@
                         </div>
                         <input [checked]="contactIsSelected(contact, selectedContacts)" type="checkbox">
                     </li>
+
+                    <p *ngIf="createNewContactService.noContactsExistInDatabase" class="noContactsExistingText">
+                        No Contacts existing
+                    </p>
                 </ul>
             </div>
             <!------------------------------ Dropdown Menu Assign Contacts ------------------------------>

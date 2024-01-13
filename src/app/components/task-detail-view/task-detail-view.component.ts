@@ -1,4 +1,4 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component } from '@angular/core';
 import { CreateTaskService } from 'src/app/services/create-task.service';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
@@ -10,16 +10,11 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 })
 
 
-export class TaskDetailViewComponent implements DoCheck {
+export class TaskDetailViewComponent {
 
 
   constructor(public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService) {
 
-  }
-
-
-  ngDoCheck(): void {
-    //  this.createTaskService.updateTaskDataService();
   }
 
 
@@ -29,7 +24,6 @@ export class TaskDetailViewComponent implements DoCheck {
 
 
   closeDialogIfClickedOutside() {
-    this.openDialogService.closeDialogEditTaskService();
     this.openDialogService.closeDialogTaskDetailViewService();
   }
 

@@ -132,6 +132,7 @@ export class OpenDialogsService {
 
 
   closeDialogEditTaskService() {
+    this.createTaskService.restoreTaskDataIfNoChangesSavedService(this.docId);
     this.dialogEditTaskIsOpen = false;
   }
 }

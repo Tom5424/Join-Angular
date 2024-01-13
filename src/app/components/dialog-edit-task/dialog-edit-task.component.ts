@@ -58,6 +58,7 @@ export class DialogEditTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.createNewContactService.getNewContactService();
+    this.createNewContactService.checkIfContactsExistInDatabaseService();
     this.selectPrio(this.createTaskService.task.prio);
     this.selectCategory(this.createTaskService.task.categoryName, this.createTaskService.task.categoryColor);
   }

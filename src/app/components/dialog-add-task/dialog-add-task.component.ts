@@ -57,6 +57,7 @@ export class DialogAddTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.createNewContactService.getNewContactService();
+    this.createNewContactService.checkIfContactsExistInDatabaseService();
   }
 
 
