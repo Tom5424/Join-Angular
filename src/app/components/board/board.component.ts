@@ -43,13 +43,18 @@ export class BoardComponent implements OnInit {
       ...this.createTaskService.awaitingFeebackTaskArray,
       ...this.createTaskService.doneTaskArray
     ];
-    const filteredTasks = this.filterTasksByCategory(this.createTaskService.allTasks, this.inputValue);
-    this.getSearchResult(filteredTasks);
+    this.filterTasksBySearchValue(this.createTaskService.allTasks, this.inputValue);
   }
 
 
-  filterTasksByCategory(tasks: Task[], inputValue: string) {
-    return tasks.filter((task) => task.categoryName.toLowerCase().startsWith(inputValue));
+  filterTasksBySearchValue(tasks: Task[], inputValue: string) {
+    const filteredTasks = tasks.filter((task) =>
+      task.categoryName.toLowerCase().includes(inputValue) ||
+      task.title.toLowerCase().includes(inputValue) ||
+      task.description.toLowerCase().includes(inputValue) ||
+      task.prio.toLowerCase().includes(inputValue)
+    );
+    this.getSearchResult(filteredTasks);
   }
 
 
@@ -62,11 +67,11 @@ export class BoardComponent implements OnInit {
   }
 
 
-  updateTaskArrays(filteredTasks: Task[]) {
-    this.createTaskService.toDoTaskArray = filteredTasks.filter((task) => task.status == 'toDo');
-    this.createTaskService.inProgressTaskArray = filteredTasks.filter((task) => task.status == 'inProgress');
-    this.createTaskService.awaitingFeebackTaskArray = filteredTasks.filter((task) => task.status == 'awaitingFeedback');
-    this.createTaskService.doneTaskArray = filteredTasks.filter((task) => task.status == 'done');
+  updateTaskArrays(filteredTasksCategory: Task[]) {
+    this.createTaskService.toDoTaskArray = filteredTasksCategory.filter((task) => task.status == 'toDo');
+    this.createTaskService.inProgressTaskArray = filteredTasksCategory.filter((task) => task.status == 'inProgress');
+    this.createTaskService.awaitingFeebackTaskArray = filteredTasksCategory.filter((task) => task.status == 'awaitingFeedback');
+    this.createTaskService.doneTaskArray = filteredTasksCategory.filter((task) => task.status == 'done');
   }
 
 
