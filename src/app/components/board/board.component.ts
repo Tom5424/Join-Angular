@@ -14,6 +14,7 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 export class BoardComponent implements OnInit {
   @ViewChild('inputFindTask') inputFindTask!: ElementRef;
+  inputValue: string = '';
 
 
   constructor(public renderer: Renderer2, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService) {
@@ -22,10 +23,50 @@ export class BoardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.updateHTML();
+  }
+
+
+  updateHTML() {
     this.createTaskService.getNewTaskService('toDo');
     this.createTaskService.getNewTaskService('inProgress');
     this.createTaskService.getNewTaskService('awaitingFeedback');
     this.createTaskService.getNewTaskService('done');
+  }
+
+
+  searchForTasks(event: any) {
+    this.inputValue = event.target.value.toLowerCase();
+    this.createTaskService.allTasks = [
+      ...this.createTaskService.toDoTaskArray,
+      ...this.createTaskService.inProgressTaskArray,
+      ...this.createTaskService.awaitingFeebackTaskArray,
+      ...this.createTaskService.doneTaskArray
+    ];
+    const filteredTasks = this.filterTasksByCategory(this.createTaskService.allTasks, this.inputValue);
+    this.getSearchResult(filteredTasks);
+  }
+
+
+  filterTasksByCategory(tasks: Task[], inputValue: string) {
+    return tasks.filter((task) => task.categoryName.toLowerCase().startsWith(inputValue));
+  }
+
+
+  getSearchResult(filteredTasks: Task[]) {
+    if (this.inputValue.length == 0) {
+      this.updateHTML();
+    } else {
+      this.updateTaskArrays(filteredTasks);
+    }
+  }
+
+
+  updateTaskArrays(filteredTasks: Task[]) {
+    this.createTaskService.toDoTaskArray = filteredTasks.filter((task) => task.status == 'toDo');
+    this.createTaskService.inProgressTaskArray = filteredTasks.filter((task) => task.status == 'inProgress');
+    this.createTaskService.awaitingFeebackTaskArray = filteredTasks.filter((task) => task.status == 'awaitingFeedback');
+    this.createTaskService.doneTaskArray = filteredTasks.filter((task) => task.status == 'done');
   }
 
 

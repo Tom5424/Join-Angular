@@ -12,7 +12,7 @@
             <h1>Board</h1>
 
             <div class="containerInputFieldAndBtn">
-                <input #inputFindTask type="text" placeholder="Find Task">
+                <input (keyup)="searchForTasks($event)" #inputFindTask type="text" placeholder="Find Task">
                 <div (click)="focusInput()" class="containerImgMagnifyingGlass">
                     <img src="../../../assets/icons/magnifying-glass-icon.svg">
                 </div>
@@ -25,9 +25,7 @@
             </div>
         </div>
 
-
         <div class="mainContainerColumns" cdkDropListGroup>
-
             <!-------------------------- Column To do -------------------------->
             <div class="containerSingleColumn">
                 <div class="containerColumnHeadline">

@@ -11,8 +11,8 @@
 
 @mixin hoverDisabled() {
     &:hover {
-        cursor: not-allowed !important;
         background-color: $btnDisabled;
+        cursor: not-allowed !important;
         box-shadow: unset !important;
     }
 }

@@ -19,6 +19,7 @@ export class CreateTaskService {
   awaitingFeebackTaskArray: any[] = [];
   doneTaskArray: any[] = [];
   task: Task = new Task();
+  allTasks: any[] = [];
 
 
   constructor(public fireStore: Firestore, public router: Router) {
