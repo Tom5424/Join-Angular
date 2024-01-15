@@ -62,12 +62,12 @@ export class BoardComponent implements OnInit {
     if (this.inputValue.length == 0) {
       this.updateHTML();
     } else {
-      this.updateTaskArrays(filteredTasks);
+      this.updateTaskArraysBasedOnSearchValue(filteredTasks);
     }
   }
 
 
-  updateTaskArrays(filteredTasksCategory: Task[]) {
+  updateTaskArraysBasedOnSearchValue(filteredTasksCategory: Task[]) {
     this.createTaskService.toDoTaskArray = filteredTasksCategory.filter((task) => task.status == 'toDo');
     this.createTaskService.inProgressTaskArray = filteredTasksCategory.filter((task) => task.status == 'inProgress');
     this.createTaskService.awaitingFeebackTaskArray = filteredTasksCategory.filter((task) => task.status == 'awaitingFeedback');

@@ -18,6 +18,9 @@ export class CreateTaskService {
   inProgressTaskArray: any[] = [];
   awaitingFeebackTaskArray: any[] = [];
   doneTaskArray: any[] = [];
+  filteredTasksAfterUrgentPrio: any[] = [];
+  nextDueDate: any;
+  loadTaskNumbersInSummary: boolean = false;
   task: Task = new Task();
   allTasks: any[] = [];
 
@@ -57,38 +60,67 @@ export class CreateTaskService {
 
 
   getToDoTaskDataService(collectionRef: CollectionReference, selectedTaskStatus: string) {
+    this.loadTaskNumbersInSummary = true;
     collectionData(collectionRef, { idField: 'id' })
       .subscribe((tasks) => {
+        this.filteredTasksAfterUrgentPrio = tasks.filter((task) => task['prio'] == 'urgent'); // Filters the created tasks by urgent priority to display them in the summary correctly
+        this.getNextDueDateFromUrgentTasks(this.filteredTasksAfterUrgentPrio);
         let filteredTask = tasks.filter((task) => task['status'] == selectedTaskStatus);
         this.toDoTaskArray = filteredTask;
+        this.loadTaskNumbersInSummary = false;
       })
   }
 
 
   getInProgressTaskDataService(collectionRef: CollectionReference, selectedTaskStatus: string) {
+    this.loadTaskNumbersInSummary = true;
     collectionData(collectionRef, { idField: 'id' })
       .subscribe((tasks) => {
+        this.filteredTasksAfterUrgentPrio = tasks.filter((task) => task['prio'] == 'urgent'); // Filters the created tasks by urgent priority to display them in the summary correctly
+        this.getNextDueDateFromUrgentTasks(this.filteredTasksAfterUrgentPrio);
         let filteredTask = tasks.filter((task) => task['status'] == selectedTaskStatus);
         this.inProgressTaskArray = filteredTask;
+        this.loadTaskNumbersInSummary = false;
       })
   }
 
 
   getAwaitingFeedbackTaskDataService(collectionRef: CollectionReference, selectedTaskStatus: string) {
+    this.loadTaskNumbersInSummary = true;
     collectionData(collectionRef, { idField: 'id' })
       .subscribe((tasks) => {
+        this.filteredTasksAfterUrgentPrio = tasks.filter((task) => task['prio'] == 'urgent'); // Filters the created tasks by urgent priority to display them in the summary correctly
+        this.getNextDueDateFromUrgentTasks(this.filteredTasksAfterUrgentPrio);
         let filteredTask = tasks.filter((task) => task['status'] == selectedTaskStatus);
         this.awaitingFeebackTaskArray = filteredTask;
+        this.loadTaskNumbersInSummary = false;
       })
   }
 
 
   getDoneTaskDataService(collectionRef: CollectionReference, selectedTaskStatus: string) {
+    this.loadTaskNumbersInSummary = true;
     collectionData(collectionRef, { idField: 'id' })
       .subscribe((tasks) => {
+        this.filteredTasksAfterUrgentPrio = tasks.filter((task) => task['prio'] == 'urgent'); // Filters the created tasks by urgent priority to display them in the summary correctly
+        this.getNextDueDateFromUrgentTasks(this.filteredTasksAfterUrgentPrio);
         let filteredTask = tasks.filter((task) => task['status'] == selectedTaskStatus);
         this.doneTaskArray = filteredTask;
+        this.loadTaskNumbersInSummary = false;
       })
+  }
+
+
+  getNextDueDateFromUrgentTasks(filteredTasksAfterUrgentPrio: any[]) {
+    if (filteredTasksAfterUrgentPrio.length === 0) {
+      this.nextDueDate = '';
+      return;
+    }
+    this.nextDueDate = filteredTasksAfterUrgentPrio.reduce((prevoiusFilteredTasksAfterUrgentPrio, currentFilteredTasksAfterUrgentPrio) => {
+      const previousDate = prevoiusFilteredTasksAfterUrgentPrio.dueDate;
+      const currentDate = currentFilteredTasksAfterUrgentPrio.dueDate;
+      return previousDate < currentDate ? prevoiusFilteredTasksAfterUrgentPrio : currentFilteredTasksAfterUrgentPrio;
+    });
   }
 
 

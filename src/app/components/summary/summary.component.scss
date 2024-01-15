@@ -157,21 +157,26 @@ main {
 
 
 .containerDateDeadline {
-    display: flex;
-    flex-direction: column;
+    @include flexCenteredColumnXAxis();
     gap: 13px;
 
     p {
+        color: $mainColor;
         margin: 0;
         font-size: 21px;
         font-weight: 700;
-        color: $mainColor;
     }
 
     span {
         font-size: 20px;
         color: $mainColor;
     }
+}
+
+
+.textNoUpcomingDeadlinesExist {
+    width: 190px;
+    text-align: center;
 }
 
 
@@ -215,6 +220,11 @@ main {
         font-size: 20px;
         color: $mainColor;
     }
+}
+
+
+.spinerIcon {
+    width: 60px;
 }
 
 
