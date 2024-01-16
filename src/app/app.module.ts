@@ -32,6 +32,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { TaskMiniViewComponent } from './components/task-mini-view/task-mini-view.component';
 import { TaskDetailViewComponent } from './components/task-detail-view/task-detail-view.component';
 import { DialogEditTaskComponent } from './components/dialog-edit-task/dialog-edit-task.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { DialogEditTaskComponent } from './components/dialog-edit-task/dialog-ed
     TaskMiniViewComponent,
     TaskDetailViewComponent,
     DialogEditTaskComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

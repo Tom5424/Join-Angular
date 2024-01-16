@@ -9,6 +9,7 @@ import { DescriptionComponent } from './components/description/description.compo
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { BoardComponent } from './components/board/board.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,8 @@ const routes: Routes = [
   { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent },
   { path: 'board', title: 'Join - Board', component: BoardComponent },
   { path: 'contacts', title: 'Join - Contacts', component: ContactsComponent },
+
+  { path: '**', title: 'Join - Page not found', component: PageNotFoundComponent },
 ];
 
 

@@ -16,12 +16,13 @@
                     <td (click)="directToTheBoard()">
                         <i class="pencilIcon"></i>
                         <div class="containerNumberAndText">
+                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
+                                src="../../../assets/icons/spinner.svg">
+
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.toDoTaskArray.length }}
                             </p>
 
-                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
                             <span>To-do</span>
                         </div>
                     </td>
@@ -29,12 +30,13 @@
                     <td (click)="directToTheBoard()">
                         <i class="checkIcon"></i>
                         <div class="containerNumberAndText">
+                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
+                                src="../../../assets/icons/spinner.svg">
+
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.doneTaskArray.length }}
                             </p>
 
-                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
                             <span>Done</span>
                         </div>
                     </td>
@@ -44,12 +46,13 @@
                     <td>
                         <i></i>
                         <div class="containerNumberAndText">
+                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
+                                src="../../../assets/icons/spinner.svg">
+
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.filteredTasksAfterUrgentPrio.length }}
                             </p>
 
-                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
                             <span>Urgent</span>
                         </div>
                     </td>
@@ -58,17 +61,18 @@
 
                     <td>
                         <div class="containerDateDeadline">
-                            <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
-                                {{ createTaskService.nextDueDate.dueDate | date: 'longDate'}}
-                            </p>
+                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
+                                src="../../../assets/icons/spinner.svg">
 
                             <p class=" textNoUpcomingDeadlinesExist"
                                 *ngIf="!createTaskService.loadTaskNumbersInSummary && createTaskService.nextDueDate.dueDate == null">
                                 No Upcoming Deadlines exist
                             </p>
 
-                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
+                            <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
+                                {{ createTaskService.nextDueDate.dueDate | date: 'longDate'}}
+                            </p>
+
                             <Span>Upcoming Deadline</Span>
                         </div>
                     </td>
@@ -78,6 +82,9 @@
                 <tr class="thirdColumn">
                     <td (click)="directToTheBoard()">
                         <div class="containerNumberAndText">
+                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
+                                src="../../../assets/icons/spinner.svg">
+
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.toDoTaskArray.length +
                                 createTaskService.inProgressTaskArray.length +
@@ -85,8 +92,6 @@
                                 createTaskService.doneTaskArray.length }}
                             </p>
 
-                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
                             <span>Tasks in</span>
                             <span>Board</span>
                         </div>
@@ -94,12 +99,13 @@
 
                     <td (click)="directToTheBoard()">
                         <div class="containerNumberAndText">
+                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
+                                src="../../../assets/icons/spinner.svg">
+
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.inProgressTaskArray.length }}
                             </p>
 
-                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
                             <span>Tasks in</span>
                             <span>Progress</span>
                         </div>
@@ -107,12 +113,13 @@
 
                     <td (click)="directToTheBoard()">
                         <div class="containerNumberAndText">
+                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
+                                src="../../../assets/icons/spinner.svg">
+
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.awaitingFeebackTaskArray.length }}
                             </p>
 
-                            <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
                             <span>Awaiting</span>
                             <span>Feedback</span>
                         </div>
@@ -124,8 +131,8 @@
             <div class="containerGreetingUser">
                 <p>Good Morning,</p>
                 <span>
-                    {{ authService.auth.currentUser?.displayName }}
                     <img *ngIf="!authService.auth.currentUser" src="../../../assets/icons/spinner.svg">
+                    {{ authService.auth.currentUser?.displayName }}
                 </span>
             </div>
         </div>
