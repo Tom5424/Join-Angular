@@ -24,7 +24,7 @@ export class LoginComponent {
   });
 
 
-  onSubmitForm(formValue: any) {
+  login(formValue: any) {
     this.authService.loginService(formValue, this.logInForm);
   }
 

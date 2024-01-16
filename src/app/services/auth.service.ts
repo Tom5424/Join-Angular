@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile, deleteUser, onAuthStateChanged, signOut } from "@angular/fire/auth";
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously, updateProfile, deleteUser, onAuthStateChanged, signOut, sendPasswordResetEmail } from "@angular/fire/auth";
 import { Router } from '@angular/router';
 
 
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 
 export class AuthService {
   sendingData: boolean = false;
+  resetPasswordSuccessfully: boolean = false;
   signupSuccessfully: boolean = false;
   signupFails: boolean = false;
   loginFails: boolean = false;
@@ -113,5 +114,28 @@ export class AuthService {
     if (this.auth.currentUser?.isAnonymous) {
       deleteUser(this.auth.currentUser!);
     }
+  }
+
+
+  resetPasswordService(formValues: any, forgotMyPasswordForm: any) {
+    forgotMyPasswordForm.reset();
+    this.sendingData = true;
+    this.resetPasswordSuccessfully = true;
+    sendPasswordResetEmail(this.auth, formValues.email)
+      .then(() => {
+        this.displayMessageIfPasswordResetedSuccessfullyService();
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  }
+
+
+  displayMessageIfPasswordResetedSuccessfullyService() {
+    setTimeout(() => {
+      this.sendingData = false;
+      this.resetPasswordSuccessfully = false;
+      this.router.navigateByUrl('/login');
+    }, 2000);
   }
 }

@@ -3,6 +3,14 @@
         <p>You Registered successfully.</p>
     </div>
 
+    <div [ngClass]="{'slideInUp': authService.resetPasswordSuccessfully}" class="popUpSuccessfully">
+        <p style="text-align: center;">
+            We will send you an email shortly,
+            <br>
+            so that you can reset your password.
+        </p>
+    </div>
+
     <div [ngClass]="{'slideInUp': authService.signupFails}" class="popUpFails">
         <p>Registration failed, the Email you entered already exists. Please try again.</p>
     </div>
