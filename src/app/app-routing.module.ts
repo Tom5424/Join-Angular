@@ -10,6 +10,7 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { BoardComponent } from './components/board/board.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ForgotMyPasswordComponent } from './components/forgot-my-password/forgot-my-password.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent },
   { path: 'board', title: 'Join - Board', component: BoardComponent },
   { path: 'contacts', title: 'Join - Contacts', component: ContactsComponent },
+  { path: 'forgotMyPassword', title: 'Join - Forgot my Password', component: ForgotMyPasswordComponent },
 
   { path: '**', title: 'Join - Page not found', component: PageNotFoundComponent },
 ];

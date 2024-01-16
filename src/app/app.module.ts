@@ -33,6 +33,7 @@ import { TaskMiniViewComponent } from './components/task-mini-view/task-mini-vie
 import { TaskDetailViewComponent } from './components/task-detail-view/task-detail-view.component';
 import { DialogEditTaskComponent } from './components/dialog-edit-task/dialog-edit-task.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ForgotMyPasswordComponent } from './components/forgot-my-password/forgot-my-password.component';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     TaskDetailViewComponent,
     DialogEditTaskComponent,
     PageNotFoundComponent,
+    ForgotMyPasswordComponent,
   ],
   imports: [
     BrowserModule,

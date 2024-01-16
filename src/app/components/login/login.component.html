@@ -41,11 +41,14 @@
                 </p>
                 <!------------------------ Validate Inputfield Password ------------------------>
 
+                <div class="containerRememberMeAndForgotMyPasswordText">
+                    <label for="rememberMe" form="logInForm">
+                        <input class="checkbox" id="rememberMe" type="checkbox">
+                        Remember me
+                    </label>
 
-                <label for="rememberMe" form="logInForm">
-                    <input class="checkbox" id="rememberMe" type="checkbox">
-                    Remember me
-                </label>
+                    <p routerLink="/forgotMyPassword">Forgot my Password</p>
+                </div>
 
                 <div class="btnContainer">
                     <button [ngClass]="{'btnDisabled': logInForm.invalid}" [disabled]="logInForm.invalid"
