@@ -1,0 +1,30 @@
+@import '../../../scss/mixin.scss';
+@import '../../../scss/variables.scss';
+
+
+main {
+    @include flexCenteredMiddle();
+    background-color: $mainBgColor;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    img {
+        width: 150px;
+        animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+    }
+}
+
+
+@keyframes flyInLeftUpperCorner {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: translate(-510px, -280px) scale(0.5);
+    }
+}

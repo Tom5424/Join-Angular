@@ -15,7 +15,6 @@ import { ForgotMyPasswordComponent } from './components/forgot-my-password/forgo
 
 const routes: Routes = [
   { path: 'login', title: 'Join - Login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'signup', title: 'Join - Signup', component: SignupComponent },
 
   { path: 'privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },

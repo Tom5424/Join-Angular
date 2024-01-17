@@ -34,6 +34,7 @@ import { TaskDetailViewComponent } from './components/task-detail-view/task-deta
 import { DialogEditTaskComponent } from './components/dialog-edit-task/dialog-edit-task.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ForgotMyPasswordComponent } from './components/forgot-my-password/forgot-my-password.component';
+import { IntroComponent } from './components/intro/intro.component';
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { ForgotMyPasswordComponent } from './components/forgot-my-password/forgo
     DialogEditTaskComponent,
     PageNotFoundComponent,
     ForgotMyPasswordComponent,
+    IntroComponent,
   ],
   imports: [
     BrowserModule,

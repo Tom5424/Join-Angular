@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -10,11 +10,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 
 
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  introIsDisplayed: boolean = false;
 
 
   constructor(public authService: AuthService) {
 
+  }
+
+
+  ngOnInit(): void {
+    this.introIsDisplayed = true;
+    setTimeout(() => {
+      this.introIsDisplayed = false;
+    }, 710);
   }
 
 

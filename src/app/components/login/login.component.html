@@ -1,9 +1,10 @@
 <main>
     <app-overlay></app-overlay>
 
+    <app-intro *ngIf="introIsDisplayed"></app-intro>
 
     <header>
-        <img class="joinLogo" src="../assets/img/favicon-blue.svg">
+        <img [ngClass]="{'joinLogo': !introIsDisplayed}" src="../assets/img/favicon-blue.svg">
         <div class="containerSignUpTextAndBtn">
             <p>Not a Join user?</p>
             <button routerLink="/signup" type="button">Sign up</button>

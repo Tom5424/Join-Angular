@@ -11,10 +11,11 @@ main {
 header {
     @include flexSpaceBetween();
     padding: 30px 40px 0px 40px;
+}
 
-    img {
-        width: 70px;
-    }
+
+.joinLogo {
+    width: 70px;
 }
 
 
