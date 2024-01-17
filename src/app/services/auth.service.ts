@@ -14,6 +14,7 @@ export class AuthService {
   signupSuccessfully: boolean = false;
   signupFails: boolean = false;
   loginFails: boolean = false;
+  isLoggedIn: boolean = false;
 
 
   constructor(public auth: Auth, public router: Router) {
@@ -62,12 +63,19 @@ export class AuthService {
     signInWithEmailAndPassword(this.auth, formValue.email, formValue.password)
       .then((userCredential) => {
         this.sendingData = false;
+        this.saveLoggedStatusInLocalStorage();
         this.router.navigateByUrl('/summary')
       })
       .catch((error) => {
         console.error('Login fails, the entered Email or Password are wrong. Please try again.', error.message);
         this.displayErrorIfLoginFailsService();
       });
+  }
+
+
+  saveLoggedStatusInLocalStorage() {
+    this.isLoggedIn = true;
+    localStorage.setItem('isLoggedIn', JSON.stringify(this.isLoggedIn));
   }
 
 
@@ -91,6 +99,7 @@ export class AuthService {
   loginAsGuestService() {
     signInAnonymously(this.auth)
       .then((guestUser) => {
+        this.saveLoggedStatusInLocalStorage();
         updateProfile(this.auth.currentUser!, { displayName: 'Guest' })
         this.router.navigateByUrl('/summary');
       })
@@ -103,10 +112,17 @@ export class AuthService {
   logoutService() {
     this.deleteGuestUserAfterLogoutService();
     signOut(this.auth).then(() => {
+      this.removeLoggedStatusFromLocalStorage();
       this.router.navigateByUrl('/login');
     }).catch((error) => {
       console.error(error.message);
     });
+  }
+
+
+  removeLoggedStatusFromLocalStorage() {
+    this.isLoggedIn = false;
+    localStorage.removeItem('isLoggedIn');
   }
 
 

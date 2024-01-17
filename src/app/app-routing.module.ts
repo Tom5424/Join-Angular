@@ -11,6 +11,7 @@ import { BoardComponent } from './components/board/board.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ForgotMyPasswordComponent } from './components/forgot-my-password/forgot-my-password.component';
+import { isLoggedIn } from './auth.guard';
 
 
 const routes: Routes = [
@@ -19,15 +20,15 @@ const routes: Routes = [
 
   { path: 'privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
   { path: 'legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
-  { path: 'description', title: 'Join - Description', component: DescriptionComponent },
+  { path: 'description', title: 'Join - Description', component: DescriptionComponent, canActivate: [isLoggedIn] },
 
-  { path: 'summary/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },
-  { path: 'summary/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent },
+  { path: 'summary/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent, canActivate: [isLoggedIn] },
+  { path: 'summary/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent, canActivate: [isLoggedIn] },
 
-  { path: 'summary', title: 'Join - Summary', component: SummaryComponent },
-  { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent },
-  { path: 'board', title: 'Join - Board', component: BoardComponent },
-  { path: 'contacts', title: 'Join - Contacts', component: ContactsComponent },
+  { path: 'summary', title: 'Join - Summary', component: SummaryComponent, canActivate: [isLoggedIn] },
+  { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent, canActivate: [isLoggedIn] },
+  { path: 'board', title: 'Join - Board', component: BoardComponent, canActivate: [isLoggedIn] },
+  { path: 'contacts', title: 'Join - Contacts', component: ContactsComponent, canActivate: [isLoggedIn] },
   { path: 'forgotMyPassword', title: 'Join - Forgot my Password', component: ForgotMyPasswordComponent },
 
   { path: '**', title: 'Join - Page not found', component: PageNotFoundComponent },
