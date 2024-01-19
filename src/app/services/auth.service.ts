@@ -15,6 +15,7 @@ export class AuthService {
   signupFails: boolean = false;
   loginFails: boolean = false;
   isLoggedIn: boolean = false;
+  userId: any;
 
 
   constructor(public auth: Auth, public router: Router) {
@@ -62,8 +63,9 @@ export class AuthService {
     this.sendingData = true;
     signInWithEmailAndPassword(this.auth, formValue.email, formValue.password)
       .then((userCredential) => {
+        this.userId = userCredential.user.uid;
         this.sendingData = false;
-        this.saveLoggedStatusInLocalStorage();
+        this.saveLoggedStatusInLocalStorage(this.userId);
         this.router.navigateByUrl('/summary')
       })
       .catch((error) => {
@@ -73,9 +75,9 @@ export class AuthService {
   }
 
 
-  saveLoggedStatusInLocalStorage() {
+  saveLoggedStatusInLocalStorage(userId: string) {
     this.isLoggedIn = true;
-    localStorage.setItem('isLoggedIn', JSON.stringify(this.isLoggedIn));
+    localStorage.setItem('isLoggedIn', userId);
   }
 
 
@@ -99,7 +101,7 @@ export class AuthService {
   loginAsGuestService() {
     signInAnonymously(this.auth)
       .then((guestUser) => {
-        this.saveLoggedStatusInLocalStorage();
+        // this.saveLoggedStatusInLocalStorage();
         updateProfile(this.auth.currentUser!, { displayName: 'Guest' })
         this.router.navigateByUrl('/summary');
       })

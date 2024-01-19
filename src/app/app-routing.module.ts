@@ -16,6 +16,7 @@ import { isLoggedIn } from './auth.guard';
 
 const routes: Routes = [
   { path: 'login', title: 'Join - Login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'signup', title: 'Join - Signup', component: SignupComponent },
 
   { path: 'privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent },

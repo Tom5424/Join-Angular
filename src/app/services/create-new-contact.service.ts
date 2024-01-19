@@ -3,6 +3,7 @@ import { Contact } from '../models/contact';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Firestore, collection, collectionData, addDoc, updateDoc, getDoc, getDocs, doc, deleteDoc, query, orderBy } from '@angular/fire/firestore';
+import { AuthService } from './auth.service';
 
 
 @Injectable({
@@ -42,16 +43,17 @@ export class CreateNewContactService {
   ];
 
 
-  constructor(public fireStore: Firestore, public router: Router) {
+  constructor(public fireStore: Firestore, public router: Router, public authService: AuthService) {
 
   }
 
 
   createNewContactService(formValues: any) {
+    this.authService.userId = localStorage.getItem('isLoggedIn');
     this.getRandomColorContactService();
     const collectionRef = collection(this.fireStore, 'contacts');
-    const contactInstance = new Contact(formValues, this.randomColor);
-    addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor))
+    const contactInstance = new Contact(formValues, this.randomColor, this.authService.userId);
+    addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor, this.authService.userId))
       .then(() => {
         this.contactSuccessfullyCreated = true;
         this.userFeedbackIsDisplayedIfCreated = true;
@@ -77,13 +79,14 @@ export class CreateNewContactService {
 
 
   getNewContactService() {
+    this.authService.userId = localStorage.getItem('isLoggedIn');
     this.loadigContacts = true;
     const collectionRef = query(collection(this.fireStore, 'contacts'), orderBy('initialLetter'));
+    this.contactData = collectionData(collectionRef, { idField: 'id' });
     collectionData(collectionRef, { idField: 'id' })
       .subscribe(() => {
         this.loadigContacts = false;
       })
-    this.contactData = collectionData(collectionRef, { idField: 'id' });
   }
 
 
