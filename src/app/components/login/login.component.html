@@ -44,7 +44,8 @@
 
                 <div class="containerRememberMeAndForgotMyPasswordText">
                     <label for="rememberMe" form="logInForm">
-                        <input class="checkbox" id="rememberMe" type="checkbox">
+                        <input class="checkbox" id="rememberMe" type="checkbox"
+                            [formControl]="logInForm.controls.rememberMeCheckBox">
                         Remember me
                     </label>
 

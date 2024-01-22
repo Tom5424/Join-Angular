@@ -15,7 +15,8 @@ export class AuthService {
   signupFails: boolean = false;
   loginFails: boolean = false;
   isLoggedIn: boolean = false;
-  userId: any;
+  userEmail: any = '';
+  userPassword: any;
 
 
   constructor(public auth: Auth, public router: Router) {
@@ -27,7 +28,7 @@ export class AuthService {
     signupForm.reset();
     this.sendingData = true;
     createUserWithEmailAndPassword(this.auth, formValue.email, formValue.password)
-      .then((userCredential) => {
+      .then(() => {
         this.signupSuccessfully = true;
         this.redirectToLoginAfterSignupSuccessfullyService(formValue.name);
       })
@@ -58,14 +59,15 @@ export class AuthService {
   }
 
 
-  loginService(formValue: any, logInForm: any) {
+  loginService(formValue: any, logInForm: any, rememberMeCheckBoxValue: any) {
     logInForm.reset();
     this.sendingData = true;
     signInWithEmailAndPassword(this.auth, formValue.email, formValue.password)
-      .then((userCredential) => {
-        this.userId = userCredential.user.uid;
+      .then(() => {
+        this.isLoggedIn = true;
         this.sendingData = false;
-        this.saveLoggedStatusInLocalStorage(this.userId);
+        this.saveLoggedStatusInLocalStorage();
+        this.saveUserInInputsIfRememberMe(rememberMeCheckBoxValue, formValue);
         this.router.navigateByUrl('/summary')
       })
       .catch((error) => {
@@ -75,9 +77,20 @@ export class AuthService {
   }
 
 
-  saveLoggedStatusInLocalStorage(userId: string) {
+  saveLoggedStatusInLocalStorage() {
     this.isLoggedIn = true;
-    localStorage.setItem('isLoggedIn', userId);
+    localStorage.setItem('isLoggedIn', JSON.stringify(this.isLoggedIn));
+  }
+
+
+  saveUserInInputsIfRememberMe(rememberMeCheckBoxValue: any, formValue: any) {
+    if (rememberMeCheckBoxValue) {
+      this.userEmail = localStorage.setItem('userEmail', formValue.email);
+      this.userPassword = localStorage.setItem('userPassword', formValue.password);
+    } else {
+      localStorage.removeItem('userEmail');
+      localStorage.removeItem('userPassword');
+    }
   }
 
 
@@ -100,9 +113,9 @@ export class AuthService {
 
   loginAsGuestService() {
     signInAnonymously(this.auth)
-      .then((guestUser) => {
-        // this.saveLoggedStatusInLocalStorage();
-        updateProfile(this.auth.currentUser!, { displayName: 'Guest' })
+      .then(() => {
+        this.saveLoggedStatusInLocalStorage();
+        updateProfile(this.auth.currentUser!, { displayName: 'Guest' });
         this.router.navigateByUrl('/summary');
       })
       .catch((error) => {

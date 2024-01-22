@@ -10,7 +10,6 @@ export class Task {
     status: string;
     categoryName: string;
     categoryColor: string;
-    // userId: string;
 
 
     constructor(object?: any, selectedTaskStatus?: string) {
@@ -22,7 +21,6 @@ export class Task {
         this.status = selectedTaskStatus ? selectedTaskStatus : '';
         this.categoryName = object ? object.categoryName : '';
         this.categoryColor = object ? object.categoryColor : '';
-        // this.userId = userId ? userId : '';
     }
 
 
@@ -36,7 +34,6 @@ export class Task {
             categoryName: formValues.categoryName,
             categoryColor: formValues.categoryColor,
             status: selectedTaskStatus,
-            // userId: userId,
         }
     }
 }

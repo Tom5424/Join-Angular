@@ -49,11 +49,10 @@ export class CreateNewContactService {
 
 
   createNewContactService(formValues: any) {
-    this.authService.userId = localStorage.getItem('isLoggedIn');
     this.getRandomColorContactService();
     const collectionRef = collection(this.fireStore, 'contacts');
-    const contactInstance = new Contact(formValues, this.randomColor, this.authService.userId);
-    addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor, this.authService.userId))
+    const contactInstance = new Contact(formValues, this.randomColor);
+    addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor))
       .then(() => {
         this.contactSuccessfullyCreated = true;
         this.userFeedbackIsDisplayedIfCreated = true;
@@ -79,7 +78,6 @@ export class CreateNewContactService {
 
 
   getNewContactService() {
-    this.authService.userId = localStorage.getItem('isLoggedIn');
     this.loadigContacts = true;
     const collectionRef = query(collection(this.fireStore, 'contacts'), orderBy('initialLetter'));
     this.contactData = collectionData(collectionRef, { idField: 'id' });

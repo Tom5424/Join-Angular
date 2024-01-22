@@ -19,7 +19,20 @@ export class LoginComponent implements OnInit {
   }
 
 
+  logInForm = new FormGroup({
+    email: new FormControl(this.authService.userEmail, Validators.required),
+    password: new FormControl(this.authService.userPassword, Validators.required),
+    rememberMeCheckBox: new FormControl(true),
+  });
+
+
   ngOnInit(): void {
+    this.displayIntro();
+    this.preFilledInputsIfRememberMe();
+  }
+
+
+  displayIntro() {
     this.introIsDisplayed = true;
     setTimeout(() => {
       this.introIsDisplayed = false;
@@ -27,14 +40,18 @@ export class LoginComponent implements OnInit {
   }
 
 
-  logInForm = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-  });
+  preFilledInputsIfRememberMe() {
+    this.authService.userEmail = localStorage.getItem('userEmail');
+    this.authService.userPassword = localStorage.getItem('userPassword');
+    this.logInForm.patchValue({
+      email: this.authService.userEmail,
+      password: this.authService.userPassword,
+    });
+  }
 
 
   login(formValue: any) {
-    this.authService.loginService(formValue, this.logInForm);
+    this.authService.loginService(formValue, this.logInForm, this.logInForm.controls.rememberMeCheckBox.value);
   }
 
 
