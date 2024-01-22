@@ -1,0 +1,198 @@
+@media screen and (min-width: 2500px) {
+    main {
+
+        img {
+            width: 200px;
+        }
+    }
+}
+
+
+@media screen and (min-width: 2000px) {
+    main {
+
+        img {
+            animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+
+            @keyframes flyInLeftUpperCorner {
+                0% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: translateY(calc(-78vh / 2)) translateX(calc(-92vw / 2)) scale(0.5);
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 1600px) {
+    main {
+
+        img {
+            animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+
+            @keyframes flyInLeftUpperCorner {
+                0% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: translateY(calc(-78vh / 2)) translateX(calc(-92vw / 2)) scale(0.5);
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1300px) {
+    main {
+
+        img {
+            animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+
+            @keyframes flyInLeftUpperCorner {
+                0% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: translateY(calc(-78vh / 2)) translateX(calc(-90vw / 2)) scale(0.5);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    main {
+
+        img {
+            width: 150px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    main {
+
+        img {
+            animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+
+            @keyframes flyInLeftUpperCorner {
+                0% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: translateY(calc(-80vh / 2)) translateX(calc(-88vw / 2)) scale(0.5);
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    main {
+
+        img {
+            animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+
+            @keyframes flyInLeftUpperCorner {
+                0% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: translateY(calc(-80vh / 2)) translateX(calc(-85vw / 2)) scale(0.5);
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    main {
+
+        img {
+            width: 100px;
+            animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+
+            @keyframes flyInLeftUpperCorner {
+                0% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: translateY(calc(-80vh / 2)) translateX(calc(-82vw / 2)) scale(0.7);
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    main {
+
+        img {
+            animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+
+            @keyframes flyInLeftUpperCorner {
+                0% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: translateY(calc(-80vh / 2)) translateX(calc(-78vw / 2)) scale(0.7);
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 370px) {
+    main {
+
+        img {
+            animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+
+            @keyframes flyInLeftUpperCorner {
+                0% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: translateY(calc(-80vh / 2)) translateX(calc(-73vw / 2)) scale(0.7);
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    main {
+
+        img {
+            animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
+
+            @keyframes flyInLeftUpperCorner {
+                0% {
+                    transform: scale(1);
+                }
+
+                100% {
+                    transform: translateY(calc(-80vh / 2)) translateX(calc(-67vw / 2)) scale(0.7);
+                }
+            }
+        }
+    }
+}
