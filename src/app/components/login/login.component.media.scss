@@ -1,0 +1,159 @@
+@media screen and (min-width: 1600px) {
+    .containerSignUpTextAndBtn {
+
+        button {
+            font-size: 18px;
+        }
+    }
+
+    form {
+
+        input {
+            width: 550px;
+            background-position: 570px;
+        }
+
+        label {
+            font-size: 18px;
+        }
+    }
+
+    .containerRememberMeAndForgotMyPasswordText {
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    header {
+        padding: 25px 70px 0px 70px;
+    }
+
+    .joinLogo {
+        width: 60px;
+    }
+
+    .containerSignUpTextAndBtn {
+        flex-direction: column;
+        align-items: unset;
+        gap: 0px;
+
+        p {
+            margin: 35px 0px 8px 0px;
+        }
+    }
+
+    .parentContainerLogIn {
+        margin-top: 25px;
+    }
+
+    form {
+
+        input {
+            width: 300px;
+            background-position: 320px;
+        }
+    }
+
+    .containerRememberMeAndForgotMyPasswordText {
+        gap: 70px;
+    }
+
+    .btnContainer {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+@media screen and (max-width: 550px) {
+    form {
+        input {
+            width: 250px;
+            background-position: 270px;
+        }
+
+        label {
+            padding-top: 10px;
+        }
+    }
+
+    .containerRememberMeAndForgotMyPasswordText {
+        flex-direction: column;
+        gap: 0;
+
+        p {
+            margin: 14px 0px 10px 0px;
+        }
+    }
+
+    .btnContainer {
+        margin-top: -20px;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    header {
+        padding: 25px 40px 0px 40px;
+    }
+
+    .containerSignUpTextAndBtn {
+        align-items: center;
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .childContainerLogIn {
+
+        h1 {
+            font-size: 51px;
+        }
+    }
+
+    form {
+        input {
+            width: 200px;
+            background-position: 220px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 375px) {
+    header {
+        padding: 25px 20px 0px 20px;
+    }
+
+    .joinLogo {
+        width: 50px;
+    }
+
+    .containerSignUpTextAndBtn {
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .childContainerLogIn {
+        padding: 28px 40px 28px 40px;
+
+        h1 {
+            font-size: 45px;
+        }
+    }
+
+    form {
+
+        input {
+            width: 120px;
+            background-position: 140px;
+        }
+    }
+}

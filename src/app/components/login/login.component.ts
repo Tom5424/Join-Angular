@@ -6,7 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss', './login.component.media.scss']
 })
 
 
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   logInForm = new FormGroup({
     email: new FormControl(this.authService.userEmail, Validators.required),
     password: new FormControl(this.authService.userPassword, Validators.required),
-    rememberMeCheckBox: new FormControl(true),
+    rememberMeCheckBox: new FormControl(),
   });
 
 

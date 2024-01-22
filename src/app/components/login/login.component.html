@@ -1,7 +1,13 @@
 <main>
+    <!-------------------- Only displayed if login -------------------->
     <app-overlay></app-overlay>
+    <!-------------------- Only displayed if login -------------------->
 
+
+    <!-------------------- Only Displayed when the login Component rendered -------------------->
     <app-intro *ngIf="introIsDisplayed"></app-intro>
+    <!-------------------- Only Displayed when the login Component rendered -------------------->
+
 
     <header>
         <img [ngClass]="{'joinLogo': !introIsDisplayed}" src="../assets/img/favicon-blue.svg">
