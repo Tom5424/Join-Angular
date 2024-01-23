@@ -1,0 +1,50 @@
+////////////////// Width
+@media screen and (min-width: 1600px) {
+    .containerPrivacyPolicy {
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 940px) {
+    .containerPrivacyPolicy {
+        a {
+            word-break: break-all;
+        }
+
+        img {
+            top: 95px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .containerPrivacyPolicy {
+        padding: 120px 28px 50px 28px;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .containerPrivacyPolicy {
+        padding: 120px 15px 50px 15px;
+
+        h1 {
+            font-size: 45px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 330px) {
+    .containerPrivacyPolicy {
+
+        h1 {
+            word-break: break-all;
+        }
+    }
+}
