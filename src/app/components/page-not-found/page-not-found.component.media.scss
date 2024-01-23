@@ -1,0 +1,56 @@
+////////////////// Width
+@media screen and (max-width: 540px) {
+    header {
+
+        img {
+            width: 60px;
+        }
+    }
+
+    .containerPageNotFound {
+
+        p {
+            width: 400px;
+            text-align: center;
+        }
+    }
+}
+
+
+@media screen and (max-width: 430px) {
+    header {
+
+        img {
+            width: 50px;
+        }
+    }
+
+    .containerPageNotFound {
+
+        h1 {
+            font-size: 80px;
+        }
+
+        p {
+            width: 320px;
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 330px) {
+    .containerPageNotFound {
+
+        p {
+            width: 260px;
+        }
+    }
+}
+
+////////////////// Height
+@media screen and (max-height: 490px) {
+    main {
+        height: unset;
+    }
+}
