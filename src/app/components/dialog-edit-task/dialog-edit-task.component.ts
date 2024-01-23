@@ -14,11 +14,9 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 
 
 export class DialogEditTaskComponent implements OnInit {
-  dropdownMenuAssignedToIsOpen: boolean = false;
   dropdownMenuCategoryIsOpen: boolean = false;
   activePrioBtn: string = '';
   priorities: string[] = ['urgent', 'medium', 'low'];
-  selectedContacts: Array<Contact> = this.createTaskService.task.contacts;
   selectedCategoryName: string = '';
   selectedCategoryColor: string = '';
   categorys: { categoryName: string; categoryColor: string }[] = [
@@ -43,7 +41,6 @@ export class DialogEditTaskComponent implements OnInit {
   editTaskForm = new FormGroup({
     title: new FormControl(this.createTaskService.task.title, [Validators.required, Validators.maxLength(10)]),
     description: new FormControl(this.createTaskService.task.description, Validators.maxLength(150)),
-    contacts: new FormControl(),
     dueDate: new FormControl(this.createTaskService.task.dueDate, Validators.required),
     prio: new FormControl(''),
     categoryName: new FormControl(''),
@@ -61,31 +58,6 @@ export class DialogEditTaskComponent implements OnInit {
     this.createNewContactService.checkIfContactsExistInDatabaseService();
     this.selectPrio(this.createTaskService.task.prio);
     this.selectCategory(this.createTaskService.task.categoryName, this.createTaskService.task.categoryColor);
-  }
-
-
-  openDropdownMenuAssignContacts() {
-    this.dropdownMenuAssignedToIsOpen = !this.dropdownMenuAssignedToIsOpen;
-  }
-
-
-  selectContact(contact: any, selectedContacts: Contact[]) {
-    let contactIndex = selectedContacts.findIndex((selectedContacts: any) => selectedContacts.id == contact.id);
-    if (contactIndex !== -1) {
-      selectedContacts.splice(contactIndex, 1);
-    } else {
-      selectedContacts.push(contact)
-    }
-  }
-
-
-  contactIsSelected(contact: any, selectedContacts: Contact[]) {
-    let contactIndex = selectedContacts.findIndex((selectedContacts: any) => selectedContacts.id == contact.id);
-    if (contactIndex !== -1) {
-      return true;
-    } else {
-      return false;
-    }
   }
 
 
@@ -111,7 +83,6 @@ export class DialogEditTaskComponent implements OnInit {
 
 
   closeDropdownIfClickOutSide() {
-    this.dropdownMenuAssignedToIsOpen = false;
     this.dropdownMenuCategoryIsOpen = false;
   }
 
@@ -128,7 +99,6 @@ export class DialogEditTaskComponent implements OnInit {
     this.editTaskForm.patchValue({
       title: this.editTaskForm.controls.title.value,
       description: this.editTaskForm.controls.description.value,
-      contacts: this.selectedContacts,
       dueDate: this.editTaskForm.controls.dueDate.value,
       prio: this.activePrioBtn,
       categoryName: this.selectedCategoryName,

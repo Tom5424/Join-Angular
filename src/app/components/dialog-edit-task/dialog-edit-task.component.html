@@ -1,7 +1,7 @@
 <div class="containerEditTask">
     <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
-    <div (click)="closeDropdownIfClickOutSide()"
-        [ngClass]="{'overlayForDropDownMenus': dropdownMenuAssignedToIsOpen || dropdownMenuCategoryIsOpen}">
+    <div (click)="closeDropdownIfClickOutSide()" [ngClass]="{'overlayForDropDownMenus': dropdownMenuCategoryIsOpen}">
+
     </div>
     <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
 
@@ -37,64 +37,6 @@
                 </li>
             </ul>
             <!------------------------------ Dropdown Menu Category ------------------------------>
-
-
-            <!------------------------------ Dropdown Menu Assign Contacts ------------------------------>
-            <label form="editTaskForm">
-                Assigned to
-            </label>
-            <div (click)="openDropdownMenuAssignContacts()"
-                [ngClass]="{'activeDropdownMenu': dropdownMenuAssignedToIsOpen}" class="dropdownMenuBox">
-
-                <p *ngIf="selectedContacts.length == 0">Select Contacts to assign</p>
-
-                <p *ngIf="selectedContacts.length > 0">
-                    {{ selectedContacts.length }} Contact(s) selected
-                </p>
-
-                <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuAssignedToIsOpen}"
-                    src="../../../assets/icons/arrow-drop-down-icon.svg">
-            </div>
-
-            <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
-            <div *ngIf="selectedContacts.length > 0" class="containerSelectedContacts">
-                <p matTooltipShowDelay="400" matTooltipPosition="above" matTooltip="{{ contact.name }}"
-                    *ngFor="let contact of selectedContacts.slice(0, 7)"
-                    [ngStyle]="{'background-color': contact.color}">
-                    {{ contact.initialLetter }}
-                </p>
-
-
-                <!------------------------------ Only Displayed if more than 7 Contacts selected from Dropdown Menu ------------------------------>
-                <p *ngIf="selectedContacts.length >= 8" class="moreSelectedContacts" matTooltipShowDelay="400"
-                    matTooltipPosition="above" matTooltip="{{ selectedContacts.length - 7 }} more Contact(s) selected">
-                    +{{ selectedContacts.length - 7 }}
-                </p>
-                <!------------------------------ Only Displayed if more than 7 Contacts selected from Dropdown Menu ------------------------------>
-            </div>
-            <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
-
-            <div class="containerAssigContactsList">
-                <ul [ngClass]="{'d-none': !dropdownMenuAssignedToIsOpen}" class="dropdownMenuAssignContacts">
-                    <li *ngFor="let contact of createNewContactService.contactData | async"
-                        (click)="selectContact(contact, selectedContacts)"
-                        [ngClass]="{'activeSelectedContactInDropdownMenu': contactIsSelected(contact, selectedContacts)}">
-
-                        <div class="containerContactInitialLetterAndFullName">
-                            <span [ngStyle]="{'background-color': contact.color}">
-                                {{ contact.initialLetter }}
-                            </span>
-                            <p>{{ contact.name }}</p>
-                        </div>
-                        <input [checked]="contactIsSelected(contact, selectedContacts)" type="checkbox">
-                    </li>
-
-                    <p *ngIf="createNewContactService.noContactsExistInDatabase" class="noContactsExistingText">
-                        No Contacts existing
-                    </p>
-                </ul>
-            </div>
-            <!------------------------------ Dropdown Menu Assign Contacts ------------------------------>
 
 
             <!------------------------------ Inputfield Title ------------------------------>
@@ -166,11 +108,9 @@
 
             <div class="containerBtn">
                 <button [disabled]="editTaskForm.invalid || 
-                    selectedContacts.length == 0 || 
                     activePrioBtn == '' || 
                     selectedCategoryName == '' ||                       
                     selectedCategoryColor == ''" [ngClass]="{'btnDisabled': editTaskForm.invalid || 
-                    selectedContacts.length == 0 ||
                     activePrioBtn == '' || 
                     selectedCategoryName == '' || 
                     selectedCategoryColor == ''}" type="submit">

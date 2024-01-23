@@ -138,7 +138,6 @@ export class CreateTaskService {
     updateDoc(docRef, {
       title: formValues.title,
       description: formValues.description,
-      contacts: formValues.contacts,
       dueDate: formValues.dueDate,
       prio: formValues.prio,
       categoryName: formValues.categoryName,
@@ -184,14 +183,5 @@ export class CreateTaskService {
     setTimeout(() => {
       this.userFeedbackIsDisplayedIfSuccessfullyDeleted = false;
     }, 1500);
-  }
-
-
-  ////////
-  restoreTaskDataIfNoChangesSavedService(docId: string) {
-    const docRef = doc(this.fireStore, 'tasks', docId);
-    onSnapshot(docRef, (doc) => {
-      this.task = doc.data() as Task;
-    });
   }
 } 

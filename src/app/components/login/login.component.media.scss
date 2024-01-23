@@ -1,3 +1,4 @@
+////////////////// Width
 @media screen and (min-width: 1600px) {
     .containerSignUpTextAndBtn {
 
@@ -96,9 +97,9 @@
 }
 
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
     header {
-        padding: 25px 40px 0px 40px;
+        padding: 25px 60px 0px 70px;
     }
 
     .containerSignUpTextAndBtn {
@@ -125,9 +126,20 @@
 }
 
 
+@media screen and (max-width: 450px) {
+
+    form {
+        input {
+            width: 160px;
+            background-position: 180px;
+        }
+    }
+}
+
+
 @media screen and (max-width: 375px) {
     header {
-        padding: 25px 20px 0px 20px;
+        padding: 25px 50px 0px 60px;
     }
 
     .joinLogo {
@@ -155,5 +167,27 @@
             width: 120px;
             background-position: 140px;
         }
+    }
+}
+
+
+@media screen and (max-width: 330px) {
+    header {
+        padding: 25px 40px 0px 40px;
+    }
+}
+
+
+@media screen and (max-width: 280px) {
+    header {
+        padding: 25px 10px 0px 20px;
+    }
+}
+
+
+////////////////// Height
+@media screen and (max-height: 630px) {
+    main {
+        height: unset;
     }
 }
