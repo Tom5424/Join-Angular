@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-legal-notice',
   templateUrl: './legal-notice.component.html',
-  styleUrls: ['./legal-notice.component.scss']
+  styleUrls: ['./legal-notice.component.scss', './legal-notice.component.media.scss']
 })
 
 

@@ -1,5 +1,10 @@
 <header>
     <p>Kanban Project Management Tool</p>
+
+    <!------------------- Only in displayed in mobile View ------------------->
+    <img class="joinLogo d-none" src="../../../assets/img/favicon-blue.svg">
+    <!------------------- Only in displayed in mobile View ------------------->
+
     <div *ngIf="router.url == '/summary' ||
      router.url == '/description' || 
      router.url == '/addTask' || 

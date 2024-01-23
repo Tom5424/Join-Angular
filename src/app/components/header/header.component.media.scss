@@ -1,0 +1,32 @@
+////////////////// Width
+@media screen and (max-width: 650px) {
+    header {
+        padding: 0px 20px 0px 20px;
+        left: 0px;
+
+        p {
+            display: none;
+        }
+    }
+
+    .joinLogo {
+        display: flex;
+    }
+}
+
+
+////////////////// Height
+@media screen and (max-height: 600px) {
+    header {
+        padding: 0px 20px 0px 20px;
+        left: 0px;
+
+        p {
+            display: none;
+        }
+    }
+
+    .joinLogo {
+        display: flex;
+    }
+}

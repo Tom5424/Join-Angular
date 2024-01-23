@@ -1,0 +1,39 @@
+////////////////// Width
+@media screen and (min-width: 1600px) {
+    .containerLegalNotice {
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .containerLegalNotice {
+        height: 75.8vh;
+        padding: 120px 25px 50px 25px;
+
+        img {
+            top: 90px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 380px) {
+    .containerLegalNotice {
+        padding: 120px 15px 50px 15px;
+
+        h1 {
+            font-size: 45px;
+        }
+    }
+}
+
+
+////////////////// Height
+@media screen and (max-height: 600px) {
+    .containerLegalNotice {
+        height: 100vh;
+    }
+}
