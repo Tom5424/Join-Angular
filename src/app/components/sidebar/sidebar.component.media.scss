@@ -23,7 +23,7 @@
         bottom: 0px;
         left: 0px;
         right: 0px;
-        z-index: 1;
+        z-index: 3;
         display: unset;
         width: unset;
         height: unset;
@@ -155,5 +155,12 @@
 
     ul {
         display: none;
+    }
+}
+
+
+@media screen and (max-height: 550px) {
+    nav {
+        z-index: 3;
     }
 }

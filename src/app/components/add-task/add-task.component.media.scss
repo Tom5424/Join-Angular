@@ -1,0 +1,474 @@
+////////////////// Width
+@media screen and (max-width: 1200px) {
+    .containerAddTask {
+
+        h1 {
+            padding: 40px 605px 30px 0px;
+        }
+    }
+
+    form {
+
+        input {
+            width: 350px;
+        }
+
+        textArea {
+            width: 350px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 350px;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 405px;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 125px;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 405px;
+    }
+}
+
+
+@media screen and (max-width: 1100px) {
+    .containerAddTask {
+
+        h1 {
+            padding: 40px 505px 30px 0px;
+        }
+    }
+
+    form {
+
+        input {
+            width: 300px;
+        }
+
+        textArea {
+            width: 300px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 300px;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 355px;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 108px;
+            font-size: 18px;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 355px;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .containerAddTask {
+        height: 100vh;
+        overflow-y: scroll;
+        align-items: unset;
+
+        h1 {
+            padding: 100px 0px 20px 15px;
+        }
+    }
+
+    form {
+        flex-direction: column;
+        padding-left: 15px;
+
+        input {
+            width: 90%;
+        }
+
+        textArea {
+            width: 90%;
+        }
+
+        hr {
+            display: none;
+        }
+    }
+
+    .errorMessage {
+        width: unset;
+    }
+
+    .dropdownMenuBox {
+        width: 90%;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 98%;
+    }
+
+    .containerSelectedContacts {
+        bottom: -20px;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 31%;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 98%;
+        height: 110px;
+    }
+
+    .thisFieldIsRequiredText {
+        bottom: -430px;
+        left: 10px;
+    }
+
+    .containerBtnsClearFormAndAddTask {
+        margin-top: 40px;
+        padding: 0px 15px 15px 0px;
+    }
+
+    .containerUserFeedbackTaskAdded {
+        left: 420px;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+
+    form {
+
+        input {
+            width: 85%;
+        }
+
+        textArea {
+            width: 85%;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 85%;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 94%;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 29.7%;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 94%;
+    }
+
+    .containerUserFeedbackTaskAdded {
+        left: 350px;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+
+    form {
+
+        input {
+            width: 85%;
+        }
+
+        textArea {
+            width: 85%;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 85%;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 94%;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 29.7%;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 94%;
+    }
+
+    .thisFieldIsRequiredText {
+        display: none;
+    }
+
+    .containerBtnsClearFormAndAddTask {
+        justify-content: space-around;
+        padding: 0px 0px 15px 0px;
+    }
+
+    .containerUserFeedbackTaskAdded {
+        left: 280px;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+
+    .containerAddTask {
+        width: 100%;
+        height: 85vh;
+    }
+
+    .dropdownMenuCategory {
+        height: 80px;
+        top: 281px;
+    }
+
+    .containerBtnsClearFormAndAddTask {
+        margin-top: 0px;
+    }
+
+    .containerUserFeedbackTaskAdded {
+        left: 150px;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+
+    .containerUserFeedbackTaskAdded {
+        left: 110px;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+
+    .containerAddTask {
+
+        h1 {
+            font-size: 45px;
+        }
+    }
+
+    form {
+
+        input {
+            width: 80%;
+        }
+
+        textArea {
+            width: 80%;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 80%;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 93%;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 28.5%;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 93%;
+    }
+
+    .containerUserFeedbackTaskAdded {
+        left: 70px;
+    }
+}
+
+
+@media screen and (max-width: 385px) {
+
+    .containerAddTask {
+        width: 100%;
+        height: 84vh;
+    }
+
+    form {
+
+        input {
+            width: 75%;
+        }
+
+        textArea {
+            width: 75%;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 75%;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 91%;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 27.5%;
+            font-size: 16px;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 91%;
+    }
+
+    .containerBtnsClearFormAndAddTask {
+        padding: 0px 20px 15px 0px;
+
+        button {
+            font-size: 16px;
+        }
+    }
+
+    .containerUserFeedbackTaskAdded {
+        left: 35px;
+    }
+}
+
+
+@media screen and (max-width: 340px) {
+
+    form {
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            width: 70%;
+        }
+
+        textArea {
+            width: 70%;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 70%;
+        font-size: 15px;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 87%;
+    }
+
+    .containerContactInitialLetterAndFullName {
+
+        p {
+            font-size: 16px;
+        }
+
+        span {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+        }
+    }
+
+    .containerSelectedContacts {
+
+        p {
+            width: 30px;
+            height: 30px;
+            font-size: 14px;
+        }
+    }
+
+    .containerPrioBtns {
+
+        button {
+            font-size: 12px;
+        }
+
+        img {
+            width: 15px;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 87%;
+        top: 267px;
+
+        li {
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+    }
+
+    .containerBtnsClearFormAndAddTask {
+        padding: 0px 17px 15px 0px;
+
+        button {
+            font-size: 14px;
+        }
+    }
+
+    .containerUserFeedbackTaskAdded {
+        left: 10px;
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 280px) {
+    .dropdownMenuAssignContacts {
+        width: 91%;
+    }
+
+    .dropdownMenuCategory {
+        width: 91%;
+    }
+}
+
+/////////////////////////////////////////////////////////////////7
+////////////////// Disable hover effect on touch devices
+@media screen and (hover: hover) {
+    .btnClearForm {
+        &:hover {
+            touch-action: none;
+        }
+    }
+}

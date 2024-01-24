@@ -1,4 +1,11 @@
 ////////////////// Width
+@media screen and (max-width: 750px) {
+    header {
+        padding: 0px 24px 0px 24px;
+    }
+}
+
+
 @media screen and (max-width: 650px) {
     header {
         padding: 0px 20px 0px 20px;
@@ -16,6 +23,13 @@
 
 
 ////////////////// Height
+@media screen and (max-height: 550px) {
+    header {
+        z-index: 3;
+    }
+}
+
+
 @media screen and (max-height: 600px) {
     header {
         padding: 0px 20px 0px 20px;

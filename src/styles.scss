@@ -110,6 +110,20 @@ body {
 }
 
 
+@media screen and (max-width: 750px) {
+    .cdk-overlay-pane {
+        margin-right: -10px;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .cdk-overlay-pane {
+        margin-right: -5px;
+    }
+}
+
+
 /////////// Styles for Dropdown Menus ///////////
 .rotateArrowIconInDropdownMenu {
     transform: rotate(180deg) !important;
