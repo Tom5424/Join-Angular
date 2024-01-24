@@ -1,5 +1,5 @@
 <nav>
-    <img src="../../../assets/img/favicon-white.svg">
+    <img class="joinLogo" src="../../../assets/img/favicon-white.svg">
     <table class="linksNavigation">
         <tr routerLink="/summary" routerLinkActive="activeLink" [routerLinkActiveOptions]="{ exact: true }">
             <img src="../../../assets/icons/navbar-summary-icon.svg">
@@ -16,7 +16,7 @@
             <td>Board</td>
         </tr>
 
-        <tr routerLink="/contacts" routerLinkActive="activeLink">
+        <tr routerLink="/contacts" routerLinkActive="activeLink" [routerLinkActiveOptions]="{ exact: true }">
             <img src=" ../../../assets/icons/navbar-contacts-icon.svg">
             <td>Contacts</td>
         </tr>

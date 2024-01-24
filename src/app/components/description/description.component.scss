@@ -12,12 +12,12 @@ main {
     padding: 120px 50px 50px 50px;
 
     img {
+        @include hover();
         position: fixed;
         top: 140px;
         right: 10px;
         padding: 8px;
 
-        @include hover();
 
         &:hover {
             @include iconHover();

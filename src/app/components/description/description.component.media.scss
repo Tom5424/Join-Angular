@@ -1,0 +1,50 @@
+////////////////// Width
+@media screen and (min-width: 1600px) {
+    .containerDescription {
+
+        span {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .containerDescription {
+        padding: 120px 50px 100px 50px;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .containerDescription {
+
+        h1 {
+            font-size: 45px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 340px) {
+    .containerDescription {
+
+        h1 {
+            font-size: 45px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        table {
+
+            tr {
+
+                th {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

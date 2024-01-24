@@ -1,0 +1,159 @@
+////////////////// Width
+@media screen and (min-width: 1600px) {
+    tr {
+
+        td {
+            font-size: 18px;
+        }
+    }
+
+    ul {
+
+        li {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    nav {
+        position: fixed;
+        top: unset;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 1;
+        display: unset;
+        width: unset;
+        height: unset;
+        padding: 5px 16px 5px 16px;
+    }
+
+    .joinLogo {
+        display: none;
+    }
+
+    table {
+        flex-direction: unset;
+        justify-content: space-between;
+
+        tr {
+            flex-direction: column;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 8px;
+
+            &:hover {
+                cursor: unset;
+                background-color: unset;
+            }
+        }
+    }
+
+    ul {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 455px) {
+    table {
+
+        tr {
+
+            img {
+                width: 25px;
+            }
+
+            td {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 430px) {
+    table {
+
+        tr {
+            padding: 12px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 415px) {
+    table {
+
+        tr {
+            td {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 385px) {
+    nav {
+        padding: 5px;
+    }
+
+    table {
+
+        tr {
+            padding: 5px;
+
+            img {
+                width: 22px;
+            }
+
+            td {
+                font-size: 11px;
+            }
+        }
+    }
+}
+
+
+////////////////// Height
+@media screen and (max-height: 600px) {
+    nav {
+        position: fixed;
+        top: unset;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 1;
+        display: unset;
+        width: unset;
+        height: unset;
+        padding: 5px 16px 5px 16px;
+    }
+
+    .joinLogo {
+        display: none;
+    }
+
+    table {
+        flex-direction: unset;
+        justify-content: space-between;
+
+        tr {
+            flex-direction: column;
+            justify-content: center;
+            padding: 10px;
+
+            &:hover {
+                cursor: unset;
+                background-color: unset;
+            }
+        }
+    }
+
+    ul {
+        display: none;
+    }
+}
