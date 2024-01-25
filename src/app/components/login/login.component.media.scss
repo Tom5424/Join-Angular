@@ -191,3 +191,15 @@
         height: unset;
     }
 }
+
+
+////////////////// Disable hover effect on touch devices
+@media (pointer: coarse) {
+    .btnGuestLogIn {
+        &:hover {
+            border: 1px solid #2A3647;
+            color: #2A3647;
+            box-shadow: none;
+        }
+    }
+}

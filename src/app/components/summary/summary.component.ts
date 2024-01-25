@@ -7,11 +7,12 @@ import { CreateTaskService } from 'src/app/services/create-task.service';
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.scss']
+  styleUrls: ['./summary.component.scss', './summary.component.media.scss']
 })
 
 
 export class SummaryComponent {
+  displayLoggedUserMobibleView: boolean = false;
 
 
   constructor(public authService: AuthService, public createTaskService: CreateTaskService, public route: Router) {
@@ -22,6 +23,7 @@ export class SummaryComponent {
   ngOnInit(): void {
     this.authService.loadDisplayedNameService();
     this.updateHTML();
+    this.displayLoggedUserInMobileView();
   }
 
 
@@ -35,5 +37,15 @@ export class SummaryComponent {
 
   directToTheBoard() {
     this.route.navigateByUrl('/board');
+  }
+
+
+  displayLoggedUserInMobileView() {
+    if (window.innerWidth <= 1090) {
+      this.displayLoggedUserMobibleView = true;
+    }
+    setTimeout(() => {
+      this.displayLoggedUserMobibleView = false;
+    }, 1000);
   }
 }

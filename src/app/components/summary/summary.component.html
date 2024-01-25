@@ -135,6 +135,19 @@
                     {{ authService.auth.currentUser?.displayName }}
                 </span>
             </div>
+
+
+            <!--------------------------- Only displayed in Mobile View --------------------------->
+            <div *ngIf="displayLoggedUserMobibleView" class="containerGreetingUserMobileView">
+                <div>
+                    <p>Good Morning,</p>
+                    <span>
+                        <img *ngIf="!authService.auth.currentUser" src="../../../assets/icons/spinner.svg">
+                        {{ authService.auth.currentUser?.displayName }}
+                    </span>
+                </div>
+            </div>
+            <!--------------------------- Only displayed in Mobile View --------------------------->
         </div>
     </div>
 </main>

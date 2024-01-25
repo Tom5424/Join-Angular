@@ -373,10 +373,12 @@
 
         input {
             width: 70%;
+            font-size: 18px;
         }
 
         textArea {
             width: 70%;
+            font-size: 18px;
         }
     }
 
@@ -463,12 +465,18 @@
     }
 }
 
-/////////////////////////////////////////////////////////////////7
+
 ////////////////// Disable hover effect on touch devices
-@media screen and (hover: hover) {
+@media (pointer: coarse) {
     .btnClearForm {
         &:hover {
-            touch-action: none;
+            border: 1px solid #2A3647;
+            color: #2A3647;
+            box-shadow: none;
+
+            img {
+                filter: brightness(0) saturate(100%) invert(18%) sepia(31%) saturate(482%) hue-rotate(175deg) brightness(100%) contrast(96%);
+            }
         }
     }
 }
