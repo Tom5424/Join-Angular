@@ -7,7 +7,7 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 @Component({
   selector: 'app-dialog-create-new-contact',
   templateUrl: './dialog-create-new-contact.component.html',
-  styleUrls: ['./dialog-create-new-contact.component.scss']
+  styleUrls: ['./dialog-create-new-contact.component.scss', './dialog-create-new-contact.component.media.scss']
 })
 
 

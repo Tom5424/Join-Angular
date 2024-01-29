@@ -170,6 +170,43 @@
 }
 
 
+@media screen and (max-width: 380px) {
+
+    form {
+
+        input {
+            width: 165px;
+        }
+
+        textarea {
+            width: 165px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 165px;
+        font-size: 16px;
+    }
+
+    .dropdownMenuCategory {
+        width: 220px;
+
+        li {
+
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 63px;
+        }
+    }
+}
+
 
 @media screen and (max-width: 345px) {
     .containerEditTask {
@@ -216,5 +253,20 @@
         right: 15px;
 
         font-size: 16px;
+    }
+}
+
+
+////////////////// Disable hover effect on touch devices
+@media (pointer: coarse) {
+    .containerBtn {
+
+        button {
+
+            &:hover {
+                background-color: #2A3647;
+                box-shadow: unset;
+            }
+        }
     }
 }

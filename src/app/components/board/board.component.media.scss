@@ -398,3 +398,14 @@
         }
     }
 }
+
+
+////////////////// Disable hover effect on touch devices
+@media (pointer: coarse) {
+    .containerImgMagnifyingGlass {
+
+        &:hover {
+            background-color: unset;
+        }
+    }
+}

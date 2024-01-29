@@ -188,7 +188,7 @@
 
 
         <!--------------------- User Feedback if Task was deleted successfully --------------------->
-        <div [ngClass]="{'slideIn': createTaskService.taskSuccessfullyDeleted, 
+        <div *ngIf="createTaskService.userFeedbackIsDisplayedIfSuccessfullyDeleted" [ngClass]="{'slideIn': createTaskService.taskSuccessfullyDeleted, 
            'slideOut': !createTaskService.taskSuccessfullyDeleted}" class="popUpSuccessfully">
             <p>Task successfully deleted.</p>
         </div>
