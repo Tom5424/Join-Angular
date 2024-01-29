@@ -1,0 +1,220 @@
+////////////////// Width
+@media screen and (max-width: 600px) {
+    form {
+
+        input {
+            width: 320px;
+        }
+
+        textarea {
+            width: 320px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 320px;
+    }
+
+    .dropdownMenuCategory {
+        width: 375px;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 115px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 140px;
+    }
+}
+
+
+@media screen and (max-width: 510px) {
+    form {
+
+        input {
+            width: 260px;
+        }
+
+        textarea {
+            width: 260px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 260px;
+    }
+
+    .dropdownMenuCategory {
+        width: 315px;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 91px;
+            font-size: 16px;
+
+            img {
+                width: 18px;
+            }
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 105px;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    form {
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            width: 210px;
+        }
+
+        textarea {
+            width: 210px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 210px;
+        font-size: 18px;
+    }
+
+    .dropdownMenuCategory {
+        width: 265px;
+        top: 77px;
+
+        li {
+
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 78px;
+            font-size: 14px;
+            gap: 5px;
+
+            img {
+                width: 14px;
+            }
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 80px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    form {
+        input {
+            width: 180px;
+        }
+
+        textarea {
+            width: 180px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 180px;
+        font-size: 16px;
+    }
+
+    .dropdownMenuCategory {
+        width: 235px;
+        top: 78px;
+
+        li {
+
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 68px;
+            font-size: 12px;
+        }
+    }
+
+    .containerBtn {
+
+        button {
+            font-size: 16px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 55px;
+    }
+}
+
+
+
+@media screen and (max-width: 345px) {
+    .containerEditTask {
+        padding: 45px 22px 35px 22px;
+    }
+
+    form {
+
+        input {
+            width: 150px;
+        }
+
+        textarea {
+            width: 150px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 150px;
+        font-size: 14px;
+    }
+
+    .dropdownMenuCategory {
+        width: 205px;
+        top: 78px;
+
+        li {
+
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 58px;
+            font-size: 12px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 15px;
+
+        font-size: 16px;
+    }
+}

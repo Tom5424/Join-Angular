@@ -1,5 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from 'src/app/models/task';
 import { CreateTaskService } from 'src/app/services/create-task.service';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
@@ -8,7 +9,7 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss', './board.component.media.scss']
 })
 
 
@@ -17,7 +18,7 @@ export class BoardComponent implements OnInit {
   inputValue: string = '';
 
 
-  constructor(public renderer: Renderer2, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService) {
+  constructor(public renderer: Renderer2, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService, public router: Router) {
 
   }
 
@@ -51,7 +52,6 @@ export class BoardComponent implements OnInit {
     const filteredTasks = tasks.filter((task) =>
       task.categoryName.toLowerCase().includes(inputValue) ||
       task.title.toLowerCase().includes(inputValue) ||
-      task.description.toLowerCase().includes(inputValue) ||
       task.prio.toLowerCase().includes(inputValue)
     );
     this.getSearchResult(filteredTasks);
@@ -81,15 +81,22 @@ export class BoardComponent implements OnInit {
 
 
   openDialogAddTask(selectedTaskStatus: string) {
-    this.openDialogService.openDialogCreateTaskService(selectedTaskStatus);
+    if (window.innerWidth <= 650) {
+      this.directToAddTaskIfMobileView();
+    } else {
+      this.openDialogService.openDialogCreateTaskService(selectedTaskStatus);
+    }
+  }
+
+
+  directToAddTaskIfMobileView() {
+    this.router.navigateByUrl('/addTask');
   }
 
 
   dropTaskMiniView(event: CdkDragDrop<Task[]>, taskStatus: string) {
     if (event.previousContainer == event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-      // const task = event.container.data[event.currentIndex];
-      // this.createTaskService.updateTaskStatusService(task, taskStatus);
     } else {
       transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
       const task = event.container.data[event.currentIndex];

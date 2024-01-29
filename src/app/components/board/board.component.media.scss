@@ -1,0 +1,400 @@
+////////////////// Width
+@media screen and (min-width: 1600px) {
+    .containerMessageNoTasksExistInColumn {
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1150px) {
+    .containerBoard {
+        width: 79%;
+        padding: 0px 15px 10px 15px;
+    }
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 300px;
+        }
+    }
+
+    .mainContainerColumns {
+        flex-direction: column;
+    }
+
+    .containerSingleColumn {
+        width: 100%;
+    }
+
+    .column {
+        display: none;
+    }
+
+    .columnMobileView {
+        display: flex;
+        overflow-x: auto;
+        min-height: 155px;
+    }
+}
+
+
+@media screen and (max-width: 1105px) {
+    .containerBoard {
+        width: 77%;
+    }
+}
+
+
+@media screen and (max-width: 1010px) {
+    .containerBoard {
+        width: 76%;
+    }
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 200px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 970px) {
+    .containerBoard {
+        width: 74%;
+    }
+}
+
+
+@media screen and (max-width: 910px) {
+    .containerBoardHeadline {
+        flex-direction: column;
+        justify-content: unset;
+        gap: 20px;
+    }
+}
+
+
+@media screen and (max-width: 895px) {
+    .containerBoard {
+        width: 72%;
+    }
+}
+
+
+@media screen and (max-width: 830px) {
+    .containerBoard {
+        width: 70%;
+    }
+}
+
+
+@media screen and (max-width: 775px) {
+    .containerBoard {
+        width: 68%;
+    }
+}
+
+
+@media screen and (max-width: 730px) {
+    .containerBoard {
+        width: 66%;
+    }
+
+    .containerInputFieldAndBtn {
+        gap: 23px;
+
+        input {
+            width: 160px;
+        }
+
+        hr {
+            right: 215px;
+        }
+    }
+
+    .containerImgMagnifyingGlass {
+        right: 175px;
+    }
+}
+
+
+@media screen and (max-width: 685px) {
+    .containerBoard {
+        width: 64%;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .containerBoard {
+        width: 95%;
+        height: 84vh;
+        overflow-y: scroll;
+    }
+
+
+    .containerH1AndPlusIcon {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+            display: flex;
+        }
+    }
+
+    .containerInputFieldAndBtn {
+        margin-left: 15px;
+        margin-right: 10px;
+
+        input {
+            width: 505px;
+        }
+
+        hr {
+            right: 50px;
+        }
+
+        button {
+            display: none;
+        }
+    }
+
+    .containerImgMagnifyingGlass {
+        right: 10px;
+    }
+}
+
+
+@media screen and (max-width: 605px) {
+    .containerBoard {
+        width: 93%;
+    }
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 475px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 160px;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    .containerBoard {
+        width: 91%;
+    }
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 440px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 545px) {
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 410px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 130px;
+    }
+}
+
+
+@media screen and (max-width: 515px) {
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 380px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 485px) {
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 350px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 460px) {
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 325px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 110px;
+    }
+}
+
+
+@media screen and (max-width: 430px) {
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 300px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 405px) {
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 275px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 65px;
+    }
+}
+
+
+@media screen and (max-width: 385px) {
+    .containerBoardHeadline {
+
+        h1 {
+            font-size: 51px;
+        }
+    }
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 255px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 365px) {
+    .containerBoardHeadline {
+
+        h1 {
+            font-size: 45px;
+        }
+    }
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 235px;
+        }
+    }
+
+    .popUpSuccessfully {
+
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 345px) {
+    .containerBoard {
+        width: 89%;
+    }
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 215px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 325px) {
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 205px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 50px;
+
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 315px) {
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 190px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 300px) {
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 175px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 35px;
+
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 290px) {
+
+    .containerInputFieldAndBtn {
+
+        input {
+            width: 160px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 20px;
+
+        p {
+            font-size: 16px;
+        }
+    }
+}

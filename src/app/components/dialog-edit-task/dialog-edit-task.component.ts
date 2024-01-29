@@ -9,7 +9,7 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 @Component({
   selector: 'app-dialog-edit-task',
   templateUrl: './dialog-edit-task.component.html',
-  styleUrls: ['./dialog-edit-task.component.scss']
+  styleUrls: ['./dialog-edit-task.component.scss', './dialog-edit-task.component.media.scss']
 })
 
 

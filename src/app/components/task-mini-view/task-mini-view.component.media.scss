@@ -1,0 +1,38 @@
+////////////////// Width
+@media screen and (min-width: 1600px) {
+    .containerTaskMiniView {
+
+        span {
+            font-size: 18px;
+        }
+    }
+
+    .taskCategory {
+        font-size: 18px;
+    }
+
+    .taskTitle {
+        font-size: 18px;
+    }
+}
+
+
+@media screen and (max-width: 1150px) {
+    .containerTaskMiniView {
+        width: 210px;
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .containerTaskMiniView {
+        width: 180px
+    }
+}
+
+
+@media screen and (max-width: 285px) {
+    .containerTaskMiniView {
+        width: 170px
+    }
+}

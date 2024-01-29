@@ -9,7 +9,12 @@
 
     <div class="containerBoard">
         <div class="containerBoardHeadline">
-            <h1>Board</h1>
+            <div class="containerH1AndPlusIcon">
+                <h1>Board</h1>
+                <!-------------------------- Only displayed in the mobile View -------------------------->
+                <img routerLink="/addTask" class="d-none" src="../../../assets/icons/plus-icon-white.svg">
+                <!-------------------------- Only displayed in the mobile View -------------------------->
+            </div>
 
             <div class="containerInputFieldAndBtn">
                 <input (keyup)="searchForTasks($event)" #inputFindTask type="text" placeholder="Find Task">
@@ -48,8 +53,23 @@
 
                     </app-task-mini-view>
                 </div>
+
+
+                <!-------------------------- Only displayed in the mobile View -------------------------->
+                <div class="columnMobileView hide" cdkDropListOrientation="horizontal" cdkDropList
+                    [cdkDropListData]="createTaskService.toDoTaskArray"
+                    (cdkDropListDropped)="dropTaskMiniView($event, 'toDo')">
+
+
+                    <app-task-mini-view (click)="openDialogService.openDialogTaskDetailViewService(task)" cdkDrag
+                        *ngFor="let task of createTaskService.toDoTaskArray" [task]="task">
+
+                    </app-task-mini-view>
+                </div>
+                <!-------------------------- Only displayed in the mobile View -------------------------->
             </div>
             <!-------------------------- Column To do -------------------------->
+
 
             <!-------------------------- Column In progress -------------------------->
             <div class="containerSingleColumn">
@@ -73,8 +93,22 @@
 
                     </app-task-mini-view>
                 </div>
+
+
+                <!-------------------------- Only displayed in the mobile View -------------------------->
+                <div class="columnMobileView hide" cdkDropListOrientation="horizontal" cdkDropList
+                    [cdkDropListData]="createTaskService.inProgressTaskArray"
+                    (cdkDropListDropped)="dropTaskMiniView($event, 'inProgress')">
+
+                    <app-task-mini-view (click)="openDialogService.openDialogTaskDetailViewService(task)" cdkDrag
+                        *ngFor="let task of createTaskService.inProgressTaskArray" [task]="task">
+
+                    </app-task-mini-view>
+                </div>
+                <!-------------------------- Only displayed in the mobile View -------------------------->
             </div>
             <!-------------------------- Column In progress -------------------------->
+
 
             <!-------------------------- Column Awaiting feedback -------------------------->
             <div class="containerSingleColumn">
@@ -98,8 +132,22 @@
 
                     </app-task-mini-view>
                 </div>
+
+
+                <!-------------------------- Only displayed in the mobile View -------------------------->
+                <div class="columnMobileView hide" cdkDropListOrientation="horizontal" cdkDropList
+                    [cdkDropListData]="createTaskService.awaitingFeebackTaskArray"
+                    (cdkDropListDropped)="dropTaskMiniView($event, 'awaitingFeedback')">
+
+                    <app-task-mini-view (click)="openDialogService.openDialogTaskDetailViewService(task)" cdkDrag
+                        *ngFor="let task of createTaskService.awaitingFeebackTaskArray" [task]="task">
+
+                    </app-task-mini-view>
+                </div>
+                <!-------------------------- Only displayed in the mobile View -------------------------->
             </div>
             <!-------------------------- Column Awaiting feedback -------------------------->
+
 
             <!-------------------------- Column Done -------------------------->
             <div class="containerSingleColumn">
@@ -121,13 +169,26 @@
 
                     </app-task-mini-view>
                 </div>
+
+
+                <!-------------------------- Only displayed in the mobile View -------------------------->
+                <div class="columnMobileView hide" cdkDropListOrientation="horizontal" cdkDropList
+                    [cdkDropListData]="createTaskService.doneTaskArray"
+                    (cdkDropListDropped)="dropTaskMiniView($event, 'done')">
+
+                    <app-task-mini-view (click)="openDialogService.openDialogTaskDetailViewService(task)" cdkDrag
+                        *ngFor="let task of createTaskService.doneTaskArray" [task]="task">
+
+                    </app-task-mini-view>
+                </div>
+                <!-------------------------- Only displayed in the mobile View -------------------------->
             </div>
             <!-------------------------- Column Done -------------------------->
         </div>
 
 
         <!--------------------- User Feedback if Task was deleted successfully --------------------->
-        <div *ngIf="createTaskService.userFeedbackIsDisplayedIfSuccessfullyDeleted" [ngClass]="{'slideIn': createTaskService.taskSuccessfullyDeleted, 
+        <div [ngClass]="{'slideIn': createTaskService.taskSuccessfullyDeleted, 
            'slideOut': !createTaskService.taskSuccessfullyDeleted}" class="popUpSuccessfully">
             <p>Task successfully deleted.</p>
         </div>

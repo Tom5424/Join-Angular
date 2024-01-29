@@ -6,7 +6,7 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 @Component({
   selector: 'app-task-detail-view',
   templateUrl: './task-detail-view.component.html',
-  styleUrls: ['./task-detail-view.component.scss']
+  styleUrls: ['./task-detail-view.component.scss', './task-detail-view.component.media.scss']
 })
 
 

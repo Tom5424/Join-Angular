@@ -5,7 +5,7 @@ import { Task } from 'src/app/models/task';
 @Component({
   selector: 'app-task-mini-view',
   templateUrl: './task-mini-view.component.html',
-  styleUrls: ['./task-mini-view.component.scss']
+  styleUrls: ['./task-mini-view.component.scss', './task-mini-view.component.media.scss']
 })
 
 

@@ -1,0 +1,209 @@
+////////////////// Width
+@media screen and (max-width: 1110px) {
+
+    form {
+
+        input {
+            width: 300px;
+        }
+
+        textArea {
+            width: 300px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 300px;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 355px;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 108px;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 355px;
+    }
+}
+
+
+@media screen and (max-width: 915px) {
+    form {
+
+        input {
+            width: 250px;
+        }
+
+        textArea {
+            width: 250px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 250px;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 305px;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 98px;
+            font-size: 18px;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 305px;
+    }
+}
+
+
+@media screen and (max-width: 830px) {
+    form {
+
+        input {
+            width: 200px;
+        }
+
+        textArea {
+            width: 200px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 200px;
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 255px;
+    }
+
+    .noContactsExistingText {
+        font-size: 18px;
+    }
+
+    .containerSelectedContacts {
+
+        p {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .containerContactInitialLetterAndFullName {
+
+        span {
+            width: 35px;
+            height: 35px;
+            font-size: 16px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 80px;
+            font-size: 14px;
+
+            img {
+                width: 18px;
+            }
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 255px;
+        top: 277px;
+
+        li {
+
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 730px) {
+    .containerDialogAddTask {
+        padding: 32px;
+
+        h1 {
+            font-size: 51px;
+        }
+    }
+
+    form {
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            width: 180px;
+        }
+
+        textArea {
+            width: 180px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 180px;
+
+        p {
+            font-size: 15px;
+        }
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 235px;
+    }
+
+    .noContactsExistingText {
+        font-size: 16px;
+    }
+
+    .thisFieldIsRequiredText {
+        font-size: 18px;
+        bottom: -15px;
+    }
+
+    .containerSelectedContacts {
+
+        p {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .dropdownMenuCategory {
+        width: 235px;
+        top: 270px;
+    }
+
+    .btnClearForm {
+        font-size: 18px;
+    }
+
+    .btnCreateTask {
+        font-size: 18px;
+    }
+}

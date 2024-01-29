@@ -1,7 +1,9 @@
 <div (click)="closeDialogIfClickedOutside()" class="overlayForDialogAddTask">
 
-    <div [ngClass]="{'slideIn': openDialogService.dialogAddTaskIsOpen, 'slideOut': !openDialogService.dialogAddTaskIsOpen}"
-        (click)="stopPropagation($event)" class="containerDialogAddTask">
+
+    <div (click)="stopPropagation($event)"
+        [ngClass]="{'slideIn': openDialogService.dialogAddTaskIsOpen, 'slideOut': !openDialogService.dialogAddTaskIsOpen}"
+        class="containerDialogAddTask">
 
         <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
         <div (click)="closeDropdownIfClickOutSide()"

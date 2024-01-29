@@ -26,6 +26,19 @@ main {
 }
 
 
+.containerH1AndPlusIcon {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+
+    img {
+        background-color: $mainColor;
+        padding: 8px;
+        border-radius: 10px;
+    }
+}
+
+
 .containerInputFieldAndBtn {
     @include flexCenteredYAxis();
     gap: 32px;
@@ -141,13 +154,28 @@ main {
 }
 
 
+.columnMobileView {
+    display: flex;
+    gap: 16px;
+    min-height: 400px;
+    padding: 12px;
+    background-color: transparent;
+}
+
+
 .popUpSuccessfully {
     @include popUp();
     background-color: $mainColor;
     position: fixed;
     right: 200px;
     bottom: 25px;
+    z-index: 3;
     transform: translateY(0);
+}
+
+
+.hide {
+    display: none;
 }
 
 
