@@ -7,7 +7,7 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 @Component({
   selector: 'app-dialog-edit-contact',
   templateUrl: './dialog-edit-contact.component.html',
-  styleUrls: ['./dialog-edit-contact.component.scss']
+  styleUrls: ['./dialog-edit-contact.component.scss', './dialog-edit-contact.component.media.scss']
 })
 
 

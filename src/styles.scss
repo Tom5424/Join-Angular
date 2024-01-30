@@ -28,6 +28,13 @@ body {
 }
 
 
+@media screen and (min-width: 1600px) {
+    .errorMessage {
+        font-size: 18px
+    }
+}
+
+
 /////////// Styles for active Route ///////////
 .activeLink {
     @include activeLink();
@@ -92,10 +99,10 @@ body {
 .mat-mdc-menu-content,
 .mat-mdc-menu-content .mat-mdc-menu-item .mat-mdc-menu-item-text {
     p {
+        @include hover();
         color: #CDCDCD !important;
         margin: 0;
         padding: 10px 10px 10px 10px;
-        @include hover();
 
         &:hover {
             background-color: #4e537399;

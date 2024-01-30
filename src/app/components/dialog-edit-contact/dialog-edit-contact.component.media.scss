@@ -1,0 +1,324 @@
+////////////////// Width
+@media screen and (max-width: 1180px) {
+    .containerImgAndForm {
+
+        form {
+
+            input {
+                width: 300px;
+            }
+        }
+    }
+
+    .inputName {
+        background-position: 325px;
+    }
+
+    .inputEmail {
+        background-position: 325px;
+    }
+
+    .inputPhoneNumber {
+        background-position: 325px;
+    }
+}
+
+
+@media screen and (max-width: 1075px) {
+    .containerImgAndForm {
+
+        form {
+
+            input {
+                width: 250px;
+            }
+        }
+    }
+
+    .inputName {
+        background-position: 275px;
+    }
+
+    .inputEmail {
+        background-position: 275px;
+    }
+
+    .inputPhoneNumber {
+        background-position: 275px;
+    }
+}
+
+
+@media screen and (max-width: 1025px) {
+
+    .containerImgAndForm {
+
+        form {
+
+            input {
+                width: 240px;
+            }
+        }
+    }
+
+    .inputName {
+        background-position: 265px;
+    }
+
+    .inputEmail {
+        background-position: 265px;
+    }
+
+    .inputPhoneNumber {
+        background-position: 265px;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .dialog {
+        flex-direction: column;
+    }
+
+    .dialogLeftContainer {
+        border-radius: 30px 30px 0px 0px;
+
+        img {
+            display: none;
+        }
+    }
+
+    .dialogRightContainer {
+        border-radius: 0px 0px 30px 30px;
+    }
+
+    .containerCloseIcon {
+        top: -225px;
+        right: 20px;
+
+        img {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(359deg) brightness(101%) contrast(102%);
+        }
+    }
+
+    .containerImgAndForm {
+        flex-direction: column;
+        gap: 0px;
+        padding-top: 0px;
+
+        form {
+            gap: 26px;
+
+            input {
+                width: 290px;
+            }
+        }
+
+        .inputName {
+            background-position: 315px;
+        }
+
+        .inputEmail {
+            background-position: 315px;
+        }
+
+        .inputPhoneNumber {
+            background-position: 315px;
+        }
+    }
+
+    .contactInitialLetter {
+        margin: -120px 0px 25px 0px;
+    }
+
+    .containerBtn {
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .containerTextAndBlueLine {
+
+        h1 {
+            font-size: 51px;
+        }
+
+        p {
+            font-size: 25px;
+        }
+    }
+
+    .containerCloseIcon {
+        top: -205px;
+    }
+
+    .containerImgAndForm {
+
+        form {
+
+            input {
+                width: 260px;
+            }
+        }
+
+        .inputName {
+            background-position: 285px;
+        }
+
+        .inputEmail {
+            background-position: 285px;
+        }
+
+        .inputPhoneNumber {
+            background-position: 285px;
+        }
+    }
+
+    .containerBtn {
+
+        button {
+            font-size: 16px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 435px) {
+    .containerTextAndBlueLine {
+
+        h1 {
+            font-size: 45px;
+        }
+
+        p {
+            font-size: 22px;
+        }
+    }
+
+    .containerImgAndForm {
+
+        form {
+
+            input {
+                width: 230px;
+            }
+        }
+
+        .inputName {
+            background-position: 255px;
+        }
+
+        .inputEmail {
+            background-position: 255px;
+        }
+
+        .inputPhoneNumber {
+            background-position: 255px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 410px) {
+    .dialogLeftContainer {
+        padding: 48px 25px 66px 25px;
+    }
+
+    .dialogRightContainer {
+        padding: 66px 25px 48px 25px;
+    }
+
+    .containerTextAndBlueLine {
+
+        h1 {
+            font-size: 40px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+    }
+
+    .containerCloseIcon {
+        top: -185px;
+    }
+
+    .containerImgAndForm {
+
+        form {
+
+            input {
+                width: 230px;
+            }
+        }
+
+        .inputName {
+            background-position: 255px;
+        }
+
+        .inputEmail {
+            background-position: 255px;
+        }
+
+        .inputPhoneNumber {
+            background-position: 255px;
+        }
+    }
+
+    .contactInitialLetter {
+        margin: -110px 0px 25px 0px;
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+    .dialogLeftContainer {
+        padding: 48px 18px 66px 18px;
+    }
+
+    .dialogRightContainer {
+        padding: 66px 18px 48px 18px;
+    }
+
+    .containerTextAndBlueLine {
+
+        h1 {
+            font-size: 35px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .containerCloseIcon {
+        top: -180px;
+    }
+
+    .containerImgAndForm {
+
+        form {
+
+            input {
+                width: 160px;
+            }
+        }
+
+        .inputName {
+            background-position: 185px;
+        }
+
+        .inputEmail {
+            background-position: 185px;
+        }
+
+        .inputPhoneNumber {
+            background-position: 185px;
+        }
+    }
+}
