@@ -12,20 +12,20 @@
             <div class="containerH1AndPlusIcon">
                 <h1>Board</h1>
                 <!-------------------------- Only displayed in the mobile View -------------------------->
-                <img routerLink="/addTask" class="d-none" src="../../../assets/icons/plus-icon-white.svg">
+                <img routerLink="/addTask" class="d-none" src="./assets/icons/plus-icon-white.svg">
                 <!-------------------------- Only displayed in the mobile View -------------------------->
             </div>
 
             <div class="containerInputFieldAndBtn">
                 <input (keyup)="searchForTasks($event)" #inputFindTask type="text" placeholder="Find Task">
                 <div (click)="focusInput()" class="containerImgMagnifyingGlass">
-                    <img src="../../../assets/icons/magnifying-glass-icon.svg">
+                    <img src="./assets/icons/magnifying-glass-icon.svg">
                 </div>
 
                 <hr>
                 <button (click)="openDialogAddTask('toDo')" type="button">
                     Add task
-                    <img src="../../../assets/icons/plus-icon-white.svg">
+                    <img src="./assets/icons/plus-icon-white.svg">
                 </button>
             </div>
         </div>
@@ -35,7 +35,7 @@
             <div class="containerSingleColumn">
                 <div class="containerColumnHeadline">
                     <p>To do</p>
-                    <img (click)="openDialogAddTask('toDo')" src="../../../assets/icons/plus-icon-blue.svg">
+                    <img (click)="openDialogAddTask('toDo')" src="./assets/icons/plus-icon-blue.svg">
                 </div>
 
                 <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
@@ -75,7 +75,7 @@
             <div class="containerSingleColumn">
                 <div class="containerColumnHeadline">
                     <p>In progress</p>
-                    <img (click)="openDialogAddTask('inProgress')" src="../../../assets/icons/plus-icon-blue.svg">
+                    <img (click)="openDialogAddTask('inProgress')" src="./assets/icons/plus-icon-blue.svg">
                 </div>
 
                 <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->
@@ -114,7 +114,7 @@
             <div class="containerSingleColumn">
                 <div class="containerColumnHeadline">
                     <p>Awaiting feedback</p>
-                    <img (click)="openDialogAddTask('awaitingFeedback')" src="../../../assets/icons/plus-icon-blue.svg">
+                    <img (click)="openDialogAddTask('awaitingFeedback')" src="./assets/icons/plus-icon-blue.svg">
                 </div>
 
                 <!-------------------------- Only Displayed if no Tasks exist in Column -------------------------->

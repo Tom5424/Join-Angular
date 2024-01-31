@@ -17,7 +17,7 @@
                         <i class="pencilIcon"></i>
                         <div class="containerNumberAndText">
                             <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
+                                src="./assets/icons/spinner.svg">
 
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.toDoTaskArray.length }}
@@ -31,7 +31,7 @@
                         <i class="checkIcon"></i>
                         <div class="containerNumberAndText">
                             <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
+                                src="./assets/icons/spinner.svg">
 
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.doneTaskArray.length }}
@@ -47,7 +47,7 @@
                         <i></i>
                         <div class="containerNumberAndText">
                             <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
+                                src="./assets/icons/spinner.svg">
 
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.filteredTasksAfterUrgentPrio.length }}
@@ -62,7 +62,7 @@
                     <td>
                         <div class="containerDateDeadline">
                             <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
+                                src="./assets/icons/spinner.svg">
 
                             <p class=" textNoUpcomingDeadlinesExist"
                                 *ngIf="!createTaskService.loadTaskNumbersInSummary && createTaskService.nextDueDate.dueDate == null">
@@ -83,7 +83,7 @@
                     <td (click)="directToTheBoard()">
                         <div class="containerNumberAndText">
                             <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
+                                src="./assets/icons/spinner.svg">
 
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.toDoTaskArray.length +
@@ -100,7 +100,7 @@
                     <td (click)="directToTheBoard()">
                         <div class="containerNumberAndText">
                             <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
+                                src="./assets/icons/spinner.svg">
 
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.inProgressTaskArray.length }}
@@ -114,7 +114,7 @@
                     <td (click)="directToTheBoard()">
                         <div class="containerNumberAndText">
                             <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
-                                src="../../../assets/icons/spinner.svg">
+                                src="./assets/icons/spinner.svg">
 
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
                                 {{ createTaskService.awaitingFeebackTaskArray.length }}
@@ -131,7 +131,7 @@
             <div class="containerGreetingUser">
                 <p>Good Morning,</p>
                 <span>
-                    <img *ngIf="!authService.auth.currentUser" src="../../../assets/icons/spinner.svg">
+                    <img *ngIf="!authService.auth.currentUser" src="./assets/icons/spinner.svg">
                     {{ authService.auth.currentUser?.displayName }}
                 </span>
             </div>
@@ -142,7 +142,7 @@
                 <div>
                     <p>Good Morning,</p>
                     <span>
-                        <img *ngIf="!authService.auth.currentUser" src="../../../assets/icons/spinner.svg">
+                        <img *ngIf="!authService.auth.currentUser" src="./assets/icons/spinner.svg">
                         {{ authService.auth.currentUser?.displayName }}
                     </span>
                 </div>

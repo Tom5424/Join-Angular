@@ -2,7 +2,7 @@
     <p>Kanban Project Management Tool</p>
 
     <!------------------- Only in displayed in mobile View ------------------->
-    <img class="joinLogo d-none" src="../../../assets/img/favicon-blue.svg">
+    <img class="joinLogo d-none" src="./assets/img/favicon-blue.svg">
     <!------------------- Only in displayed in mobile View ------------------->
 
     <div *ngIf="router.url == '/summary' ||
@@ -12,11 +12,11 @@
      router.url == '/contacts'" class="containerLoggedInUser">
 
         <img *ngIf="router.url !== '/description'" routerLink="/description"
-            src="../../../assets/icons/question-mark-icon.svg">
+            src="./assets/icons/question-mark-icon.svg">
 
         <p [matMenuTriggerFor]="menu">
             {{ authService.auth.currentUser?.displayName?.charAt(0)?.toLocaleUpperCase() }}
-            <img *ngIf="!authService.auth.currentUser" src="../../../assets/icons/spinner.svg">
+            <img *ngIf="!authService.auth.currentUser" src="./assets/icons/spinner.svg">
         </p>
 
     </div>

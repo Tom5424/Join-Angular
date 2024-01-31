@@ -59,7 +59,7 @@
                     <p *ngIf="selectedContacts.length > 0">{{ selectedContacts.length }} Contact(s) selected</p>
 
                     <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuAssignedToIsOpen}"
-                        src="../../../assets/icons/arrow-drop-down-icon.svg">
+                        src="./assets/icons/arrow-drop-down-icon.svg">
                 </div>
 
                 <!------------------------------ Only Displayed if Contacts selected from Dropdown Menu ------------------------------>
@@ -130,20 +130,20 @@
                         [ngClass]="{'btnUrgentPrio': activePrioBtn == 'urgent'}" (click)="selectPrio('urgent')"
                         type="button">
                         Urgent
-                        <img src="../../../assets/icons/priority-urgent-icon.svg">
+                        <img src="./assets/icons/priority-urgent-icon.svg">
                     </button>
 
                     <button formControlName="prio" ngDefaultControl
                         [ngClass]="{'btnMediumPrio': activePrioBtn == 'medium'}" (click)="selectPrio('medium')"
                         type="button">
                         Medium
-                        <img src="../../../assets/icons/priority-medium-icon.svg">
+                        <img src="./assets/icons/priority-medium-icon.svg">
                     </button>
 
                     <button formControlName="prio" ngDefaultControl [ngClass]="{'btnLowPrio': activePrioBtn == 'low'}"
                         (click)="selectPrio('low')" type="button">
                         Low
-                        <img src="../../../assets/icons/priority-low-icon.svg">
+                        <img src="./assets/icons/priority-low-icon.svg">
                     </button>
                 </div>
                 <!------------------------------ Prio Buttons ------------------------------>
@@ -161,7 +161,7 @@
                     </p>
 
                     <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuCategoryIsOpen}"
-                        src="../../../assets/icons/arrow-drop-down-icon.svg">
+                        src="./assets/icons/arrow-drop-down-icon.svg">
                 </div>
 
                 <ul [ngClass]="{'d-none': !dropdownMenuCategoryIsOpen}" class="dropdownMenuCategory">
@@ -178,7 +178,7 @@
                 <div class="containerBtnsClearFormAndAddTask">
                     <button (click)="clearForm()" class="btnClearForm" type="reset">
                         Clear
-                        <img src="../../../assets/icons/close-icon.svg">
+                        <img src="./assets/icons/close-icon.svg">
                     </button>
                     <button [disabled]="addTaskForm.invalid || 
                         selectedContacts.length == 0 || 
@@ -190,7 +190,7 @@
                         selectedCategoryName == '' || 
                         selectedCategoryColor == ''}" class="btnCreateTask" type="submit">
                         Create Task
-                        <img src="../../../assets/icons/check-icon-white.svg">
+                        <img src="./assets/icons/check-icon-white.svg">
                     </button>
                 </div>
             </div>
@@ -200,7 +200,7 @@
         <div *ngIf="createTaskService.taskSuccessfullyCreated"
             [ngClass]="{'slideInUp': createTaskService.taskSuccessfullyCreated}" class="containerUserFeedbackTaskAdded">
             <p>Task added to board</p>
-            <img src="../../../assets/icons/navbar-board-icon.svg">
+            <img src="./assets/icons/navbar-board-icon.svg">
         </div>
         <!------------------------------ User Feedback if Task successfully created ------------------------------>
     </div>

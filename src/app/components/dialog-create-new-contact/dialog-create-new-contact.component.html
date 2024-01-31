@@ -3,7 +3,7 @@
         'slideOut': !openDialogService.dialogCreateNewContactIsOpen}">
 
         <div class="dialogLeftContainer">
-            <img src="../../../assets/img/favicon-white.svg">
+            <img src="./assets/img/favicon-white.svg">
 
             <div class="containerTextAndBlueLine">
                 <h1>Add contact</h1>
@@ -14,11 +14,11 @@
 
         <div class="dialogRightContainer">
             <div (click)="closeDialogCreateNewContact()" class="containerCloseIcon">
-                <img src="../../../assets/icons/close-icon.svg">
+                <img src="./assets/icons/close-icon.svg">
             </div>
 
             <div class="containerImgAndForm">
-                <img class="userImg" src="../../../assets/icons/contact-icon-white.svg">
+                <img class="userImg" src="./assets/icons/contact-icon-white.svg">
 
                 <form [formGroup]="createContactForm" (submit)="createNewContact()">
                     <!------------------------ Validate Inputfield Name ------------------------>
@@ -81,13 +81,13 @@
                     <div class="containerBtn">
                         <button (click)="closeDialogCreateNewContact()" class="cancelBtn" type="button">
                             Cancel
-                            <img src="../../../assets/icons/close-icon.svg">
+                            <img src="./assets/icons/close-icon.svg">
                         </button>
                         <button [disabled]="createContactForm.invalid"
                             [ngClass]="{'btnDisabled': createContactForm.invalid}" class="createContactBtn"
                             type="submit">
                             Create Contact
-                            <img src="../../../assets/icons/check-icon-white.svg">
+                            <img src="./assets/icons/check-icon-white.svg">
                         </button>
                     </div>
                 </form>

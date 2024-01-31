@@ -16,7 +16,7 @@
                 <div class="containerBtn">
                     <button (click)="openDialogCreateNewContact()" type="button">
                         Add new Contact
-                        <img src="../../../assets/icons/add-new-contact-icon.svg">
+                        <img src="./assets/icons/add-new-contact-icon.svg">
                     </button>
                 </div>
 
@@ -30,7 +30,7 @@
 
                 <!--------------------- Only displayed if Contacts are Loading --------------------->
                 <img *ngIf="createNewContactService.loadigContacts" class="spinnerIcon"
-                    src="../../../assets/icons/spinner.svg">
+                    src="./assets/icons/spinner.svg">
                 <!--------------------- Only displayed if Contacts are Loading --------------------->
 
 
@@ -65,7 +65,7 @@
 
             <!--------------------- Only displayed in the mobile View --------------------->
             <div (click)="openDialogCreateNewContact()" class="containerAddNewContactIconMobileView hide">
-                <img src="../../../assets/icons/add-new-contact-icon.svg">
+                <img src="./assets/icons/add-new-contact-icon.svg">
             </div>
             <!--------------------- Only displayed in the mobile View --------------------->
         </div>
@@ -74,7 +74,7 @@
         <div class="containerContactListDetailView" #containerContactListDetailView>
             <!--------------------- Only displayed in the mobile View --------------------->
             <img (click)="displayMobileViewContactList()" class="arrowIconMobileView d-none"
-                src="../../../assets/icons/arrow-back-icon.svg">
+                src="./assets/icons/arrow-back-icon.svg">
             <!--------------------- Only displayed in the mobile View --------------------->
 
 

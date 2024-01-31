@@ -9,7 +9,7 @@
                 {{ createTaskService.task.categoryName }}
             </p>
             <div (click)="closeTaskDetailView()" class="containerCloseIcon">
-                <img src="../../../assets/icons/close-icon.svg">
+                <img src="./assets/icons/close-icon.svg">
             </div>
         </div>
 
@@ -32,7 +32,7 @@
             <p class="prioText">Priority:</p>
             <div class="containerPrioLevelAndImg">
                 <p class="prio">{{ createTaskService.task.prio }}</p>
-                <img src="../../../assets/icons/priority-{{ createTaskService.task.prio }}-icon.svg">
+                <img src="./assets/icons/priority-{{ createTaskService.task.prio }}-icon.svg">
             </div>
         </div>
 
@@ -52,14 +52,14 @@
 
         <div class="containerFooterDialogTaskDetailView">
             <div (click)="deleteTask()" class="containerIconAndText">
-                <img src="../../../assets/icons/trash-icon.svg">
+                <img src="./assets/icons/trash-icon.svg">
                 <p>Delete</p>
             </div>
 
             <hr>
 
             <div (click)="editTask()" class="containerIconAndText">
-                <img class="pencilIcon" src="../../../assets/icons/pencil-icon-blue.svg">
+                <img class="pencilIcon" src="./assets/icons/pencil-icon-blue.svg">
                 <p>Edit</p>
             </div>
         </div>

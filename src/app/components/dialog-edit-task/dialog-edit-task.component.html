@@ -6,7 +6,7 @@
     <!------------------------------ Displayed the Overlay if one or both of the Dropdown Menus are open ------------------------------>
 
     <div (click)="closeDialog()" class="containerCloseIcon">
-        <img class="containerCloseIcon" src="../../../assets/icons/close-icon.svg">
+        <img class="containerCloseIcon" src="./assets/icons/close-icon.svg">
     </div>
 
     <div class="containerForm">
@@ -23,7 +23,7 @@
                 </p>
 
                 <img [ngClass]="{'rotateArrowIconInDropdownMenu': dropdownMenuCategoryIsOpen}"
-                    src="../../../assets/icons/arrow-drop-down-icon.svg">
+                    src="./assets/icons/arrow-drop-down-icon.svg">
             </div>
 
             <ul [ngClass]="{'d-none': !dropdownMenuCategoryIsOpen}" class="dropdownMenuCategory">
@@ -89,19 +89,19 @@
                 <button formControlName="prio" ngDefaultControl [ngClass]="{'btnUrgentPrio': activePrioBtn == 'urgent'}"
                     (click)="selectPrio('urgent')" type="button">
                     Urgent
-                    <img src="../../../assets/icons/priority-urgent-icon.svg">
+                    <img src="./assets/icons/priority-urgent-icon.svg">
                 </button>
 
                 <button formControlName="prio" ngDefaultControl [ngClass]="{'btnMediumPrio': activePrioBtn == 'medium'}"
                     (click)="selectPrio('medium')" type="button">
                     Medium
-                    <img src="../../../assets/icons/priority-medium-icon.svg">
+                    <img src="./assets/icons/priority-medium-icon.svg">
                 </button>
 
                 <button formControlName="prio" ngDefaultControl [ngClass]="{'btnLowPrio': activePrioBtn == 'low'}"
                     (click)="selectPrio('low')" type="button">
                     Low
-                    <img src="../../../assets/icons/priority-low-icon.svg">
+                    <img src="./assets/icons/priority-low-icon.svg">
                 </button>
             </div>
             <!------------------------------ Prio Buttons ------------------------------>
@@ -115,7 +115,7 @@
                     selectedCategoryName == '' || 
                     selectedCategoryColor == ''}" type="submit">
                     Ok
-                    <img src="../../../assets/icons/check-icon-white.svg">
+                    <img src="./assets/icons/check-icon-white.svg">
                 </button>
             </div>
         </form>

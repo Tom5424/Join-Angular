@@ -3,7 +3,7 @@
     'slideOut': !openDialogService.dialogEditContactIsOpen}">
 
         <div class="dialogLeftContainer">
-            <img src="../../../assets/img/favicon-white.svg">
+            <img src="./assets/img/favicon-white.svg">
 
             <div class="containerTextAndBlueLine">
                 <h1>Edit contact</h1>
@@ -13,7 +13,7 @@
 
         <div class="dialogRightContainer">
             <div (click)="closeDialogEditContact()" class="containerCloseIcon">
-                <img src="../../../assets/icons/close-icon.svg">
+                <img src="./assets/icons/close-icon.svg">
             </div>
 
             <div class="containerImgAndForm">
@@ -87,7 +87,7 @@
                             [ngClass]="{'btnDisabled': editContactForm.invalid || !editContactForm.dirty}"
                             class="saveBtn" type="submit">
                             Save
-                            <img src="../../../assets/icons/check-icon-white.svg">
+                            <img src="./assets/icons/check-icon-white.svg">
                         </button>
                     </div>
                 </form>
