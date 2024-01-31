@@ -1,4 +1,25 @@
 ////////////////// Width
+@media screen and (min-width: 1600px) {
+    .firstColumn {
+
+        td {
+            padding: 15px 105px 15px 105px;
+        }
+    }
+
+    .secondColumn {
+        gap: 140px;
+    }
+
+    .thirdColumn {
+
+        td {
+            padding: 15px 70px 15px 70px;
+        }
+    }
+}
+
+
 @media screen and (max-width: 1160px) {
     .containerHeadline {
         padding: 80px 280px 35px 0;

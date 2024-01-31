@@ -1,4 +1,18 @@
 ////////////////// Width
+@media screen and (min-width: 1600px) {
+    .containerImgAndForm {
+
+        form {
+
+            input {
+                width: 550px;
+                background-position: 570px
+            }
+        }
+    }
+}
+
+
 @media screen and (max-width: 1180px) {
     .containerImgAndForm {
 

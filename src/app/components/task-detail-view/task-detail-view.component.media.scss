@@ -1,4 +1,15 @@
 ////////////////// Width
+@media screen and (min-width: 1600px) {
+    .containerDialogTaskDetailView {
+        width: 550px;
+    }
+
+    app-dialog-edit-task {
+        left: 0px;
+    }
+}
+
+
 @media screen and (max-width: 700px) {
     app-dialog-edit-task {
         left: -40px;

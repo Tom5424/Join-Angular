@@ -1,4 +1,34 @@
 ////////////////// Width
+@media screen and (min-width: 1600px) {
+    .dropdownMenuBox {
+        width: 460px;
+    }
+
+    .dropdownMenuCategory {
+        width: 515px;
+    }
+
+    form {
+
+        input {
+            width: 460px;
+        }
+
+        textarea {
+            width: 460px;
+        }
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 162px;
+            gap: 18px;
+        }
+    }
+}
+
+
 @media screen and (max-width: 600px) {
     form {
 

@@ -1,4 +1,45 @@
 ////////////////// Width
+@media screen and (min-width: 1600px) {
+    .containerAddTask {
+
+        h1 {
+            padding: 40px 1010px 30px 0px;
+        }
+    }
+
+    form {
+
+        input {
+            width: 550px;
+        }
+
+        textarea {
+            width: 550px;
+        }
+    }
+
+    .dropdownMenuBox {
+        width: 550px;
+    }
+
+    .dropdownMenuAssignContacts {
+        width: 605px;
+    }
+
+    .dropdownMenuCategory {
+        width: 605px;
+    }
+
+    .containerPrioBtns {
+
+        button {
+            width: 192px;
+            gap: 18px;
+        }
+    }
+}
+
+
 @media screen and (max-width: 1200px) {
     .containerAddTask {
 

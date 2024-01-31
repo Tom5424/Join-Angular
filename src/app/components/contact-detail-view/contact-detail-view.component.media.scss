@@ -1,4 +1,25 @@
 ////////////////// Width
+@media screen and (min-width: 1600px) {
+    .childContainerIconsAndText {
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    .containerContactDetailViewEmailAndPhone {
+
+        p {
+            font-size: 18px;
+        }
+
+        a {
+            font-size: 18px;
+        }
+    }
+}
+
+
 @media screen and (max-width: 1060px) {
     .containerContactListDetailViewInitialLetterAndFullName {
         gap: 40px;
