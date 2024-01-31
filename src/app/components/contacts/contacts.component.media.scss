@@ -1,0 +1,328 @@
+////////////////// Width
+@media screen and (max-width: 1286px) {
+    .containerContacts {
+        gap: 50px;
+    }
+
+    .containerContactList {
+        width: 38%;
+    }
+}
+
+
+@media screen and (max-width: 1250px) {
+    .containerContacts {
+        gap: 25px;
+    }
+}
+
+
+@media screen and (max-width: 1210px) {
+    .containerContacts {
+        gap: 120px;
+    }
+
+    .containerHeadline {
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        gap: 0px;
+
+        hr {
+            height: 100px;
+            transform: rotate(90deg);
+            position: absolute;
+            top: 60px;
+            left: 55px;
+        }
+
+        p {
+            padding-left: 5px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1190px) {
+    .containerContacts {
+        gap: 90px;
+    }
+
+    .containerContactList {
+        width: 40%;
+    }
+}
+
+
+@media screen and (max-width: 1120px) {
+    .containerContacts {
+        gap: 70px;
+    }
+
+    .containerContactList {
+        width: 43%;
+    }
+}
+
+
+@media screen and (max-width: 1060px) {
+
+    .containerContacts {
+        gap: 30px;
+    }
+
+    .containerContactList {
+        width: 46%;
+    }
+
+    .containerHeadline {
+
+        h1 {
+            font-size: 51px;
+        }
+
+        hr {
+            top: 50px;
+        }
+
+        p {
+            font-size: 25px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .containerContactList {
+        width: 100%;
+        z-index: unset;
+    }
+
+    .contactList {
+
+        hr {
+            width: 650px;
+        }
+    }
+
+    .containerContactListDetailView {
+        margin: 120px 0px 0px 50px;
+        flex-direction: column;
+        display: none;
+    }
+
+    .arrowIconMobileView {
+        display: flex;
+    }
+}
+
+
+@media screen and (max-width: 910px) {
+    .contactList {
+
+        hr {
+            width: 600px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 860px) {
+    .contactList {
+
+        hr {
+            width: 550px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 808px) {
+    .contactList {
+
+        hr {
+            width: 450px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 710px) {
+    .contactList {
+
+        hr {
+            width: 350px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .containerContactList {
+        margin-top: 45px;
+        padding-bottom: 100px;
+    }
+
+    .contactList {
+
+        hr {
+            width: 550px;
+        }
+    }
+
+    .spinnerIcon {
+        width: 150px;
+        padding: 100px 0px 0px 0px;
+    }
+
+    .containerBtn {
+        display: none;
+    }
+
+    .containerAddNewContactIconMobileView {
+        display: flex;
+    }
+
+    .containerMobileMenuIcon {
+        display: flex;
+    }
+
+    .popUpSuccessfully {
+        right: 20px;
+        bottom: 190px;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    .contactList {
+
+        hr {
+            width: 500px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 530px) {
+    .contactList {
+
+        hr {
+            width: 450px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .contactList {
+
+        hr {
+            width: 400px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 430px) {
+    .contactList {
+
+        hr {
+            width: 300px;
+        }
+    }
+
+    .containerAddNewContactIconMobileView {
+        bottom: 110px;
+    }
+
+    .arrowIconMobileView {
+        top: 90px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .containerContactListDetailView {
+        margin: 120px 0px 0px 20px;
+    }
+
+    .containerHeadline {
+
+        h1 {
+            font-size: 45px;
+        }
+
+        hr {
+            top: 40px;
+        }
+
+        p {
+            font-size: 22px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 385px) {
+    .containerAddNewContactIconMobileView {
+        bottom: 90px;
+    }
+}
+
+
+@media screen and (max-width: 340px) {
+    .containerContactList {
+        padding-bottom: 70px;
+    }
+
+    .contactList {
+
+        hr {
+            width: 230px;
+        }
+    }
+
+    .textNoContactsExisting {
+        font-size: 35px !important;
+    }
+
+    .containerAddNewContactIconMobileView {
+        bottom: 85px;
+    }
+
+    .containerHeadline {
+
+        hr {
+            top: 30px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+    }
+
+    .popUpSuccessfully {
+        right: 45px;
+
+        p {
+            font-size: 16px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+
+    .popUpSuccessfully {
+        right: 32px;
+    }
+}
+
+
+@media screen and (max-width: 295px) {
+
+    .popUpSuccessfully {
+        right: 15px;
+    }
+}

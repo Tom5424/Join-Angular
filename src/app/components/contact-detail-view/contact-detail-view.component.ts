@@ -1,5 +1,4 @@
 import { Component, DoCheck, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Contact } from 'src/app/models/contact';
 import { CreateNewContactService } from 'src/app/services/create-new-contact.service';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
@@ -8,7 +7,7 @@ import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
 @Component({
   selector: 'app-contact-detail-view',
   templateUrl: './contact-detail-view.component.html',
-  styleUrls: ['./contact-detail-view.component.scss']
+  styleUrls: ['./contact-detail-view.component.scss', './contact-detail-view.component.media.scss']
 })
 
 
@@ -17,7 +16,7 @@ export class ContactDetailViewComponent implements DoCheck {
   docId: string = '';
 
 
-  constructor(public openDialogService: OpenDialogsService, public createNewContactService: CreateNewContactService, private activatedRoute: ActivatedRoute) {
+  constructor(public openDialogService: OpenDialogsService, public createNewContactService: CreateNewContactService) {
 
   }
 

@@ -10,7 +10,7 @@
     <app-dialog-edit-contact *ngIf="openDialogService.overlayEditContactIsDisplayed"></app-dialog-edit-contact>
 
     <div class="containerContacts">
-        <div class="containerContactList">
+        <div class="containerContactList" #containerContactList>
 
             <div class="contactList">
                 <div class="containerBtn">
@@ -61,10 +61,23 @@
                     </div>
                 </div>
             </div>
+
+
+            <!--------------------- Only displayed in the mobile View --------------------->
+            <div (click)="openDialogCreateNewContact()" class="containerAddNewContactIconMobileView hide">
+                <img src="../../../assets/icons/add-new-contact-icon.svg">
+            </div>
+            <!--------------------- Only displayed in the mobile View --------------------->
         </div>
 
 
-        <div class="containerContactListDetailView">
+        <div class="containerContactListDetailView" #containerContactListDetailView>
+            <!--------------------- Only displayed in the mobile View --------------------->
+            <img (click)="displayMobileViewContactList()" class="arrowIconMobileView d-none"
+                src="../../../assets/icons/arrow-back-icon.svg">
+            <!--------------------- Only displayed in the mobile View --------------------->
+
+
             <div class="containerHeadline">
                 <h1>Contacts</h1>
                 <hr>
@@ -75,30 +88,30 @@
             <app-contact-detail-view *ngIf="createNewContactService.contactIsSelected" [selectedContact]="contact">
 
             </app-contact-detail-view>
-
-
-            <!--------------------- User Feedback if Contact was created successfully --------------------->
-            <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfCreated" [ngClass]="{'slideIn': createNewContactService.contactSuccessfullyCreated, 
-                'slideOut': !createNewContactService.contactSuccessfullyCreated}" class="popUpSuccessfully">
-                <p>Contact successfully created.</p>
-            </div>
-            <!--------------------- User Feedback if Contact was created successfully  --------------------->
-
-
-            <!--------------------- User Feedback if Contact was edit successfully  --------------------->
-            <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfEdit" [ngClass]=" {'slideIn': createNewContactService.contactSuccessfullyEdit, 
-               'slideOut': !createNewContactService.contactSuccessfullyEdit}" class="popUpSuccessfully">
-                <p>Contact successfully edit.</p>
-            </div>
-            <!--------------------- User Feedback if Contact was edit successfully  --------------------->
-
-
-            <!--------------------- User Feedback if Contact was delete successfully  --------------------->
-            <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfDeleted" [ngClass]=" {'slideIn': createNewContactService.contactSuccessfullyDeleted, 
-               'slideOut': !createNewContactService.contactSuccessfullyDeleted}" class="popUpSuccessfully">
-                <p>Contact successfully deleted.</p>
-            </div>
-            <!--------------------- User Feedback if Contact was delete successfully  --------------------->
         </div>
+
+
+        <!--------------------- User Feedback if Contact was created successfully --------------------->
+        <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfCreated" [ngClass]="{'slideIn': createNewContactService.contactSuccessfullyCreated, 
+         'slideOut': !createNewContactService.contactSuccessfullyCreated}" class="popUpSuccessfully">
+            <p>Contact successfully created.</p>
+        </div>
+        <!--------------------- User Feedback if Contact was created successfully  --------------------->
+
+
+        <!--------------------- User Feedback if Contact was edit successfully  --------------------->
+        <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfEdit" [ngClass]=" {'slideIn': createNewContactService.contactSuccessfullyEdit, 
+        'slideOut': !createNewContactService.contactSuccessfullyEdit}" class="popUpSuccessfully">
+            <p>Contact successfully edit.</p>
+        </div>
+        <!--------------------- User Feedback if Contact was edit successfully  --------------------->
+
+
+        <!--------------------- User Feedback if Contact was delete successfully  --------------------->
+        <div *ngIf="createNewContactService.userFeedbackIsDisplayedIfDeleted" [ngClass]=" {'slideIn': createNewContactService.contactSuccessfullyDeleted, 
+        'slideOut': !createNewContactService.contactSuccessfullyDeleted}" class="popUpSuccessfully">
+            <p>Contact successfully deleted.</p>
+        </div>
+        <!--------------------- User Feedback if Contact was delete successfully  --------------------->
     </div>
 </main>

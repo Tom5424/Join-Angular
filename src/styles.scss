@@ -35,6 +35,13 @@ body {
 }
 
 
+@media screen and (max-width: 450px) {
+    .errorMessage {
+        font-size: 12px
+    }
+}
+
+
 /////////// Styles for active Route ///////////
 .activeLink {
     @include activeLink();

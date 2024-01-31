@@ -29,6 +29,7 @@ export class OpenDialogsService {
 
 
   openDialogCreateNewContactService() {
+    document.body.style.overflowX = 'hidden';
     this.dialogCreateNewContactIsOpen = true;
     this.overlayCreateNewContactIsDisplayed = true;
   }
@@ -43,6 +44,7 @@ export class OpenDialogsService {
 
 
   openDialogEditContactService(selectedContact: Contact) {
+    document.body.style.overflowX = 'hidden';
     this.dialogEditContactIsOpen = true;
     this.overlayEditContactIsDisplayed = true;
     this.getContactDataAfterOpenDialogEditContactService(selectedContact);

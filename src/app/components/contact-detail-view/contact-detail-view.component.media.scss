@@ -1,0 +1,31 @@
+////////////////// Width
+@media screen and (max-width: 1060px) {
+    .containerContactListDetailViewInitialLetterAndFullName {
+        gap: 40px;
+    }
+
+    .contactDetailViewInitiaLetter {
+        width: 85px;
+        height: 85px;
+    }
+
+    .contactDetailViewFullName {
+        font-size: 40px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .containerContactListDetailViewFullName {
+        gap: 15px;
+    }
+
+    .contactDetailViewFullName {
+        font-size: 35px;
+    }
+
+    .mainContainerIconsAndText {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
