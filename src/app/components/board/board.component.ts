@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Task } from 'src/app/models/task';
 import { CreateTaskService } from 'src/app/services/create-task.service';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
+import { RoutingService } from 'src/app/services/routing.service';
 
 
 @Component({
@@ -18,12 +19,13 @@ export class BoardComponent implements OnInit {
   inputValue: string = '';
 
 
-  constructor(public renderer: Renderer2, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService, public router: Router) {
+  constructor(public renderer: Renderer2, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService, public routingService: RoutingService, public router: Router) {
 
   }
 
 
   ngOnInit(): void {
+    this.routingService.savePreviousUrl(this.router.url)
     this.updateHTML();
   }
 

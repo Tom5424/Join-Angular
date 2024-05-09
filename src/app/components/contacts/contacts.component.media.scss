@@ -293,6 +293,16 @@
         }
     }
 
+    .containerFullNameAndEmail {
+
+        span {
+            width: 130px;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
     .textNoContactsExisting {
         font-size: 35px !important;
     }

@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Contact } from 'src/app/models/contact';
 import { CreateNewContactService } from 'src/app/services/create-new-contact.service';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
+import { RoutingService } from 'src/app/services/routing.service';
 
 
 @Component({
@@ -18,12 +20,13 @@ export class ContactsComponent implements OnInit {
   @ViewChild('containerContactList') containerContactList!: ElementRef;
 
 
-  constructor(public openDialogService: OpenDialogsService, public createNewContactService: CreateNewContactService, public renderer: Renderer2) {
+  constructor(public openDialogService: OpenDialogsService, public createNewContactService: CreateNewContactService, public renderer: Renderer2, public routingService: RoutingService, public router: Router) {
 
   }
 
 
   ngOnInit(): void {
+    this.routingService.savePreviousUrl(this.router.url);
     this.createNewContactService.getNewContactService();
     this.createNewContactService.checkIfContactsExistInDatabaseService();
     this.createNewContactService.contactIsSelected = false;

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { RoutingService } from 'src/app/services/routing.service';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
   introIsDisplayed: boolean = false;
 
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, public routingService: RoutingService, public router: Router) {
 
   }
 
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.routingService.savePreviousUrl(this.router.url)
     this.displayIntro();
     this.preFilledInputsIfRememberMe();
   }

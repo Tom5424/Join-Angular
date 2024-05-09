@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { CreateTaskService } from 'src/app/services/create-task.service';
+import { RoutingService } from 'src/app/services/routing.service';
 
 
 @Component({
@@ -15,12 +16,13 @@ export class SummaryComponent {
   displayLoggedUserMobibleView: boolean = false;
 
 
-  constructor(public authService: AuthService, public createTaskService: CreateTaskService, public route: Router) {
+  constructor(public authService: AuthService, public createTaskService: CreateTaskService, public routingService: RoutingService, public router: Router) {
 
   }
 
 
   ngOnInit(): void {
+    this.routingService.savePreviousUrl(this.router.url);
     this.authService.loadDisplayedNameService();
     this.updateHTML();
     this.displayLoggedUserInMobileView();
@@ -36,7 +38,7 @@ export class SummaryComponent {
 
 
   directToTheBoard() {
-    this.route.navigateByUrl('/board');
+    this.router.navigateByUrl('/board');
   }
 
 

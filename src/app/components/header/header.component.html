@@ -21,8 +21,8 @@
 
     </div>
     <mat-menu #menu="matMenu">
-        <p routerLink="/summary/legal-notice">Legal Notice</p>
-        <p routerLink="/summary/privacy-policy">Privacy Policy</p>
+        <p routerLink="/{{ routingService.url }}/legal-notice">Legal Notice</p>
+        <p routerLink="/{{ routingService.url }}/privacy-policy">Privacy Policy</p>
         <p (click)="logout()">Log out</p>
     </mat-menu>
 </header>

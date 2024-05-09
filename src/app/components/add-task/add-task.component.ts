@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Contact } from 'src/app/models/contact';
 import { CreateNewContactService } from 'src/app/services/create-new-contact.service';
 import { CreateTaskService } from 'src/app/services/create-task.service';
 import { OpenDialogsService } from 'src/app/services/open-dialogs.service';
+import { RoutingService } from 'src/app/services/routing.service';
 
 
 @Component({
@@ -50,12 +52,13 @@ export class AddTaskComponent implements OnInit {
   });
 
 
-  constructor(public createNewContactService: CreateNewContactService, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService) {
+  constructor(public createNewContactService: CreateNewContactService, public createTaskService: CreateTaskService, public openDialogService: OpenDialogsService, public routingService: RoutingService, public router: Router) {
 
   }
 
 
   ngOnInit(): void {
+    this.routingService.savePreviousUrl(this.router.url);
     this.createNewContactService.getNewContactService();
     this.createNewContactService.checkIfContactsExistInDatabaseService();
   }

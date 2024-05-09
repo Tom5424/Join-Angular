@@ -11,7 +11,7 @@ import { BoardComponent } from './components/board/board.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ForgotMyPasswordComponent } from './components/forgot-my-password/forgot-my-password.component';
-import { isLoggedIn } from './auth.guard';
+import { isLoggedIn } from './router-guards/auth.guard';
 
 
 const routes: Routes = [
@@ -25,6 +25,12 @@ const routes: Routes = [
 
   { path: 'summary/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent, canActivate: [isLoggedIn] },
   { path: 'summary/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent, canActivate: [isLoggedIn] },
+  { path: 'addTask/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent, canActivate: [isLoggedIn] },
+  { path: 'addTask/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent, canActivate: [isLoggedIn] },
+  { path: 'board/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent, canActivate: [isLoggedIn] },
+  { path: 'board/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent, canActivate: [isLoggedIn] },
+  { path: 'contacts/privacy-policy', title: 'Join - Privacy Policy', component: PrivacyPolicyComponent, canActivate: [isLoggedIn] },
+  { path: 'contacts/legal-notice', title: 'Join - Legal Notice', component: LegalNoticeComponent, canActivate: [isLoggedIn] },
 
   { path: 'summary', title: 'Join - Summary', component: SummaryComponent, canActivate: [isLoggedIn] },
   { path: 'addTask', title: 'Join - Add Task', component: AddTaskComponent, canActivate: [isLoggedIn] },

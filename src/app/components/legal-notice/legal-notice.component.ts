@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RoutingService } from 'src/app/services/routing.service';
 
 
 @Component({
@@ -9,19 +10,15 @@ import { Router } from '@angular/router';
 })
 
 
-export class LegalNoticeComponent {
+export class LegalNoticeComponent implements OnInit {
 
 
-  constructor(public router: Router) {
+  constructor(public routingService: RoutingService, public router: Router) {
 
   }
 
 
-  checkNavigationForLegalNotice() {
-    if (this.router.url == '/summary/legal-notice') {
-      this.router.navigateByUrl('/summary');
-    } else {
-      this.router.navigateByUrl('/signup');
-    }
+  ngOnInit(): void {
+    this.routingService.loadPreviousUrl(this.router.url);
   }
 }
