@@ -3,8 +3,9 @@
 
 
 main {
-    display: flex;
     background-color: $mainBgColor;
+    min-height: 100svh;
+    display: flex;
 }
 
 

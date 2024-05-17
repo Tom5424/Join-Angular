@@ -131,7 +131,7 @@
                 }
 
                 100% {
-                    transform: translateY(calc(-80vh / 2)) translateX(calc(-82vw / 2)) scale(0.7);
+                    transform: translateY(calc(-82vh / 2)) translateX(calc(-66vw / 2)) scale(0.7)
                 }
             }
         }
@@ -151,7 +151,7 @@
                 }
 
                 100% {
-                    transform: translateY(calc(-80vh / 2)) translateX(calc(-78vw / 2)) scale(0.7);
+                    transform: translateY(calc(-81vh / 2)) translateX(calc(-59vw / 2)) scale(0.7)
                 }
             }
         }
@@ -163,6 +163,7 @@
     main {
 
         img {
+            width: 80px;
             animation: flyInLeftUpperCorner 500ms ease-in-out 250ms both;
 
             @keyframes flyInLeftUpperCorner {
@@ -171,7 +172,7 @@
                 }
 
                 100% {
-                    transform: translateY(calc(-80vh / 2)) translateX(calc(-73vw / 2)) scale(0.7);
+                    transform: translateY(calc(-82vh / 2)) translateX(calc(-65vw / 2)) scale(0.7);
                 }
             }
         }
@@ -191,7 +192,7 @@
                 }
 
                 100% {
-                    transform: translateY(calc(-80vh / 2)) translateX(calc(-67vw / 2)) scale(0.7);
+                    transform: translateY(calc(-82vh / 2)) translateX(calc(-66vw / 2)) scale(0.7)
                 }
             }
         }

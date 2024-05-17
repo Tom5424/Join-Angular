@@ -5,8 +5,8 @@
 main {
     @include flexCenteredMiddle();
     background-color: $mainBgColor;
-    height: 100vh;
-    position: absolute;
+    min-height: 100vh;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
