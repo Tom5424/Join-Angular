@@ -64,13 +64,13 @@
                             <img class="spinerIcon" *ngIf="createTaskService.loadTaskNumbersInSummary"
                                 src="./assets/icons/spinner.svg">
 
-                            <p class=" textNoUpcomingDeadlinesExist"
+                            <!-- <p class=" textNoUpcomingDeadlinesExist"
                                 *ngIf="!createTaskService.loadTaskNumbersInSummary && createTaskService.nextDueDate.dueDate == null">
                                 No Upcoming Deadlines exist
-                            </p>
+                            </p> -->
 
                             <p *ngIf="!createTaskService.loadTaskNumbersInSummary">
-                                {{ createTaskService.nextDueDate.dueDate | date: 'longDate'}}
+                                <!-- {{ createTaskService.nextDueDate.dueDate | date: 'longDate'}} -->
                             </p>
 
                             <Span>Upcoming Deadline</Span>
@@ -131,8 +131,8 @@
             <div class="containerGreetingUser">
                 <p>Good Morning,</p>
                 <span>
-                    <img *ngIf="!authService.auth.currentUser" src="./assets/icons/spinner.svg">
-                    {{ authService.auth.currentUser?.displayName }}
+                    <!-- <img *ngIf="!authService.auth.currentUser" src="./assets/icons/spinner.svg">
+                    {{ authService.auth.currentUser?.displayName }} -->
                 </span>
             </div>
 
@@ -142,8 +142,8 @@
                 <div>
                     <p>Good Morning,</p>
                     <span>
-                        <img *ngIf="!authService.auth.currentUser" src="./assets/icons/spinner.svg">
-                        {{ authService.auth.currentUser?.displayName }}
+                        <!-- <img *ngIf="!authService.auth.currentUser" src="./assets/icons/spinner.svg">
+                        {{ authService.auth.currentUser?.displayName }} -->
                     </span>
                 </div>
             </div>

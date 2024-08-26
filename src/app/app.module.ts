@@ -10,10 +10,6 @@ import { BlankSidebarComponent } from './components/blank-sidebar/blank-sidebar.
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LegalNoticeComponent } from './components/legal-notice/legal-notice.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { firebaseConfig } from 'src/firebase.config';
 import { OverlayComponent } from './components/overlay/overlay.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -69,9 +65,6 @@ import { IntroComponent } from './components/intro/intro.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
     NoopAnimationsModule,
     MatMenuModule,
     MatTooltipModule,

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Contact } from '../models/contact';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { Firestore, collection, collectionData, addDoc, updateDoc, getDoc, getDocs, doc, deleteDoc, query, orderBy } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 
 
@@ -43,22 +42,13 @@ export class CreateNewContactService {
   ];
 
 
-  constructor(public fireStore: Firestore, public router: Router, public authService: AuthService) {
+  constructor(public router: Router, public authService: AuthService) {
 
   }
 
 
   createNewContactService(formValues: any) {
-    this.getRandomColorContactService();
-    const collectionRef = collection(this.fireStore, 'contacts');
-    const contactInstance = new Contact(formValues, this.randomColor);
-    addDoc(collectionRef, contactInstance.toJson(formValues, this.randomColor))
-      .then(() => {
-        this.contactSuccessfullyCreated = true;
-        this.userFeedbackIsDisplayedIfCreated = true;
-        this.checkIfContactsExistInDatabaseService();
-      })
-    this.hideUserFeedbackAfterContactCreatedService();
+
   }
 
 
@@ -78,25 +68,12 @@ export class CreateNewContactService {
 
 
   getNewContactService() {
-    this.loadigContacts = true;
-    const collectionRef = query(collection(this.fireStore, 'contacts'), orderBy('initialLetter'));
-    this.contactData = collectionData(collectionRef, { idField: 'id' });
-    collectionData(collectionRef, { idField: 'id' })
-      .subscribe(() => {
-        this.loadigContacts = false;
-      })
+
   }
 
 
   updateContactService(formValues: any, docId: string) {
-    const docRef = doc(this.fireStore, 'contacts', docId);
-    const contactInstance = new Contact(formValues);
-    updateDoc(docRef, { name: contactInstance.name, email: contactInstance.email, phoneNumber: contactInstance.phoneNumber, initialLetter: contactInstance.initialLetter })
-      .then(() => {
-        this.contactSuccessfullyEdit = true;
-        this.userFeedbackIsDisplayedIfEdit = true;
-      })
-    this.hideUserFeedbackAfterContactEditService();
+
   }
 
 
@@ -111,15 +88,7 @@ export class CreateNewContactService {
 
 
   deleteContactService(docId: string) {
-    const docRef = doc(this.fireStore, 'contacts', docId);
-    deleteDoc(docRef)
-      .then(() => {
-        this.contactIsSelected = false;
-        this.contactSuccessfullyDeleted = true;
-        this.userFeedbackIsDisplayedIfDeleted = true;
-        this.checkIfContactsExistInDatabaseService();
-      })
-    this.hideUserFeedbackAfterContactDeletedService();
+
   }
 
 
@@ -134,25 +103,11 @@ export class CreateNewContactService {
 
 
   getSingleContactService(docId: string) {
-    const docRef = doc(this.fireStore, 'contacts', docId);
-    getDoc(docRef)
-      .then((docDate) => {
-        if (docDate.exists()) {
-          this.contact = docDate.data() as Contact;
-        }
-      })
+   
   }
 
 
   checkIfContactsExistInDatabaseService() {
-    const collectionRef = collection(this.fireStore, 'contacts');
-    getDocs(collectionRef)
-      .then((querySnapshot) => {
-        if (querySnapshot.empty) {
-          this.noContactsExistInDatabase = querySnapshot.empty;
-        } else {
-          this.noContactsExistInDatabase = false;
-        }
-      })
+  
   }
 }
